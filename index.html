@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luyện Kanji Tiếng Nhật Nhanh Chóng</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗾</text></svg>">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header>
+    <div class="logo-area">
+      <span class="logo-icon">🌸</span>
+      <span class="logo-title">Kanji SpeedMaster</span>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn header-nav-btn" id="openGridHeaderBtn" title="Chọn câu cần học (Phím Ctrl+G)">
+        ⊞ Chọn câu
+      </button>
+      <button class="icon-btn header-settings-btn" id="settingsBtn" title="Cài đặt chế độ học (Phím S)">
+        ⚙️ Cài đặt
+      </button>
+      <button class="icon-btn" id="shuffleToggleBtn" title="Xáo trộn ngẫu nhiên">🔀</button>
+      <button class="icon-btn" id="soundToggleBtn" title="Bật/Tắt âm thanh">🔊</button>
+      <button class="icon-btn" id="themeToggleBtn" title="Chuyển chế độ Sáng / Tối">🌙</button>
+    </div>
+  </header>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat-item clickable" id="progressStatItem" title="Bấm để mở danh sách chọn câu">
+      <span>Đang học câu:</span>
+      <span class="highlight" id="progressCounter">1 / 372</span> 🎯
+    </div>
+    <div class="stat-item streak-badge">
+      <span>🔥 Chuỗi:</span>
+      <span class="highlight" id="streakCounter">0</span>
+    </div>
+    <div class="stat-item">
+      <span>Độ chính xác:</span>
+      <span class="highlight" id="accuracyCounter">100%</span>
+    </div>
+  </div>
+
+  <div class="progress-container">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <!-- Main Quiz Area -->
+  <main>
+    <div class="quiz-card" id="quizCard">
+      <!-- Kanji Area -->
+      <div class="kanji-header">
+        <span class="category-tag" id="categoryTag">Từ số 1</span>
+        <div class="kanji-display" id="kanjiDisplay" title="Nhấn để nghe phát âm">魚</div>
+        <button class="tts-btn" id="ttsBtn" title="Nghe phát âm tiếng Nhật">
+          🔊 <span>Nghe đọc</span>
+        </button>
+      </div>
+
+      <!-- Hiragana Input -->
+      <div class="input-section">
+        <div class="input-label-row">
+          <span>1. Nhập cách đọc Hiragana:</span>
+          <label class="toggle-label" title="Gõ chữ cái romaji (vd: sakana) sẽ tự đổi ngay thành さかな">
+            <input type="checkbox" id="romajiCheckbox" checked>
+            <span>Romaji ➔ Hiragana</span>
+          </label>
+        </div>
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="hiraganaInput" 
+            class="hiragana-input" 
+            placeholder="Nhập hiragana (hoặc gõ romaji)..." 
+            autocomplete="off" 
+            autocorrect="off" 
+            autocapitalize="off" 
+            spellcheck="false"
+            autofocus
+          >
+          <span class="input-status-icon" id="inputStatusIcon">✅</span>
+        </div>
+      </div>
+
+      <!-- Meaning Choices -->
+      <div class="choices-section" id="choicesSection">
+        <div class="choices-label">2. Chọn nghĩa đúng của từ (Phím 1, 2, 3, 4):</div>
+        <div class="choices-grid" id="choicesGrid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <!-- Hint display -->
+      <div class="hint-text" id="hintText"></div>
+
+      <!-- Card Action Buttons -->
+      <div class="card-actions">
+        <button class="btn-secondary btn-nav-prev" id="prevBtn" title="Quay lại câu trước nếu lỡ tay ấn qua (Ctrl+Z hoặc Alt+Trái)">
+          ⬅️ Quay lại
+        </button>
+        <button class="btn-secondary" id="hintBtn" title="Hiện chữ cái đầu tiên của cách đọc">
+          💡 Gợi ý
+        </button>
+        <button class="btn-secondary" id="skipBtn" title="Xem đáp án và chuyển từ tiếp theo">
+          ⏩ Bỏ qua / Xem đáp án
+        </button>
+      </div>
+    </div>
+
+    <!-- Keyboard Shortcuts Guide -->
+    <div class="shortcut-tips">
+      <div class="tips-header">💡 Mẹo nhanh khi học:</div>
+      <div class="tip-line"><span class="tip-bullet">•</span><span class="tip-text">Bấm <strong>⊞ Chọn câu</strong> để nhảy nhanh đến câu bất kỳ (hoặc <kbd>Ctrl</kbd>+<kbd>G</kbd>)</span></div>
+      <div class="tip-line"><span class="tip-bullet">•</span><span class="tip-text">Bấm phím <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd> để chọn nhanh đáp án nghĩa</span></div>
+      <div class="tip-line"><span class="tip-bullet">•</span><span class="tip-text">Bấm nút <strong>⬅️ Quay lại</strong> (hoặc <kbd>Ctrl</kbd>+<kbd>Z</kbd>) nếu lỡ tay ấn qua</span></div>
+      <div class="tip-line"><span class="tip-bullet">•</span><span class="tip-text">Bấm <strong>⚙️ Cài đặt</strong> để tùy chỉnh chế độ trắc nghiệm</span></div>
+    </div>
+  </main>
+
+  <!-- Bảng chọn câu học (Modal) -->
+  <div class="modal-overlay" id="allNumbersModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">🎯 Chọn câu học (1 - <span id="modalTotalLabel">372</span>)</h3>
+        <button class="modal-close" id="closeGridModal">&times;</button>
+      </div>
+      
+      <!-- Ô nhập số cho nhanh trong modal -->
+      <div class="modal-input-row">
+        <span>Gõ số câu:</span>
+        <input type="number" id="modalNumberInput" min="1" max="372" placeholder="Ví dụ: 85 rồi ấn Enter...">
+        <button class="btn-jump-go" id="modalGoBtn">Đi đến</button>
+      </div>
+
+      <div class="modal-legend">
+        <span><span class="legend-dot dot-current"></span> Đang học</span>
+        <span><span class="legend-dot dot-correct"></span> Đã làm đúng</span>
+        <span><span class="legend-dot dot-wrong"></span> Cần ôn lại</span>
+        <span><span class="legend-dot dot-unvisited"></span> Chưa làm</span>
+      </div>
+
+      <!-- Dãy số đầy đủ 1 đến 372 -->
+      <div class="numbers-grid-container" id="numbersGridContainer">
+        <!-- 1, 2, ... 372 buttons generated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal (Hộp thoại Cài đặt) -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-content settings-modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">⚙️ Cài đặt chế độ học</h3>
+        <button class="modal-close" id="closeSettingsModal">&times;</button>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-section-title">Chọn chế độ trắc nghiệm:</div>
+        
+        <label class="setting-option-card" id="cardModeAfterHiga">
+          <input type="radio" name="mcModeRadio" value="after_higa">
+          <div class="option-card-content">
+            <div class="option-title">⚡ Gõ Hiragana xong mới hiện trắc nghiệm (Khuyên dùng)</div>
+            <div class="option-desc">Sau khi gõ đúng Hiragana ➔ tự động khóa ô gõ ➔ hiện 4 đáp án để bấm phím 1, 2, 3, 4.</div>
+          </div>
+        </label>
+
+        <label class="setting-option-card" id="cardModeDisabled">
+          <input type="radio" name="mcModeRadio" value="disabled">
+          <div class="option-card-content">
+            <div class="option-title">🚫 Tắt luôn phần trắc nghiệm</div>
+            <div class="option-desc">Tắt hẳn trắc nghiệm, chỉ cần gõ đúng Hiragana là tự động nhảy sang câu tiếp theo.</div>
+          </div>
+        </label>
+
+        <label class="setting-option-card" id="cardModeBoth">
+          <input type="radio" name="mcModeRadio" value="both">
+          <div class="option-card-content">
+            <div class="option-title">📝 Hiện song song cả hai</div>
+            <div class="option-desc">Hiện cả ô gõ Hiragana và 4 đáp án trắc nghiệm cùng lúc từ đầu.</div>
+          </div>
+        </label>
+      </div>
+
+      <div class="settings-section">
+        <div class="settings-section-title">Cài đặt khác:</div>
+        <label class="setting-checkbox-row">
+          <input type="checkbox" id="settingsRomajiCheckbox" checked>
+          <span>Tự động chuyển Romaji sang Hiragana (vd: sakana ➔ さかな)</span>
+        </label>
+        <label class="setting-checkbox-row">
+          <input type="checkbox" id="settingsSoundCheckbox" checked>
+          <span>Bật âm thanh hiệu ứng (Chúc mừng / Cảnh báo)</span>
+        </label>
+      </div>
+
+      <div class="settings-modal-footer">
+        <button class="btn-primary" id="saveSettingsBtn">Đã xong</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
