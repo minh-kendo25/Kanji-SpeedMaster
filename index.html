@@ -1009,84 +1009,11 @@
             <div id="toggle-romaji-thumb" class="w-5 h-5 rounded-full bg-white shadow-sm transform translate-x-6 transition-transform"></div>
           </button>
         </div>
-
-        <!-- Gemini API Key Section -->
-        <div class="pt-3 border-t border-border-subtle space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-primary uppercase tracking-wider block">Gemini AI Key (Chat trực tiếp)</span>
-            <span class="text-[10px] font-bold text-tertiary bg-matcha-soft px-2 py-0.5 rounded">Miễn phí 100%</span>
-          </div>
-          <div class="flex gap-2">
-            <input type="password" id="settings-gemini-key-input" class="flex-1 bg-surface-alt rounded-xl px-3 py-2 text-xs text-primary border border-border-subtle focus:outline-none focus:border-primary font-mono" placeholder="Dán Gemini API Key (AIzaSy...)">
-            <button class="px-3 py-2 rounded-xl bg-primary text-washi text-xs font-bold shadow-sm" onclick="app.saveApiKeyFromSettings()">Lưu Key</button>
-          </div>
-          <p class="text-[11px] text-ink-muted leading-relaxed">
-            Key được lưu an toàn trong trình duyệt của bạn (localStorage). Lấy key miễn phí trong 10 giây tại <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="text-secondary font-bold hover:underline inline-flex items-center gap-0.5">Google AI Studio <span class="material-symbols-outlined text-[12px]">open_in_new</span></a>.
-          </p>
-        </div>
       </div>
 
       <div class="pt-3 border-t border-border-subtle">
         <button class="w-full py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.closeSettings()">
           Lưu & Đóng cài đặt
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= MODAL: CÀI ĐẶT GEMINI API KEY ================= -->
-  <div id="modal-api-key" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-    <div class="bg-surface-card rounded-2xl border border-border-subtle max-w-md w-full p-6 shadow-2xl space-y-4">
-      <div class="flex items-center justify-between border-b border-border-subtle pb-3">
-        <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-xl bg-primary text-washi flex items-center justify-center shadow-sm">
-            <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
-          </div>
-          <div>
-            <h3 class="font-serif font-bold text-base text-primary">Cấu hình Gemini AI Key</h3>
-            <span class="text-[11px] text-tertiary font-semibold">100% Miễn phí từ Google AI Studio</span>
-          </div>
-        </div>
-        <button class="w-8 h-8 rounded-lg hover:bg-surface-alt flex items-center justify-center text-ink-muted hover:text-primary transition-colors" onclick="app.closeApiKeyModal()">
-          <span class="material-symbols-outlined text-[20px]">close</span>
-        </button>
-      </div>
-
-      <div class="space-y-3 text-xs leading-relaxed text-ink-muted">
-        <p>Để trò chuyện trực tiếp không giới hạn với Gia sư Kanji AI (hỏi đáp nghĩa từ, phân tích ngữ pháp, đặt câu ví dụ tự do), bạn chỉ cần dán <strong>Gemini API Key</strong> của bạn vào đây.</p>
-        
-        <div class="bg-surface-alt p-3 rounded-xl border border-border-subtle space-y-1.5">
-          <span class="font-bold text-primary block text-[11px]">👉 Cách lấy Key miễn phí trong 10 giây:</span>
-          <ol class="list-decimal list-inside space-y-1 text-[11px]">
-            <li>Truy cập <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="text-secondary font-bold hover:underline inline-flex items-center gap-0.5">Google AI Studio <span class="material-symbols-outlined text-[12px]">open_in_new</span></a> và đăng nhập bằng Gmail.</li>
-            <li>Bấm <strong>"Create API key"</strong> và copy chuỗi key (bắt đầu bằng <code>AIzaSy...</code>).</li>
-            <li>Dán vào ô bên dưới rồi bấm <strong>"Lưu & Bắt đầu"</strong>.</li>
-          </ol>
-        </div>
-
-        <div class="space-y-1.5">
-          <label class="font-bold text-primary block text-xs">Gemini API Key của bạn:</label>
-          <div class="relative flex items-center">
-            <input 
-              id="gemini-key-input" 
-              type="password" 
-              class="w-full bg-surface-alt rounded-xl px-3.5 py-2.5 text-xs text-primary placeholder:text-ink-dim border border-border-subtle focus:outline-none focus:border-primary font-mono transition-colors" 
-              placeholder="Dán AIzaSy... vào đây"
-            >
-            <button type="button" class="absolute right-2 text-ink-dim hover:text-primary p-1" onclick="app.toggleShowApiKey()" title="Hiện/Ẩn key">
-              <span id="key-visibility-icon" class="material-symbols-outlined text-[18px]">visibility</span>
-            </button>
-          </div>
-          <span class="text-[10px] text-ink-dim block">🔒 Key được lưu bảo mật trong trình duyệt của bạn (localStorage), không gửi về bất kỳ máy chủ trung gian nào.</span>
-        </div>
-      </div>
-
-      <div class="pt-2 border-t border-border-subtle flex items-center gap-2">
-        <button class="flex-1 py-2.5 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.saveApiKey()">
-          Lưu & Bắt đầu chat
-        </button>
-        <button id="btn-remove-api-key" class="py-2.5 px-3 rounded-xl bg-surface-alt hover:bg-border-subtle text-secondary font-bold text-xs transition-colors hidden" onclick="app.removeApiKey()" title="Xóa key hiện tại">
-          Xóa key
         </button>
       </div>
     </div>
@@ -1126,10 +1053,6 @@
       </div>
       
       <div class="flex items-center gap-1.5">
-        <!-- Key Settings Button -->
-        <button id="chat-btn-apikey" class="w-8 h-8 rounded-lg hover:bg-surface-card text-ink-muted hover:text-secondary flex items-center justify-center transition-colors" onclick="app.openApiKeyModal()" title="Cài đặt Gemini API Key (Miễn phí)">
-          <span class="material-symbols-outlined text-[18px]">key</span>
-        </button>
         <!-- Token Badge -->
         <span id="chat-token-badge" class="px-2 py-0.5 rounded-full bg-matcha-soft text-tertiary text-[10px] font-bold" title="Token còn lại hôm nay">
           12.000 token
@@ -1138,20 +1061,6 @@
           <span class="material-symbols-outlined text-[18px]">close</span>
         </button>
       </div>
-    </div>
-
-    <!-- API Key Notice Banner (Show when key not yet configured) -->
-    <div id="ai-key-banner" class="bg-matcha-soft/70 border-b border-border-subtle px-3.5 py-2 flex items-center justify-between text-xs flex-shrink-0 transition-all">
-      <div class="flex items-center gap-2 text-ink-primary">
-        <span class="material-symbols-outlined text-secondary text-[18px] animate-pulse">key</span>
-        <div class="leading-tight">
-          <span class="font-bold text-[11px] text-primary block">Mở khóa AI trực tiếp 100%</span>
-          <span class="text-[10px] text-ink-muted block">Nhập Gemini API Key miễn phí từ Google</span>
-        </div>
-      </div>
-      <button class="px-2.5 py-1 rounded-lg bg-primary text-washi text-[10px] font-bold shadow-sm hover:opacity-90 flex-shrink-0 transition-opacity" onclick="app.openApiKeyModal()">
-        Cài Key
-      </button>
     </div>
 
     <!-- Chat Messages Scroll Area -->
@@ -1212,6 +1121,7 @@
   </div>
 
   <!-- Scripts -->
+  <script type="module" src="firebase-ai.js"></script>
   <script src="data.js"></script>
   <script src="romaji.js"></script>
   <script src="app.js"></script>
