@@ -1258,17 +1258,21 @@
         </div>
       </div>
 
-      <div class="space-y-3 text-xs text-ink-muted leading-relaxed">
-        <p>Để tiếp tục sử dụng nền tảng học Hán tự <strong class="text-primary">Kanji Kachi</strong> (bao gồm tính năng Flashcard, Luyện phản xạ, Đồng bộ đám mây và Gia sư Kanji AI), bạn vui lòng đọc và đồng ý với các quy định của chúng tôi:</p>
-
-        <div class="grid grid-cols-2 gap-2.5 pt-1">
-          <button type="button" class="p-2.5 rounded-xl bg-surface-alt hover:bg-border-subtle border border-border-subtle text-primary font-bold text-xs flex items-center justify-center gap-1.5 transition-colors" onclick="app.openLegalModal('terms')">
-            <span class="material-symbols-outlined text-[16px] text-secondary">description</span>
-            <span>Điều khoản dịch vụ</span>
+      <div class="space-y-3.5 text-xs text-ink-muted leading-relaxed">
+        <div class="flex flex-col gap-2.5">
+          <button type="button" class="w-full px-4 py-3 rounded-xl bg-surface-alt hover:bg-border-subtle border border-border-subtle text-primary font-bold text-xs flex items-center justify-between transition-colors" onclick="app.openLegalModal('terms')">
+            <span class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[18px] text-secondary">description</span>
+              <span>Điều khoản dịch vụ</span>
+            </span>
+            <span class="material-symbols-outlined text-[18px] text-ink-dim">chevron_right</span>
           </button>
-          <button type="button" class="p-2.5 rounded-xl bg-surface-alt hover:bg-border-subtle border border-border-subtle text-primary font-bold text-xs flex items-center justify-center gap-1.5 transition-colors" onclick="app.openLegalModal('privacy')">
-            <span class="material-symbols-outlined text-[16px] text-tertiary">shield</span>
-            <span>Quyền riêng tư</span>
+          <button type="button" class="w-full px-4 py-3 rounded-xl bg-surface-alt hover:bg-border-subtle border border-border-subtle text-primary font-bold text-xs flex items-center justify-between transition-colors" onclick="app.openLegalModal('privacy')">
+            <span class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-[18px] text-tertiary">shield</span>
+              <span>Chính sách quyền riêng tư</span>
+            </span>
+            <span class="material-symbols-outlined text-[18px] text-ink-dim">chevron_right</span>
           </button>
         </div>
 
