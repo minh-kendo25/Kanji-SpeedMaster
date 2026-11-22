@@ -1,818 +1,1386 @@
-// KanjiFlash Learning Application
+// Kanji Kachi - Main Application Engine
+// Modern Sumi & Paper Edition
 
-// Romaji to Hiragana Mapping
-const ROMAJI_TABLE = [
-  // 4 chars
-  ['ttsu', 'っつ'], ['cchi', 'っち'], ['sshi', 'っし'],
-  ['nnya', 'んにゃ'], ['nnyu', 'んにゅ'], ['nnyo', 'んにょ'],
-  // 3 chars
-  ['nna', 'んな'], ['nni', 'んに'], ['nnu', 'んぬ'], ['nne', 'んね'], ['nno', 'んの'],
-  ['kya', 'きゃ'], ['kyu', 'きゅ'], ['kyo', 'きょ'],
-  ['sha', 'しゃ'], ['shu', 'しゅ'], ['sho', 'しょ'], ['she', 'しぇ'],
-  ['sya', 'しゃ'], ['syu', 'しゅ'], ['syo', 'しょ'],
-  ['cha', 'ちゃ'], ['chu', 'ちゅ'], ['cho', 'ちょ'], ['che', 'ちぇ'],
-  ['tya', 'ちゃ'], ['tyu', 'ちゅ'], ['tyo', 'ちょ'],
-  ['nya', 'にゃ'], ['nyu', 'にゅ'], ['nyo', 'にょ'],
-  ['hya', 'ひゃ'], ['hyu', 'ひゅ'], ['hyo', 'ひょ'],
-  ['mya', 'みゃ'], ['myu', 'みゅ'], ['myo', 'みょ'],
-  ['rya', 'りゃ'], ['ryu', 'りゅ'], ['ryo', 'りょ'],
-  ['gya', 'ぎゃ'], ['gyu', 'ぎゅ'], ['gyo', 'ぎょ'],
-  ['jya', 'じゃ'], ['jyu', 'じゅ'], ['jyo', 'じょ'],
-  ['bya', 'びゃ'], ['byu', 'びゅ'], ['byo', 'びょ'],
-  ['pya', 'ぴゃ'], ['pyu', 'ぴゅ'], ['pyo', 'ぴょ'],
-  ['tsu', 'つ'], ['shi', 'し'], ['chi', 'ち'],
-  ['dzu', 'づ'], ['dzi', 'ぢ'],
-  ['xtsu', 'っ'], ['ltsu', 'っ'],
-  // 2 chars
-  ['ka', 'か'], ['ki', 'き'], ['ku', 'く'], ['ke', 'け'], ['ko', 'こ'],
-  ['sa', 'さ'], ['si', 'し'], ['su', 'す'], ['se', 'せ'], ['so', 'そ'],
-  ['ta', 'た'], ['ti', 'ち'], ['tu', 'つ'], ['te', 'て'], ['to', 'と'],
-  ['na', 'な'], ['ni', 'に'], ['nu', 'ぬ'], ['ne', 'ね'], ['no', 'の'],
-  ['ha', 'は'], ['hi', 'ひ'], ['fu', 'ふ'], ['hu', 'ふ'], ['he', 'へ'], ['ho', 'ほ'],
-  ['ma', 'ま'], ['mi', 'み'], ['mu', 'む'], ['me', 'め'], ['mo', 'も'],
-  ['ya', 'や'], ['yu', 'ゆ'], ['yo', 'よ'],
-  ['ra', 'ら'], ['ri', 'り'], ['ru', 'る'], ['re', 'れ'], ['ro', 'ろ'],
-  ['wa', 'わ'], ['wo', 'を'],
-  ['ga', 'が'], ['gi', 'ぎ'], ['gu', 'ぐ'], ['ge', 'げ'], ['go', 'ご'],
-  ['za', 'ざ'], ['zi', 'じ'], ['zu', 'ず'], ['ze', 'ぜ'], ['zo', 'ぞ'],
-  ['ja', 'じゃ'], ['ju', 'じゅ'], ['jo', 'じょ'], ['je', 'じぇ'],
-  ['da', 'だ'], ['di', 'ぢ'], ['du', 'づ'], ['de', 'で'], ['do', 'ど'],
-  ['ba', 'ば'], ['bi', 'び'], ['bu', 'ぶ'], ['be', 'べ'], ['bo', 'ぼ'],
-  ['pa', 'ぱ'], ['pi', 'ぴ'], ['pu', 'ぷ'], ['pe', 'ぺ'], ['po', 'ぽ'],
-  ['fa', 'ふぁ'], ['fi', 'ふぃ'], ['fe', 'ふぇ'], ['fo', 'ふぉ'],
-  ['nn', 'ん'], ["n'", 'ん'],
-  ['xa', 'ぁ'], ['xi', 'ぃ'], ['xu', 'ぅ'], ['xe', 'ぇ'], ['xo', 'ぉ'],
-  ['la', 'ぁ'], ['li', 'ぃ'], ['lu', 'ぅ'], ['le', 'ぇ'], ['lo', 'ぉ'],
-  // 1 char
-  ['a', 'あ'], ['i', 'い'], ['u', 'う'], ['e', 'え'], ['o', 'お'],
-  ['-', 'ー']
-];
+(function () {
+  'use strict';
 
-const ROMAJI_MAP = Object.fromEntries(ROMAJI_TABLE);
+  // ================= STORAGE & STATE =================
+  const STORAGE_KEY = 'kanji_kachi_state_v2';
 
-function convertRomajiToHiragana(text) {
-  let res = '';
-  let i = 0;
-  const s = text.toLowerCase();
-  while (i < s.length) {
-    if (i + 4 <= s.length && ROMAJI_MAP[s.slice(i, i + 4)]) {
-      res += ROMAJI_MAP[s.slice(i, i + 4)];
-      i += 4;
-      continue;
+  const defaultState = {
+    streak: 0,
+    lastPracticeDate: null,
+    totalPracticed: 0,
+    correctCount: 0,
+    rememberedIds: [],
+    forgottenIds: [],
+    preferences: {
+      mcMode: 'after_higa', // 'after_higa' | 'disabled' | 'both'
+      soundEnabled: true,
+      romajiAutoConvert: true
     }
-    if (i + 3 <= s.length && ROMAJI_MAP[s.slice(i, i + 3)]) {
-      res += ROMAJI_MAP[s.slice(i, i + 3)];
-      i += 3;
-      continue;
+  };
+
+  let state = loadState();
+
+  function loadState() {
+    try {
+      const data = localStorage.getItem(STORAGE_KEY);
+      if (data) {
+        return Object.assign({}, defaultState, JSON.parse(data));
+      }
+    } catch (e) {
+      console.warn('Could not load localStorage:', e);
     }
-    if (i + 1 < s.length && s[i] === s[i + 1] && /[bcdfghjklmpqrstvwxyz]/.test(s[i]) && s[i] !== 'n') {
-      res += 'っ';
-      i += 1;
-      continue;
+    return Object.assign({}, defaultState);
+  }
+
+  function saveState() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {
+      console.warn('Could not save to localStorage:', e);
     }
-    if (i + 2 <= s.length && ROMAJI_MAP[s.slice(i, i + 2)]) {
-      res += ROMAJI_MAP[s.slice(i, i + 2)];
-      i += 2;
-      continue;
+  }
+
+  // Update Daily Streak
+  function updateDailyStreak() {
+    const today = new Date().toISOString().slice(0, 10);
+    if (!state.lastPracticeDate) {
+      state.streak = 1;
+      state.lastPracticeDate = today;
+    } else if (state.lastPracticeDate !== today) {
+      const last = new Date(state.lastPracticeDate);
+      const now = new Date(today);
+      const diffDays = Math.round((now - last) / (1000 * 60 * 60 * 24));
+      if (diffDays === 1) {
+        state.streak += 1;
+      } else if (diffDays > 1) {
+        state.streak = 1;
+      }
+      state.lastPracticeDate = today;
     }
-    if (s[i] === 'm' && i + 1 < s.length && /[bp]/.test(s[i + 1])) {
-      res += 'ん';
-      i += 1;
-      continue;
-    }
-    if (s[i] === 'n') {
-      const next = s[i + 1];
-      if (!next || (!/[aeiouy]/.test(next) && next !== 'n')) {
-        res += 'ん';
-        i += 1;
-        continue;
+    saveState();
+  }
+
+  // ================= DOM ELEMENT REFERENCES =================
+  const views = {
+    home: document.getElementById('view-home'),
+    vocab: document.getElementById('view-vocab'),
+    practice: document.getElementById('view-practice'),
+    profile: document.getElementById('view-profile')
+  };
+
+  const navBtns = {
+    home: document.getElementById('nav-btn-home'),
+    vocab: document.getElementById('nav-btn-vocab'),
+    practice: document.getElementById('nav-btn-practice'),
+    profile: document.getElementById('nav-btn-profile')
+  };
+
+  // ================= SPEECH SYNTHESIS (TTS) =================
+  let jaVoice = null;
+
+  function initVoices() {
+    if ('speechSynthesis' in window) {
+      const updateVoices = () => {
+        const voices = window.speechSynthesis.getVoices();
+        jaVoice = voices.find(v => v.lang.startsWith('ja') || v.lang.includes('JP')) || null;
+      };
+      updateVoices();
+      if (window.speechSynthesis.onvoiceschanged !== undefined) {
+        window.speechSynthesis.onvoiceschanged = updateVoices;
       }
     }
-    if (ROMAJI_MAP[s[i]]) {
-      res += ROMAJI_MAP[s[i]];
-      i += 1;
-      continue;
+  }
+
+  function speakJapanese(text) {
+    if (!state.preferences.soundEnabled) return;
+    if (!('speechSynthesis' in window)) return;
+    try {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'ja-JP';
+      utterance.rate = 0.95;
+      if (jaVoice) utterance.voice = jaVoice;
+      window.speechSynthesis.speak(utterance);
+    } catch (e) {
+      console.warn('TTS error:', e);
     }
-    res += s[i];
-    i += 1;
-  }
-  return res;
-}
-
-function katakanaToHiragana(text) {
-  return text.replace(/[\u30a1-\u30f6]/g, match => {
-    return String.fromCharCode(match.charCodeAt(0) - 0x60);
-  });
-}
-
-function normalizeJapanese(text) {
-  if (!text) return '';
-  let str = text.trim();
-  str = str.replace(/[〜~:：\s]/g, '');
-  str = katakanaToHiragana(str);
-  return str.toLowerCase();
-}
-
-// Application State
-let activePool = [...KANJI_DATA];
-let currentPoolIndex = 0;
-let currentItem = null;
-let currentChoices = [];
-
-let readingCorrect = false;
-let choiceCorrect = false;
-let isTransitioning = false;
-let hadErrorOnCurrent = false;
-let transitionTimer = null;
-
-let streak = 0;
-let maxStreak = 0;
-let correctCount = 0;
-const itemStatuses = new Map(); // id -> 'correct' | 'wrong'
-
-// User Preferences (saved in localStorage)
-let mcMode = localStorage.getItem('kanjiflash_mc_mode') || 'after_higa'; // 'after_higa' | 'disabled' | 'both'
-let soundEnabled = localStorage.getItem('kanjiflash_sound') !== 'false';
-let romajiAutoConvert = localStorage.getItem('kanjiflash_romaji') !== 'false';
-let isShuffled = false;
-
-// Audio Context
-let audioCtx = null;
-function getAudioContext() {
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  }
-  if (audioCtx.state === 'suspended') {
-    audioCtx.resume();
-  }
-  return audioCtx;
-}
-
-function playSound(type) {
-  if (!soundEnabled) return;
-  try {
-    const ctx = getAudioContext();
-    const now = ctx.currentTime;
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    if (type === 'success') {
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(587.33, now); // D5
-      osc.frequency.exponentialRampToValueAtTime(880, now + 0.08); // A5
-      gain.gain.setValueAtTime(0.2, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
-      osc.start(now);
-      osc.stop(now + 0.28);
-    } else if (type === 'half-correct') {
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(659.25, now); // E5
-      gain.gain.setValueAtTime(0.12, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
-      osc.start(now);
-      osc.stop(now + 0.12);
-    } else if (type === 'error') {
-      osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(220, now);
-      osc.frequency.setValueAtTime(160, now + 0.08);
-      gain.gain.setValueAtTime(0.15, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
-      osc.start(now);
-      osc.stop(now + 0.22);
-    }
-  } catch (e) {
-    console.warn('Audio error:', e);
-  }
-}
-
-// Speech Synthesis
-function speakJapanese(text) {
-  if (!('speechSynthesis' in window)) return;
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'ja-JP';
-  utterance.rate = 0.9;
-  window.speechSynthesis.speak(utterance);
-}
-
-// UI Elements
-const kanjiDisplay = document.getElementById('kanjiDisplay');
-const hiraganaInput = document.getElementById('hiraganaInput');
-const inputStatusIcon = document.getElementById('inputStatusIcon');
-const choicesSection = document.getElementById('choicesSection');
-const choicesGrid = document.getElementById('choicesGrid');
-const quizCard = document.getElementById('quizCard');
-const hintText = document.getElementById('hintText');
-const categoryTag = document.getElementById('categoryTag');
-
-const progressCounter = document.getElementById('progressCounter');
-const progressStatItem = document.getElementById('progressStatItem');
-const progressFill = document.getElementById('progressFill');
-const streakCounter = document.getElementById('streakCounter');
-const accuracyCounter = document.getElementById('accuracyCounter');
-
-// Action buttons
-const prevBtn = document.getElementById('prevBtn');
-const hintBtn = document.getElementById('hintBtn');
-const skipBtn = document.getElementById('skipBtn');
-const ttsBtn = document.getElementById('ttsBtn');
-
-// Header buttons
-const openGridHeaderBtn = document.getElementById('openGridHeaderBtn');
-const settingsBtn = document.getElementById('settingsBtn');
-const soundToggleBtn = document.getElementById('soundToggleBtn');
-const themeToggleBtn = document.getElementById('themeToggleBtn');
-const shuffleToggleBtn = document.getElementById('shuffleToggleBtn');
-const romajiCheckbox = document.getElementById('romajiCheckbox');
-
-// Numbers Modal Elements
-const allNumbersModal = document.getElementById('allNumbersModal');
-const closeGridModal = document.getElementById('closeGridModal');
-const modalNumberInput = document.getElementById('modalNumberInput');
-const modalGoBtn = document.getElementById('modalGoBtn');
-const modalTotalLabel = document.getElementById('modalTotalLabel');
-const numbersGridContainer = document.getElementById('numbersGridContainer');
-
-// Settings Modal Elements
-const settingsModal = document.getElementById('settingsModal');
-const closeSettingsModal = document.getElementById('closeSettingsModal');
-const saveSettingsBtn = document.getElementById('saveSettingsBtn');
-const settingsRomajiCheckbox = document.getElementById('settingsRomajiCheckbox');
-const settingsSoundCheckbox = document.getElementById('settingsSoundCheckbox');
-const radioModeAfterHiga = document.querySelector('input[name="mcModeRadio"][value="after_higa"]');
-const radioModeDisabled = document.querySelector('input[name="mcModeRadio"][value="disabled"]');
-const radioModeBoth = document.querySelector('input[name="mcModeRadio"][value="both"]');
-
-// Build Full Numbers Grid
-function initNumbersGrid() {
-  numbersGridContainer.innerHTML = '';
-  for (let i = 0; i < activePool.length; i++) {
-    const btn = document.createElement('button');
-    btn.className = 'grid-num-btn';
-    btn.dataset.index = i;
-    btn.textContent = i + 1;
-    btn.title = `Câu ${i + 1}: ${activePool[i].kanji}`;
-    btn.addEventListener('click', () => {
-      jumpToQuestion(i);
-      allNumbersModal.classList.remove('open');
-    });
-    numbersGridContainer.appendChild(btn);
-  }
-}
-
-// Generate 4 Choices
-function generateChoices(correctItem) {
-  const choices = [correctItem.meaning];
-  const allMeanings = [...new Set(KANJI_DATA.map(d => d.meaning))].filter(m => m !== correctItem.meaning);
-
-  while (choices.length < 4 && allMeanings.length > 0) {
-    const idx = Math.floor(Math.random() * allMeanings.length);
-    const m = allMeanings.splice(idx, 1)[0];
-    choices.push(m);
   }
 
-  for (let i = choices.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [choices[i], choices[j]] = [choices[j], choices[i]];
-  }
-
-  return choices;
-}
-
-// Render Question
-function loadQuestion(index) {
-  if (transitionTimer) {
-    clearTimeout(transitionTimer);
-    transitionTimer = null;
-  }
-
-  if (index >= activePool.length) {
-    alert(`🎉 Chúc mừng bạn đã hoàn thành bộ ${activePool.length} từ!\nĐúng: ${correctCount}\nChuỗi cao nhất: ${maxStreak}`);
-    currentPoolIndex = 0;
-  } else if (index < 0) {
-    currentPoolIndex = 0;
-  } else {
-    currentPoolIndex = index;
-  }
-
-  currentItem = activePool[currentPoolIndex];
-  currentChoices = generateChoices(currentItem);
-
-  readingCorrect = false;
-  choiceCorrect = false;
-  isTransitioning = false;
-  hadErrorOnCurrent = false;
-
-  // Update UI Elements
-  kanjiDisplay.textContent = currentItem.kanji;
-  categoryTag.textContent = `Từ số ${currentPoolIndex + 1} / ${activePool.length}`;
-  hintText.textContent = '';
-
-  // Reset Input Box (Unlocked for the new question)
-  hiraganaInput.readOnly = false;
-  hiraganaInput.value = '';
-  hiraganaInput.classList.remove('correct', 'wrong');
-  inputStatusIcon.classList.remove('visible');
-  quizCard.classList.remove('success-flash');
-
-  // Handle Multiple Choice Visibility based on mcMode
-  if (mcMode === 'disabled') {
-    choicesSection.style.display = 'none';
-    choiceCorrect = true; // Auto-pass multiple choice when disabled
-  } else if (mcMode === 'after_higa') {
-    choicesSection.style.display = 'none';
-    choicesSection.classList.remove('slide-in');
-    choiceCorrect = false;
-  } else {
-    // 'both' mode
-    choicesSection.style.display = 'flex';
-    choicesSection.classList.remove('slide-in');
-    choiceCorrect = false;
-  }
-
-  // Update Buttons
-  prevBtn.disabled = (currentPoolIndex === 0);
-
-  // Render 4 choices
-  choicesGrid.innerHTML = '';
-  currentChoices.forEach((choice, idx) => {
-    const btn = document.createElement('button');
-    btn.className = 'choice-btn';
-    btn.dataset.index = idx;
-    btn.dataset.meaning = choice;
-    btn.innerHTML = `<span class="choice-key">${idx + 1}</span> <span class="choice-text">${choice}</span>`;
-    btn.addEventListener('click', () => handleChoiceSelect(idx, btn));
-    choicesGrid.appendChild(btn);
-  });
-
-  // Sync Navigator
-  updateNavigator();
-
-  // Focus Input
-  setTimeout(() => {
-    if (!hiraganaInput.readOnly) {
-      hiraganaInput.focus();
-    }
-  }, 40);
-}
-
-// Update Navigator & Grid Badges
-function updateNavigator() {
-  progressCounter.textContent = `${currentPoolIndex + 1} / ${activePool.length}`;
-  const pct = Math.round(((currentPoolIndex) / activePool.length) * 100);
-  progressFill.style.width = `${pct}%`;
-
-  streakCounter.textContent = streak;
-  const attempts = currentPoolIndex + (hadErrorOnCurrent ? 1 : 0);
-  const acc = attempts > 0 ? Math.round((correctCount / attempts) * 100) : 100;
-  accuracyCounter.textContent = `${acc}%`;
-
-  modalTotalLabel.textContent = activePool.length;
-
-  // Update buttons in grid modal
-  const gridBtns = numbersGridContainer.querySelectorAll('.grid-num-btn');
-  gridBtns.forEach((btn, idx) => {
-    const item = activePool[idx];
-    const status = itemStatuses.get(item.id);
-
-    btn.classList.toggle('active', idx === currentPoolIndex);
-    btn.classList.toggle('status-correct', status === 'correct');
-    btn.classList.toggle('status-wrong', status === 'wrong');
-  });
-}
-
-// Navigation Actions
-function prevQuestion() {
-  if (transitionTimer) {
-    clearTimeout(transitionTimer);
-    transitionTimer = null;
-  }
-  isTransitioning = false;
-
-  if (currentPoolIndex > 0) {
-    loadQuestion(currentPoolIndex - 1);
-  }
-}
-
-function nextQuestionManual() {
-  if (transitionTimer) {
-    clearTimeout(transitionTimer);
-    transitionTimer = null;
-  }
-  isTransitioning = false;
-
-  if (currentPoolIndex < activePool.length - 1) {
-    loadQuestion(currentPoolIndex + 1);
-  }
-}
-
-function jumpToQuestion(targetIndex) {
-  if (transitionTimer) {
-    clearTimeout(transitionTimer);
-    transitionTimer = null;
-  }
-  isTransitioning = false;
-
-  const validIndex = Math.max(0, Math.min(targetIndex, activePool.length - 1));
-  loadQuestion(validIndex);
-}
-
-// Check Hiragana Input
-function checkReadingInput() {
-  const rawVal = hiraganaInput.value;
-  if (!rawVal.trim()) {
-    readingCorrect = false;
-    hiraganaInput.classList.remove('correct', 'wrong');
-    inputStatusIcon.classList.remove('visible');
-    return;
-  }
-
-  const normalizedInput = normalizeJapanese(rawVal);
-  const acceptable = currentItem.readings.map(r => normalizeJapanese(r));
-  const isMatch = acceptable.includes(normalizedInput);
-
-  if (isMatch) {
-    if (!readingCorrect) {
-      readingCorrect = true;
-      hiraganaInput.classList.add('correct');
-      hiraganaInput.classList.remove('wrong');
-      inputStatusIcon.textContent = '✅';
-      inputStatusIcon.classList.add('visible');
-      playSound('half-correct');
-
-      // LOCK BOX & UNFOCUS so pressing 1, 2, 3, 4 won't be eaten by text IME!
-      hiraganaInput.readOnly = true;
-      hiraganaInput.blur();
-
-      if (mcMode === 'disabled') {
-        choiceCorrect = true;
-        checkCompletion();
-      } else if (mcMode === 'after_higa') {
-        // Reveal choices now with slide animation
-        choicesSection.style.display = 'flex';
-        choicesSection.classList.add('slide-in');
+  // Audio effect (simple pleasant synthesized audio tone)
+  function playAudioChime(isCorrect) {
+    if (!state.preferences.soundEnabled) return;
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      const ctx = new AudioContext();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      
+      const now = ctx.currentTime;
+      if (isCorrect) {
+        osc.frequency.setValueAtTime(523.25, now); // C5
+        osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+        osc.start(now);
+        osc.stop(now + 0.3);
       } else {
-        checkCompletion();
+        osc.frequency.setValueAtTime(220, now); // A3
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+        osc.start(now);
+        osc.stop(now + 0.26);
       }
+    } catch (e) {
+      // AudioContext might be blocked until user gesture, ignore silently
     }
-  } else {
-    readingCorrect = false;
-    hiraganaInput.classList.remove('correct');
-    inputStatusIcon.classList.remove('visible');
   }
-}
 
-// Choice Select
-function handleChoiceSelect(index, btnElement) {
-  if (isTransitioning) return;
+  // ================= FLASHCARD STATE =================
+  let flashcardDeck = [];
+  let flashcardIndex = 0;
+  let flashcardFlipped = false;
 
-  const selectedMeaning = currentChoices[index];
-  const isCorrect = (selectedMeaning === currentItem.meaning);
+  // ================= PRACTICE SESSION STATE =================
+  let practiceConfig = {
+    level: 'N5',
+    method: 'higa_and_meaning', // 'higa_and_meaning' | 'higa_only' | 'mc_only'
+    onlyUnremembered: false,
+    selectedTopicIds: new Set()
+  };
 
-  if (isCorrect) {
-    choiceCorrect = true;
-    document.querySelectorAll('.choice-btn').forEach(b => {
-      b.classList.remove('wrong');
-      if (b.dataset.meaning === currentItem.meaning) {
-        b.classList.add('correct');
+  let practiceDeck = [];
+  let currentIndex = 0;
+  let questionStatus = {}; // index -> 'correct' | 'wrong'
+  let hadErrorOnCurrent = false;
+  let revealedHint = false;
+  let isInputLocked = false;
+  let currentStreak = 0;
+  let maxStreak = 0;
+  let currentRoundCorrect = 0;
+  let currentRoundWrongIds = new Set();
+  let currentChoices = [];
+
+  // ================= TAB NAVIGATION =================
+  function switchTab(tabName) {
+    Object.keys(views).forEach(name => {
+      if (views[name]) {
+        if (name === tabName) {
+          views[name].classList.remove('hidden');
+        } else {
+          views[name].classList.add('hidden');
+        }
       }
     });
-    playSound('half-correct');
-    checkCompletion();
-  } else {
-    hadErrorOnCurrent = true;
-    itemStatuses.set(currentItem.id, 'wrong');
-    streak = 0;
-    updateNavigator();
-    btnElement.classList.add('wrong');
-    playSound('error');
-    setTimeout(() => {
-      btnElement.classList.remove('wrong');
-    }, 450);
-  }
-}
 
-// Check Completion
-function checkCompletion() {
-  if (readingCorrect && choiceCorrect && !isTransitioning) {
-    isTransitioning = true;
-    quizCard.classList.add('success-flash');
-    playSound('success');
-
-    if (!hadErrorOnCurrent) {
-      streak++;
-      if (streak > maxStreak) maxStreak = streak;
-      correctCount++;
-      itemStatuses.set(currentItem.id, 'correct');
-    }
-
-    updateNavigator();
-
-    if (transitionTimer) clearTimeout(transitionTimer);
-    transitionTimer = setTimeout(() => {
-      currentPoolIndex++;
-      loadQuestion(currentPoolIndex);
-    }, 380);
-  }
-}
-
-// Helper to match key to choice index 0, 1, 2, 3
-function getChoiceIndex(e) {
-  if (e.code === 'Digit1' || e.code === 'Numpad1' || e.key === '1') return 0;
-  if (e.code === 'Digit2' || e.code === 'Numpad2' || e.key === '2') return 1;
-  if (e.code === 'Digit3' || e.code === 'Numpad3' || e.key === '3') return 2;
-  if (e.code === 'Digit4' || e.code === 'Numpad4' || e.key === '4') return 3;
-
-  // Also support A, B, C, D
-  if (e.code === 'KeyA' || e.key.toLowerCase() === 'a') return 0;
-  if (e.code === 'KeyB' || e.key.toLowerCase() === 'b') return 1;
-  if (e.code === 'KeyC' || e.key.toLowerCase() === 'c') return 2;
-  if (e.code === 'KeyD' || e.key.toLowerCase() === 'd') return 3;
-
-  return -1;
-}
-
-// Keyboard Shortcuts
-window.addEventListener('keydown', (e) => {
-  // If modal is open
-  if (allNumbersModal.classList.contains('open') || settingsModal.classList.contains('open')) {
-    if (e.key === 'Escape') {
-      allNumbersModal.classList.remove('open');
-      settingsModal.classList.remove('open');
-      if (!hiraganaInput.readOnly) hiraganaInput.focus();
-    }
-    return;
-  }
-
-  // Ctrl+Z or Alt+ArrowLeft to go back (Quay lại câu trước)
-  if ((e.ctrlKey && e.key.toLowerCase() === 'z') || (e.altKey && e.key === 'ArrowLeft')) {
-    e.preventDefault();
-    prevQuestion();
-    return;
-  }
-
-  // Alt+ArrowRight to go next
-  if (e.altKey && e.key === 'ArrowRight') {
-    e.preventDefault();
-    nextQuestionManual();
-    return;
-  }
-
-  // Ctrl+G to toggle Numbers Grid
-  if (e.ctrlKey && e.key.toLowerCase() === 'g') {
-    e.preventDefault();
-    openGridModal();
-    return;
-  }
-
-  // 1-4 for multiple choice selection
-  const choiceIdx = getChoiceIndex(e);
-  if (choiceIdx !== -1) {
-    // If multiple choice is allowed and visible
-    if (mcMode !== 'disabled' && (mcMode !== 'after_higa' || readingCorrect)) {
-      e.preventDefault();
-      // Ensure input is blurred so no characters are typed
-      hiraganaInput.blur();
-      const btns = document.querySelectorAll('.choice-btn');
-      if (btns[choiceIdx]) {
-        btns[choiceIdx].click();
+    // Update bottom nav active indicators
+    Object.keys(navBtns).forEach(name => {
+      const btn = navBtns[name];
+      if (!btn) return;
+      if (name === tabName) {
+        btn.classList.add('text-primary', 'font-semibold', "after:content-['']", 'after:w-1.5', 'after:h-1.5', 'after:bg-secondary', 'after:rounded-full', 'after:absolute', 'after:-bottom-1');
+        btn.classList.remove('text-on-surface-variant');
+      } else {
+        btn.classList.remove('text-primary', 'font-semibold', "after:content-['']", 'after:w-1.5', 'after:h-1.5', 'after:bg-secondary', 'after:rounded-full', 'after:absolute', 'after:-bottom-1');
+        btn.classList.add('text-on-surface-variant');
       }
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (tabName === 'home') renderHomeScreen();
+    if (tabName === 'vocab') renderVocabScreen();
+    if (tabName === 'profile') renderProfileScreen();
+  }
+
+  // ================= HOME SCREEN LOGIC =================
+  function renderHomeScreen() {
+    updateDailyStreak();
+
+    // Stats
+    const streakEl = document.getElementById('home-streak-count');
+    if (streakEl) streakEl.textContent = state.streak;
+
+    const practicedEl = document.getElementById('stat-total-practiced');
+    if (practicedEl) practicedEl.textContent = state.totalPracticed;
+
+    const accEl = document.getElementById('stat-accuracy');
+    if (accEl) {
+      const acc = state.totalPracticed > 0 
+        ? Math.round((state.correctCount / state.totalPracticed) * 100)
+        : 100;
+      accEl.textContent = acc;
+    }
+
+    const unremEl = document.getElementById('stat-unremembered');
+    if (unremEl) unremEl.textContent = state.forgottenIds.length;
+
+    // Progress bar
+    const totalWords = KANJI_DATA.length;
+    const learnedCount = Math.min(state.rememberedIds.length, totalWords);
+    const percent = Math.min(100, Math.round((learnedCount / totalWords) * 100));
+
+    const pBar = document.getElementById('home-progress-bar');
+    if (pBar) pBar.style.width = percent + '%';
+
+    const pText = document.getElementById('home-progress-text');
+    if (pText) pText.textContent = percent + '%';
+
+    // Forgotten card banner
+    const forgottenCard = document.getElementById('home-card-review-forgotten');
+    const forgottenLabel = document.getElementById('home-unremembered-label');
+    if (forgottenCard && forgottenLabel) {
+      if (state.forgottenIds.length > 0) {
+        forgottenCard.classList.remove('hidden');
+        forgottenLabel.textContent = state.forgottenIds.length;
+      } else {
+        forgottenCard.classList.add('hidden');
+      }
+    }
+
+    // Featured Topics
+    const featContainer = document.getElementById('home-featured-topics');
+    if (featContainer) {
+      const sampleTopics = TOPICS.slice(0, 4);
+      featContainer.innerHTML = sampleTopics.map(t => `
+        <div class="bg-surface-container-lowest p-3 rounded-xl border border-surface-container-high hover:border-primary cursor-pointer transition-colors shadow-sm" onclick="app.startTopicPractice('${t.id}')">
+          <div class="flex items-center justify-between mb-1">
+            <span class="px-2 py-0.5 rounded bg-surface-container text-[10px] font-bold text-primary">${t.level}</span>
+            <span class="text-[11px] text-on-surface-variant font-medium">${t.count} chữ</span>
+          </div>
+          <span class="text-xs font-semibold text-primary block truncate">${t.title}</span>
+        </div>
+      `).join('');
+    }
+  }
+
+  // ================= VOCABULARY SCREEN LOGIC =================
+  let currentVocabLevel = 'N5';
+  let currentVocabSubView = 'list'; // 'list' | 'flashcard'
+
+  function renderVocabScreen() {
+    filterVocabLevel(currentVocabLevel);
+  }
+
+  function setVocabSubView(mode) {
+    currentVocabSubView = mode;
+    const listBtn = document.getElementById('vocab-tab-list');
+    const fcBtn = document.getElementById('vocab-tab-flashcard');
+    const listSub = document.getElementById('vocab-subview-list');
+    const fcSub = document.getElementById('vocab-subview-flashcard');
+
+    if (mode === 'list') {
+      listBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg bg-surface-container-lowest text-primary shadow-sm transition-all flex items-center justify-center gap-1.5";
+      fcBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg text-on-surface-variant hover:text-primary transition-all flex items-center justify-center gap-1.5";
+      listSub.classList.remove('hidden');
+      fcSub.classList.add('hidden');
+    } else {
+      fcBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg bg-surface-container-lowest text-primary shadow-sm transition-all flex items-center justify-center gap-1.5";
+      listBtn.className = "flex-1 py-2 text-xs font-semibold rounded-lg text-on-surface-variant hover:text-primary transition-all flex items-center justify-center gap-1.5";
+      fcSub.classList.remove('hidden');
+      listSub.classList.add('hidden');
+      setupFlashcardsForLevel(currentVocabLevel);
+    }
+  }
+
+  function filterVocabLevel(level) {
+    currentVocabLevel = level;
+    
+    // Update button states
+    ['N5', 'N4', 'RADICALS'].forEach(lvl => {
+      const btn = document.getElementById('lvl-filter-' + lvl.toLowerCase());
+      if (!btn) return;
+      if (lvl === level) {
+        btn.className = "px-3.5 py-1.5 rounded-xl bg-primary text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm";
+      } else {
+        btn.className = "px-3.5 py-1.5 rounded-xl bg-surface-container-low text-on-surface-variant hover:text-primary text-xs font-semibold transition-all";
+      }
+    });
+
+    if (currentVocabSubView === 'list') {
+      renderVocabTopicsList(level);
+    } else {
+      setupFlashcardsForLevel(level);
+    }
+  }
+
+  function renderVocabTopicsList(level, searchQuery = '') {
+    const container = document.getElementById('vocab-topics-container');
+    if (!container) return;
+
+    let topics = TOPICS.filter(t => t.level === level);
+    let items = level === 'RADICALS' ? RADICALS_DATA : KANJI_DATA.filter(k => k.level === level);
+
+    if (searchQuery.trim()) {
+      const q = searchQuery.trim().toLowerCase();
+      const filtered = items.filter(it => 
+        it.kanji.toLowerCase().includes(q) ||
+        it.meaning.toLowerCase().includes(q) ||
+        (it.readings && it.readings.some(r => r.toLowerCase().includes(q))) ||
+        (it.displayReading && it.displayReading.toLowerCase().includes(q))
+      );
+
+      container.innerHTML = `
+        <div class="space-y-2">
+          <span class="text-xs font-bold text-on-surface-variant block">Kết quả tìm kiếm (${filtered.length} từ):</span>
+          <div class="bg-surface-container-lowest rounded-2xl p-2 border border-surface-container-high divide-y divide-surface-container shadow-sm">
+            ${filtered.length > 0 ? filtered.map(renderVocabRow).join('') : '<p class="p-4 text-xs text-center text-outline">Không tìm thấy từ vựng nào khớp với từ khóa.</p>'}
+          </div>
+        </div>
+      `;
       return;
     }
+
+    container.innerHTML = topics.map(topic => {
+      const topicItems = items.filter(it => it.topicId === topic.id);
+      return `
+        <div class="bg-surface-container-lowest rounded-2xl border border-surface-container-high overflow-hidden shadow-sm">
+          <div class="p-3.5 flex items-center justify-between cursor-pointer hover:bg-surface-container-low transition-colors select-none" onclick="app.toggleTopicAccordion('${topic.id}')">
+            <div class="flex items-center gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              <div>
+                <span class="text-xs font-bold text-primary block">${topic.title}</span>
+                <span class="text-[11px] text-on-surface-variant">${topicItems.length} chữ Hán</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-primary hover:text-white text-[11px] font-semibold text-primary transition-colors" onclick="event.stopPropagation(); app.startTopicPractice('${topic.id}')">
+                Luyện tập
+              </button>
+              <span id="acc-icon-${topic.id}" class="material-symbols-outlined text-outline text-[20px] transition-transform">expand_more</span>
+            </div>
+          </div>
+          <div id="acc-content-${topic.id}" class="hidden divide-y divide-surface-container border-t border-surface-container bg-surface/50">
+            ${topicItems.map(renderVocabRow).join('')}
+          </div>
+        </div>
+      `;
+    }).join('');
   }
 
-  // Enter to focus input if not focused and not readOnly
-  if (e.key === 'Enter') {
-    if (!hiraganaInput.readOnly && document.activeElement !== hiraganaInput) {
-      hiraganaInput.focus();
+  function renderVocabRow(item) {
+    const isForgotten = state.forgottenIds.includes(item.id);
+    return `
+      <div class="p-3 flex items-center justify-between hover:bg-surface-container-low transition-colors">
+        <div class="flex items-center gap-3">
+          <span class="kanji-glyph text-2xl font-normal text-primary w-9 text-center">${item.kanji}</span>
+          <div class="flex flex-col">
+            <span class="text-xs font-bold text-secondary font-sans">${item.displayReading}</span>
+            <span class="text-xs text-on-surface font-medium">${item.meaning}</span>
+            ${item.examples ? `<span class="text-[10px] text-on-surface-variant italic">${item.examples}</span>` : ''}
+          </div>
+        </div>
+        <div class="flex items-center gap-1">
+          <button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container" onclick="app.speakWordText('${item.kanji}')" title="Nghe phát âm">
+            <span class="material-symbols-outlined text-[18px]">volume_up</span>
+          </button>
+          <button class="w-8 h-8 rounded-full flex items-center justify-center ${isForgotten ? 'text-secondary' : 'text-outline'} hover:text-secondary hover:bg-surface-container" onclick="app.toggleBookmarkId(${item.id})" title="Đánh dấu từ">
+            <span class="material-symbols-outlined text-[18px]">${isForgotten ? 'bookmark' : 'bookmark_border'}</span>
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  function toggleTopicAccordion(topicId) {
+    const content = document.getElementById(`acc-content-${topicId}`);
+    const icon = document.getElementById(`acc-icon-${topicId}`);
+    if (!content) return;
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      if (icon) icon.style.transform = 'rotate(180deg)';
+    } else {
+      content.classList.add('hidden');
+      if (icon) icon.style.transform = 'rotate(0deg)';
     }
   }
-});
 
-// Navigation Button Listeners
-prevBtn.addEventListener('click', prevQuestion);
-
-// Full Numbers Grid Modal Handlers
-function openGridModal() {
-  modalNumberInput.value = currentPoolIndex + 1;
-  modalNumberInput.max = activePool.length;
-  allNumbersModal.classList.add('open');
-  setTimeout(() => {
-    modalNumberInput.focus();
-    modalNumberInput.select();
-  }, 100);
-}
-
-openGridHeaderBtn.addEventListener('click', openGridModal);
-progressStatItem.addEventListener('click', openGridModal);
-
-closeGridModal.addEventListener('click', () => {
-  allNumbersModal.classList.remove('open');
-  if (!hiraganaInput.readOnly) hiraganaInput.focus();
-});
-
-allNumbersModal.addEventListener('click', (e) => {
-  if (e.target === allNumbersModal) {
-    allNumbersModal.classList.remove('open');
-    if (!hiraganaInput.readOnly) hiraganaInput.focus();
-  }
-});
-
-function handleModalNumberJump() {
-  const num = parseInt(modalNumberInput.value, 10);
-  if (!isNaN(num) && num >= 1 && num <= activePool.length) {
-    allNumbersModal.classList.remove('open');
-    jumpToQuestion(num - 1);
-  } else {
-    alert(`Vui lòng nhập số từ 1 đến ${activePool.length}`);
-    modalNumberInput.focus();
-  }
-}
-
-modalGoBtn.addEventListener('click', handleModalNumberJump);
-modalNumberInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') handleModalNumberJump();
-});
-
-// Settings Modal Handlers
-function openSettings() {
-  // Update radio states
-  if (mcMode === 'disabled') radioModeDisabled.checked = true;
-  else if (mcMode === 'both') radioModeBoth.checked = true;
-  else radioModeAfterHiga.checked = true;
-
-  updateOptionCardStyles();
-
-  settingsRomajiCheckbox.checked = romajiAutoConvert;
-  settingsSoundCheckbox.checked = soundEnabled;
-
-  settingsModal.classList.add('open');
-}
-
-function updateOptionCardStyles() {
-  document.querySelectorAll('.setting-option-card').forEach(card => {
-    const radio = card.querySelector('input[type="radio"]');
-    card.classList.toggle('active', radio && radio.checked);
-  });
-}
-
-document.querySelectorAll('input[name="mcModeRadio"]').forEach(r => {
-  r.addEventListener('change', updateOptionCardStyles);
-});
-
-function applySettings() {
-  const selectedRadio = document.querySelector('input[name="mcModeRadio"]:checked');
-  if (selectedRadio) {
-    mcMode = selectedRadio.value;
-    localStorage.setItem('kanjiflash_mc_mode', mcMode);
-  }
-
-  romajiAutoConvert = settingsRomajiCheckbox.checked;
-  romajiCheckbox.checked = romajiAutoConvert;
-  localStorage.setItem('kanjiflash_romaji', romajiAutoConvert);
-
-  soundEnabled = settingsSoundCheckbox.checked;
-  localStorage.setItem('kanjiflash_sound', soundEnabled);
-  soundToggleBtn.textContent = soundEnabled ? '🔊' : '🔇';
-
-  settingsModal.classList.remove('open');
-
-  // Re-apply to current question
-  loadQuestion(currentPoolIndex);
-}
-
-settingsBtn.addEventListener('click', openSettings);
-closeSettingsModal.addEventListener('click', () => {
-  settingsModal.classList.remove('open');
-  if (!hiraganaInput.readOnly) hiraganaInput.focus();
-});
-saveSettingsBtn.addEventListener('click', applySettings);
-
-settingsModal.addEventListener('click', (e) => {
-  if (e.target === settingsModal) {
-    settingsModal.classList.remove('open');
-    if (!hiraganaInput.readOnly) hiraganaInput.focus();
-  }
-});
-
-// Hint Button
-hintBtn.addEventListener('click', () => {
-  if (!currentItem) return;
-  const primary = currentItem.displayReading;
-  if (!hintText.textContent) {
-    hintText.textContent = `💡 Cách đọc bắt đầu bằng:「${primary.charAt(0)}...」`;
-  } else {
-    hintText.textContent = `💡 Cách đọc đầy đủ:「${currentItem.readings.join(' / ')}」`;
-  }
-  if (!hiraganaInput.readOnly) hiraganaInput.focus();
-});
-
-// Skip Button
-skipBtn.addEventListener('click', () => {
-  if (!currentItem || isTransitioning) return;
-  hadErrorOnCurrent = true;
-  itemStatuses.set(currentItem.id, 'wrong');
-  streak = 0;
-  updateNavigator();
-
-  hintText.textContent = `📖 Đáp án: ${currentItem.displayReading} — ${currentItem.meaning}`;
-  document.querySelectorAll('.choice-btn').forEach(b => {
-    if (b.dataset.meaning === currentItem.meaning) {
-      b.classList.add('correct');
+  function onVocabSearch(query) {
+    const clearBtn = document.getElementById('vocab-search-clear');
+    if (clearBtn) {
+      if (query) clearBtn.classList.remove('hidden');
+      else clearBtn.classList.add('hidden');
     }
-  });
-  hiraganaInput.value = currentItem.displayReading;
-  hiraganaInput.classList.add('correct');
-  hiraganaInput.readOnly = true;
-  hiraganaInput.blur();
-
-  if (mcMode === 'after_higa') {
-    choicesSection.style.display = 'flex';
+    renderVocabTopicsList(currentVocabLevel, query);
   }
 
-  isTransitioning = true;
-  if (transitionTimer) clearTimeout(transitionTimer);
-  transitionTimer = setTimeout(() => {
-    currentPoolIndex++;
-    loadQuestion(currentPoolIndex);
-  }, 1200);
-});
+  function clearVocabSearch() {
+    const input = document.getElementById('vocab-search-input');
+    if (input) input.value = '';
+    onVocabSearch('');
+  }
 
-// Live typing with Romaji conversion
-hiraganaInput.addEventListener('input', () => {
-  if (romajiAutoConvert && !hiraganaInput.readOnly) {
-    const start = hiraganaInput.selectionStart;
-    const oldVal = hiraganaInput.value;
-    const converted = convertRomajiToHiragana(oldVal);
-    if (converted !== oldVal) {
-      hiraganaInput.value = converted;
-      const diff = converted.length - oldVal.length;
-      hiraganaInput.setSelectionRange(start + diff, start + diff);
+  // ================= FLASHCARD 3D LOGIC =================
+  function setupFlashcardsForLevel(level) {
+    const select = document.getElementById('flashcard-topic-select');
+    if (!select) return;
+
+    const topics = TOPICS.filter(t => t.level === level);
+    select.innerHTML = topics.map(t => `<option value="${t.id}">${t.title} (${t.count} chữ)</option>`).join('');
+
+    if (topics.length > 0) {
+      onFlashcardTopicChange(topics[0].id);
     }
   }
-  checkReadingInput();
-});
 
-// TTS and Kanji Click
-ttsBtn.addEventListener('click', () => {
-  if (currentItem) speakJapanese(currentItem.kanji);
-});
-kanjiDisplay.addEventListener('click', () => {
-  if (currentItem) speakJapanese(currentItem.kanji);
-});
-
-// Sound Toggle
-soundToggleBtn.addEventListener('click', () => {
-  soundEnabled = !soundEnabled;
-  localStorage.setItem('kanjiflash_sound', soundEnabled);
-  soundToggleBtn.textContent = soundEnabled ? '🔊' : '🔇';
-  soundToggleBtn.title = soundEnabled ? 'Bật âm thanh' : 'Tắt âm thanh';
-});
-
-// Shuffle Toggle
-shuffleToggleBtn.addEventListener('click', () => {
-  isShuffled = !isShuffled;
-  shuffleToggleBtn.classList.toggle('active', isShuffled);
-  shuffleToggleBtn.title = isShuffled ? 'Đang xáo trộn ngẫu nhiên' : 'Thứ tự mặc định';
-
-  if (isShuffled) {
-    for (let i = activePool.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [activePool[i], activePool[j]] = [activePool[j], activePool[i]];
-    }
-  } else {
-    activePool = [...KANJI_DATA];
+  function onFlashcardTopicChange(topicId) {
+    const isRadical = topicId.startsWith('rad_');
+    const source = isRadical ? RADICALS_DATA : KANJI_DATA;
+    flashcardDeck = source.filter(it => it.topicId === topicId);
+    flashcardIndex = 0;
+    flashcardFlipped = false;
+    renderFlashcardCard();
   }
-  initNumbersGrid();
-  currentPoolIndex = 0;
-  loadQuestion(currentPoolIndex);
-});
 
-// Romaji Toggle
-romajiCheckbox.addEventListener('change', () => {
-  romajiAutoConvert = romajiCheckbox.checked;
-  localStorage.setItem('kanjiflash_romaji', romajiAutoConvert);
-  if (!hiraganaInput.readOnly) hiraganaInput.focus();
-});
+  function renderFlashcardCard() {
+    const inner = document.getElementById('flashcard-inner');
+    if (inner && flashcardFlipped) {
+      inner.classList.remove('rotate-y-180');
+      flashcardFlipped = false;
+    }
 
-// Theme Toggle
-themeToggleBtn.addEventListener('click', () => {
-  const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', newTheme);
-  themeToggleBtn.textContent = newTheme === 'dark' ? '🌙' : '☀️';
-  localStorage.setItem('kanjiflash_theme', newTheme);
-});
+    if (flashcardDeck.length === 0) return;
+    const item = flashcardDeck[flashcardIndex];
 
-// Load saved theme
-const savedTheme = localStorage.getItem('kanjiflash_theme') || 'dark';
-document.documentElement.setAttribute('data-theme', savedTheme);
-themeToggleBtn.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
-romajiCheckbox.checked = romajiAutoConvert;
-soundToggleBtn.textContent = soundEnabled ? '🔊' : '🔇';
+    const kanjiEl = document.getElementById('fc-kanji');
+    const levelBadge = document.getElementById('fc-level-badge');
+    const counterEl = document.getElementById('fc-counter');
+    const topicHint = document.getElementById('fc-topic-hint');
 
-// Initialize App
-initNumbersGrid();
-loadQuestion(0);
+    const backKanji = document.getElementById('fc-back-kanji');
+    const backReading = document.getElementById('fc-back-reading');
+    const backMeaning = document.getElementById('fc-back-meaning');
+    const backExamples = document.getElementById('fc-back-examples');
+
+    if (kanjiEl) kanjiEl.textContent = item.kanji;
+    if (levelBadge) levelBadge.textContent = item.level;
+    if (counterEl) counterEl.textContent = `${flashcardIndex + 1} / ${flashcardDeck.length}`;
+    if (topicHint) {
+      const topic = TOPICS.find(t => t.id === item.topicId);
+      topicHint.textContent = topic ? topic.title : '';
+    }
+
+    if (backKanji) backKanji.textContent = item.kanji;
+    if (backReading) backReading.textContent = item.displayReading;
+    if (backMeaning) backMeaning.textContent = item.meaning;
+    if (backExamples) backExamples.textContent = item.examples ? `Ví dụ: ${item.examples}` : '';
+  }
+
+  function flipFlashcard() {
+    const inner = document.getElementById('flashcard-inner');
+    if (!inner) return;
+    flashcardFlipped = !flashcardFlipped;
+    if (flashcardFlipped) {
+      inner.classList.add('rotate-y-180');
+      // Speak when flipped to back
+      if (flashcardDeck[flashcardIndex]) {
+        speakJapanese(flashcardDeck[flashcardIndex].kanji);
+      }
+    } else {
+      inner.classList.remove('rotate-y-180');
+    }
+  }
+
+  function nextFlashcard() {
+    if (flashcardDeck.length === 0) return;
+    flashcardIndex = (flashcardIndex + 1) % flashcardDeck.length;
+    renderFlashcardCard();
+  }
+
+  function prevFlashcard() {
+    if (flashcardDeck.length === 0) return;
+    flashcardIndex = (flashcardIndex - 1 + flashcardDeck.length) % flashcardDeck.length;
+    renderFlashcardCard();
+  }
+
+  function markFlashcardForgotten() {
+    if (flashcardDeck.length === 0) return;
+    const item = flashcardDeck[flashcardIndex];
+    toggleBookmarkId(item.id);
+    nextFlashcard();
+  }
+
+  function speakFlashcardWord() {
+    if (flashcardDeck[flashcardIndex]) {
+      speakJapanese(flashcardDeck[flashcardIndex].kanji);
+    }
+  }
+
+  // ================= PRACTICE SETUP & ARENA LOGIC =================
+  function setPracticeLevel(level) {
+    practiceConfig.level = level;
+    ['N5', 'N4', 'RADICALS'].forEach(lvl => {
+      const btn = document.getElementById('p-lvl-' + lvl.toLowerCase());
+      if (!btn) return;
+      if (lvl === level) {
+        btn.className = "flex-1 py-2.5 rounded-xl bg-primary text-white text-xs font-semibold transition-all shadow-sm";
+      } else {
+        btn.className = "flex-1 py-2.5 rounded-xl bg-surface-container text-on-surface-variant hover:text-primary text-xs font-semibold transition-all";
+      }
+    });
+    // Select all topics of this level by default
+    practiceConfig.selectedTopicIds.clear();
+    const topics = TOPICS.filter(t => t.level === level);
+    topics.forEach(t => practiceConfig.selectedTopicIds.add(t.id));
+    renderPracticeTopicList();
+  }
+
+  function renderPracticeTopicList() {
+    const list = document.getElementById('practice-topics-list');
+    if (!list) return;
+
+    const topics = TOPICS.filter(t => t.level === practiceConfig.level);
+    const selectedCount = document.getElementById('practice-selected-count');
+    if (selectedCount) selectedCount.textContent = practiceConfig.selectedTopicIds.size;
+
+    list.innerHTML = topics.map(t => {
+      const isChecked = practiceConfig.selectedTopicIds.has(t.id);
+      return `
+        <label class="flex items-center justify-between p-3 rounded-xl border ${isChecked ? 'border-primary bg-surface-container-low' : 'border-surface-container bg-surface-container-lowest'} cursor-pointer transition-colors shadow-sm" onclick="app.togglePracticeTopic('${t.id}')">
+          <div class="flex items-center gap-3">
+            <input type="checkbox" ${isChecked ? 'checked' : ''} class="accent-primary" onclick="event.stopPropagation(); app.togglePracticeTopic('${t.id}')">
+            <span class="text-xs font-semibold text-primary">${t.title}</span>
+          </div>
+          <span class="text-[11px] text-on-surface-variant">${t.count} chữ</span>
+        </label>
+      `;
+    }).join('');
+  }
+
+  function togglePracticeTopic(topicId) {
+    if (practiceConfig.selectedTopicIds.has(topicId)) {
+      practiceConfig.selectedTopicIds.delete(topicId);
+    } else {
+      practiceConfig.selectedTopicIds.add(topicId);
+    }
+    renderPracticeTopicList();
+  }
+
+  function toggleAllPracticeTopics() {
+    const topics = TOPICS.filter(t => t.level === practiceConfig.level);
+    if (practiceConfig.selectedTopicIds.size === topics.length) {
+      practiceConfig.selectedTopicIds.clear();
+    } else {
+      topics.forEach(t => practiceConfig.selectedTopicIds.add(t.id));
+    }
+    renderPracticeTopicList();
+  }
+
+  function setPracticeMethod(method) {
+    practiceConfig.method = method;
+  }
+
+  function toggleOnlyUnremembered() {
+    practiceConfig.onlyUnremembered = !practiceConfig.onlyUnremembered;
+    const thumb = document.getElementById('thumb-only-unremembered');
+    const btn = document.getElementById('btn-toggle-only-unremembered');
+    if (thumb && btn) {
+      if (practiceConfig.onlyUnremembered) {
+        btn.classList.remove('bg-surface-container-highest');
+        btn.classList.add('bg-secondary');
+        thumb.classList.add('translate-x-6');
+      } else {
+        btn.classList.remove('bg-secondary');
+        btn.classList.add('bg-surface-container-highest');
+        thumb.classList.remove('translate-x-6');
+      }
+    }
+  }
+
+  // Start Practice
+  function startPracticeSession(customDeck = null) {
+    if (customDeck) {
+      practiceDeck = customDeck;
+    } else {
+      const isRadical = practiceConfig.level === 'RADICALS';
+      const source = isRadical ? RADICALS_DATA : KANJI_DATA;
+      
+      let candidateItems = source.filter(it => practiceConfig.selectedTopicIds.has(it.topicId));
+      if (candidateItems.length === 0) {
+        candidateItems = source.filter(it => it.level === practiceConfig.level);
+      }
+
+      if (practiceConfig.onlyUnremembered) {
+        candidateItems = candidateItems.filter(it => state.forgottenIds.includes(it.id));
+        if (candidateItems.length === 0) {
+          alert('Bạn chưa có từ nào trong danh sách chưa nhớ! Đang bắt đầu với toàn bộ từ trong chủ đề.');
+          candidateItems = source.filter(it => practiceConfig.selectedTopicIds.has(it.topicId));
+        }
+      }
+
+      // Shuffle deck
+      practiceDeck = [...candidateItems].sort(() => Math.random() - 0.5);
+    }
+
+    if (practiceDeck.length === 0) {
+      alert('Không có từ vựng nào để luyện tập! Vui lòng chọn ít nhất một chủ đề.');
+      return;
+    }
+
+    currentIndex = 0;
+    questionStatus = {};
+    hadErrorOnCurrent = false;
+    revealedHint = false;
+    isInputLocked = false;
+    currentStreak = 0;
+    maxStreak = 0;
+    currentRoundCorrect = 0;
+    currentRoundWrongIds.clear();
+
+    document.getElementById('practice-setup-screen').classList.add('hidden');
+    document.getElementById('practice-summary-screen').classList.add('hidden');
+    document.getElementById('practice-arena-screen').classList.remove('hidden');
+
+    loadArenaWord(currentIndex);
+  }
+
+  function loadArenaWord(index) {
+    if (index < 0 || index >= practiceDeck.length) return;
+    currentIndex = index;
+    const word = practiceDeck[index];
+
+    hadErrorOnCurrent = false;
+    revealedHint = false;
+    isInputLocked = false;
+
+    // Header counter and title
+    const counterEl = document.getElementById('arena-counter');
+    if (counterEl) counterEl.textContent = `Câu ${index + 1} / ${practiceDeck.length}`;
+
+    const topicEl = document.getElementById('arena-topic-title');
+    if (topicEl) {
+      const topic = TOPICS.find(t => t.id === word.topicId);
+      topicEl.textContent = topic ? topic.title : 'Luyện tập Hán tự';
+    }
+
+    const pBar = document.getElementById('arena-progress-bar');
+    if (pBar) {
+      const p = Math.round(((index + 1) / practiceDeck.length) * 100);
+      pBar.style.width = p + '%';
+    }
+
+    // Level chip
+    const lvlChip = document.getElementById('arena-level-chip');
+    if (lvlChip) lvlChip.textContent = word.level || 'N5';
+
+    // Bookmark icon
+    updateArenaBookmarkIcon(word.id);
+
+    // Main Kanji
+    const kanjiEl = document.getElementById('arena-kanji');
+    if (kanjiEl) kanjiEl.textContent = word.kanji;
+
+    // Hint box
+    const hintBox = document.getElementById('arena-hint-box');
+    if (hintBox) hintBox.textContent = '';
+
+    // Reading display pill
+    const readingPill = document.getElementById('arena-reading-display');
+    if (readingPill) readingPill.textContent = 'Bấm để nghe phát âm';
+
+    // Input Box Reset
+    const inputSection = document.getElementById('arena-input-section');
+    const inputEl = document.getElementById('arena-hiragana-input');
+    const inputStatus = document.getElementById('arena-input-status-icon');
+    const inputMsg = document.getElementById('arena-input-message');
+
+    if (practiceConfig.method === 'mc_only') {
+      inputSection.classList.add('hidden');
+    } else {
+      inputSection.classList.remove('hidden');
+      if (inputEl) {
+        inputEl.value = '';
+        inputEl.disabled = false;
+        inputEl.classList.remove('border-tertiary', 'bg-tertiary-soft', 'border-secondary', 'bg-vermilion-soft');
+        inputEl.classList.add('border-surface-container-high', 'bg-surface-container-lowest');
+        inputEl.focus();
+      }
+      if (inputStatus) inputStatus.innerHTML = '<span class="material-symbols-outlined text-[22px]">keyboard</span>';
+      if (inputMsg) inputMsg.innerHTML = 'Hệ thống tự động chuyển đổi: <code class="bg-surface-container px-1 py-0.5 rounded text-[11px]">sakana</code> ➔ <code class="bg-surface-container px-1 py-0.5 rounded text-[11px]">さかな</code>';
+    }
+
+    // Build Multiple Choice Options
+    generateMultipleChoices(word);
+
+    // MC section visibility depending on mode
+    const choicesSection = document.getElementById('arena-choices-section');
+    if (choicesSection) {
+      if (practiceConfig.method === 'higa_only' || state.preferences.mcMode === 'disabled') {
+        choicesSection.classList.add('hidden');
+      } else if (state.preferences.mcMode === 'after_higa' && practiceConfig.method !== 'mc_only') {
+        choicesSection.classList.add('hidden'); // hidden until Hiragana is correctly typed
+      } else {
+        choicesSection.classList.remove('hidden'); // 'both' or 'mc_only'
+      }
+    }
+
+    // Auto TTS if enabled
+    if (state.preferences.soundEnabled) {
+      speakJapanese(word.kanji);
+    }
+  }
+
+  // Generate 4 multiple-choice options (1 correct meaning + 3 distractors)
+  function generateMultipleChoices(currentWord) {
+    const isRadical = currentWord.isRadical;
+    const pool = isRadical ? RADICALS_DATA : KANJI_DATA;
+    
+    // Pick 3 distractors with different meanings
+    const distractors = pool
+      .filter(it => it.id !== currentWord.id && it.meaning !== currentWord.meaning)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3)
+      .map(it => it.meaning);
+
+    currentChoices = [...distractors, currentWord.meaning].sort(() => Math.random() - 0.5);
+
+    for (let i = 0; i < 4; i++) {
+      const btn = document.getElementById(`choice-btn-${i}`);
+      if (!btn) continue;
+      const textSpan = btn.querySelector('.choice-text');
+      if (textSpan) textSpan.textContent = currentChoices[i] || '';
+      btn.className = "flex items-center justify-between p-3.5 rounded-xl bg-surface-container-lowest border border-surface-container-high hover:border-primary transition-card text-left shadow-sm group cursor-pointer";
+      btn.disabled = false;
+    }
+  }
+
+  // Live Romaji to Hiragana Input Handling
+  function onArenaInput(val) {
+    if (isInputLocked) return;
+    const inputEl = document.getElementById('arena-hiragana-input');
+    if (!inputEl) return;
+
+    let converted = val;
+    if (state.preferences.romajiAutoConvert && typeof RomajiConverter !== 'undefined') {
+      converted = RomajiConverter.convert(val);
+      if (converted !== val) {
+        inputEl.value = converted;
+      }
+    }
+
+    const currentWord = practiceDeck[currentIndex];
+    if (!currentWord) return;
+
+    // Check if converted matches any valid reading
+    const normInput = RomajiConverter.normalize(converted);
+    const validReadings = (currentWord.readings || [currentWord.displayReading]).map(r => RomajiConverter.normalize(r));
+    
+    if (validReadings.includes(normInput)) {
+      // CORRECT HIRAGANA READING!
+      isInputLocked = true;
+      inputEl.disabled = true;
+      inputEl.classList.remove('border-surface-container-high', 'bg-surface-container-lowest');
+      inputEl.classList.add('border-tertiary', 'bg-tertiary-soft');
+      
+      const inputStatus = document.getElementById('arena-input-status-icon');
+      if (inputStatus) {
+        inputStatus.innerHTML = '<span class="material-symbols-outlined text-tertiary text-[22px]">check_circle</span>';
+      }
+
+      const inputMsg = document.getElementById('arena-input-message');
+      if (inputMsg) {
+        inputMsg.innerHTML = `<span class="text-tertiary font-bold">Chính xác! (${currentWord.displayReading})</span>`;
+      }
+
+      playAudioChime(true);
+
+      // Handle next step based on mcMode
+      if (state.preferences.mcMode === 'disabled' || practiceConfig.method === 'higa_only') {
+        // Instant advance!
+        markQuestionResult(true);
+        setTimeout(() => advanceNextWord(), 350);
+      } else {
+        // Show multiple choice options
+        const choicesSection = document.getElementById('arena-choices-section');
+        if (choicesSection) {
+          choicesSection.classList.remove('hidden');
+        }
+      }
+    }
+  }
+
+  function onArenaInputKeyDown(e) {
+    if (e.key === 'Enter') {
+      if (isInputLocked) {
+        advanceNextWord();
+      }
+    }
+  }
+
+  // Selection of Choice 0, 1, 2, 3
+  function onSelectChoice(index) {
+    const currentWord = practiceDeck[currentIndex];
+    if (!currentWord) return;
+
+    const chosenMeaning = currentChoices[index];
+    const btn = document.getElementById(`choice-btn-${index}`);
+    if (!btn) return;
+
+    if (chosenMeaning === currentWord.meaning) {
+      // CORRECT!
+      btn.classList.remove('bg-surface-container-lowest', 'border-surface-container-high');
+      btn.classList.add('bg-tertiary-soft', 'border-tertiary');
+      playAudioChime(true);
+      markQuestionResult(true);
+      setTimeout(() => advanceNextWord(), 380);
+    } else {
+      // WRONG!
+      btn.classList.remove('bg-surface-container-lowest', 'border-surface-container-high');
+      btn.classList.add('bg-vermilion-soft', 'border-secondary', 'animate-shake');
+      playAudioChime(false);
+      hadErrorOnCurrent = true;
+      markQuestionResult(false);
+      setTimeout(() => {
+        btn.classList.remove('animate-shake');
+      }, 400);
+    }
+  }
+
+  function markQuestionResult(isCorrect) {
+    const word = practiceDeck[currentIndex];
+    if (!word) return;
+
+    state.totalPracticed += 1;
+
+    if (isCorrect && !hadErrorOnCurrent) {
+      questionStatus[currentIndex] = 'correct';
+      currentStreak += 1;
+      currentRoundCorrect += 1;
+      if (currentStreak > maxStreak) maxStreak = currentStreak;
+
+      // Add to remembered, remove from forgotten
+      if (!state.rememberedIds.includes(word.id)) {
+        state.rememberedIds.push(word.id);
+      }
+      state.forgottenIds = state.forgottenIds.filter(id => id !== word.id);
+      state.correctCount += 1;
+    } else {
+      questionStatus[currentIndex] = 'wrong';
+      currentStreak = 0;
+      currentRoundWrongIds.add(word.id);
+
+      if (!state.forgottenIds.includes(word.id)) {
+        state.forgottenIds.push(word.id);
+      }
+    }
+
+    // Update streak UI
+    const streakBadge = document.getElementById('arena-streak-badge');
+    const streakNum = document.getElementById('arena-streak-num');
+    if (streakBadge && streakNum) {
+      if (currentStreak >= 2) {
+        streakBadge.classList.remove('hidden');
+        streakNum.textContent = currentStreak;
+      } else {
+        streakBadge.classList.add('hidden');
+      }
+    }
+
+    saveState();
+  }
+
+  function advanceNextWord() {
+    if (currentIndex + 1 < practiceDeck.length) {
+      loadArenaWord(currentIndex + 1);
+    } else {
+      finishPracticeSession();
+    }
+  }
+
+  function prevWord() {
+    if (currentIndex > 0) {
+      loadArenaWord(currentIndex - 1);
+    }
+  }
+
+  function skipWord() {
+    hadErrorOnCurrent = true;
+    markQuestionResult(false);
+    advanceNextWord();
+  }
+
+  function finishPracticeEarly() {
+    if (confirm('Bạn có chắc muốn kết thúc bài rèn luyện và xem kết quả tổng kết?')) {
+      finishPracticeSession();
+    }
+  }
+
+  function finishPracticeSession() {
+    document.getElementById('practice-arena-screen').classList.add('hidden');
+    document.getElementById('practice-summary-screen').classList.remove('hidden');
+
+    const totalEl = document.getElementById('summary-total');
+    const correctEl = document.getElementById('summary-correct');
+    const streakEl = document.getElementById('summary-max-streak');
+
+    if (totalEl) totalEl.textContent = practiceDeck.length;
+    if (correctEl) correctEl.textContent = currentRoundCorrect;
+    if (streakEl) streakEl.textContent = maxStreak + ' 🔥';
+
+    // Unremembered words list in round
+    const unrememberedSec = document.getElementById('summary-unremembered-section');
+    const unrememberedList = document.getElementById('summary-unremembered-list');
+    const retryBtn = document.getElementById('summary-btn-retry-unremembered');
+    const retryCount = document.getElementById('summary-unremembered-count');
+
+    if (currentRoundWrongIds.size > 0) {
+      if (unrememberedSec) unrememberedSec.classList.remove('hidden');
+      if (retryBtn) retryBtn.classList.remove('hidden');
+      if (retryCount) retryCount.textContent = currentRoundWrongIds.size;
+
+      const wrongWords = practiceDeck.filter(w => currentRoundWrongIds.has(w.id));
+      if (unrememberedList) {
+        unrememberedList.innerHTML = wrongWords.map(w => `
+          <div class="bg-surface-container-low p-2.5 rounded-xl border border-surface-container flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="kanji-glyph text-xl font-normal text-primary">${w.kanji}</span>
+              <div>
+                <span class="text-xs font-bold text-secondary block">${w.displayReading}</span>
+                <span class="text-[11px] text-on-surface font-medium truncate max-w-[120px] block">${w.meaning}</span>
+              </div>
+            </div>
+            <button class="w-7 h-7 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary" onclick="app.speakWordText('${w.kanji}')">
+              <span class="material-symbols-outlined text-[16px]">volume_up</span>
+            </button>
+          </div>
+        `).join('');
+      }
+    } else {
+      if (unrememberedSec) unrememberedSec.classList.add('hidden');
+      if (retryBtn) retryBtn.classList.add('hidden');
+    }
+  }
+
+  function retryUnrememberedSummary() {
+    const wrongWords = practiceDeck.filter(w => currentRoundWrongIds.has(w.id));
+    if (wrongWords.length > 0) {
+      startPracticeSession(wrongWords);
+    }
+  }
+
+  function restartSamePractice() {
+    startPracticeSession(practiceDeck);
+  }
+
+  function exitPracticeSession() {
+    if (confirm('Bạn có muốn thoát về màn hình chọn chủ đề không?')) {
+      document.getElementById('practice-arena-screen').classList.add('hidden');
+      document.getElementById('practice-summary-screen').classList.add('hidden');
+      document.getElementById('practice-setup-screen').classList.remove('hidden');
+    }
+  }
+
+  // Hint button (reveals first char of Hiragana)
+  function hintFirstChar() {
+    const currentWord = practiceDeck[currentIndex];
+    if (!currentWord) return;
+    hadErrorOnCurrent = true;
+    revealedHint = true;
+
+    const hintBox = document.getElementById('arena-hint-box');
+    const firstChar = currentWord.displayReading.charAt(0);
+    if (hintBox) {
+      hintBox.textContent = `💡 Gợi ý chữ cái đầu: "${firstChar}..." (Âm đầy đủ: ${currentWord.displayReading})`;
+    }
+  }
+
+  // Speak Current Word in Arena
+  function speakCurrentWord() {
+    const currentWord = practiceDeck[currentIndex];
+    if (currentWord) {
+      speakJapanese(currentWord.kanji);
+      const pill = document.getElementById('arena-reading-display');
+      if (pill) pill.textContent = currentWord.displayReading;
+    }
+  }
+
+  function speakWordText(text) {
+    speakJapanese(text);
+  }
+
+  // Toggle Bookmark in Arena
+  function toggleCurrentBookmark() {
+    const currentWord = practiceDeck[currentIndex];
+    if (currentWord) {
+      toggleBookmarkId(currentWord.id);
+      updateArenaBookmarkIcon(currentWord.id);
+    }
+  }
+
+  function updateArenaBookmarkIcon(id) {
+    const icon = document.getElementById('arena-icon-bookmark');
+    if (!icon) return;
+    if (state.forgottenIds.includes(id)) {
+      icon.textContent = 'bookmark';
+      icon.parentElement.classList.add('text-secondary');
+    } else {
+      icon.textContent = 'bookmark_border';
+      icon.parentElement.classList.remove('text-secondary');
+    }
+  }
+
+  function toggleBookmarkId(id) {
+    if (state.forgottenIds.includes(id)) {
+      state.forgottenIds = state.forgottenIds.filter(i => i !== id);
+    } else {
+      state.forgottenIds.push(id);
+    }
+    saveState();
+    // Refresh relevant views
+    if (!views.vocab.classList.contains('hidden')) renderVocabScreen();
+    if (!views.profile.classList.contains('hidden')) renderProfileScreen();
+  }
+
+  // ================= JUMP GRID MODAL (⊞ CHỌN CÂU) =================
+  function openJumpGrid() {
+    const modal = document.getElementById('modal-jump-grid');
+    const grid = document.getElementById('jump-grid-container');
+    if (!modal || !grid) return;
+
+    grid.innerHTML = practiceDeck.map((word, i) => {
+      const status = questionStatus[i] || 'unvisited';
+      let colorClass = 'bg-surface-container text-on-surface-variant border-surface-container-high';
+      if (status === 'correct') {
+        colorClass = 'bg-tertiary-soft text-tertiary border-tertiary font-bold';
+      } else if (status === 'wrong' || state.forgottenIds.includes(word.id)) {
+        colorClass = 'bg-vermilion-soft text-secondary border-secondary font-bold';
+      }
+
+      if (i === currentIndex) {
+        colorClass += ' ring-2 ring-primary';
+      }
+
+      return `
+        <button class="py-2.5 rounded-xl border text-xs font-semibold flex flex-col items-center justify-center transition-transform hover:scale-105 ${colorClass}" onclick="app.jumpToQuestion(${i})">
+          <span>${i + 1}</span>
+          <span class="kanji-glyph text-xs font-normal opacity-80">${word.kanji}</span>
+        </button>
+      `;
+    }).join('');
+
+    modal.classList.remove('hidden');
+  }
+
+  function closeJumpGrid() {
+    const modal = document.getElementById('modal-jump-grid');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function jumpToQuestion(index) {
+    closeJumpGrid();
+    loadArenaWord(index);
+  }
+
+  // ================= SETTINGS MODAL (⚙️ CÀI ĐẶT) =================
+  function openSettings() {
+    const modal = document.getElementById('modal-settings');
+    if (!modal) return;
+
+    // Check appropriate radio
+    const rAfter = document.getElementById('radio-mc-after');
+    const rDis = document.getElementById('radio-mc-disabled');
+    const rBoth = document.getElementById('radio-mc-both');
+
+    if (rAfter && rDis && rBoth) {
+      if (state.preferences.mcMode === 'disabled') rDis.checked = true;
+      else if (state.preferences.mcMode === 'both') rBoth.checked = true;
+      else rAfter.checked = true;
+    }
+
+    // Toggles
+    updateSettingsToggleUI();
+
+    modal.classList.remove('hidden');
+  }
+
+  function closeSettings() {
+    const modal = document.getElementById('modal-settings');
+    if (modal) modal.classList.add('hidden');
+    saveState();
+    // If arena is active, update choice visibility
+    if (!document.getElementById('practice-arena-screen').classList.contains('hidden')) {
+      const choicesSection = document.getElementById('arena-choices-section');
+      if (choicesSection) {
+        if (state.preferences.mcMode === 'disabled' || practiceConfig.method === 'higa_only') {
+          choicesSection.classList.add('hidden');
+        } else if (state.preferences.mcMode === 'after_higa' && !isInputLocked) {
+          choicesSection.classList.add('hidden');
+        } else {
+          choicesSection.classList.remove('hidden');
+        }
+      }
+    }
+  }
+
+  function setSettingMcMode(mode) {
+    state.preferences.mcMode = mode;
+    saveState();
+  }
+
+  function toggleSoundSetting() {
+    state.preferences.soundEnabled = !state.preferences.soundEnabled;
+    saveState();
+    updateSettingsToggleUI();
+    updateHeaderTTSButton();
+  }
+
+  function toggleRomajiSetting() {
+    state.preferences.romajiAutoConvert = !state.preferences.romajiAutoConvert;
+    saveState();
+    updateSettingsToggleUI();
+  }
+
+  function updateSettingsToggleUI() {
+    const sBtn = document.getElementById('toggle-sound-btn');
+    const sThumb = document.getElementById('toggle-sound-thumb');
+    if (sBtn && sThumb) {
+      if (state.preferences.soundEnabled) {
+        sBtn.classList.remove('bg-surface-container-highest');
+        sBtn.classList.add('bg-primary');
+        sThumb.classList.add('translate-x-6');
+      } else {
+        sBtn.classList.remove('bg-primary');
+        sBtn.classList.add('bg-surface-container-highest');
+        sThumb.classList.remove('translate-x-6');
+      }
+    }
+
+    const rBtn = document.getElementById('toggle-romaji-btn');
+    const rThumb = document.getElementById('toggle-romaji-thumb');
+    if (rBtn && rThumb) {
+      if (state.preferences.romajiAutoConvert) {
+        rBtn.classList.remove('bg-surface-container-highest');
+        rBtn.classList.add('bg-primary');
+        rThumb.classList.add('translate-x-6');
+      } else {
+        rBtn.classList.remove('bg-primary');
+        rBtn.classList.add('bg-surface-container-highest');
+        rThumb.classList.remove('translate-x-6');
+      }
+    }
+  }
+
+  function toggleSound() {
+    toggleSoundSetting();
+  }
+
+  function updateHeaderTTSButton() {
+    const icon = document.getElementById('header-icon-tts');
+    if (icon) {
+      icon.textContent = state.preferences.soundEnabled ? 'volume_up' : 'volume_off';
+    }
+  }
+
+  // ================= PROFILE SCREEN LOGIC =================
+  function renderProfileScreen() {
+    const streakBadge = document.getElementById('profile-streak-badge');
+    if (streakBadge) streakBadge.textContent = state.streak;
+
+    const totalWords = KANJI_DATA.length;
+    const learned = Math.min(state.rememberedIds.length, totalWords);
+    const percent = Math.min(100, Math.round((learned / totalWords) * 100));
+
+    const learnedCountEl = document.getElementById('profile-learned-count');
+    if (learnedCountEl) learnedCountEl.textContent = learned;
+
+    const goalBar = document.getElementById('profile-goal-bar');
+    if (goalBar) goalBar.style.width = percent + '%';
+
+    const goalPercent = document.getElementById('profile-goal-percent');
+    if (goalPercent) goalPercent.textContent = percent + '%';
+
+    const starredCount = document.getElementById('profile-starred-count');
+    if (starredCount) starredCount.textContent = `${state.forgottenIds.length} chữ đã lưu`;
+
+    const mcLabel = document.getElementById('profile-mc-mode-label');
+    if (mcLabel) {
+      if (state.preferences.mcMode === 'disabled') {
+        mcLabel.textContent = 'Tắt trắc nghiệm (Chỉ gõ Hiragana)';
+      } else if (state.preferences.mcMode === 'both') {
+        mcLabel.textContent = 'Hiện cả hai cùng lúc';
+      } else {
+        mcLabel.textContent = 'Hiện trắc nghiệm sau khi viết đúng';
+      }
+    }
+  }
+
+  function resetAllProgress() {
+    if (confirm('CẢNH BÁO: Thao tác này sẽ đặt lại chuỗi streak và toàn bộ lịch sử từ đã thuộc. Bạn có chắc chắn không?')) {
+      state = Object.assign({}, defaultState);
+      saveState();
+      renderHomeScreen();
+      renderProfileScreen();
+      alert('Đã đặt lại tiến độ thành công!');
+    }
+  }
+
+  // ================= GLOBAL KEYBOARD SHORTCUTS =================
+  function initKeyboardShortcuts() {
+    window.addEventListener('keydown', (e) => {
+      // Don't intercept when modal is open
+      const jumpGridOpen = !document.getElementById('modal-jump-grid').classList.contains('hidden');
+      const settingsOpen = !document.getElementById('modal-settings').classList.contains('hidden');
+
+      if (e.key === 'Escape') {
+        if (jumpGridOpen) closeJumpGrid();
+        if (settingsOpen) closeSettings();
+        return;
+      }
+
+      if (jumpGridOpen || settingsOpen) return;
+
+      const arenaActive = !document.getElementById('practice-arena-screen').classList.contains('hidden');
+      if (!arenaActive) return;
+
+      // Ctrl + Z: Quay lại
+      if (e.ctrlKey && (e.key === 'z' || e.key === 'Z')) {
+        e.preventDefault();
+        prevWord();
+        return;
+      }
+
+      // Ctrl + G: Jump Grid
+      if (e.ctrlKey && (e.key === 'g' || e.key === 'G')) {
+        e.preventDefault();
+        openJumpGrid();
+        return;
+      }
+
+      // Space: Pronounce
+      if (e.code === 'Space' && document.activeElement.id !== 'arena-hiragana-input') {
+        e.preventDefault();
+        speakCurrentWord();
+        return;
+      }
+
+      // 1, 2, 3, 4: Multiple choice selections
+      const choicesSection = document.getElementById('arena-choices-section');
+      const choicesVisible = choicesSection && !choicesSection.classList.contains('hidden');
+
+      if (choicesVisible) {
+        if (['1', '2', '3', '4'].includes(e.key)) {
+          // If input is focused and Hiragana is already locked, prevent typing '1' into input
+          if (isInputLocked || practiceConfig.method === 'mc_only') {
+            e.preventDefault();
+            const choiceIndex = parseInt(e.key, 10) - 1;
+            onSelectChoice(choiceIndex);
+          }
+        }
+      }
+    });
+  }
+
+  // Shortcut helpers from Home
+  function startPracticeFromHome(level) {
+    switchTab('practice');
+    setPracticeLevel(level.toUpperCase());
+  }
+
+  function startFlashcardsFromHome(level) {
+    switchTab('vocab');
+    setVocabSubView('flashcard');
+    filterVocabLevel(level.toUpperCase());
+  }
+
+  function startTopicPractice(topicId) {
+    switchTab('practice');
+    const topic = TOPICS.find(t => t.id === topicId);
+    if (topic) {
+      setPracticeLevel(topic.level);
+      practiceConfig.selectedTopicIds.clear();
+      practiceConfig.selectedTopicIds.add(topicId);
+      renderPracticeTopicList();
+      startPracticeSession();
+    }
+  }
+
+  function startForgottenPractice() {
+    switchTab('practice');
+    practiceConfig.onlyUnremembered = true;
+    const thumb = document.getElementById('thumb-only-unremembered');
+    const btn = document.getElementById('btn-toggle-only-unremembered');
+    if (thumb && btn) {
+      btn.classList.add('bg-secondary');
+      thumb.classList.add('translate-x-6');
+    }
+    const isRadical = practiceConfig.level === 'RADICALS';
+    const source = isRadical ? RADICALS_DATA : KANJI_DATA;
+    const forgottenWords = source.filter(it => state.forgottenIds.includes(it.id));
+    if (forgottenWords.length > 0) {
+      startPracticeSession(forgottenWords);
+    } else {
+      alert('Sổ tay chưa có từ nào! Hãy luyện tập và đánh dấu các từ bạn cần ôn lại nhé.');
+    }
+  }
+
+  // ================= INITIALIZATION =================
+  function init() {
+    initVoices();
+    initKeyboardShortcuts();
+    updateHeaderTTSButton();
+    setPracticeLevel('N5');
+    renderHomeScreen();
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+
+  // Expose to window.app for HTML inline event handlers
+  window.app = {
+    switchTab,
+    renderHomeScreen,
+    renderVocabScreen,
+    renderProfileScreen,
+    setVocabSubView,
+    filterVocabLevel,
+    toggleTopicAccordion,
+    onVocabSearch,
+    clearVocabSearch,
+    flipFlashcard,
+    nextFlashcard,
+    prevFlashcard,
+    markFlashcardForgotten,
+    speakFlashcardWord,
+    setPracticeLevel,
+    togglePracticeTopic,
+    toggleAllPracticeTopics,
+    setPracticeMethod,
+    toggleOnlyUnremembered,
+    startPracticeSession,
+    onArenaInput,
+    onArenaInputKeyDown,
+    onSelectChoice,
+    advanceNextWord,
+    prevWord,
+    skipWord,
+    finishPracticeEarly,
+    finishPracticeSession,
+    retryUnrememberedSummary,
+    restartSamePractice,
+    exitPracticeSession,
+    hintFirstChar,
+    speakCurrentWord,
+    speakWordText,
+    toggleCurrentBookmark,
+    toggleBookmarkId,
+    openJumpGrid,
+    closeJumpGrid,
+    jumpToQuestion,
+    openSettings,
+    closeSettings,
+    setSettingMcMode,
+    toggleSoundSetting,
+    toggleRomajiSetting,
+    toggleSound,
+    resetAllProgress,
+    startPracticeFromHome,
+    startFlashcardsFromHome,
+    startTopicPractice,
+    startForgottenPractice
+  };
+
+})();
