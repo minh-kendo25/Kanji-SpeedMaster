@@ -14,6 +14,8 @@
     correctCount: 0,
     rememberedIds: [],
     forgottenIds: [],
+    theme: 'light', // 'light' | 'dark'
+    geminiApiKey: '',
     aiTokens: {
       day: null,
       used: 0,
@@ -32,12 +34,20 @@
     try {
       const data = localStorage.getItem(STORAGE_KEY);
       if (data) {
-        return Object.assign({}, defaultState, JSON.parse(data));
+        const loaded = Object.assign({}, defaultState, JSON.parse(data));
+        if (!loaded.theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          loaded.theme = 'dark';
+        }
+        return loaded;
       }
     } catch (e) {
       console.warn('Could not load localStorage:', e);
     }
-    return Object.assign({}, defaultState);
+    const initial = Object.assign({}, defaultState);
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      initial.theme = 'dark';
+    }
+    return initial;
   }
 
   function saveState() {
@@ -1269,7 +1279,50 @@
     updateSettingsToggleUI();
   }
 
+  function applyTheme() {
+    const isDark = state.theme === 'dark';
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // Header & Sidebar theme toggle icons
+    const hIcon = document.getElementById('header-icon-theme');
+    if (hIcon) hIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+    const sbIcon = document.getElementById('sidebar-icon-theme');
+    if (sbIcon) sbIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+
+    // Tooltip texts
+    const hBtn = document.getElementById('header-btn-theme');
+    if (hBtn) hBtn.title = isDark ? 'Chuyển sang giao diện Sáng' : 'Chuyển sang giao diện Tối';
+
+    // Settings modal theme toggle
+    const tBtn = document.getElementById('toggle-theme-btn');
+    const tThumb = document.getElementById('toggle-theme-thumb');
+    if (tBtn && tThumb) {
+      if (isDark) {
+        tBtn.classList.remove('bg-surface-alt', 'border-border-subtle');
+        tBtn.classList.add('bg-primary');
+        tThumb.classList.add('translate-x-6');
+      } else {
+        tBtn.classList.remove('bg-primary');
+        tBtn.classList.add('bg-surface-alt', 'border-border-subtle');
+        tThumb.classList.remove('translate-x-6');
+      }
+    }
+  }
+
+  function toggleTheme() {
+    state.theme = state.theme === 'dark' ? 'light' : 'dark';
+    saveState();
+    applyTheme();
+  }
+
   function updateSettingsToggleUI() {
+    // Theme toggle in settings
+    applyTheme();
+
     const sBtn = document.getElementById('toggle-sound-btn');
     const sThumb = document.getElementById('toggle-sound-thumb');
     if (sBtn && sThumb) {
@@ -1296,6 +1349,11 @@
         rBtn.classList.add('bg-border-strong');
         rThumb.classList.remove('translate-x-6');
       }
+    }
+
+    const settingsKeyInput = document.getElementById('settings-gemini-key-input');
+    if (settingsKeyInput) {
+      settingsKeyInput.value = state.geminiApiKey || '';
     }
   }
 
@@ -1457,7 +1515,230 @@
     return div.innerHTML;
   }
 
-  function handleUserAiQuery(query) {
+  // ================= GEMINI API & AI ENGINE =================
+  let chatHistory = [];
+
+  const GEMINI_SYSTEM_INSTRUCTION = `Bạn là Gia sư Kanji AI thông minh của ứng dụng web Kanji Kachi (漢字勝ち) - nền tảng luyện phản xạ Hán tự N5 & N4 chuẩn mực.
+Nhiệm vụ của bạn:
+1. Giải đáp mọi thắc mắc của người học về tiếng Nhật, đặc biệt là chữ Hán (Kanji), từ vựng, ngữ pháp N5/N4, phân tích 214 bộ thủ, âm Hán Việt, âm On, âm Kun, mẹo nhớ hình tượng và câu ví dụ thực tế.
+2. Trả lời bằng tiếng Việt thân thiện, súc tích, mang tính sư phạm và khích lệ người học.
+3. Khi giải thích một chữ Hán, luôn có cấu trúc rõ ràng: Hán Việt, âm On/Kun, nghĩa tiếng Việt, mẹo nhớ (chiết tự hoặc hình ảnh), và 1-2 câu ví dụ ngắn có kèm dịch nghĩa.
+4. Trình bày bằng Markdown sạch đẹp (dùng gạch đầu dòng, **in đậm** từ quan trọng, \`code\` cho cách đọc Hiragana/Romaji). Trả lời ngắn gọn, tập trung (dưới 200 từ trừ khi người dùng yêu cầu giải thích chi tiết).`;
+
+  function openApiKeyModal() {
+    const modal = document.getElementById('modal-api-key');
+    const input = document.getElementById('gemini-key-input');
+    const removeBtn = document.getElementById('btn-remove-api-key');
+    if (input) input.value = state.geminiApiKey || '';
+    if (removeBtn) {
+      if (state.geminiApiKey) {
+        removeBtn.classList.remove('hidden');
+      } else {
+        removeBtn.classList.add('hidden');
+      }
+    }
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeApiKeyModal() {
+    const modal = document.getElementById('modal-api-key');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function toggleShowApiKey() {
+    const input = document.getElementById('gemini-key-input');
+    const icon = document.getElementById('key-visibility-icon');
+    if (input && icon) {
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        input.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    }
+  }
+
+  function saveApiKey() {
+    const input = document.getElementById('gemini-key-input');
+    const key = (input ? input.value : '').trim();
+    state.geminiApiKey = key;
+    saveState();
+    updateApiKeyUi();
+    closeApiKeyModal();
+
+    if (key) {
+      appendAiMessage('bot', `
+        <p class="font-bold text-sm text-primary">🎉 Đã kích hoạt Live Gemini AI thành công!</p>
+        <p class="text-ink-muted mt-1 leading-relaxed">Giờ đây bạn có thể hỏi Gia sư AI bất kỳ câu hỏi nào về chữ Hán, từ vựng, ngữ pháp N5/N4, phân tích ngữ nghĩa hoặc đặt câu ví dụ tự do.</p>
+      `);
+    }
+  }
+
+  function saveApiKeyFromSettings() {
+    const input = document.getElementById('settings-gemini-key-input');
+    const key = (input ? input.value : '').trim();
+    state.geminiApiKey = key;
+    saveState();
+    updateApiKeyUi();
+    alert(key ? 'Đã lưu Gemini API Key thành công!' : 'Đã xóa Gemini API Key.');
+  }
+
+  function removeApiKey() {
+    state.geminiApiKey = '';
+    saveState();
+    updateApiKeyUi();
+    closeApiKeyModal();
+    alert('Đã xóa Gemini API Key khỏi thiết bị.');
+  }
+
+  function updateApiKeyUi() {
+    const banner = document.getElementById('ai-key-banner');
+    if (banner) {
+      if (state.geminiApiKey) {
+        banner.classList.add('hidden');
+      } else {
+        banner.classList.remove('hidden');
+      }
+    }
+    const settingsInput = document.getElementById('settings-gemini-key-input');
+    if (settingsInput) {
+      settingsInput.value = state.geminiApiKey || '';
+    }
+  }
+
+  async function callGeminiLiveApi(query, apiKey) {
+    const models = ['gemini-2.0-flash', 'gemini-1.5-flash'];
+    let lastError = null;
+
+    // Build context history (last 6 messages)
+    const contents = [];
+    for (const msg of chatHistory.slice(-6)) {
+      contents.push({
+        role: msg.role === 'bot' ? 'model' : 'user',
+        parts: [{ text: msg.text }]
+      });
+    }
+    contents.push({
+      role: 'user',
+      parts: [{ text: query }]
+    });
+
+    for (const model of models) {
+      try {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(apiKey.trim())}`;
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            systemInstruction: {
+              parts: [{ text: GEMINI_SYSTEM_INSTRUCTION }]
+            },
+            contents: contents,
+            generationConfig: {
+              temperature: 0.7,
+              maxOutputTokens: 900
+            }
+          })
+        });
+
+        if (!response.ok) {
+          const errData = await response.json().catch(() => ({}));
+          const errMsg = errData.error?.message || `HTTP ${response.status}`;
+          throw new Error(errMsg);
+        }
+
+        const data = await response.json();
+        const candidate = data.candidates?.[0];
+        const text = candidate?.content?.parts?.[0]?.text;
+        if (!text) {
+          throw new Error('Không nhận được nội dung phản hồi từ AI.');
+        }
+
+        const totalTokens = data.usageMetadata?.totalTokenCount || Math.floor(150 + text.length / 3);
+        return {
+          text: text,
+          totalTokens: totalTokens
+        };
+      } catch (err) {
+        lastError = err;
+        console.warn(`Lỗi khi gọi model ${model}:`, err.message);
+        if (err.message.includes('API_KEY_INVALID') || err.message.includes('API key not valid')) {
+          break;
+        }
+      }
+    }
+
+    throw lastError || new Error('Không thể kết nối đến Gemini AI.');
+  }
+
+  function formatMarkdownToHtml(markdown) {
+    if (!markdown) return '';
+    let html = escapeHtml(markdown);
+
+    // Code blocks ```...```
+    html = html.replace(/```([\s\S]*?)```/g, '<pre class="bg-surface-alt p-2 rounded-lg my-1.5 font-mono text-[11px] overflow-x-auto border border-border-subtle text-primary"><code>$1</code></pre>');
+
+    // Inline code `...`
+    html = html.replace(/`([^`]+)`/g, '<code class="bg-surface-alt px-1.5 py-0.5 rounded font-mono text-[11px] text-primary border border-border-subtle">$1</code>');
+
+    // Bold **...**
+    html = html.replace(/\*\*([^*]+)\*\*/g, '<strong class="font-bold text-secondary">$1</strong>');
+
+    // Italic *...*
+    html = html.replace(/\*([^*]+)\*/g, '<em class="italic text-ink-secondary">$1</em>');
+
+    // Headings
+    html = html.replace(/^### (.*$)/gim, '<p class="font-bold text-sm text-primary mt-2 mb-1">$1</p>');
+    html = html.replace(/^## (.*$)/gim, '<p class="font-bold text-base text-primary mt-2.5 mb-1.5">$1</p>');
+    html = html.replace(/^# (.*$)/gim, '<p class="font-bold text-lg text-primary mt-3 mb-2">$1</p>');
+
+    // Lists & Paragraphs
+    const lines = html.split('\n');
+    let inList = false;
+    let listType = 'ul';
+    const formattedLines = [];
+
+    for (let line of lines) {
+      const bulletMatch = line.match(/^(\s*)[-*]\s+(.*)$/);
+      const numberMatch = line.match(/^(\s*)\d+\.\s+(.*)$/);
+
+      if (bulletMatch) {
+        if (!inList || listType !== 'ul') {
+          if (inList) formattedLines.push(`</${listType}>`);
+          formattedLines.push('<ul class="space-y-1 my-1.5 list-disc list-inside">');
+          inList = true;
+          listType = 'ul';
+        }
+        formattedLines.push(`<li class="text-ink-muted leading-relaxed">${bulletMatch[2]}</li>`);
+      } else if (numberMatch) {
+        if (!inList || listType !== 'ol') {
+          if (inList) formattedLines.push(`</${listType}>`);
+          formattedLines.push('<ol class="space-y-1 my-1.5 list-decimal list-inside">');
+          inList = true;
+          listType = 'ol';
+        }
+        formattedLines.push(`<li class="text-ink-muted leading-relaxed">${numberMatch[2]}</li>`);
+      } else {
+        if (inList) {
+          formattedLines.push(`</${listType}>`);
+          inList = false;
+        }
+        if (line.trim().length > 0) {
+          formattedLines.push(`<p class="leading-relaxed">${line}</p>`);
+        }
+      }
+    }
+    if (inList) {
+      formattedLines.push(`</${listType}>`);
+    }
+
+    return formattedLines.join('');
+  }
+
+  async function handleUserAiQuery(query) {
     const quota = getAiTokenQuota();
     const remaining = quota.limit - quota.used;
 
@@ -1471,6 +1752,8 @@
     }
 
     appendAiMessage('user', query);
+    chatHistory.push({ role: 'user', text: query });
+
     isAiGenerating = true;
     const sendBtn = document.getElementById('ai-chat-send-btn');
     if (sendBtn) sendBtn.disabled = true;
@@ -1494,21 +1777,73 @@
     container.appendChild(typingIndicator);
     scrollAiChatToBottom();
 
+    // 1. If Gemini API Key is present: Call Live Gemini AI API
+    if (state.geminiApiKey && state.geminiApiKey.trim()) {
+      try {
+        const result = await callGeminiLiveApi(query, state.geminiApiKey);
+        const ind = document.getElementById('ai-typing-indicator');
+        if (ind) ind.remove();
+
+        const formattedHtml = formatMarkdownToHtml(result.text);
+        appendAiMessage('bot', formattedHtml);
+        chatHistory.push({ role: 'bot', text: result.text });
+
+        const tokenCost = Math.min(remaining, Math.max(100, result.totalTokens));
+        consumeAiTokens(tokenCost);
+      } catch (err) {
+        console.error('Gemini API Error:', err);
+        const ind = document.getElementById('ai-typing-indicator');
+        if (ind) ind.remove();
+
+        appendAiMessage('bot', `
+          <div class="space-y-2">
+            <p class="font-bold text-secondary">Không thể kết nối đến Gemini AI</p>
+            <p class="text-ink-muted text-xs leading-relaxed">Chi tiết lỗi: <code>${escapeHtml(err.message)}</code></p>
+            <div class="pt-1">
+              <button class="px-3 py-1.5 rounded-lg bg-primary text-washi text-xs font-bold shadow-sm hover:opacity-90 transition-opacity" onclick="app.openApiKeyModal()">
+                🔑 Kiểm tra & Đổi API Key
+              </button>
+            </div>
+          </div>
+        `);
+      } finally {
+        isAiGenerating = false;
+        if (sendBtn) sendBtn.disabled = false;
+      }
+      return;
+    }
+
+    // 2. If NO Gemini API Key is present: Fallback to smart local tutor + prompt to add free key
     setTimeout(() => {
-      // Remove typing indicator
       const ind = document.getElementById('ai-typing-indicator');
       if (ind) ind.remove();
 
-      const responseHtml = generateIntelligentTutorResponse(query);
-      appendAiMessage('bot', responseHtml);
+      const localResponseHtml = generateIntelligentTutorResponse(query);
+      const combinedHtml = `
+        <div class="space-y-2.5">
+          <div class="bg-matcha-soft/80 p-2.5 rounded-xl border border-border-subtle flex items-start gap-2">
+            <span class="material-symbols-outlined text-secondary text-[20px] flex-shrink-0 mt-0.5">auto_awesome</span>
+            <div>
+              <span class="font-bold text-xs text-primary block">Mẹo: Bật Gemini AI trực tiếp 100%</span>
+              <p class="text-ink-muted text-[11px] mt-0.5">Để AI tự do trả lời mọi câu hỏi mở rộng ngoài từ điển, bạn hãy thêm Gemini API Key (Miễn phí 100% của Google).</p>
+              <button class="mt-2 px-3 py-1 rounded-lg bg-primary text-washi text-[11px] font-bold shadow-sm hover:opacity-90 transition-opacity" onclick="app.openApiKeyModal()">
+                🔑 Nhập Key Miễn Phí (10 giây)
+              </button>
+            </div>
+          </div>
+          <div>${localResponseHtml}</div>
+        </div>
+      `;
 
-      // Consume tokens (~120 - 240 tokens per answer)
+      appendAiMessage('bot', combinedHtml);
+      chatHistory.push({ role: 'bot', text: query });
+
       const tokenCost = Math.min(remaining, Math.floor(120 + Math.random() * 80 + query.length * 1.5));
       consumeAiTokens(tokenCost);
 
       isAiGenerating = false;
       if (sendBtn) sendBtn.disabled = false;
-    }, 600);
+    }, 500);
   }
 
   function generateIntelligentTutorResponse(query) {
@@ -1701,12 +2036,29 @@
     startPracticeSession();
   }
 
+  // AdSense Safe Push
+  function initAdSense() {
+    try {
+      const adElements = document.querySelectorAll('ins.adsbygoogle');
+      adElements.forEach(() => {
+        try {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+      });
+    } catch (e) {
+      console.warn('AdSense init notice:', e);
+    }
+  }
+
   // ================= 14. INITIALIZATION =================
   function init() {
     initVoices();
     initKeyboardShortcuts();
+    applyTheme();
     updateHeaderTTSButton();
     updateAiTokenUi();
+    updateApiKeyUi();
+    initAdSense();
     setPracticeLevel('N5');
     renderHomeScreen();
   }
@@ -1769,6 +2121,16 @@
     startTopicPractice,
     startTopicFlashcards,
     startForgottenPractice,
+    // Theme & Dark Mode
+    toggleTheme,
+    applyTheme,
+    // Gemini API Key Management
+    openApiKeyModal,
+    closeApiKeyModal,
+    toggleShowApiKey,
+    saveApiKey,
+    saveApiKeyFromSettings,
+    removeApiKey,
     // New Features
     speakSpotlight,
     practiceSpotlight,

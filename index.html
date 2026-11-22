@@ -15,6 +15,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
   
+  <!-- Google AdSense Official Script (Publisher ID: pub-5502113571358300) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5502113571358300" crossorigin="anonymous"></script>
+
+  <!-- Prevent Theme FOUC -->
+  <script>
+    (function() {
+      try {
+        const stored = localStorage.getItem('kanji_kachi_state_clean_v1');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          if (parsed && (parsed.theme === 'dark' || (!parsed.theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches))) {
+            document.documentElement.classList.add('dark');
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -23,17 +41,17 @@
       theme: {
         extend: {
           colors: {
-            "washi": "#FDFBF7",
-            "primary": "#1E232A",
-            "secondary": "#E84A36",
-            "tertiary": "#4A7C59",
-            "surface-card": "#FFFFFF",
-            "surface-alt": "#F7F5F0",
-            "border-subtle": "#EFEBE4",
-            "border-strong": "#DCD7CE",
-            "ink-text": "#1E232A",
-            "ink-muted": "#6B7280",
-            "ink-dim": "#9CA3AF"
+            "washi": "rgb(var(--bg-washi-rgb) / <alpha-value>)",
+            "primary": "rgb(var(--ink-primary-rgb) / <alpha-value>)",
+            "secondary": "rgb(var(--vermilion-rgb) / <alpha-value>)",
+            "tertiary": "rgb(var(--matcha-rgb) / <alpha-value>)",
+            "surface-card": "rgb(var(--bg-card-rgb) / <alpha-value>)",
+            "surface-alt": "rgb(var(--bg-card-alt-rgb) / <alpha-value>)",
+            "border-subtle": "rgb(var(--border-subtle-rgb) / <alpha-value>)",
+            "border-strong": "rgb(var(--border-strong-rgb) / <alpha-value>)",
+            "ink-text": "rgb(var(--ink-primary-rgb) / <alpha-value>)",
+            "ink-muted": "rgb(var(--ink-muted-rgb) / <alpha-value>)",
+            "ink-dim": "rgb(var(--ink-dim-rgb) / <alpha-value>)"
           },
           fontFamily: {
             serif: ["Noto Serif", "serif"],
@@ -149,10 +167,15 @@
       <!-- Sidebar Footer -->
       <div class="p-3 border-t border-border-subtle bg-surface-alt/50 flex items-center justify-between text-xs">
         <span class="text-ink-dim text-[11px] font-medium">Kanji Kachi v2.0</span>
-        <button class="text-ink-muted hover:text-primary flex items-center gap-1 font-semibold" onclick="app.openSettings()">
-          <span class="material-symbols-outlined text-[16px]">settings</span>
-          <span>Cài đặt</span>
-        </button>
+        <div class="flex items-center gap-2">
+          <button class="w-7 h-7 rounded-lg hover:bg-surface-card flex items-center justify-center text-ink-muted hover:text-primary transition-colors" onclick="app.toggleTheme()" title="Chuyển chế độ Tối / Sáng">
+            <span id="sidebar-icon-theme" class="material-symbols-outlined text-[16px]">dark_mode</span>
+          </button>
+          <button class="text-ink-muted hover:text-primary flex items-center gap-1 font-semibold" onclick="app.openSettings()">
+            <span class="material-symbols-outlined text-[16px]">settings</span>
+            <span>Cài đặt</span>
+          </button>
+        </div>
       </div>
 
     </aside>
@@ -186,6 +209,11 @@
 
         <!-- Right Quick Controls -->
         <div class="flex items-center gap-2">
+          <!-- Dark Mode Toggle -->
+          <button id="header-btn-theme" class="w-9 h-9 flex items-center justify-center rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary transition-colors" title="Chuyển chế độ Tối / Sáng" onclick="app.toggleTheme()">
+            <span id="header-icon-theme" class="material-symbols-outlined text-[20px]">dark_mode</span>
+          </button>
+
           <!-- Sound Toggle -->
           <button id="header-btn-tts" class="w-9 h-9 flex items-center justify-center rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary transition-colors" title="Bật/Tắt phát âm Tokyo" onclick="app.toggleSound()">
             <span id="header-icon-tts" class="material-symbols-outlined text-[20px]">volume_up</span>
@@ -368,12 +396,20 @@
             <div class="web-ad-container p-4 rounded-xl border border-dashed border-border-strong bg-surface-alt/70 text-center my-4">
               <div class="flex items-center justify-between mb-2">
                 <span class="text-[10px] uppercase font-bold tracking-wider text-ink-dim">Quảng cáo · Google AdSense Ready</span>
-                <span class="text-[10px] text-ink-dim">Vị trí: Vocabulary Banner</span>
+                <span class="text-[10px] text-ink-dim">ID: ca-pub-5502113571358300</span>
               </div>
-              <div class="h-20 sm:h-24 flex items-center justify-center bg-surface-card rounded-lg border border-border-subtle text-xs text-ink-muted">
-                <div class="flex flex-col items-center gap-1">
+              <div class="min-h-[80px] flex items-center justify-center bg-surface-card rounded-lg border border-border-subtle text-xs text-ink-muted p-2 overflow-hidden relative">
+                <!-- AdSense Responsive Unit -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-5502113571358300"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <div class="ad-placeholder flex flex-col items-center gap-1 text-ink-muted py-2">
                   <span class="material-symbols-outlined text-ink-dim text-[24px]">ad_units</span>
-                  <span>Khung quảng cáo tương thích (Google AdSense Responsive Unit)</span>
+                  <span class="font-medium">Khung quảng cáo Google AdSense (Vocabulary Banner)</span>
+                  <span class="text-[10px] text-ink-dim">Tự động kích hoạt khi tài khoản AdSense được phê duyệt tên miền</span>
                 </div>
               </div>
             </div>
@@ -735,13 +771,20 @@
               <div class="web-ad-container p-4 rounded-xl border border-dashed border-border-strong bg-surface-alt/70 text-center mt-6">
                 <div class="flex items-center justify-between mb-2">
                   <span class="text-[10px] uppercase font-bold tracking-wider text-ink-dim">Quảng cáo · Google AdSense Ready</span>
-                  <span class="text-[10px] text-ink-dim">Vị trí: Results Banner (StudyResultsBanner)</span>
+                  <span class="text-[10px] text-ink-dim">ID: ca-pub-5502113571358300</span>
                 </div>
-                <div class="h-24 sm:h-28 flex items-center justify-center bg-surface-card rounded-lg border border-border-subtle text-xs text-ink-muted">
-                  <div class="flex flex-col items-center gap-1.5">
-                    <span class="material-symbols-outlined text-ink-dim text-[28px]">ad_units</span>
-                    <span class="font-medium text-ink-secondary">Vị trí Banner tổng kết bài thi</span>
-                    <span class="text-[11px] text-ink-dim">Kích thước linh hoạt: 320x100 (Mobile) / 728x90 (Desktop Leaderboard)</span>
+                <div class="min-h-[90px] flex items-center justify-center bg-surface-card rounded-lg border border-border-subtle text-xs text-ink-muted p-2 overflow-hidden relative">
+                  <!-- AdSense Responsive Unit -->
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-5502113571358300"
+                       data-ad-slot="auto"
+                       data-ad-format="auto"
+                       data-full-width-responsive="true"></ins>
+                  <div class="ad-placeholder flex flex-col items-center gap-1.5 text-ink-muted py-2">
+                    <span class="material-symbols-outlined text-ink-dim text-[26px]">ad_units</span>
+                    <span class="font-medium text-ink-secondary">Vị trí Banner tổng kết bài thi (Responsive Unit)</span>
+                    <span class="text-[10px] text-ink-dim">Tự động điều chỉnh kích thước hiển thị trên Mobile và Desktop</span>
                   </div>
                 </div>
               </div>
@@ -934,6 +977,18 @@
       <div class="space-y-3 pt-3 border-t border-border-subtle">
         <span class="text-xs font-bold text-primary uppercase tracking-wider block">Tiện ích học tập</span>
 
+        <!-- Dark Mode Toggle -->
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold text-primary block">Giao diện tối (Dark Mode)</span>
+            <span class="text-[11px] text-ink-muted">Tông mực Sumi đêm êm dịu bảo vệ mắt</span>
+          </div>
+          <button id="toggle-theme-btn" class="w-12 h-6 rounded-full bg-surface-alt border border-border-subtle p-0.5 flex items-center transition-colors focus:outline-none" onclick="app.toggleTheme()">
+            <div id="toggle-theme-thumb" class="w-5 h-5 rounded-full bg-white shadow-sm transform translate-x-0 transition-transform"></div>
+          </button>
+        </div>
+
+        <!-- TTS Toggle -->
         <div class="flex items-center justify-between">
           <div>
             <span class="text-xs font-bold text-primary block">Tự động phát âm khi chuyển từ</span>
@@ -944,6 +999,7 @@
           </button>
         </div>
 
+        <!-- Romaji Toggle -->
         <div class="flex items-center justify-between">
           <div>
             <span class="text-xs font-bold text-primary block">Tự động chuyển Romaji ➔ Hiragana</span>
@@ -953,11 +1009,84 @@
             <div id="toggle-romaji-thumb" class="w-5 h-5 rounded-full bg-white shadow-sm transform translate-x-6 transition-transform"></div>
           </button>
         </div>
+
+        <!-- Gemini API Key Section -->
+        <div class="pt-3 border-t border-border-subtle space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider block">Gemini AI Key (Chat trực tiếp)</span>
+            <span class="text-[10px] font-bold text-tertiary bg-matcha-soft px-2 py-0.5 rounded">Miễn phí 100%</span>
+          </div>
+          <div class="flex gap-2">
+            <input type="password" id="settings-gemini-key-input" class="flex-1 bg-surface-alt rounded-xl px-3 py-2 text-xs text-primary border border-border-subtle focus:outline-none focus:border-primary font-mono" placeholder="Dán Gemini API Key (AIzaSy...)">
+            <button class="px-3 py-2 rounded-xl bg-primary text-washi text-xs font-bold shadow-sm" onclick="app.saveApiKeyFromSettings()">Lưu Key</button>
+          </div>
+          <p class="text-[11px] text-ink-muted leading-relaxed">
+            Key được lưu an toàn trong trình duyệt của bạn (localStorage). Lấy key miễn phí trong 10 giây tại <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="text-secondary font-bold hover:underline inline-flex items-center gap-0.5">Google AI Studio <span class="material-symbols-outlined text-[12px]">open_in_new</span></a>.
+          </p>
+        </div>
       </div>
 
       <div class="pt-3 border-t border-border-subtle">
         <button class="w-full py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.closeSettings()">
           Lưu & Đóng cài đặt
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: CÀI ĐẶT GEMINI API KEY ================= -->
+  <div id="modal-api-key" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-surface-card rounded-2xl border border-border-subtle max-w-md w-full p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-border-subtle pb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-primary text-washi flex items-center justify-center shadow-sm">
+            <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+          </div>
+          <div>
+            <h3 class="font-serif font-bold text-base text-primary">Cấu hình Gemini AI Key</h3>
+            <span class="text-[11px] text-tertiary font-semibold">100% Miễn phí từ Google AI Studio</span>
+          </div>
+        </div>
+        <button class="w-8 h-8 rounded-lg hover:bg-surface-alt flex items-center justify-center text-ink-muted hover:text-primary transition-colors" onclick="app.closeApiKeyModal()">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs leading-relaxed text-ink-muted">
+        <p>Để trò chuyện trực tiếp không giới hạn với Gia sư Kanji AI (hỏi đáp nghĩa từ, phân tích ngữ pháp, đặt câu ví dụ tự do), bạn chỉ cần dán <strong>Gemini API Key</strong> của bạn vào đây.</p>
+        
+        <div class="bg-surface-alt p-3 rounded-xl border border-border-subtle space-y-1.5">
+          <span class="font-bold text-primary block text-[11px]">👉 Cách lấy Key miễn phí trong 10 giây:</span>
+          <ol class="list-decimal list-inside space-y-1 text-[11px]">
+            <li>Truy cập <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="text-secondary font-bold hover:underline inline-flex items-center gap-0.5">Google AI Studio <span class="material-symbols-outlined text-[12px]">open_in_new</span></a> và đăng nhập bằng Gmail.</li>
+            <li>Bấm <strong>"Create API key"</strong> và copy chuỗi key (bắt đầu bằng <code>AIzaSy...</code>).</li>
+            <li>Dán vào ô bên dưới rồi bấm <strong>"Lưu & Bắt đầu"</strong>.</li>
+          </ol>
+        </div>
+
+        <div class="space-y-1.5">
+          <label class="font-bold text-primary block text-xs">Gemini API Key của bạn:</label>
+          <div class="relative flex items-center">
+            <input 
+              id="gemini-key-input" 
+              type="password" 
+              class="w-full bg-surface-alt rounded-xl px-3.5 py-2.5 text-xs text-primary placeholder:text-ink-dim border border-border-subtle focus:outline-none focus:border-primary font-mono transition-colors" 
+              placeholder="Dán AIzaSy... vào đây"
+            >
+            <button type="button" class="absolute right-2 text-ink-dim hover:text-primary p-1" onclick="app.toggleShowApiKey()" title="Hiện/Ẩn key">
+              <span id="key-visibility-icon" class="material-symbols-outlined text-[18px]">visibility</span>
+            </button>
+          </div>
+          <span class="text-[10px] text-ink-dim block">🔒 Key được lưu bảo mật trong trình duyệt của bạn (localStorage), không gửi về bất kỳ máy chủ trung gian nào.</span>
+        </div>
+      </div>
+
+      <div class="pt-2 border-t border-border-subtle flex items-center gap-2">
+        <button class="flex-1 py-2.5 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.saveApiKey()">
+          Lưu & Bắt đầu chat
+        </button>
+        <button id="btn-remove-api-key" class="py-2.5 px-3 rounded-xl bg-surface-alt hover:bg-border-subtle text-secondary font-bold text-xs transition-colors hidden" onclick="app.removeApiKey()" title="Xóa key hiện tại">
+          Xóa key
         </button>
       </div>
     </div>
@@ -996,7 +1125,11 @@
         </div>
       </div>
       
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-1.5">
+        <!-- Key Settings Button -->
+        <button id="chat-btn-apikey" class="w-8 h-8 rounded-lg hover:bg-surface-card text-ink-muted hover:text-secondary flex items-center justify-center transition-colors" onclick="app.openApiKeyModal()" title="Cài đặt Gemini API Key (Miễn phí)">
+          <span class="material-symbols-outlined text-[18px]">key</span>
+        </button>
         <!-- Token Badge -->
         <span id="chat-token-badge" class="px-2 py-0.5 rounded-full bg-matcha-soft text-tertiary text-[10px] font-bold" title="Token còn lại hôm nay">
           12.000 token
@@ -1005,6 +1138,20 @@
           <span class="material-symbols-outlined text-[18px]">close</span>
         </button>
       </div>
+    </div>
+
+    <!-- API Key Notice Banner (Show when key not yet configured) -->
+    <div id="ai-key-banner" class="bg-matcha-soft/70 border-b border-border-subtle px-3.5 py-2 flex items-center justify-between text-xs flex-shrink-0 transition-all">
+      <div class="flex items-center gap-2 text-ink-primary">
+        <span class="material-symbols-outlined text-secondary text-[18px] animate-pulse">key</span>
+        <div class="leading-tight">
+          <span class="font-bold text-[11px] text-primary block">Mở khóa AI trực tiếp 100%</span>
+          <span class="text-[10px] text-ink-muted block">Nhập Gemini API Key miễn phí từ Google</span>
+        </div>
+      </div>
+      <button class="px-2.5 py-1 rounded-lg bg-primary text-washi text-[10px] font-bold shadow-sm hover:opacity-90 flex-shrink-0 transition-opacity" onclick="app.openApiKeyModal()">
+        Cài Key
+      </button>
     </div>
 
     <!-- Chat Messages Scroll Area -->
