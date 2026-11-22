@@ -404,24 +404,10 @@
   }
 
   function setVocabSubView(mode) {
-    currentVocabSubView = mode;
-    const listBtn = document.getElementById('vocab-tab-list');
-    const fcBtn = document.getElementById('vocab-tab-flashcard');
-    const listSub = document.getElementById('vocab-subview-list');
+    currentVocabSubView = 'flashcard';
     const fcSub = document.getElementById('vocab-subview-flashcard');
-
-    if (mode === 'list') {
-      listBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-lg bg-surface-card text-primary shadow-sm transition-all flex items-center gap-1.5";
-      fcBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-lg text-ink-muted hover:text-primary transition-all flex items-center gap-1.5";
-      listSub.classList.remove('hidden');
-      fcSub.classList.add('hidden');
-    } else {
-      fcBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-lg bg-surface-card text-primary shadow-sm transition-all flex items-center gap-1.5";
-      listBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-lg text-ink-muted hover:text-primary transition-all flex items-center gap-1.5";
-      fcSub.classList.remove('hidden');
-      listSub.classList.add('hidden');
-      setupFlashcardsForLevel(currentVocabLevel);
-    }
+    if (fcSub) fcSub.classList.remove('hidden');
+    setupFlashcardsForLevel(currentVocabLevel);
   }
 
   function filterVocabLevel(level) {
@@ -436,11 +422,7 @@
       }
     });
 
-    if (currentVocabSubView === 'list') {
-      renderVocabTopicsList(level);
-    } else {
-      setupFlashcardsForLevel(level);
-    }
+    setupFlashcardsForLevel(level);
   }
 
   function renderVocabTopicsList(level, searchQuery = '') {
@@ -627,8 +609,9 @@
   function openFlashcardTopic(topicId) {
     const picker = document.getElementById('flashcard-topic-picker');
     const player = document.getElementById('flashcard-player');
-    const select = document.getElementById('flashcard-topic-select');
-    if (select) select.value = topicId;
+    const titleEl = document.getElementById('flashcard-active-topic-title');
+    const topic = TOPICS.find(t => t.id === topicId);
+    if (titleEl && topic) titleEl.textContent = topic.title;
     if (picker) picker.classList.add('hidden');
     if (player) player.classList.remove('hidden');
     onFlashcardTopicChange(topicId);
@@ -2130,7 +2113,13 @@ Nhiệm vụ của bạn:
     }
 
     if (views.profile && !views.profile.classList.contains('hidden')) renderProfileScreen();
-    if (views.vocab && !views.vocab.classList.contains('hidden')) renderVocabScreen();
+    if (views.vocab && !views.vocab.classList.contains('hidden')) {
+      const player = document.getElementById('flashcard-player');
+      // Only refresh topic picker % rings if user is NOT currently studying a flashcard!
+      if (!player || player.classList.contains('hidden')) {
+        renderFlashcardTopicPicker(currentVocabLevel);
+      }
+    }
     if (views.home && !views.home.classList.contains('hidden')) renderHomeScreen();
   }
 

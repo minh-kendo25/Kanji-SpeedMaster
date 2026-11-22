@@ -357,20 +357,8 @@
           <!-- Header -->
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h2 class="font-serif font-bold text-xl sm:text-2xl text-primary tracking-tight">Thư viện từ vựng Hán tự</h2>
-              <p class="text-xs text-ink-muted mt-0.5">Kho 1.061 từ vựng JLPT N5 & N4 cùng 214 Bộ thủ Khang Hy.</p>
-            </div>
-
-            <!-- View Switcher -->
-            <div class="flex p-1 bg-surface-alt rounded-xl border border-border-subtle self-start sm:self-auto">
-              <button id="vocab-tab-list" class="px-4 py-1.5 text-xs font-semibold rounded-lg bg-surface-card text-primary shadow-sm transition-all flex items-center gap-1.5" onclick="app.setVocabSubView('list')">
-                <span class="material-symbols-outlined text-[16px]">view_list</span>
-                <span>Danh sách từ</span>
-              </button>
-              <button id="vocab-tab-flashcard" class="px-4 py-1.5 text-xs font-semibold rounded-lg text-ink-muted hover:text-primary transition-all flex items-center gap-1.5" onclick="app.setVocabSubView('flashcard')">
-                <span class="material-symbols-outlined text-[16px]">style</span>
-                <span>Thẻ Flashcard 3D</span>
-              </button>
+              <h2 class="font-serif font-bold text-xl sm:text-2xl text-primary tracking-tight">Học từ vựng Flashcard</h2>
+              <p class="text-xs text-ink-muted mt-0.5">Chọn chủ đề JLPT N5, N4 hoặc 214 Bộ thủ Khang Hy để học thẻ ghi nhớ 3D.</p>
             </div>
           </div>
 
@@ -378,57 +366,18 @@
           <div class="flex items-center gap-2 overflow-x-auto pb-1">
             <button id="lvl-filter-n5" class="px-4 py-2 rounded-xl bg-primary text-washi text-xs font-bold flex items-center gap-2 transition-all shadow-sm" onclick="app.filterVocabLevel('N5')">
               <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-              <span>Kanji N5 (350 chữ)</span>
+              <span>Kanji N5</span>
             </button>
             <button id="lvl-filter-n4" class="px-4 py-2 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs font-semibold transition-all" onclick="app.filterVocabLevel('N4')">
-              <span>Kanji N4 (711 chữ)</span>
+              <span>Kanji N4</span>
             </button>
             <button id="lvl-filter-radicals" class="px-4 py-2 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs font-semibold transition-all" onclick="app.filterVocabLevel('RADICALS')">
               <span>214 Bộ thủ Khang Hy</span>
             </button>
           </div>
 
-          <!-- SUBVIEW A: DANH SÁCH BẢNG TỪ -->
-          <div id="vocab-subview-list" class="space-y-4">
-            <!-- Search Input -->
-            <div class="relative flex items-center bg-surface-card rounded-xl px-4 py-2.5 border border-border-subtle focus-within:border-primary transition-colors shadow-sm">
-              <span class="material-symbols-outlined text-ink-dim text-[20px] mr-2.5">search</span>
-              <input id="vocab-search-input" type="text" class="w-full bg-transparent text-xs sm:text-sm text-primary placeholder:text-ink-dim focus:outline-none" placeholder="Tìm kiếm Hán tự, Hiragana hoặc nghĩa tiếng Việt..." oninput="app.onVocabSearch(this.value)">
-              <button id="vocab-search-clear" class="text-ink-dim hover:text-primary hidden" onclick="app.clearVocabSearch()">
-                <span class="material-symbols-outlined text-[18px]">close</span>
-              </button>
-            </div>
-
-            <!-- Topics Accordion Container -->
-            <div id="vocab-topics-container" class="space-y-3">
-              <!-- Populated dynamically -->
-            </div>
-
-            <!-- Web AdSense Container (Y chang vị trí VocabularyAdCard trong app) -->
-            <div class="web-ad-container p-4 rounded-xl border border-dashed border-border-strong bg-surface-alt/70 text-center my-4">
-              <div class="flex items-center justify-between mb-2">
-                <span class="text-[10px] uppercase font-bold tracking-wider text-ink-dim">Quảng cáo · Google AdSense Ready</span>
-                <span class="text-[10px] text-ink-dim">ID: ca-pub-5502113571358300</span>
-              </div>
-              <div class="min-h-[80px] flex items-center justify-center bg-surface-card rounded-lg border border-border-subtle text-xs text-ink-muted p-2 overflow-hidden relative">
-                <!-- AdSense Responsive Unit -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-5502113571358300"
-                     data-ad-slot="auto"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <div class="ad-placeholder flex flex-col items-center gap-1 text-ink-muted py-2">
-                  <span class="material-symbols-outlined text-ink-dim text-[24px]">ad_units</span>
-                  <span class="font-medium">Khung quảng cáo Google AdSense (Vocabulary Banner)</span>
-                  <span class="text-[10px] text-ink-dim">Tự động kích hoạt khi tài khoản AdSense được phê duyệt tên miền</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- SUBVIEW B: THẺ FLASHCARD 3D (CHỌN CHỦ ĐỀ TRƯỚC -> LẬT THẺ, GIỐNG APP MOBILE) -->
-          <div id="vocab-subview-flashcard" class="space-y-5 hidden">
+          <!-- THẺ FLASHCARD 3D (CHỌN CHỦ ĐỀ TRƯỚC -> LẬT THẺ, GIỐNG APP MOBILE) -->
+          <div id="vocab-subview-flashcard" class="space-y-5">
 
             <!-- Stage 1: Danh sách Chủ đề để chọn học Flashcard (Giống App Mobile) -->
             <div id="flashcard-topic-picker" class="space-y-4">
@@ -439,19 +388,39 @@
               <div id="flashcard-topics-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                 <!-- Populated dynamically with Kanji preview & circular % ring -->
               </div>
+
+              <!-- Web AdSense Container (Y chang vị trí VocabularyAdCard trong app) -->
+              <div class="web-ad-container p-4 rounded-xl border border-dashed border-border-strong bg-surface-alt/70 text-center mt-6">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[10px] uppercase font-bold tracking-wider text-ink-dim">Quảng cáo · Google AdSense Ready</span>
+                  <span class="text-[10px] text-ink-dim">ID: ca-pub-5502113571358300</span>
+                </div>
+                <div class="min-h-[80px] flex items-center justify-center bg-surface-card rounded-lg border border-border-subtle text-xs text-ink-muted p-2 overflow-hidden relative">
+                  <!-- AdSense Responsive Unit -->
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-5502113571358300"
+                       data-ad-slot="auto"
+                       data-ad-format="auto"
+                       data-full-width-responsive="true"></ins>
+                  <div class="ad-placeholder flex flex-col items-center gap-1 text-ink-muted py-2">
+                    <span class="material-symbols-outlined text-ink-dim text-[24px]">ad_units</span>
+                    <span class="font-medium">Khung quảng cáo Google AdSense (Vocabulary Banner)</span>
+                    <span class="text-[10px] text-ink-dim">Tự động kích hoạt khi tài khoản AdSense được phê duyệt tên miền</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <!-- Stage 2: Trình học Flashcard 3D (chỉ hiện sau khi chọn chủ đề) -->
+            <!-- Stage 2: Trình học Flashcard 3D (chỉ hiện sau khi chọn chủ đề, không cho đổi chủ đề ngang) -->
             <div id="flashcard-player" class="space-y-5 hidden max-w-2xl mx-auto">
-              <!-- Flashcard Header with Back to Topics + Topic Switcher -->
+              <!-- Flashcard Header with Back to Topics + Static Topic Title -->
               <div class="flex items-center justify-between gap-3 bg-surface-card px-4 py-3 rounded-xl border border-border-subtle shadow-sm">
                 <button class="flex items-center gap-1.5 text-xs font-bold text-ink-muted hover:text-primary transition-colors flex-shrink-0" onclick="app.backToFlashcardTopics()">
                   <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-                  <span>Đổi chủ đề</span>
+                  <span>Quay lại</span>
                 </button>
-                <select id="flashcard-topic-select" class="bg-transparent text-xs sm:text-sm font-bold text-primary focus:outline-none cursor-pointer max-w-[260px] truncate text-right" onchange="app.onFlashcardTopicChange(this.value)">
-                  <!-- Options populated dynamically -->
-                </select>
+                <span id="flashcard-active-topic-title" class="text-xs sm:text-sm font-bold text-primary truncate">Số đếm & Tiền tệ</span>
               </div>
 
             <!-- 3D Card Canvas (Scaled nicely for Web) -->
@@ -521,24 +490,6 @@
               <button class="py-3.5 rounded-xl bg-matcha-soft border border-tertiary/20 text-tertiary hover:opacity-90 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm" onclick="app.markFlashcardRemembered()">
                 <span class="material-symbols-outlined text-[20px]">check_circle</span>
                 <span>Đã nhớ</span>
-              </button>
-            </div>
-
-            <!-- Secondary Navigation Controls -->
-            <div class="flex items-center justify-between gap-3">
-              <button class="flex-1 py-2.5 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary font-bold text-xs flex items-center justify-center gap-1.5 transition-colors" onclick="app.prevFlashcard()">
-                <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-                <span>Thẻ trước</span>
-              </button>
-              
-              <button class="flex-1 py-2.5 rounded-xl bg-surface-card border border-border-subtle text-primary hover:bg-surface-alt font-bold text-xs flex items-center justify-center gap-1.5 transition-colors" onclick="app.flipFlashcard()">
-                <span class="material-symbols-outlined text-[18px]">flip</span>
-                <span>Lật thẻ</span>
-              </button>
-
-              <button class="flex-1 py-2.5 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary font-bold text-xs flex items-center justify-center gap-1.5 transition-colors" onclick="app.nextFlashcard()">
-                <span>Thẻ tiếp</span>
-                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
               </button>
             </div>
             </div>
@@ -1052,38 +1003,8 @@
         </button>
       </div>
 
-      <!-- Setting Section: Chế độ trắc nghiệm -->
-      <div class="space-y-2.5">
-        <span class="text-xs font-bold text-primary uppercase tracking-wider block">Chế độ trắc nghiệm</span>
-        <div class="space-y-2">
-          <label class="flex items-start gap-3 p-3 rounded-xl border border-border-subtle hover:bg-surface-alt cursor-pointer transition-colors" onclick="app.setSettingMcMode('after_higa')">
-            <input type="radio" name="setting_mc_mode" value="after_higa" id="radio-mc-after" class="mt-0.5 accent-primary cursor-pointer">
-            <div>
-              <span class="text-xs font-bold text-primary block">Hiện sau khi viết đúng Hiragana</span>
-              <span class="text-[11px] text-ink-muted block mt-0.5">Khóa box nhập lại sau khi viết đúng higa ➔ hiện 4 nút chọn nghĩa (bấm 1, 2, 3, 4).</span>
-            </div>
-          </label>
-
-          <label class="flex items-start gap-3 p-3 rounded-xl border border-border-subtle hover:bg-surface-alt cursor-pointer transition-colors" onclick="app.setSettingMcMode('disabled')">
-            <input type="radio" name="setting_mc_mode" value="disabled" id="radio-mc-disabled" class="mt-0.5 accent-primary cursor-pointer">
-            <div>
-              <span class="text-xs font-bold text-primary block">Tắt luôn trắc nghiệm (Chỉ gõ Hiragana)</span>
-              <span class="text-[11px] text-ink-muted block mt-0.5">Không hiện trắc nghiệm. Gõ đúng Hiragana là tự động nhảy sang câu tiếp theo.</span>
-            </div>
-          </label>
-
-          <label class="flex items-start gap-3 p-3 rounded-xl border border-border-subtle hover:bg-surface-alt cursor-pointer transition-colors" onclick="app.setSettingMcMode('both')">
-            <input type="radio" name="setting_mc_mode" value="both" id="radio-mc-both" class="mt-0.5 accent-primary cursor-pointer">
-            <div>
-              <span class="text-xs font-bold text-primary block">Hiện cả hai cùng lúc</span>
-              <span class="text-[11px] text-ink-muted block mt-0.5">Hiển thị cả ô gõ Hiragana và 4 nút chọn nghĩa đồng thời.</span>
-            </div>
-          </label>
-        </div>
-      </div>
-
       <!-- Setting Section: Audio & Romaji Toggles -->
-      <div class="space-y-3 pt-3 border-t border-border-subtle">
+      <div class="space-y-3">
         <span class="text-xs font-bold text-primary uppercase tracking-wider block">Tiện ích học tập</span>
 
         <!-- Dark Mode Toggle -->
