@@ -1364,6 +1364,10 @@
 
     if (shouldOpen) {
       box.classList.remove('hidden');
+      // Tắt chấm thông báo khi người dùng đã mở xem
+      const dot = document.getElementById('ai-unread-dot');
+      if (dot) dot.classList.add('hidden');
+
       updateAiTokenUi();
       const input = document.getElementById('ai-chat-input');
       if (input) {
@@ -1429,12 +1433,19 @@
       msgWrapper.className = 'flex items-start gap-2.5';
       msgWrapper.innerHTML = `
         <div class="w-7 h-7 rounded-lg bg-primary text-washi flex items-center justify-center flex-shrink-0 text-xs shadow-sm font-bold">
-          勝
+          <span class="material-symbols-outlined text-[16px]">auto_awesome</span>
         </div>
         <div class="ai-bubble-bot text-xs space-y-1.5 leading-relaxed">
           ${htmlContent}
         </div>
       `;
+
+      // Chỉ hiện chấm thông báo đỏ/cam khi AI trả lời mà người dùng ĐANG ĐÓNG chat box
+      const box = document.getElementById('ai-chat-box');
+      if (box && box.classList.contains('hidden')) {
+        const dot = document.getElementById('ai-unread-dot');
+        if (dot) dot.classList.remove('hidden');
+      }
     }
     container.appendChild(msgWrapper);
     scrollAiChatToBottom();
@@ -1471,7 +1482,7 @@
     typingIndicator.className = 'flex items-start gap-2.5';
     typingIndicator.innerHTML = `
       <div class="w-7 h-7 rounded-lg bg-primary text-washi flex items-center justify-center flex-shrink-0 text-xs shadow-sm font-bold">
-        勝
+        <span class="material-symbols-outlined text-[16px]">auto_awesome</span>
       </div>
       <div class="ai-bubble-bot text-xs py-2 px-3 text-ink-muted flex items-center gap-1.5">
         <span class="w-2 h-2 rounded-full bg-secondary animate-bounce"></span>

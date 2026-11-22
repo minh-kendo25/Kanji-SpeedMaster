@@ -106,7 +106,7 @@
 
           <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.toggleAiChat(true)">
             <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-[18px] text-primary">smart_toy</span>
+              <span class="material-symbols-outlined text-[18px] text-primary">auto_awesome</span>
               <span>Gia sư Kanji AI</span>
             </div>
             <span class="text-[10px] text-tertiary font-bold bg-matcha-soft px-1.5 py-0.5 rounded">Hỏi ngay</span>
@@ -795,7 +795,7 @@
           <div class="bg-surface-card rounded-2xl p-6 border border-border-subtle space-y-3 shadow-sm">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-secondary text-[22px]">smart_toy</span>
+                <span class="material-symbols-outlined text-secondary text-[22px]">auto_awesome</span>
                 <h3 class="font-serif font-bold text-base text-primary">Token AI Gia sư hôm nay</h3>
               </div>
               <span id="profile-ai-tokens-count" class="text-xs font-bold text-primary">12.000 / 12.000 token</span>
@@ -972,9 +972,9 @@
       onclick="app.toggleAiChat()" 
       title="Gia sư Kanji AI"
     >
-      <span class="material-symbols-outlined text-[28px] text-washi group-hover:rotate-12 transition-transform">smart_toy</span>
-      <!-- Glowing dot indicator -->
-      <span class="absolute top-0 right-0 w-3.5 h-3.5 rounded-full bg-tertiary border-2 border-washi animate-pulse"></span>
+      <span class="material-symbols-outlined text-[28px] text-washi group-hover:rotate-12 transition-transform">auto_awesome</span>
+      <!-- Notification dot indicator: CHỈ HIỆN KHI AI TRẢ LỜI MÀ NGƯỜI DÙNG ĐANG ĐÓNG BOX CHAT -->
+      <span id="ai-unread-dot" class="absolute top-0 right-0 w-3.5 h-3.5 rounded-full bg-secondary border-2 border-surface-card animate-pulse hidden"></span>
     </button>
   </div>
 
@@ -985,7 +985,7 @@
     <div class="p-3.5 sm:p-4 border-b border-border-subtle bg-surface-alt/70 flex items-center justify-between flex-shrink-0">
       <div class="flex items-center gap-2.5">
         <div class="w-9 h-9 rounded-xl bg-primary text-washi flex items-center justify-center shadow-sm">
-          <span class="material-symbols-outlined text-[22px]">smart_toy</span>
+          <span class="material-symbols-outlined text-[22px]">auto_awesome</span>
         </div>
         <div>
           <div class="flex items-center gap-1.5">
@@ -1012,10 +1012,10 @@
       <!-- Welcome message -->
       <div class="flex items-start gap-2.5">
         <div class="w-7 h-7 rounded-lg bg-primary text-washi flex items-center justify-center flex-shrink-0 text-xs">
-          勝
+          <span class="material-symbols-outlined text-[16px]">auto_awesome</span>
         </div>
         <div class="bg-surface-card border border-border-subtle rounded-2xl rounded-tl-sm p-3.5 max-w-[85%] text-primary shadow-sm space-y-2 leading-relaxed">
-          <p class="font-semibold text-primary">Konnichiwa! Mình là Gia sư Kanji AI 🤖</p>
+          <p class="font-semibold text-primary">Konnichiwa! Mình là Gia sư Kanji AI ✨</p>
           <p class="text-ink-muted">Hôm nay bạn muốn hiểu thêm gì về 1.061 Hán tự N5/N4, bộ thủ hay ví dụ câu? Hãy chọn gợi ý bên dưới hoặc gõ câu hỏi nhé!</p>
         </div>
       </div>
