@@ -829,13 +829,13 @@
     list.innerHTML = topics.map(t => {
       const isChecked = practiceConfig.selectedTopicIds.has(t.id);
       return `
-        <label class="flex items-center justify-between p-3.5 rounded-xl border ${isChecked ? 'border-primary bg-surface-alt' : 'border-border-subtle bg-surface-card'} cursor-pointer transition-all shadow-sm" onclick="app.togglePracticeTopic('${t.id}')">
-          <div class="flex items-center gap-3">
-            <input type="checkbox" ${isChecked ? 'checked' : ''} class="accent-primary cursor-pointer" onclick="event.stopPropagation(); app.togglePracticeTopic('${t.id}')">
-            <span class="text-xs font-bold text-primary truncate max-w-[200px]">${t.title}</span>
+        <div class="flex items-center justify-between p-3.5 rounded-xl border ${isChecked ? 'border-primary bg-surface-alt' : 'border-border-subtle bg-surface-card hover:border-border-strong'} cursor-pointer transition-all shadow-sm select-none" onclick="app.togglePracticeTopic('${t.id}')">
+          <div class="flex items-center gap-3 min-w-0">
+            <input type="checkbox" ${isChecked ? 'checked' : ''} class="accent-primary w-4 h-4 pointer-events-none flex-shrink-0" tabindex="-1">
+            <span class="text-xs sm:text-sm font-bold text-primary truncate">${t.title}</span>
           </div>
-          <span class="text-[11px] text-ink-muted">${t.count} chữ</span>
-        </label>
+          <span class="text-[11px] text-ink-muted flex-shrink-0 ml-2">${t.count} chữ</span>
+        </div>
       `;
     }).join('');
   }
