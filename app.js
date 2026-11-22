@@ -203,19 +203,23 @@
     }
   }
 
-  // ================= 4. RIGHT SIDEBAR TOGGLE =================
-  function toggleRightSidebar() {
-    const sidebar = document.getElementById('app-sidebar-right');
+  // ================= 4. LEFT SIDEBAR TOGGLE =================
+  function toggleSidebar() {
+    const sidebar = document.getElementById('app-sidebar-left') || document.getElementById('app-sidebar-right');
     const backdrop = document.getElementById('sidebar-backdrop');
     if (!sidebar || !backdrop) return;
 
-    if (sidebar.classList.contains('translate-x-full')) {
-      sidebar.classList.remove('translate-x-full');
+    if (sidebar.classList.contains('-translate-x-full')) {
+      sidebar.classList.remove('-translate-x-full');
       backdrop.classList.remove('hidden');
     } else {
-      sidebar.classList.add('translate-x-full');
+      sidebar.classList.add('-translate-x-full');
       backdrop.classList.add('hidden');
     }
+  }
+
+  function toggleRightSidebar() {
+    toggleSidebar();
   }
 
   // ================= 5. TAB NAVIGATION =================
@@ -230,7 +234,7 @@
       }
     });
 
-    // Update Right Sidebar Nav Items
+    // Update Left Sidebar Nav Items
     Object.keys(sidebarNavBtns).forEach(name => {
       const btn = sidebarNavBtns[name];
       if (!btn) return;
@@ -254,11 +258,11 @@
       }
     });
 
-    // Auto-close right sidebar on mobile
-    const sidebar = document.getElementById('app-sidebar-right');
+    // Auto-close sidebar on mobile
+    const sidebar = document.getElementById('app-sidebar-left') || document.getElementById('app-sidebar-right');
     const backdrop = document.getElementById('sidebar-backdrop');
-    if (sidebar && !sidebar.classList.contains('translate-x-full') && window.innerWidth < 1024) {
-      sidebar.classList.add('translate-x-full');
+    if (sidebar && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 1024) {
+      sidebar.classList.add('-translate-x-full');
       if (backdrop) backdrop.classList.add('hidden');
     }
 
@@ -1701,6 +1705,7 @@
   // Expose global methods
   window.app = {
     switchTab,
+    toggleSidebar,
     toggleRightSidebar,
     onGlobalSearch,
     renderHomeScreen,

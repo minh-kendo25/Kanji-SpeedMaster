@@ -50,22 +50,128 @@
   <!-- ================= MASTER LAYOUT ================= -->
   <div id="app-layout">
 
-    <!-- ================= 1. MAIN WORKSPACE (LEFT & CENTER) ================= -->
+    <!-- ================= 1. LEFT SIDEBAR (QUIZLET STYLE - CỘT MENU BÊN TRÁI) ================= -->
+    <aside id="app-sidebar-left" class="fixed lg:static inset-y-0 left-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-lg lg:shadow-none bg-washi border-r border-border-subtle flex flex-col flex-shrink-0 w-[260px] h-full">
+      
+      <!-- Sidebar Top Header -->
+      <div class="h-16 px-5 flex items-center justify-between border-b border-border-subtle flex-shrink-0">
+        <div class="flex items-center gap-2.5 cursor-pointer select-none" onclick="app.switchTab('home')">
+          <img src="logo.png" alt="Kanji Kachi Logo" class="h-8 w-8 object-contain rounded-lg shadow-sm border border-border-subtle">
+          <div class="flex flex-col">
+            <span class="font-serif font-bold text-base text-primary tracking-tight leading-tight">Kanji Kachi</span>
+            <span class="text-[10px] text-ink-muted font-semibold tracking-wider">漢字勝ち · N5 & N4</span>
+          </div>
+        </div>
+        <button class="lg:hidden w-8 h-8 rounded-lg hover:bg-surface-alt flex items-center justify-center text-ink-muted hover:text-primary transition-colors" onclick="app.toggleSidebar()">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Navigation Menu Items (Vertical List with Icons) -->
+      <div class="flex-1 overflow-y-auto p-3 space-y-5">
+        
+        <!-- Nhóm 1: Chức năng chính -->
+        <div class="space-y-1">
+          <button id="sb-nav-home" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-primary hover:bg-surface-alt transition-all nav-item-active" onclick="app.switchTab('home')">
+            <span class="material-symbols-outlined nav-icon text-[20px] text-primary">cottage</span>
+            <span>Trang chủ</span>
+          </button>
+
+          <button id="sb-nav-practice" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-ink-muted hover:text-primary hover:bg-surface-alt transition-all" onclick="app.switchTab('practice')">
+            <span class="material-symbols-outlined nav-icon text-[20px] text-ink-dim">draw</span>
+            <span>Luyện phản xạ</span>
+          </button>
+
+          <button id="sb-nav-vocab" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-ink-muted hover:text-primary hover:bg-surface-alt transition-all" onclick="app.switchTab('vocab')">
+            <span class="material-symbols-outlined nav-icon text-[20px] text-ink-dim">menu_book</span>
+            <span>Từ vựng & Flashcard</span>
+          </button>
+
+          <button id="sb-nav-profile" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-ink-muted hover:text-primary hover:bg-surface-alt transition-all" onclick="app.switchTab('profile')">
+            <span class="material-symbols-outlined nav-icon text-[20px] text-ink-dim">person</span>
+            <span>Cá nhân</span>
+          </button>
+        </div>
+
+        <div class="border-t border-border-subtle"></div>
+
+        <!-- Nhóm 2: Bắt đầu tại đây -->
+        <div class="space-y-1">
+          <span class="px-3 text-[10px] font-bold text-ink-dim uppercase tracking-wider block">Bắt đầu tại đây</span>
+
+          <button class="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startFlashcardsFromHome('N5')">
+            <span class="material-symbols-outlined text-[18px] text-secondary">style</span>
+            <span>Thẻ ghi nhớ (Flashcard)</span>
+          </button>
+
+          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.toggleAiChat(true)">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[18px] text-primary">smart_toy</span>
+              <span>Gia sư Kanji AI</span>
+            </div>
+            <span class="text-[10px] text-tertiary font-bold bg-matcha-soft px-1.5 py-0.5 rounded">Hỏi ngay</span>
+          </button>
+        </div>
+
+        <div class="border-t border-border-subtle"></div>
+
+        <!-- Nhóm 3: Lộ trình của bạn -->
+        <div class="space-y-1">
+          <span class="px-3 text-[10px] font-bold text-ink-dim uppercase tracking-wider block">Lộ trình của bạn</span>
+
+          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startPracticeFromHome('N5')">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[18px] text-primary">folder</span>
+              <span>Kanji N5 (Marugoto A1)</span>
+            </div>
+            <span class="text-[10px] text-ink-dim bg-surface-alt px-1.5 py-0.5 rounded">350</span>
+          </button>
+
+          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startPracticeFromHome('N4')">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[18px] text-secondary">folder</span>
+              <span>Kanji N4 (Marugoto A2)</span>
+            </div>
+            <span class="text-[10px] text-ink-dim bg-surface-alt px-1.5 py-0.5 rounded">711</span>
+          </button>
+
+          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startPracticeFromHome('RADICALS')">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[18px] text-tertiary">folder</span>
+              <span>214 Bộ thủ Khang Hy</span>
+            </div>
+            <span class="text-[10px] text-ink-dim bg-surface-alt px-1.5 py-0.5 rounded">214</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="p-3 border-t border-border-subtle bg-surface-alt/50 flex items-center justify-between text-xs">
+        <span class="text-ink-dim text-[11px] font-medium">Kanji Kachi v2.0</span>
+        <button class="text-ink-muted hover:text-primary flex items-center gap-1 font-semibold" onclick="app.openSettings()">
+          <span class="material-symbols-outlined text-[16px]">settings</span>
+          <span>Cài đặt</span>
+        </button>
+      </div>
+
+    </aside>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div id="sidebar-backdrop" class="fixed inset-0 bg-black/40 z-40 lg:hidden hidden" onclick="app.toggleSidebar()"></div>
+
+    <!-- ================= 2. MAIN WORKSPACE (CENTER & RIGHT) ================= -->
     <div id="app-main-workspace">
       
       <!-- TOP HEADER BAR -->
       <header class="h-16 border-b border-border-subtle bg-washi/95 backdrop-blur-md px-4 sm:px-6 flex items-center justify-between gap-4 z-30 flex-shrink-0">
-        <!-- Brand Logo & Title -->
-        <div class="flex items-center gap-3 cursor-pointer select-none" onclick="app.switchTab('home')">
-          <img src="logo.png" alt="Kanji Kachi Logo" class="h-8 w-8 object-contain rounded-lg shadow-sm border border-border-subtle">
-          <div class="flex flex-col">
-            <span class="font-serif font-bold text-base sm:text-lg text-primary tracking-tight leading-tight">Kanji Kachi</span>
-            <span class="text-[10px] text-ink-muted font-semibold tracking-wider">漢字勝ち · N5 & N4</span>
-          </div>
-        </div>
+        <!-- Left: Mobile Menu Button (≡) & Search Bar -->
+        <div class="flex items-center gap-3 flex-1 max-w-xl">
+          <button class="lg:hidden w-9 h-9 flex items-center justify-center rounded-xl bg-primary text-washi transition-colors flex-shrink-0" onclick="app.toggleSidebar()" title="Mở menu điều hướng">
+            <span class="material-symbols-outlined text-[22px]">menu</span>
+          </button>
 
-        <!-- Search Bar (In Header) -->
-        <div class="hidden sm:flex flex-1 max-w-md mx-auto">
+          <!-- Search Bar -->
           <div class="relative w-full flex items-center bg-surface-alt rounded-full px-4 py-2 border border-border-subtle focus-within:border-primary transition-colors">
             <span class="material-symbols-outlined text-ink-dim text-[18px] mr-2">search</span>
             <input 
@@ -88,11 +194,6 @@
           <!-- Settings Button -->
           <button class="w-9 h-9 flex items-center justify-center rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary transition-colors" title="Cài đặt luyện tập" onclick="app.openSettings()">
             <span class="material-symbols-outlined text-[20px]">settings</span>
-          </button>
-
-          <!-- Mobile Menu Button (≡) to toggle Right Sidebar -->
-          <button class="lg:hidden w-9 h-9 flex items-center justify-center rounded-xl bg-primary text-washi transition-colors" onclick="app.toggleRightSidebar()" title="Mở thanh menu">
-            <span class="material-symbols-outlined text-[22px]">menu</span>
           </button>
         </div>
       </header>
@@ -751,113 +852,7 @@
 
       </main>
     </div>
-
-    <!-- ================= 2. RIGHT SIDEBAR (QUIZLET STYLE AS REQUESTED) ================= -->
-    <aside id="app-sidebar-right" class="fixed lg:static inset-y-0 right-0 z-50 transform translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out shadow-lg lg:shadow-none">
-      
-      <!-- Sidebar Top Header -->
-      <div class="h-16 px-5 flex items-center justify-between border-b border-border-subtle flex-shrink-0">
-        <div class="flex items-center gap-2.5">
-          <span class="material-symbols-outlined text-primary text-[22px]">menu_open</span>
-          <span class="font-serif font-bold text-sm text-primary">Menu điều hướng</span>
-        </div>
-        <button class="lg:hidden w-8 h-8 rounded-lg hover:bg-surface-alt flex items-center justify-center text-ink-muted hover:text-primary transition-colors" onclick="app.toggleRightSidebar()">
-          <span class="material-symbols-outlined text-[20px]">close</span>
-        </button>
-      </div>
-
-      <!-- Navigation Menu Items (Matching Image 2 Vertical List with Icons) -->
-      <div class="flex-1 overflow-y-auto p-3 space-y-5">
-        
-        <!-- Nhóm 1: Chức năng chính -->
-        <div class="space-y-1">
-          <button id="sb-nav-home" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-primary hover:bg-surface-alt transition-all nav-item-active" onclick="app.switchTab('home')">
-            <span class="material-symbols-outlined nav-icon text-[20px] text-primary">cottage</span>
-            <span>Trang chủ</span>
-          </button>
-
-          <button id="sb-nav-practice" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-ink-muted hover:text-primary hover:bg-surface-alt transition-all" onclick="app.switchTab('practice')">
-            <span class="material-symbols-outlined nav-icon text-[20px] text-ink-dim">draw</span>
-            <span>Luyện phản xạ</span>
-          </button>
-
-          <button id="sb-nav-vocab" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-ink-muted hover:text-primary hover:bg-surface-alt transition-all" onclick="app.switchTab('vocab')">
-            <span class="material-symbols-outlined nav-icon text-[20px] text-ink-dim">menu_book</span>
-            <span>Từ vựng & Flashcard</span>
-          </button>
-
-          <button id="sb-nav-profile" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-ink-muted hover:text-primary hover:bg-surface-alt transition-all" onclick="app.switchTab('profile')">
-            <span class="material-symbols-outlined nav-icon text-[20px] text-ink-dim">person</span>
-            <span>Cá nhân</span>
-          </button>
-        </div>
-
-        <div class="border-t border-border-subtle"></div>
-
-        <!-- Nhóm 2: Bắt đầu tại đây (Giống hình 2) -->
-        <div class="space-y-1">
-          <span class="px-3 text-[10px] font-bold text-ink-dim uppercase tracking-wider block">Bắt đầu tại đây</span>
-
-          <button class="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startFlashcardsFromHome('N5')">
-            <span class="material-symbols-outlined text-[18px] text-secondary">style</span>
-            <span>Thẻ ghi nhớ (Flashcard)</span>
-          </button>
-
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.toggleAiChat(true)">
-            <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-[18px] text-primary">smart_toy</span>
-              <span>Gia sư Kanji AI</span>
-            </div>
-            <span class="text-[10px] text-tertiary font-bold bg-matcha-soft px-1.5 py-0.5 rounded">Hỏi ngay</span>
-          </button>
-        </div>
-
-        <div class="border-t border-border-subtle"></div>
-
-        <!-- Nhóm 3: Lộ trình của bạn (Giống hình 2 "Thư mục của bạn") -->
-        <div class="space-y-1">
-          <span class="px-3 text-[10px] font-bold text-ink-dim uppercase tracking-wider block">Lộ trình của bạn</span>
-
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startPracticeFromHome('N5')">
-            <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-[18px] text-primary">folder</span>
-              <span>Kanji N5 (Marugoto A1)</span>
-            </div>
-            <span class="text-[10px] text-ink-dim bg-surface-alt px-1.5 py-0.5 rounded">350</span>
-          </button>
-
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startPracticeFromHome('N4')">
-            <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-[18px] text-secondary">folder</span>
-              <span>Kanji N4 (Marugoto A2)</span>
-            </div>
-            <span class="text-[10px] text-ink-dim bg-surface-alt px-1.5 py-0.5 rounded">711</span>
-          </button>
-
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startPracticeFromHome('RADICALS')">
-            <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-[18px] text-tertiary">folder</span>
-              <span>214 Bộ thủ Khang Hy</span>
-            </div>
-            <span class="text-[10px] text-ink-dim bg-surface-alt px-1.5 py-0.5 rounded">214</span>
-          </button>
-        </div>
-
-      </div>
-
-      <!-- Sidebar Footer -->
-      <div class="p-3 border-t border-border-subtle bg-surface-alt/50 flex items-center justify-between text-xs">
-        <span class="text-ink-dim text-[11px] font-medium">Kanji Kachi v2.0</span>
-        <button class="text-ink-muted hover:text-primary flex items-center gap-1 font-semibold" onclick="app.openSettings()">
-          <span class="material-symbols-outlined text-[16px]">settings</span>
-          <span>Cài đặt</span>
-        </button>
-      </div>
-
-    </aside>
-
-    <!-- Mobile Sidebar Backdrop -->
-    <div id="sidebar-backdrop" class="fixed inset-0 bg-black/40 z-40 lg:hidden hidden" onclick="app.toggleRightSidebar()"></div>
+  </div>
 
   </div>
 
