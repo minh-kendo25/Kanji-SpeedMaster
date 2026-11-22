@@ -161,6 +161,11 @@
   }
 
   function openTokenUsageModal() {
+    const user = window.kanjiFirebaseSync ? window.kanjiFirebaseSync.getCurrentUser() : null;
+    if (!user) {
+      alert('Vui lòng đăng nhập Google để xem hạn mức Token AI của bạn.');
+      return;
+    }
     updateAiTokenUi();
     const countdownEl = document.getElementById('token-modal-reset-countdown');
     if (countdownEl) countdownEl.textContent = getResetCountdownText();
@@ -188,10 +193,11 @@
     profile: document.getElementById('sb-nav-profile')
   };
 
-  // ================= 3. TTS VOICE & SOUND (CROSS-PLATFORM WINDOWS / ANDROID / iOS) =================
+  // ================= 3. TTS VOICE & SOUND (DEFAULT: TOKYO NEURAL MP3 + WEB SPEECH FALLBACK) =================
   let jaVoice = null;
   let jaVoicesList = [];
   let activeUtterance = null;
+  let activeAudioEl = null;
   let ttsSpeakTimer = null;
 
   function resolveBestJapaneseVoice() {
@@ -221,10 +227,10 @@
     const select = document.getElementById('tts-voice-select');
     if (!select) return;
     const savedName = (state.preferences && state.preferences.ttsVoiceName) || '';
-    const options = ['<option value="">Tự động chọn giọng Nhật tốt nhất</option>'];
+    const options = ['<option value="">Giọng Tokyo Neural · Nanami (Mặc định)</option>'];
     jaVoicesList.forEach(v => {
       const selected = v.name === savedName ? 'selected' : '';
-      options.push(`<option value="${escapeHtml(v.name)}" ${selected}>${escapeHtml(v.name)} (${escapeHtml(v.lang)})</option>`);
+      options.push(`<option value="${escapeHtml(v.name)}" ${selected}>Giọng máy: ${escapeHtml(v.name)} (${escapeHtml(v.lang)})</option>`);
     });
     select.innerHTML = options.join('');
   }
@@ -315,8 +321,62 @@
     saveState();
   }
 
+  function stopAllAudio() {
+    if (activeAudioEl) {
+      try {
+        activeAudioEl.pause();
+        activeAudioEl.currentTime = 0;
+      } catch (e) {}
+      activeAudioEl = null;
+    }
+    if (ttsSpeakTimer) {
+      clearTimeout(ttsSpeakTimer);
+      ttsSpeakTimer = null;
+    }
+    if ('speechSynthesis' in window && (window.speechSynthesis.speaking || window.speechSynthesis.pending)) {
+      try { window.speechSynthesis.cancel(); } catch (e) {}
+    }
+  }
+
+  function playNeuralAudio(audioId, fallbackText, forceSpeak = false) {
+    if (!forceSpeak && !state.preferences.soundEnabled) return;
+    const volume = typeof state.preferences.ttsVolume === 'number' ? state.preferences.ttsVolume : 1.0;
+    const rate = typeof state.preferences.ttsRate === 'number' ? state.preferences.ttsRate : 0.95;
+    if (volume <= 0) return;
+
+    const customDeviceVoice = state.preferences && state.preferences.ttsVoiceName;
+    if (!customDeviceVoice && audioId !== null && audioId !== undefined && audioId !== '') {
+      stopAllAudio();
+      try {
+        const audio = new Audio(`audio/${encodeURIComponent(String(audioId))}.mp3`);
+        audio.volume = Math.max(0, Math.min(1, volume));
+        audio.playbackRate = Math.max(0.5, Math.min(1.5, rate));
+        activeAudioEl = audio;
+
+        const handleFallback = () => {
+          if (activeAudioEl === audio) activeAudioEl = null;
+          if (fallbackText) speakJapanese(fallbackText, forceSpeak);
+        };
+
+        audio.onerror = handleFallback;
+        audio.onended = () => { if (activeAudioEl === audio) activeAudioEl = null; };
+        const p = audio.play();
+        if (p && typeof p.catch === 'function') {
+          p.catch(handleFallback);
+        }
+        return;
+      } catch (e) {
+        console.warn('Neural audio fallback:', e);
+      }
+    }
+
+    if (fallbackText) {
+      speakJapanese(fallbackText, forceSpeak);
+    }
+  }
+
   function testTtsVoice() {
-    speakJapanese('日本語を勉強します。こんにちは！', true);
+    playNeuralAudio('sample', 'にほんごをべんきょうします。こんにちは！', true);
   }
 
   function playAudioChime(isCorrect) {
@@ -471,7 +531,7 @@
 
   function speakSpotlight() {
     if (currentSpotlightWord) {
-      speakJapanese(currentSpotlightWord.kanji || currentSpotlightWord.reading, true);
+      playNeuralAudio(currentSpotlightWord.id, currentSpotlightWord.displayReading || currentSpotlightWord.kanji, true);
       return;
     }
     const kanjiEl = document.getElementById('spotlight-kanji');
@@ -829,7 +889,10 @@
     if (flashcardFlipped) {
       inner.classList.add('rotate-y-180');
       if (flashcardDeck[flashcardIndex]) {
-        speakJapanese(flashcardDeck[flashcardIndex].kanji);
+      const fcItem = flashcardDeck[flashcardIndex];
+      if (fcItem) {
+        playNeuralAudio(fcItem.id, fcItem.displayReading || fcItem.kanji, false);
+      }
       }
     } else {
       inner.classList.remove('rotate-y-180');
@@ -998,8 +1061,9 @@
   }
 
   function speakFlashcardWord() {
-    if (flashcardDeck[flashcardIndex]) {
-      speakJapanese(flashcardDeck[flashcardIndex].kanji, true);
+    const item = flashcardDeck[flashcardIndex];
+    if (item) {
+      playNeuralAudio(item.id, item.displayReading || item.kanji, true);
     }
   }
 
@@ -1252,7 +1316,7 @@
 
     // Auto TTS if enabled
     if (state.preferences.soundEnabled) {
-      speakJapanese(word.kanji);
+      playNeuralAudio(word.id, word.displayReading || word.kanji, false);
     }
   }
 
@@ -1504,14 +1568,21 @@
   function speakCurrentWord() {
     const currentWord = practiceDeck[currentIndex];
     if (currentWord) {
-      speakJapanese(currentWord.kanji, true);
+      playNeuralAudio(currentWord.id, currentWord.displayReading || currentWord.kanji, true);
       const pill = document.getElementById('arena-reading-display');
       if (pill) pill.textContent = currentWord.displayReading;
     }
   }
 
   function speakWordText(text) {
-    speakJapanese(text, true);
+    const matched = (typeof KANJI_DATA !== 'undefined' && Array.isArray(KANJI_DATA))
+      ? KANJI_DATA.find(w => w.kanji === text || w.displayReading === text)
+      : null;
+    if (matched) {
+      playNeuralAudio(matched.id, matched.displayReading || text, true);
+    } else {
+      speakJapanese(text, true);
+    }
   }
 
   function toggleCurrentBookmark() {
@@ -1663,17 +1734,17 @@
     const hBtn = document.getElementById('header-btn-theme');
     if (hBtn) hBtn.title = isDark ? 'Chuyển sang giao diện Sáng' : 'Chuyển sang giao diện Tối';
 
-    // Settings modal theme toggle
+    // Settings modal theme toggle (Màu cam đỏ secondary khi bật để nổi bật cả Sáng & Tối)
     const tBtn = document.getElementById('toggle-theme-btn');
     const tThumb = document.getElementById('toggle-theme-thumb');
     if (tBtn && tThumb) {
       if (isDark) {
-        tBtn.classList.remove('bg-surface-alt', 'border-border-subtle');
-        tBtn.classList.add('bg-primary');
+        tBtn.classList.remove('bg-surface-alt', 'bg-border-strong', 'bg-primary', 'border-border-subtle');
+        tBtn.classList.add('bg-secondary');
         tThumb.classList.add('translate-x-6');
       } else {
-        tBtn.classList.remove('bg-primary');
-        tBtn.classList.add('bg-surface-alt', 'border-border-subtle');
+        tBtn.classList.remove('bg-secondary', 'bg-primary');
+        tBtn.classList.add('bg-border-strong');
         tThumb.classList.remove('translate-x-6');
       }
     }
@@ -1693,11 +1764,11 @@
     const sThumb = document.getElementById('toggle-sound-thumb');
     if (sBtn && sThumb) {
       if (state.preferences.soundEnabled) {
-        sBtn.classList.remove('bg-border-strong');
-        sBtn.classList.add('bg-primary');
+        sBtn.classList.remove('bg-border-strong', 'bg-primary');
+        sBtn.classList.add('bg-secondary');
         sThumb.classList.add('translate-x-6');
       } else {
-        sBtn.classList.remove('bg-primary');
+        sBtn.classList.remove('bg-secondary', 'bg-primary');
         sBtn.classList.add('bg-border-strong');
         sThumb.classList.remove('translate-x-6');
       }
@@ -1707,11 +1778,11 @@
     const rThumb = document.getElementById('toggle-romaji-thumb');
     if (rBtn && rThumb) {
       if (state.preferences.romajiAutoConvert) {
-        rBtn.classList.remove('bg-border-strong');
-        rBtn.classList.add('bg-primary');
+        rBtn.classList.remove('bg-border-strong', 'bg-primary');
+        rBtn.classList.add('bg-secondary');
         rThumb.classList.add('translate-x-6');
       } else {
-        rBtn.classList.remove('bg-primary');
+        rBtn.classList.remove('bg-secondary', 'bg-primary');
         rBtn.classList.add('bg-border-strong');
         rThumb.classList.remove('translate-x-6');
       }
@@ -2005,6 +2076,12 @@ Nhiệm vụ của bạn:
   }
 
   async function handleUserAiQuery(query) {
+    const user = window.kanjiFirebaseSync ? window.kanjiFirebaseSync.getCurrentUser() : null;
+    if (!user) {
+      updateAuthUI(null);
+      return;
+    }
+
     const quota = getAiTokenQuota();
     const remaining = quota.limit - quota.used;
 
@@ -2291,7 +2368,22 @@ Nhiệm vụ của bạn:
     const profileLoginBtn = document.getElementById('profile-btn-google-login');
     const profileLogoutBtn = document.getElementById('profile-btn-logout');
 
+    // AI Chat & Profile Token Gates (Bắt buộc đăng nhập Google mới dùng AI & xem Token)
+    const chatLoginGate = document.getElementById('ai-chat-login-gate');
+    const chatBodyWrapper = document.getElementById('ai-chat-body-wrapper');
+    const chatTokenBadge = document.getElementById('chat-token-badge');
+    const profileTokenActive = document.getElementById('profile-token-active-content');
+    const profileTokenGate = document.getElementById('profile-token-login-gate');
+    const profileTokenCount = document.getElementById('profile-ai-tokens-count');
+
     if (user) {
+      if (chatLoginGate) chatLoginGate.classList.add('hidden');
+      if (chatBodyWrapper) chatBodyWrapper.classList.remove('hidden');
+      if (chatTokenBadge) chatTokenBadge.classList.remove('hidden');
+      if (profileTokenActive) profileTokenActive.classList.remove('hidden');
+      if (profileTokenGate) profileTokenGate.classList.add('hidden');
+      if (profileTokenCount) profileTokenCount.classList.remove('hidden');
+
       if (headerLogin) headerLogin.classList.add('hidden');
       if (headerUser) headerUser.classList.remove('hidden');
       if (headerAvatar && user.photoURL) headerAvatar.src = user.photoURL;
@@ -2311,6 +2403,13 @@ Nhiệm vụ của bạn:
       if (profileLoginBtn) profileLoginBtn.classList.add('hidden');
       if (profileLogoutBtn) profileLogoutBtn.classList.remove('hidden');
     } else {
+      if (chatLoginGate) chatLoginGate.classList.remove('hidden');
+      if (chatBodyWrapper) chatBodyWrapper.classList.add('hidden');
+      if (chatTokenBadge) chatTokenBadge.classList.add('hidden');
+      if (profileTokenActive) profileTokenActive.classList.add('hidden');
+      if (profileTokenGate) profileTokenGate.classList.remove('hidden');
+      if (profileTokenCount) profileTokenCount.classList.add('hidden');
+
       if (headerLogin) headerLogin.classList.remove('hidden');
       if (headerUser) headerUser.classList.add('hidden');
 
@@ -2522,6 +2621,7 @@ Nhiệm vụ của bạn:
     initKeyboardShortcuts();
     applyTheme();
     updateHeaderTTSButton();
+    updateAuthUI(null);
     updateAiTokenUi();
     initCloudSync();
     initAdSense();

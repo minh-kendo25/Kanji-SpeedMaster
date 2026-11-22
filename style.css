@@ -127,12 +127,15 @@ html, body {
   overflow: hidden;
 }
 
-/* Master Layout */
+/* Master Layout (100dvh fixes mobile browser address bar overlap) */
 #app-layout {
   display: flex;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* Main Content Area (Left/Center) */
@@ -151,12 +154,21 @@ html, body {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 1.5rem 2rem 4rem 2rem;
+  -webkit-overflow-scrolling: touch;
+  padding: 1.5rem 2rem 5rem 2rem;
 }
 
 @media (max-width: 768px) {
   #app-scroll-content {
-    padding: 1rem 1rem 4rem 1rem;
+    padding: 1rem 1rem calc(7rem + env(safe-area-inset-bottom, 0px)) 1rem;
+  }
+  #ai-chat-bubble {
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px)) !important;
+    right: 1rem !important;
+  }
+  #ai-chat-box {
+    bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)) !important;
+    max-height: calc(100dvh - 7.5rem) !important;
   }
 }
 
