@@ -80,13 +80,6 @@
 
         <!-- Right Quick Controls -->
         <div class="flex items-center gap-2">
-          <!-- Streak Badge -->
-          <div class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-card border border-border-subtle text-xs font-bold text-secondary shadow-sm">
-            <span>Chuỗi</span>
-            <span id="header-streak-num">1</span>
-            <span>ngày 🔥</span>
-          </div>
-
           <!-- Sound Toggle -->
           <button id="header-btn-tts" class="w-9 h-9 flex items-center justify-center rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary transition-colors" title="Bật/Tắt phát âm Tokyo" onclick="app.toggleSound()">
             <span id="header-icon-tts" class="material-symbols-outlined text-[20px]">volume_up</span>
@@ -120,48 +113,45 @@
             <p class="text-sm text-ink-muted">15 phút gõ và phản xạ mỗi ngày để nhớ sâu 1.061 Hán tự N5 & N4.</p>
           </div>
 
-          <!-- Quick Metrics Grid -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5">
-            <div class="bg-surface-card p-4 rounded-xl border border-border-subtle shadow-sm flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-surface-alt flex items-center justify-center text-primary">
-                <span class="material-symbols-outlined text-[22px]">history_edu</span>
+          <!-- ================= CÂU KANJI HÔM NAY (DAILY SPOTLIGHT - TƯƠNG TỰ APP MOBILE) ================= -->
+          <div id="home-daily-spotlight" class="relative overflow-hidden rounded-2xl bg-surface-card border border-border-subtle p-6 sm:p-7 shadow-sm transition-all hover:border-secondary/30">
+            <!-- Background Watermark Kanji Glyph -->
+            <span id="spotlight-watermark" class="kanji-glyph absolute -bottom-6 -right-3 text-[120px] sm:text-[140px] font-normal text-primary/[0.04] select-none pointer-events-none leading-none">日</span>
+            
+            <div class="relative z-10 space-y-4">
+              <!-- Top Row: Eyebrow Badge & Audio Button -->
+              <div class="flex items-center justify-between">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-vermilion-soft text-secondary text-xs font-bold tracking-wide uppercase">
+                  <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                  <span>CÂU KANJI HÔM NAY</span>
+                </div>
+                <button id="spotlight-btn-tts" class="w-10 h-10 rounded-full bg-surface-alt hover:bg-border-subtle text-primary flex items-center justify-center transition-colors shadow-sm" onclick="app.speakSpotlight()" title="Nghe phát âm">
+                  <span class="material-symbols-outlined text-[20px]">volume_up</span>
+                </button>
               </div>
+
+              <!-- Main Kanji Display -->
               <div>
-                <span class="text-[11px] text-ink-muted font-medium block">Đã ôn luyện</span>
-                <div class="flex items-baseline gap-0.5 mt-0.5">
-                  <span id="stat-total-practiced" class="font-serif font-bold text-lg text-primary">0</span>
-                  <span class="text-[11px] text-ink-dim">/ 1.061</span>
+                <div id="spotlight-kanji" class="kanji-glyph text-2xl sm:text-3xl lg:text-4xl font-semibold text-primary tracking-tight">
+                  日本語を勉強します
+                </div>
+                <div id="spotlight-reading" class="text-xs sm:text-sm text-secondary font-semibold mt-1.5">
+                  Cách đọc: にほんごをべんきょうします
                 </div>
               </div>
-            </div>
 
-            <div class="bg-surface-card p-4 rounded-xl border border-border-subtle shadow-sm flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-matcha-soft flex items-center justify-center text-tertiary">
-                <span class="material-symbols-outlined text-[22px]">check_circle</span>
-              </div>
-              <div>
-                <span class="text-[11px] text-ink-muted font-medium block">Độ chính xác</span>
-                <span id="stat-accuracy" class="font-serif font-bold text-lg text-tertiary block mt-0.5">100%</span>
-              </div>
-            </div>
+              <!-- Meaning -->
+              <p id="spotlight-meaning" class="text-sm text-ink-muted leading-relaxed max-w-xl">
+                Học tiếng Nhật
+              </p>
 
-            <div class="bg-surface-card p-4 rounded-xl border border-border-subtle shadow-sm flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-vermilion-soft flex items-center justify-center text-secondary">
-                <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
-              </div>
-              <div>
-                <span class="text-[11px] text-ink-muted font-medium block">Chuỗi ngày học</span>
-                <span id="home-streak-count" class="font-serif font-bold text-lg text-secondary block mt-0.5">1 ngày 🔥</span>
-              </div>
-            </div>
-
-            <div class="bg-surface-card p-4 rounded-xl border border-border-subtle shadow-sm flex items-center gap-3 cursor-pointer hover:border-secondary transition-colors" onclick="app.startForgottenPractice()">
-              <div class="w-10 h-10 rounded-xl bg-surface-alt flex items-center justify-center text-secondary">
-                <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
-              </div>
-              <div>
-                <span class="text-[11px] text-ink-muted font-medium block">Từ chưa nhớ</span>
-                <span id="stat-unremembered" class="font-serif font-bold text-lg text-secondary block mt-0.5">0 chữ</span>
+              <!-- Bottom Action Row -->
+              <div class="pt-3 border-t border-border-subtle flex items-center justify-between text-xs">
+                <span class="text-ink-dim">Tự động chọn ngẫu nhiên mỗi ngày • JLPT N5/N4</span>
+                <button class="font-bold text-secondary hover:text-secondary/80 flex items-center gap-1 transition-colors" onclick="app.practiceSpotlight()">
+                  <span>Luyện tập từ này</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </button>
               </div>
             </div>
           </div>
@@ -201,22 +191,6 @@
                 <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
             </div>
-          </div>
-
-          <!-- Sổ tay từ chưa nhớ (nếu có từ lưu) -->
-          <div id="home-card-review-forgotten" class="bg-surface-card p-4 rounded-xl border border-secondary/40 shadow-sm flex items-center justify-between hidden">
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-lg bg-vermilion-soft text-secondary flex items-center justify-center">
-                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
-              </div>
-              <div>
-                <h4 class="font-bold text-xs sm:text-sm text-primary">Sổ tay từ chưa nhớ</h4>
-                <p class="text-[11px] text-ink-muted"><span id="home-unremembered-label">0</span> chữ Hán cần củng cố lại</p>
-              </div>
-            </div>
-            <button class="px-4 py-2 rounded-lg bg-secondary text-washi text-xs font-bold hover:bg-secondary/90 transition-colors shadow-sm" onclick="app.startForgottenPractice()">
-              Ôn tập ngay
-            </button>
           </div>
 
           <!-- Featured Topics Grid -->
@@ -288,6 +262,20 @@
             <div id="vocab-topics-container" class="space-y-3">
               <!-- Populated dynamically -->
             </div>
+
+            <!-- Web AdSense Container (Y chang vị trí VocabularyAdCard trong app) -->
+            <div class="web-ad-container p-4 rounded-xl border border-dashed border-border-strong bg-surface-alt/70 text-center my-4">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-[10px] uppercase font-bold tracking-wider text-ink-dim">Quảng cáo · Google AdSense Ready</span>
+                <span class="text-[10px] text-ink-dim">Vị trí: Vocabulary Banner</span>
+              </div>
+              <div class="h-20 sm:h-24 flex items-center justify-center bg-surface-card rounded-lg border border-border-subtle text-xs text-ink-muted">
+                <div class="flex flex-col items-center gap-1">
+                  <span class="material-symbols-outlined text-ink-dim text-[24px]">ad_units</span>
+                  <span>Khung quảng cáo tương thích (Google AdSense Responsive Unit)</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- SUBVIEW B: THẺ FLASHCARD 3D -->
@@ -358,9 +346,9 @@
                 <span>Trước</span>
               </button>
               
-              <button class="flex-1 py-3 rounded-xl bg-surface-card border border-secondary/30 text-secondary hover:bg-vermilion-soft font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm" onclick="app.markFlashcardForgotten()">
-                <span class="material-symbols-outlined text-[18px]">bookmark</span>
-                <span>Chưa nhớ</span>
+              <button class="flex-1 py-3 rounded-xl bg-surface-card border border-border-subtle text-primary hover:bg-surface-alt font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm" onclick="app.flipFlashcard()">
+                <span class="material-symbols-outlined text-[18px]">flip</span>
+                <span>Lật thẻ</span>
               </button>
 
               <button class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm" onclick="app.nextFlashcard()">
@@ -429,17 +417,6 @@
                   </div>
                 </label>
               </div>
-            </div>
-
-            <!-- Filter: Only Unremembered -->
-            <div class="bg-surface-card p-4 rounded-2xl border border-border-subtle flex items-center justify-between shadow-sm">
-              <div>
-                <span class="text-xs font-bold text-primary block">Chỉ luyện các từ chưa nhớ 🔖</span>
-                <span class="text-[11px] text-ink-muted">Chỉ ôn lại những từ bạn đã bookmark hoặc trả lời sai.</span>
-              </div>
-              <button id="btn-toggle-only-unremembered" class="w-12 h-6 rounded-full bg-border-strong p-0.5 flex items-center transition-colors focus:outline-none" onclick="app.toggleOnlyUnremembered()">
-                <div id="thumb-only-unremembered" class="w-5 h-5 rounded-full bg-white shadow-sm transform transition-transform"></div>
-              </button>
             </div>
 
             <!-- Topics Selection -->
@@ -643,25 +620,29 @@
                 </div>
               </div>
 
-              <!-- Unremembered list in round -->
-              <div id="summary-unremembered-section" class="text-left space-y-2 pt-2 border-t border-border-subtle hidden">
-                <span class="text-xs font-bold text-secondary uppercase tracking-wider block">Các từ cần chú ý ôn lại:</span>
-                <div id="summary-unremembered-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[200px] overflow-y-auto pr-1">
-                  <!-- Dynamically populated -->
-                </div>
-              </div>
-
               <!-- Action buttons -->
               <div class="flex flex-col sm:flex-row gap-3 pt-2">
-                <button id="summary-btn-retry-unremembered" class="flex-1 py-3 rounded-xl bg-secondary hover:bg-secondary/90 text-washi font-bold text-xs transition-colors shadow-sm hidden" onclick="app.retryUnrememberedSummary()">
-                  Luyện lại các từ sai (<span id="summary-unremembered-count">0</span>)
-                </button>
                 <button class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.restartSamePractice()">
                   Luyện lại từ đầu
                 </button>
                 <button class="flex-1 py-3 rounded-xl bg-surface-alt text-ink-muted hover:text-primary font-bold text-xs transition-colors" onclick="app.switchTab('home')">
                   Về Trang chủ
                 </button>
+              </div>
+
+              <!-- Web AdSense Container (Y chang vị trí StudyResultsBanner trong app) -->
+              <div class="web-ad-container p-4 rounded-xl border border-dashed border-border-strong bg-surface-alt/70 text-center mt-6">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-[10px] uppercase font-bold tracking-wider text-ink-dim">Quảng cáo · Google AdSense Ready</span>
+                  <span class="text-[10px] text-ink-dim">Vị trí: Results Banner (StudyResultsBanner)</span>
+                </div>
+                <div class="h-24 sm:h-28 flex items-center justify-center bg-surface-card rounded-lg border border-border-subtle text-xs text-ink-muted">
+                  <div class="flex flex-col items-center gap-1.5">
+                    <span class="material-symbols-outlined text-ink-dim text-[28px]">ad_units</span>
+                    <span class="font-medium text-ink-secondary">Vị trí Banner tổng kết bài thi</span>
+                    <span class="text-[11px] text-ink-dim">Kích thước linh hoạt: 320x100 (Mobile) / 728x90 (Desktop Leaderboard)</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -709,6 +690,29 @@
             </div>
           </div>
 
+          <!-- AI TOKEN QUOTA CARD (TƯƠNG TỰ APP MOBILE) -->
+          <div class="bg-surface-card rounded-2xl p-6 border border-border-subtle space-y-3 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-[22px]">smart_toy</span>
+                <h3 class="font-serif font-bold text-base text-primary">Token AI Gia sư hôm nay</h3>
+              </div>
+              <span id="profile-ai-tokens-count" class="text-xs font-bold text-primary">12.000 / 12.000 token</span>
+            </div>
+            
+            <div class="w-full h-2.5 bg-surface-alt rounded-full overflow-hidden">
+              <div id="profile-ai-tokens-bar" class="h-full bg-tertiary rounded-full transition-all duration-500" style="width: 100%;"></div>
+            </div>
+
+            <div class="flex justify-between items-center text-xs text-ink-muted">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-tertiary inline-block"></span>
+                <span>Hạn mức: 12.000 token / ngày</span>
+              </span>
+              <span>Làm mới lúc 00:00 (UTC+7)</span>
+            </div>
+          </div>
+
           <!-- Options List -->
           <div class="bg-surface-card rounded-2xl border border-border-subtle divide-y divide-border-subtle overflow-hidden shadow-sm">
             <div class="p-4 flex items-center justify-between hover:bg-surface-alt transition-colors cursor-pointer" onclick="app.openSettings()">
@@ -719,19 +723,6 @@
                 <div>
                   <span class="text-xs sm:text-sm font-bold text-primary block">Tùy chỉnh chế độ trắc nghiệm</span>
                   <span id="profile-mc-mode-label" class="text-[11px] text-ink-muted">Hiện sau khi viết đúng Hiragana</span>
-                </div>
-              </div>
-              <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
-            </div>
-
-            <div class="p-4 flex items-center justify-between hover:bg-surface-alt transition-colors cursor-pointer" onclick="app.startForgottenPractice()">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl bg-surface-alt flex items-center justify-center text-secondary">
-                  <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
-                </div>
-                <div>
-                  <span class="text-xs sm:text-sm font-bold text-primary block">Sổ tay từ chưa nhớ</span>
-                  <span id="profile-starred-count" class="text-[11px] text-ink-muted">0 chữ đã lưu</span>
                 </div>
               </div>
               <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
@@ -812,12 +803,12 @@
             <span>Thẻ ghi nhớ (Flashcard)</span>
           </button>
 
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startForgottenPractice()">
+          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.toggleAiChat(true)">
             <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-[18px] text-secondary" style="font-variation-settings: 'FILL' 1;">bookmark</span>
-              <span>Sổ tay từ chưa nhớ</span>
+              <span class="material-symbols-outlined text-[18px] text-primary">smart_toy</span>
+              <span>Gia sư Kanji AI</span>
             </div>
-            <span id="sb-unremembered-badge" class="text-[10px] text-secondary font-bold bg-vermilion-soft px-1.5 py-0.5 rounded">0</span>
+            <span class="text-[10px] text-tertiary font-bold bg-matcha-soft px-1.5 py-0.5 rounded">Hỏi ngay</span>
           </button>
         </div>
 
@@ -975,6 +966,107 @@
         </button>
       </div>
     </div>
+  </div>
+
+  <!-- ================= 3. FLOATING AI CHAT BUBBLE & BOX ================= -->
+  <!-- Floating Bubble (FAB) at bottom-right -->
+  <div id="ai-chat-bubble" class="fixed bottom-6 right-6 z-40">
+    <button 
+      id="btn-ai-bubble" 
+      class="w-14 h-14 rounded-full bg-primary hover:bg-primary/95 text-washi shadow-2xl border-2 border-surface-card flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 group relative"
+      onclick="app.toggleAiChat()" 
+      title="Gia sư Kanji AI"
+    >
+      <span class="material-symbols-outlined text-[28px] text-washi group-hover:rotate-12 transition-transform">smart_toy</span>
+      <!-- Glowing dot indicator -->
+      <span class="absolute top-0 right-0 w-3.5 h-3.5 rounded-full bg-tertiary border-2 border-washi animate-pulse"></span>
+    </button>
+  </div>
+
+  <!-- Expandable Chat Box Panel -->
+  <div id="ai-chat-box" class="fixed bottom-24 right-4 sm:right-6 w-[370px] max-w-[calc(100vw-2rem)] h-[540px] max-h-[82vh] bg-surface-card border border-border-subtle rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden hidden transition-all duration-300">
+    
+    <!-- Chat Header -->
+    <div class="p-3.5 sm:p-4 border-b border-border-subtle bg-surface-alt/70 flex items-center justify-between flex-shrink-0">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-xl bg-primary text-washi flex items-center justify-center shadow-sm">
+          <span class="material-symbols-outlined text-[22px]">smart_toy</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h3 class="font-serif font-bold text-sm text-primary">Gia sư Kanji AI</h3>
+            <span class="w-2 h-2 rounded-full bg-tertiary inline-block"></span>
+          </div>
+          <span class="text-[11px] text-ink-muted">Giải nghĩa, âm Hán & ngữ pháp</span>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-2">
+        <!-- Token Badge -->
+        <span id="chat-token-badge" class="px-2 py-0.5 rounded-full bg-matcha-soft text-tertiary text-[10px] font-bold" title="Token còn lại hôm nay">
+          12.000 token
+        </span>
+        <button class="w-8 h-8 rounded-lg hover:bg-surface-card text-ink-muted hover:text-primary flex items-center justify-center transition-colors" onclick="app.toggleAiChat(false)" title="Đóng chat">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Chat Messages Scroll Area -->
+    <div id="ai-chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3.5 text-xs bg-washi">
+      <!-- Welcome message -->
+      <div class="flex items-start gap-2.5">
+        <div class="w-7 h-7 rounded-lg bg-primary text-washi flex items-center justify-center flex-shrink-0 text-xs">
+          勝
+        </div>
+        <div class="bg-surface-card border border-border-subtle rounded-2xl rounded-tl-sm p-3.5 max-w-[85%] text-primary shadow-sm space-y-2 leading-relaxed">
+          <p class="font-semibold text-primary">Konnichiwa! Mình là Gia sư Kanji AI 🤖</p>
+          <p class="text-ink-muted">Hôm nay bạn muốn hiểu thêm gì về 1.061 Hán tự N5/N4, bộ thủ hay ví dụ câu? Hãy chọn gợi ý bên dưới hoặc gõ câu hỏi nhé!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Prompt Suggestion Chips -->
+    <div class="px-3 py-2 border-t border-border-subtle bg-surface-card flex items-center gap-1.5 overflow-x-auto flex-shrink-0 no-scrollbar">
+      <button class="px-2.5 py-1 rounded-full bg-surface-alt hover:bg-border-subtle text-primary text-[11px] font-medium whitespace-nowrap transition-colors border border-border-subtle" onclick="app.sendPresetPrompt('Từ này thường được dùng trong tình huống nào?')">
+        💡 Cách dùng
+      </button>
+      <button class="px-2.5 py-1 rounded-full bg-surface-alt hover:bg-border-subtle text-primary text-[11px] font-medium whitespace-nowrap transition-colors border border-border-subtle" onclick="app.sendPresetPrompt('Cho mình một câu ví dụ với từ này, kèm nghĩa tiếng Việt.')">
+        📝 Câu ví dụ
+      </button>
+      <button class="px-2.5 py-1 rounded-full bg-surface-alt hover:bg-border-subtle text-primary text-[11px] font-medium whitespace-nowrap transition-colors border border-border-subtle" onclick="app.sendPresetPrompt('Chỉ mình mẹo nhớ chữ Hán này nhanh và lâu quên.')">
+        🧠 Mẹo nhớ
+      </button>
+      <button class="px-2.5 py-1 rounded-full bg-surface-alt hover:bg-border-subtle text-primary text-[11px] font-medium whitespace-nowrap transition-colors border border-border-subtle" onclick="app.sendPresetPrompt('Giải thích một cấu trúc ngữ pháp liên quan và đặt câu.')">
+        📖 Ngữ pháp
+      </button>
+    </div>
+
+    <!-- Chat Input Area -->
+    <div class="p-3 border-t border-border-subtle bg-surface-card flex flex-col gap-1.5 flex-shrink-0">
+      <form id="ai-chat-form" class="flex items-center gap-2" onsubmit="event.preventDefault(); app.submitAiChat();">
+        <input 
+          id="ai-chat-input" 
+          type="text" 
+          autocomplete="off"
+          class="flex-1 bg-surface-alt rounded-xl px-3.5 py-2.5 text-xs text-primary placeholder:text-ink-dim border border-border-subtle focus:outline-none focus:border-primary transition-colors"
+          placeholder="Hỏi gia sư Kanji (vd: cách nhớ chữ 桜, ngữ pháp です)..."
+        >
+        <button 
+          id="ai-chat-send-btn" 
+          type="submit" 
+          class="w-9 h-9 rounded-xl bg-secondary hover:bg-secondary/90 text-washi flex items-center justify-center transition-colors shadow-sm flex-shrink-0 disabled:opacity-50"
+          title="Gửi câu hỏi"
+        >
+          <span class="material-symbols-outlined text-[18px]">send</span>
+        </button>
+      </form>
+      <div class="flex items-center justify-between text-[10px] text-ink-dim px-1">
+        <span>Tiếng Nhật N5 & N4</span>
+        <span>Làm mới hạn mức lúc 00:00 (UTC+7)</span>
+      </div>
+    </div>
+
   </div>
 
   <!-- Scripts -->

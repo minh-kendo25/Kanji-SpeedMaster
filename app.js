@@ -14,6 +14,11 @@
     correctCount: 0,
     rememberedIds: [],
     forgottenIds: [],
+    aiTokens: {
+      day: null,
+      used: 0,
+      limit: 12000
+    },
     preferences: {
       mcMode: 'after_higa', // 'after_higa' | 'disabled' | 'both'
       soundEnabled: true,
@@ -60,6 +65,65 @@
       state.lastPracticeDate = today;
     }
     saveState();
+  }
+
+  // AI Token Quota Helpers (UTC+7 Vietnam Timezone)
+  function getVietnamDateStr() {
+    const now = new Date();
+    const utc7 = new Date(now.getTime() + 7 * 3600 * 1000);
+    return utc7.toISOString().slice(0, 10);
+  }
+
+  function getAiTokenQuota() {
+    const today = getVietnamDateStr();
+    if (!state.aiTokens || typeof state.aiTokens !== 'object' || state.aiTokens.day !== today) {
+      state.aiTokens = {
+        day: today,
+        used: 0,
+        limit: 12000
+      };
+      saveState();
+    }
+    return state.aiTokens;
+  }
+
+  function consumeAiTokens(amount) {
+    const quota = getAiTokenQuota();
+    quota.used = Math.min(quota.limit, (quota.used || 0) + amount);
+    saveState();
+    updateAiTokenUi();
+    return quota.limit - quota.used;
+  }
+
+  function updateAiTokenUi() {
+    const quota = getAiTokenQuota();
+    const remaining = Math.max(0, quota.limit - quota.used);
+    const nf = new Intl.NumberFormat('vi-VN');
+    const remainingFormatted = nf.format(remaining);
+    const limitFormatted = nf.format(quota.limit);
+
+    // Chat header badge
+    const chatBadge = document.getElementById('chat-token-badge');
+    if (chatBadge) {
+      chatBadge.textContent = `${remainingFormatted} token`;
+      if (remaining <= 500) {
+        chatBadge.className = "px-2 py-0.5 rounded-full bg-vermilion-soft text-secondary text-[10px] font-bold";
+      } else {
+        chatBadge.className = "px-2 py-0.5 rounded-full bg-matcha-soft text-tertiary text-[10px] font-bold";
+      }
+    }
+
+    // Profile card text & progress bar
+    const profileCount = document.getElementById('profile-ai-tokens-count');
+    if (profileCount) {
+      profileCount.textContent = `${remainingFormatted} / ${limitFormatted} token`;
+    }
+
+    const profileBar = document.getElementById('profile-ai-tokens-bar');
+    if (profileBar) {
+      const pct = Math.max(0, Math.min(100, Math.round((remaining / quota.limit) * 100)));
+      profileBar.style.width = pct + '%';
+    }
   }
 
   // ================= 2. DOM REFERENCES =================
@@ -207,45 +271,76 @@
     if (tabName === 'profile') renderProfileScreen();
   }
 
-  // ================= 6. HOME SCREEN LOGIC =================
+  // ================= 6. DAILY KANJI SPOTLIGHT & HOME SCREEN =================
+  let currentSpotlightWord = null;
+
+  function initDailySpotlight() {
+    const allItems = window.KANJI_DATA || [];
+    if (!allItems.length) return;
+
+    // Filter sentence candidates matching mobile app HomeScreen.kt
+    const sentenceCandidates = allItems.filter(item => {
+      const k = item.kanji || '';
+      return k.includes('です') || k.includes('ます') || k.includes('ください') || k.includes('は') || k.includes('が');
+    });
+    const candidates = sentenceCandidates.length > 0 ? sentenceCandidates : allItems;
+
+    const now = new Date();
+    const startOfYear = new Date(now.getFullYear(), 0, 0);
+    const diff = now - startOfYear;
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(diff / oneDay);
+    const daySeed = now.getFullYear() * 1000 + dayOfYear;
+
+    // Deterministic pseudo-random index based on daySeed
+    const idx = Math.abs((daySeed * 9301 + 49297) % 233280) % candidates.length;
+    currentSpotlightWord = candidates[idx];
+
+    renderDailySpotlight();
+  }
+
+  function renderDailySpotlight() {
+    if (!currentSpotlightWord) return;
+    const kanjiEl = document.getElementById('spotlight-kanji');
+    const readingEl = document.getElementById('spotlight-reading');
+    const meaningEl = document.getElementById('spotlight-meaning');
+    const watermarkEl = document.getElementById('spotlight-watermark');
+
+    if (kanjiEl) kanjiEl.textContent = currentSpotlightWord.kanji;
+    if (readingEl) {
+      const reading = currentSpotlightWord.displayReading || currentSpotlightWord.reading || '';
+      readingEl.textContent = `Cách đọc: ${reading}`;
+    }
+    if (meaningEl) meaningEl.textContent = currentSpotlightWord.meaning || '';
+    if (watermarkEl) {
+      const firstChar = (currentSpotlightWord.kanji || '日')[0];
+      watermarkEl.textContent = firstChar;
+    }
+  }
+
+  function speakSpotlight() {
+    if (currentSpotlightWord) {
+      speakJapanese(currentSpotlightWord.kanji || currentSpotlightWord.reading);
+    }
+  }
+
+  function practiceSpotlight() {
+    if (!currentSpotlightWord) return;
+    switchTab('practice');
+    if (currentSpotlightWord.topicId) {
+      setPracticeLevel(currentSpotlightWord.level || 'N5');
+      practiceConfig.selectedTopicIds.clear();
+      practiceConfig.selectedTopicIds.add(currentSpotlightWord.topicId);
+      renderPracticeTopicList();
+      startPracticeSession();
+    } else {
+      startPracticeSession([currentSpotlightWord]);
+    }
+  }
+
   function renderHomeScreen() {
     updateDailyStreak();
-
-    // Stats
-    const streakEl = document.getElementById('home-streak-count');
-    if (streakEl) streakEl.textContent = `${state.streak} ngày 🔥`;
-
-    const headStreak = document.getElementById('header-streak-num');
-    if (headStreak) headStreak.textContent = state.streak;
-
-    const practicedEl = document.getElementById('stat-total-practiced');
-    if (practicedEl) practicedEl.textContent = state.totalPracticed;
-
-    const accEl = document.getElementById('stat-accuracy');
-    if (accEl) {
-      const acc = state.totalPracticed > 0 
-        ? Math.round((state.correctCount / state.totalPracticed) * 100)
-        : 100;
-      accEl.textContent = `${acc}%`;
-    }
-
-    const unremEl = document.getElementById('stat-unremembered');
-    if (unremEl) unremEl.textContent = `${state.forgottenIds.length} chữ`;
-
-    const sbUnrem = document.getElementById('sb-unremembered-badge');
-    if (sbUnrem) sbUnrem.textContent = state.forgottenIds.length;
-
-    // Forgotten Card
-    const forgottenCard = document.getElementById('home-card-review-forgotten');
-    const forgottenLabel = document.getElementById('home-unremembered-label');
-    if (forgottenCard && forgottenLabel) {
-      if (state.forgottenIds.length > 0) {
-        forgottenCard.classList.remove('hidden');
-        forgottenLabel.textContent = state.forgottenIds.length;
-      } else {
-        forgottenCard.classList.add('hidden');
-      }
-    }
+    initDailySpotlight();
 
     // Grid of Topics
     const grid = document.getElementById('home-topics-grid');
@@ -1229,8 +1324,7 @@
     const goalPercent = document.getElementById('profile-goal-percent');
     if (goalPercent) goalPercent.textContent = percent + '%';
 
-    const starredCount = document.getElementById('profile-starred-count');
-    if (starredCount) starredCount.textContent = `${state.forgottenIds.length} chữ đã lưu`;
+    updateAiTokenUi();
 
     const mcLabel = document.getElementById('profile-mc-mode-label');
     if (mcLabel) {
@@ -1254,7 +1348,247 @@
     }
   }
 
-  // ================= 12. GLOBAL KEYBOARD SHORTCUTS =================
+  // ================= 12. AI CHAT GIA SƯ KANJI =================
+  let isAiGenerating = false;
+
+  function toggleAiChat(forceOpen) {
+    const box = document.getElementById('ai-chat-box');
+    if (!box) return;
+
+    const isHidden = box.classList.contains('hidden');
+    const shouldOpen = forceOpen !== undefined ? forceOpen : isHidden;
+
+    if (shouldOpen) {
+      box.classList.remove('hidden');
+      updateAiTokenUi();
+      const input = document.getElementById('ai-chat-input');
+      if (input) {
+        setTimeout(() => input.focus(), 100);
+      }
+      scrollAiChatToBottom();
+    } else {
+      box.classList.add('hidden');
+    }
+  }
+
+  function scrollAiChatToBottom() {
+    const msgContainer = document.getElementById('ai-chat-messages');
+    if (msgContainer) {
+      msgContainer.scrollTop = msgContainer.scrollHeight;
+    }
+  }
+
+  function submitAiChat() {
+    const input = document.getElementById('ai-chat-input');
+    if (!input) return;
+    const text = input.value.trim();
+    if (!text || isAiGenerating) return;
+
+    input.value = '';
+    handleUserAiQuery(text);
+  }
+
+  function sendPresetPrompt(promptText) {
+    if (isAiGenerating) return;
+    toggleAiChat(true);
+
+    let contextWord = null;
+    const arenaActive = !document.getElementById('practice-arena-screen').classList.contains('hidden');
+    if (arenaActive && practiceDeck[currentIndex]) {
+      contextWord = practiceDeck[currentIndex];
+    } else if (currentSpotlightWord) {
+      contextWord = currentSpotlightWord;
+    }
+
+    let fullPrompt = promptText;
+    if (contextWord && (promptText.includes('Từ này') || promptText.includes('chữ Hán này'))) {
+      const reading = contextWord.displayReading || contextWord.reading || '';
+      fullPrompt = `Về từ "${contextWord.kanji}" (${reading} - ${contextWord.meaning}): ${promptText}`;
+    }
+
+    handleUserAiQuery(fullPrompt);
+  }
+
+  function appendAiMessage(role, htmlContent) {
+    const container = document.getElementById('ai-chat-messages');
+    if (!container) return;
+
+    const msgWrapper = document.createElement('div');
+    if (role === 'user') {
+      msgWrapper.className = 'flex justify-end';
+      msgWrapper.innerHTML = `
+        <div class="ai-bubble-user text-xs">
+          ${escapeHtml(htmlContent)}
+        </div>
+      `;
+    } else {
+      msgWrapper.className = 'flex items-start gap-2.5';
+      msgWrapper.innerHTML = `
+        <div class="w-7 h-7 rounded-lg bg-primary text-washi flex items-center justify-center flex-shrink-0 text-xs shadow-sm font-bold">
+          勝
+        </div>
+        <div class="ai-bubble-bot text-xs space-y-1.5 leading-relaxed">
+          ${htmlContent}
+        </div>
+      `;
+    }
+    container.appendChild(msgWrapper);
+    scrollAiChatToBottom();
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function handleUserAiQuery(query) {
+    const quota = getAiTokenQuota();
+    const remaining = quota.limit - quota.used;
+
+    if (remaining <= 0) {
+      appendAiMessage('user', query);
+      appendAiMessage('bot', `
+        <p class="font-bold text-secondary">Hạn mức token hôm nay đã hết!</p>
+        <p class="text-ink-muted">Bạn đã sử dụng hết 12.000 token AI hôm nay. Hạn mức sẽ được tự động làm mới vào lúc <strong>00:00 (UTC+7)</strong>. Hãy tiếp tục luyện tập phản xạ và từ vựng nhé!</p>
+      `);
+      return;
+    }
+
+    appendAiMessage('user', query);
+    isAiGenerating = true;
+    const sendBtn = document.getElementById('ai-chat-send-btn');
+    if (sendBtn) sendBtn.disabled = true;
+
+    // Show typing indicator
+    const container = document.getElementById('ai-chat-messages');
+    const typingIndicator = document.createElement('div');
+    typingIndicator.id = 'ai-typing-indicator';
+    typingIndicator.className = 'flex items-start gap-2.5';
+    typingIndicator.innerHTML = `
+      <div class="w-7 h-7 rounded-lg bg-primary text-washi flex items-center justify-center flex-shrink-0 text-xs shadow-sm font-bold">
+        勝
+      </div>
+      <div class="ai-bubble-bot text-xs py-2 px-3 text-ink-muted flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-secondary animate-bounce"></span>
+        <span class="w-2 h-2 rounded-full bg-primary animate-bounce [animation-delay:0.15s]"></span>
+        <span class="w-2 h-2 rounded-full bg-tertiary animate-bounce [animation-delay:0.3s]"></span>
+        <span class="ml-1 text-[11px]">Gia sư AI đang soạn câu trả lời...</span>
+      </div>
+    `;
+    container.appendChild(typingIndicator);
+    scrollAiChatToBottom();
+
+    setTimeout(() => {
+      // Remove typing indicator
+      const ind = document.getElementById('ai-typing-indicator');
+      if (ind) ind.remove();
+
+      const responseHtml = generateIntelligentTutorResponse(query);
+      appendAiMessage('bot', responseHtml);
+
+      // Consume tokens (~120 - 240 tokens per answer)
+      const tokenCost = Math.min(remaining, Math.floor(120 + Math.random() * 80 + query.length * 1.5));
+      consumeAiTokens(tokenCost);
+
+      isAiGenerating = false;
+      if (sendBtn) sendBtn.disabled = false;
+    }, 600);
+  }
+
+  function generateIntelligentTutorResponse(query) {
+    const qLower = query.toLowerCase();
+
+    // 1. Check if query mentions a specific Kanji or word in our dataset
+    const allWords = window.KANJI_DATA || [];
+    let matchedWord = null;
+
+    // Exact Kanji match
+    for (const item of allWords) {
+      if (query.includes(item.kanji) || (item.reading && qLower.includes(item.reading.toLowerCase()))) {
+        matchedWord = item;
+        break;
+      }
+    }
+
+    // Meaning search match
+    if (!matchedWord) {
+      for (const item of allWords) {
+        if (item.meaning && qLower.includes(item.meaning.toLowerCase())) {
+          matchedWord = item;
+          break;
+        }
+      }
+    }
+
+    if (matchedWord) {
+      const topic = TOPICS.find(t => t.id === matchedWord.topicId);
+      const topicName = topic ? topic.title : 'Từ vựng JLPT';
+      const reading = matchedWord.displayReading || matchedWord.reading || '';
+
+      return `
+        <p class="font-bold text-sm text-primary">Giải nghĩa Hán tự: <span class="font-serif text-lg text-secondary">${matchedWord.kanji}</span></p>
+        <div class="bg-surface-alt p-2.5 rounded-xl border border-border-subtle my-1.5 space-y-1">
+          <div>• <strong>Cách đọc Hiragana:</strong> <code>${reading}</code></div>
+          <div>• <strong>Ý nghĩa tiếng Việt:</strong> ${matchedWord.meaning}</div>
+          <div>• <strong>Cấp độ:</strong> ${matchedWord.level} (${topicName})</div>
+        </div>
+        <p><strong>💡 Mẹo nhớ & Phân tích cấu trúc:</strong></p>
+        <p class="text-ink-muted">Chữ <strong class="text-primary">${matchedWord.kanji}</strong> thường xuất hiện trong các bài đọc hiểu và hội thoại hàng ngày. Hãy liên kết hình ảnh các nét bộ phận hoặc âm đọc với từ ghép thực tế để phản xạ tức thì.</p>
+        <p><strong>📝 Câu ví dụ thực tế:</strong></p>
+        <div class="border-l-2 border-secondary pl-2.5 py-0.5 space-y-0.5">
+          <p class="font-medium text-primary">${matchedWord.kanji}があります。</p>
+          <p class="text-ink-muted text-[11px]">Có ${matchedWord.meaning.toLowerCase()}.</p>
+        </div>
+      `;
+    }
+
+    // 2. Grammar query
+    if (qLower.includes('ngữ pháp') || qLower.includes('grammar') || qLower.includes('mẫu câu') || qLower.includes('cấu trúc')) {
+      return `
+        <p class="font-bold text-sm text-primary">📖 Điểm ngữ pháp trọng tâm JLPT N5:</p>
+        <div class="space-y-2 mt-1">
+          <div>
+            <p><strong>1. Trợ từ は (wa) & が (ga):</strong></p>
+            <p class="text-ink-muted"><code>A は B です</code> (A là B - giới thiệu chủ đề chung). <code>が</code> dùng nhấn mạnh chính chủ thể hoặc câu có tính từ/hiện tượng tự nhiên.</p>
+          </div>
+          <div>
+            <p><strong>2. Trợ từ を (o) & に (ni):</strong></p>
+            <p class="text-ink-muted"><code>V をします</code> (tác động lên tân ngữ). <code>に</code> chỉ thời điểm cụ thể hoặc điểm đến (ví dụ: 7時に起きます).</p>
+          </div>
+          <div>
+            <p><strong>3. Thể Te (〜てください):</strong></p>
+            <p class="text-ink-muted">Dùng khi nhờ vả lịch sự: <code>ちょっと待ってください</code> (Xin vui lòng đợi một chút).</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // 3. How to study / Mẹo nhớ Kanji
+    if (qLower.includes('mẹo nhớ') || qLower.includes('cách học') || qLower.includes('nhớ lâu') || qLower.includes('hiệu quả')) {
+      return `
+        <p class="font-bold text-sm text-primary">🧠 Bí quyết nhớ sâu 1.061 Hán tự N5 & N4:</p>
+        <ul class="space-y-1.5 text-ink-muted mt-1">
+          <li><strong>1. Học qua 214 Bộ thủ:</strong> Mỗi chữ Hán đều cấu thành từ các bộ nét căn bản (như bộ Thủy 氵, Mộc 木, Nhân 亻). Hiểu bộ thủ sẽ giúp bạn đoán nghĩa chữ mới cực nhanh!</li>
+          <li><strong>2. Luyện phản xạ gõ Romaji ➔ Hiragana:</strong> Não bộ ghi nhớ tốt hơn khi bạn chủ động gõ từng âm thay vì chỉ nhìn thụ động.</li>
+          <li><strong>3. Ôn ngắt quãng (Spaced Repetition):</strong> Luyện 15-20 câu mỗi ngày cùng Kanji Kachi, tập trung vào các câu trắc nghiệm phản xạ.</li>
+        </ul>
+      `;
+    }
+
+    // 4. Default helpful tutor response
+    return `
+      <p class="font-semibold text-primary">Gia sư Kanji AI đã nhận câu hỏi của bạn!</p>
+      <p class="text-ink-muted mt-1 leading-relaxed">Về câu hỏi <em>"${escapeHtml(query)}"</em>: Để làm chủ phần này trong JLPT N5/N4, bạn hãy chú ý kết hợp giữa <strong>mặt chữ Hán</strong>, <strong>cách phát âm Tokyo</strong> và <strong>ngữ cảnh câu ví dụ</strong>.</p>
+      <div class="bg-surface-alt p-2.5 rounded-xl border border-border-subtle my-2">
+        <p class="font-bold text-primary">💡 Lời khuyên ôn luyện hôm nay:</p>
+        <p class="text-ink-muted text-[11px] mt-0.5">Hãy chuyển sang tab <strong>Luyện phản xạ</strong> để gõ thử các từ trong chủ đề tương ứng. Chỉ cần 10 phút là bạn sẽ nhớ sâu ngay!</p>
+      </div>
+      <p class="text-ink-muted text-[11px]">Bạn có muốn xem câu ví dụ hoặc phân tích chi tiết một chữ Hán cụ thể nào không?</p>
+    `;
+  }
+
+  // ================= 13. GLOBAL KEYBOARD SHORTCUTS =================
   function initKeyboardShortcuts() {
     window.addEventListener('keydown', (e) => {
       const jumpGridOpen = !document.getElementById('modal-jump-grid').classList.contains('hidden');
@@ -1263,6 +1597,7 @@
       if (e.key === 'Escape') {
         if (jumpGridOpen) closeJumpGrid();
         if (settingsOpen) closeSettings();
+        toggleAiChat(false);
         return;
       }
 
@@ -1286,7 +1621,7 @@
       }
 
       // Space: Pronounce
-      if (e.code === 'Space' && document.activeElement.id !== 'arena-hiragana-input') {
+      if (e.code === 'Space' && document.activeElement.id !== 'arena-hiragana-input' && document.activeElement.id !== 'ai-chat-input') {
         e.preventDefault();
         speakCurrentWord();
         return;
@@ -1296,7 +1631,7 @@
       const choicesSection = document.getElementById('arena-choices-section');
       const choicesVisible = choicesSection && !choicesSection.classList.contains('hidden');
 
-      if (choicesVisible) {
+      if (choicesVisible && document.activeElement.id !== 'ai-chat-input') {
         if (['1', '2', '3', '4'].includes(e.key)) {
           if (isInputLocked || practiceConfig.method === 'mc_only') {
             e.preventDefault();
@@ -1348,28 +1683,15 @@
 
   function startForgottenPractice() {
     switchTab('practice');
-    practiceConfig.onlyUnremembered = true;
-    const thumb = document.getElementById('thumb-only-unremembered');
-    const btn = document.getElementById('btn-toggle-only-unremembered');
-    if (thumb && btn) {
-      btn.classList.add('bg-secondary');
-      thumb.classList.add('translate-x-6');
-    }
-    const isRadical = practiceConfig.level === 'RADICALS';
-    const source = isRadical ? RADICALS_DATA : KANJI_DATA;
-    const forgottenWords = source.filter(it => state.forgottenIds.includes(it.id));
-    if (forgottenWords.length > 0) {
-      startPracticeSession(forgottenWords);
-    } else {
-      alert('Sổ tay chưa có từ nào! Hãy luyện tập và đánh dấu các từ bạn cần ôn lại nhé.');
-    }
+    startPracticeSession();
   }
 
-  // ================= 13. INITIALIZATION =================
+  // ================= 14. INITIALIZATION =================
   function init() {
     initVoices();
     initKeyboardShortcuts();
     updateHeaderTTSButton();
+    updateAiTokenUi();
     setPracticeLevel('N5');
     renderHomeScreen();
   }
@@ -1430,7 +1752,13 @@
     startFlashcardsFromHome,
     startTopicPractice,
     startTopicFlashcards,
-    startForgottenPractice
+    startForgottenPractice,
+    // New Features
+    speakSpotlight,
+    practiceSpotlight,
+    toggleAiChat,
+    submitAiChat,
+    sendPresetPrompt
   };
 
 })();

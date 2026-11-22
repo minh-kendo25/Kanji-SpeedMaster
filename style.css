@@ -171,3 +171,81 @@ html, body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--ink-muted);
 }
+
+/* No scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* AI Chat Styling */
+#ai-chat-box {
+  animation: slideUpFade 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ai-bubble-user {
+  background-color: var(--ink-primary);
+  color: var(--bg-washi);
+  border-radius: 18px 18px 2px 18px;
+  padding: 10px 14px;
+  max-width: 82%;
+  margin-left: auto;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+  word-break: break-word;
+}
+
+.ai-bubble-bot {
+  background-color: var(--bg-card);
+  color: var(--ink-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px 18px 18px 2px;
+  padding: 12px 14px;
+  max-width: 88%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  word-break: break-word;
+  line-height: 1.55;
+}
+
+.ai-bubble-bot strong {
+  color: var(--vermilion);
+  font-weight: 700;
+}
+
+.ai-bubble-bot code {
+  background-color: var(--bg-card-alt);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 11px;
+  color: var(--ink-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+.ai-bubble-bot ul {
+  margin: 6px 0;
+  padding-left: 18px;
+  list-style-type: disc;
+}
+
+.ai-bubble-bot li {
+  margin-bottom: 4px;
+}
+
+/* Web Ad Container */
+.web-ad-container {
+  background-image: radial-gradient(#EFEBE4 1px, transparent 1px);
+  background-size: 12px 12px;
+}
