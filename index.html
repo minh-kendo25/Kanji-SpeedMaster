@@ -122,12 +122,9 @@
             <span>Thẻ ghi nhớ (Flashcard)</span>
           </button>
 
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.toggleAiChat(true)">
-            <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-[18px] text-primary">auto_awesome</span>
-              <span>Gia sư Kanji AI</span>
-            </div>
-            <span class="text-[10px] text-tertiary font-bold bg-matcha-soft px-1.5 py-0.5 rounded">Hỏi ngay</span>
+          <button class="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.toggleAiChat(true)">
+            <span class="material-symbols-outlined text-[18px] text-primary">auto_awesome</span>
+            <span>Gia sư Kanji AI</span>
           </button>
         </div>
 
@@ -137,28 +134,19 @@
         <div class="space-y-1">
           <span class="px-3 text-[10px] font-bold text-ink-dim uppercase tracking-wider block">Lộ trình của bạn</span>
 
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startPracticeFromHome('N5')">
-            <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-[18px] text-primary">folder</span>
-              <span>Kanji N5 (Sơ cấp)</span>
-            </div>
-            <span class="text-[10px] text-ink-dim bg-surface-alt px-1.5 py-0.5 rounded">350</span>
+          <button class="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startFlashcardsFromHome('N5')">
+            <span class="material-symbols-outlined text-[18px] text-primary">folder</span>
+            <span>Kanji N5 (Sơ cấp)</span>
           </button>
 
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startPracticeFromHome('N4')">
-            <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-[18px] text-secondary">folder</span>
-              <span>Kanji N4 (Sơ trung cấp)</span>
-            </div>
-            <span class="text-[10px] text-ink-dim bg-surface-alt px-1.5 py-0.5 rounded">711</span>
+          <button class="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startFlashcardsFromHome('N4')">
+            <span class="material-symbols-outlined text-[18px] text-secondary">folder</span>
+            <span>Kanji N4 (Sơ trung cấp)</span>
           </button>
 
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startPracticeFromHome('RADICALS')">
-            <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-[18px] text-tertiary">folder</span>
-              <span>214 Bộ thủ Khang Hy</span>
-            </div>
-            <span class="text-[10px] text-ink-dim bg-surface-alt px-1.5 py-0.5 rounded">214</span>
+          <button class="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startFlashcardsFromHome('RADICALS')">
+            <span class="material-symbols-outlined text-[18px] text-tertiary">folder</span>
+            <span>214 Bộ thủ Khang Hy</span>
           </button>
         </div>
 
@@ -209,6 +197,19 @@
 
         <!-- Right Quick Controls -->
         <div class="flex items-center gap-2">
+          <!-- Google Auth / Sync Button -->
+          <div id="header-auth-container">
+            <button id="header-btn-login" class="h-9 px-3 flex items-center gap-2 rounded-xl bg-surface-card border border-border-subtle hover:border-primary text-primary text-xs font-bold transition-colors shadow-sm" onclick="app.signInWithGoogle()" title="Đăng nhập Google để đồng bộ với App">
+              <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span class="hidden sm:inline">Đăng nhập</span>
+            </button>
+            <button id="header-btn-user" class="h-9 pl-1.5 pr-3 flex items-center gap-2 rounded-xl bg-surface-card border border-border-subtle hover:border-primary text-primary text-xs font-bold transition-colors shadow-sm hidden" onclick="app.switchTab('profile')" title="Tài khoản đã đồng bộ đám mây">
+              <img id="header-user-avatar" src="logo.png" alt="Avatar" class="w-6 h-6 rounded-full object-cover border border-border-subtle">
+              <span id="header-user-name" class="hidden sm:inline max-w-[110px] truncate">Người học</span>
+              <span class="w-2 h-2 rounded-full bg-tertiary flex-shrink-0" title="Đã đồng bộ"></span>
+            </button>
+          </div>
+
           <!-- Dark Mode Toggle -->
           <button id="header-btn-theme" class="w-9 h-9 flex items-center justify-center rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary transition-colors" title="Chuyển chế độ Tối / Sáng" onclick="app.toggleTheme()">
             <span id="header-icon-theme" class="material-symbols-outlined text-[20px]">dark_mode</span>
@@ -291,49 +292,54 @@
             </div>
           </div>
 
-          <!-- 2 Main Action Cards -->
+          <!-- 2 Main Action Cards: HỌC (FLASHCARD) & LUYỆN TẬP (PHẢN XẠ / KIỂM TRA) -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <!-- Card 1: Practice Reflex -->
-            <div class="bg-surface-card p-6 rounded-2xl border border-border-subtle hover:border-primary cursor-pointer transition-all shadow-sm flex flex-col justify-between group" onclick="app.switchTab('practice')">
+            <!-- Card 1: HỌC BẰNG FLASHCARD -->
+            <div class="bg-surface-card p-6 rounded-2xl border border-border-subtle hover:border-secondary cursor-pointer transition-all shadow-sm flex flex-col justify-between group" onclick="app.startFlashcardsFromHome('N5')">
               <div class="space-y-3">
-                <div class="w-11 h-11 rounded-xl bg-primary text-washi flex items-center justify-center group-hover:scale-105 transition-transform shadow-sm">
-                  <span class="material-symbols-outlined text-[24px]">draw</span>
+                <div class="w-12 h-12 rounded-xl bg-vermilion-soft text-secondary flex items-center justify-center group-hover:scale-105 transition-transform shadow-sm">
+                  <span class="material-symbols-outlined text-[26px]">style</span>
                 </div>
                 <div>
-                  <h3 class="font-serif font-bold text-lg text-primary">Luyện phản xạ Hán tự</h3>
-                  <p class="text-xs text-ink-muted mt-1 leading-relaxed">Gõ Romaji ➔ Hiragana mượt mà, khóa input khi đúng và chọn nghĩa với phím 1, 2, 3, 4.</p>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Học mới & ghi nhớ</span>
+                  <h3 class="font-serif font-bold text-lg text-primary mt-0.5">Học Hán tự (Flashcard 3D)</h3>
+                  <p class="text-xs text-ink-muted mt-1 leading-relaxed">Lật thẻ 3D trực quan, nghe phát âm chuẩn Tokyo, đánh dấu Đã nhớ / Chưa nhớ và tự đồng bộ với App.</p>
                 </div>
               </div>
-              <div class="mt-5 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-primary">
-                <span>Bắt đầu rèn luyện ngay</span>
+              <div class="mt-5 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-secondary">
+                <span>Bắt đầu học Flashcard</span>
                 <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
             </div>
 
-            <!-- Card 2: Flashcards 3D -->
-            <div class="bg-surface-card p-6 rounded-2xl border border-border-subtle hover:border-primary cursor-pointer transition-all shadow-sm flex flex-col justify-between group" onclick="app.startFlashcardsFromHome('N5')">
+            <!-- Card 2: LUYỆN TẬP PHẢN XẠ (KIỂM TRA) -->
+            <div class="bg-surface-card p-6 rounded-2xl border border-border-subtle hover:border-primary cursor-pointer transition-all shadow-sm flex flex-col justify-between group" onclick="app.switchTab('practice')">
               <div class="space-y-3">
-                <div class="w-11 h-11 rounded-xl bg-surface-alt text-secondary flex items-center justify-center group-hover:scale-105 transition-transform shadow-sm">
-                  <span class="material-symbols-outlined text-[24px]">style</span>
+                <div class="w-12 h-12 rounded-xl bg-primary text-washi flex items-center justify-center group-hover:scale-105 transition-transform shadow-sm">
+                  <span class="material-symbols-outlined text-[26px]">draw</span>
                 </div>
                 <div>
-                  <h3 class="font-serif font-bold text-lg text-primary">Thẻ ghi nhớ (Flashcard 3D)</h3>
-                  <p class="text-xs text-ink-muted mt-1 leading-relaxed">Lật thẻ 3D trực quan, nghe phát âm giọng Tokyo chuẩn, xem nghĩa và các từ ghép thực tế.</p>
+                  <span class="text-[10px] font-bold uppercase tracking-wider text-ink-dim">Kiểm tra tốc độ</span>
+                  <h3 class="font-serif font-bold text-lg text-primary mt-0.5">Luyện phản xạ (Kiểm tra)</h3>
+                  <p class="text-xs text-ink-muted mt-1 leading-relaxed">3 chế độ bài thi giống App: Gõ Hiragana, Trắc nghiệm 4 đáp án hoặc Phản xạ toàn diện.</p>
                 </div>
               </div>
-              <div class="mt-5 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-secondary">
-                <span>Lật thẻ học từ vựng</span>
+              <div class="mt-5 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-primary">
+                <span>Vào phòng luyện tập</span>
                 <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
             </div>
           </div>
 
-          <!-- Featured Topics Grid -->
+          <!-- Featured Topics Grid (Mỗi chủ đề có 2 nút rõ ràng: Học Flashcard & Luyện phản xạ) -->
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <h2 class="font-serif font-bold text-lg text-primary">Chủ đề Hán tự N5 & N4</h2>
-              <button class="text-xs font-bold text-secondary hover:underline flex items-center gap-1" onclick="app.switchTab('vocab')">
-                <span>Xem toàn bộ 19 chủ đề</span>
+              <div>
+                <h2 class="font-serif font-bold text-lg text-primary">Chủ đề Hán tự · Học & Luyện tập</h2>
+                <p class="text-xs text-ink-muted">Chọn chủ đề để học bằng Flashcard hoặc làm bài kiểm tra phản xạ ngay.</p>
+              </div>
+              <button class="text-xs font-bold text-secondary hover:underline flex items-center gap-1 flex-shrink-0" onclick="app.switchTab('vocab')">
+                <span>Xem toàn bộ chủ đề</span>
                 <span class="material-symbols-outlined text-[16px]">chevron_right</span>
               </button>
             </div>
@@ -431,77 +437,90 @@
               </select>
             </div>
 
-            <!-- 3D Card Canvas -->
-            <div class="perspective-1000 w-full min-h-[330px] cursor-pointer" onclick="app.flipFlashcard()">
-              <div id="flashcard-inner" class="relative w-full h-[330px] rounded-2xl transition-transform duration-500 transform-style-3d shadow-md">
+            <!-- 3D Card Canvas (Scaled nicely for Web) -->
+            <div class="perspective-1000 w-full min-h-[370px] sm:min-h-[400px] cursor-pointer" onclick="app.flipFlashcard()">
+              <div id="flashcard-inner" class="relative w-full h-[370px] sm:h-[400px] rounded-2xl transition-transform duration-500 transform-style-3d shadow-md">
                 
                 <!-- Front Face -->
-                <div class="absolute inset-0 w-full h-full bg-surface-card border border-border-subtle rounded-2xl p-6 flex flex-col justify-between items-center text-center backface-hidden">
+                <div class="absolute inset-0 w-full h-full bg-surface-card border border-border-subtle rounded-2xl p-7 flex flex-col justify-between items-center text-center backface-hidden">
                   <div class="w-full flex items-center justify-between text-xs text-ink-muted">
-                    <span id="fc-level-badge" class="px-2.5 py-0.5 rounded-md bg-surface-alt font-bold text-primary">N5</span>
-                    <span id="fc-counter" class="font-semibold">1 / 10</span>
-                    <button class="w-8 h-8 rounded-full hover:bg-surface-alt text-ink-muted hover:text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.speakFlashcardWord()" title="Nghe phát âm">
-                      <span class="material-symbols-outlined text-[18px]">volume_up</span>
+                    <span id="fc-level-badge" class="px-3 py-1 rounded-lg bg-surface-alt font-bold text-primary">N5</span>
+                    <span id="fc-counter" class="font-bold text-sm text-primary">1 / 10</span>
+                    <button class="w-9 h-9 rounded-full hover:bg-surface-alt text-ink-muted hover:text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.speakFlashcardWord()" title="Nghe phát âm">
+                      <span class="material-symbols-outlined text-[20px]">volume_up</span>
                     </button>
                   </div>
 
                   <!-- Main Kanji Glyph -->
                   <div class="my-auto flex flex-col items-center">
-                    <span id="fc-kanji" class="kanji-glyph text-7xl sm:text-8xl font-normal text-primary select-none">一</span>
-                    <span class="text-xs text-ink-dim mt-2 flex items-center gap-1">
-                      <span class="material-symbols-outlined text-[15px]">touch_app</span> Chạm để lật thẻ
+                    <span id="fc-kanji" class="kanji-glyph text-8xl sm:text-9xl font-normal text-primary select-none">一</span>
+                    <span class="text-xs text-ink-dim mt-4 flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[16px]">touch_app</span> Chạm thẻ để xem nghĩa & cách đọc
                     </span>
                   </div>
 
-                  <div class="w-full text-center text-xs text-ink-muted font-medium">
+                  <div class="w-full text-center text-xs text-ink-muted font-semibold">
                     <span id="fc-topic-hint">Số đếm & Tiền tệ</span>
                   </div>
                 </div>
 
                 <!-- Back Face -->
-                <div class="absolute inset-0 w-full h-full bg-surface-card border-2 border-secondary/30 rounded-2xl p-6 flex flex-col justify-between items-center text-center backface-hidden rotate-y-180">
+                <div class="absolute inset-0 w-full h-full bg-surface-card border-2 border-secondary/30 rounded-2xl p-7 flex flex-col justify-between items-center text-center backface-hidden rotate-y-180">
                   <div class="w-full flex items-center justify-between text-xs text-ink-muted">
-                    <span class="text-xs font-bold text-secondary">Mặt sau</span>
-                    <div class="flex items-center gap-1">
-                      <button class="px-2.5 py-1 rounded-full bg-vermilion-soft text-secondary hover:opacity-85 text-[11px] font-bold flex items-center gap-1 transition-opacity" onclick="event.stopPropagation(); app.askAiAboutCurrentScreen()" title="Hỏi Gia sư AI về thẻ này">
-                        <span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Nghĩa & Cách đọc</span>
+                    <div class="flex items-center gap-1.5">
+                      <button class="px-3 py-1.5 rounded-full bg-vermilion-soft text-secondary hover:opacity-85 text-xs font-bold flex items-center gap-1 transition-opacity" onclick="event.stopPropagation(); app.askAiAboutCurrentScreen()" title="Hỏi Gia sư AI về thẻ này">
+                        <span class="material-symbols-outlined text-[15px]">auto_awesome</span>
                         <span>Hỏi AI</span>
                       </button>
-                      <button class="w-8 h-8 rounded-full hover:bg-surface-alt text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.speakFlashcardWord()">
-                        <span class="material-symbols-outlined text-[18px]">volume_up</span>
+                      <button class="w-9 h-9 rounded-full hover:bg-surface-alt text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.speakFlashcardWord()">
+                        <span class="material-symbols-outlined text-[20px]">volume_up</span>
                       </button>
                     </div>
                   </div>
 
-                  <div class="my-auto flex flex-col items-center space-y-2">
-                    <span id="fc-back-kanji" class="kanji-glyph text-3xl font-semibold text-primary">一</span>
-                    <span id="fc-back-reading" class="text-2xl font-bold text-secondary font-sans tracking-wide">いち</span>
-                    <p id="fc-back-meaning" class="text-base font-semibold text-primary max-w-md">Số 1, một</p>
-                    <p id="fc-back-examples" class="text-xs text-ink-muted max-w-sm italic"></p>
+                  <div class="my-auto flex flex-col items-center space-y-2.5">
+                    <span id="fc-back-kanji" class="kanji-glyph text-4xl sm:text-5xl font-semibold text-primary">一</span>
+                    <span id="fc-back-reading" class="text-2xl sm:text-3xl font-bold text-secondary font-sans tracking-wide">いち</span>
+                    <p id="fc-back-meaning" class="text-lg sm:text-xl font-bold text-primary max-w-md">Số 1, một</p>
+                    <p id="fc-back-examples" class="text-xs sm:text-sm text-ink-muted max-w-md italic"></p>
                   </div>
 
                   <div class="w-full text-center text-xs text-ink-dim">
-                    Chạm để lật lại mặt trước
+                    Đánh giá bên dưới để lưu tiến độ đồng bộ với App
                   </div>
                 </div>
 
               </div>
             </div>
 
-            <!-- Flashcard Controls -->
-            <div class="flex items-center justify-between gap-3 pt-1">
-              <button class="flex-1 py-3 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm" onclick="app.prevFlashcard()">
+            <!-- Flashcard Self-Assessment Controls (Giống App Mobile: Chưa nhớ / Đã nhớ) -->
+            <div class="grid grid-cols-2 gap-3 pt-1">
+              <button class="py-3.5 rounded-xl bg-vermilion-soft border border-secondary/20 text-secondary hover:opacity-90 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm" onclick="app.markFlashcardForgotten()">
+                <span class="material-symbols-outlined text-[20px]">history</span>
+                <span>Chưa nhớ (Ôn lại)</span>
+              </button>
+
+              <button class="py-3.5 rounded-xl bg-matcha-soft border border-tertiary/20 text-tertiary hover:opacity-90 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm" onclick="app.markFlashcardRemembered()">
+                <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                <span>Đã nhớ</span>
+              </button>
+            </div>
+
+            <!-- Secondary Navigation Controls -->
+            <div class="flex items-center justify-between gap-3">
+              <button class="flex-1 py-2.5 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary font-bold text-xs flex items-center justify-center gap-1.5 transition-colors" onclick="app.prevFlashcard()">
                 <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-                <span>Trước</span>
+                <span>Thẻ trước</span>
               </button>
               
-              <button class="flex-1 py-3 rounded-xl bg-surface-card border border-border-subtle text-primary hover:bg-surface-alt font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm" onclick="app.flipFlashcard()">
+              <button class="flex-1 py-2.5 rounded-xl bg-surface-card border border-border-subtle text-primary hover:bg-surface-alt font-bold text-xs flex items-center justify-center gap-1.5 transition-colors" onclick="app.flipFlashcard()">
                 <span class="material-symbols-outlined text-[18px]">flip</span>
                 <span>Lật thẻ</span>
               </button>
 
-              <button class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm" onclick="app.nextFlashcard()">
-                <span>Tiếp theo</span>
+              <button class="flex-1 py-2.5 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary font-bold text-xs flex items-center justify-center gap-1.5 transition-colors" onclick="app.nextFlashcard()">
+                <span>Thẻ tiếp</span>
                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
               </button>
             </div>
@@ -510,80 +529,122 @@
 
         </div>
 
-        <!-- ================= VIEW 3: LUYỆN TẬP PHẢN XẠ ================= -->
-        <div id="view-practice" class="space-y-6 hidden max-w-3xl mx-auto">
+        <!-- ================= VIEW 3: LUYỆN TẬP PHẢN XẠ (THEO CHUẨN 3 BƯỚC APP MOBILE) ================= -->
+        <div id="view-practice" class="space-y-6 hidden max-w-4xl mx-auto">
           
-          <!-- SUBVIEW A: CẤU HÌNH (SETUP) -->
-          <div id="practice-setup-screen" class="space-y-6">
-            <div class="space-y-1">
-              <div class="flex items-center gap-1.5 text-secondary">
+          <!-- SUBVIEW 0: CHỌN PHƯƠNG PHÁP LUYỆN TẬP (PRACTICE METHOD HUB - GIỐNG APP) -->
+          <div id="practice-method-hub" class="space-y-6">
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-2 text-secondary">
                 <span class="w-2 h-2 rounded-full bg-secondary"></span>
-                <span class="text-xs uppercase tracking-wider font-bold">Luyện phản xạ Hán tự</span>
+                <span class="text-xs uppercase tracking-wider font-bold">Kiểm tra & Rèn phản xạ</span>
               </div>
-              <h2 class="font-serif font-bold text-2xl text-primary">Cấu hình bài thi phản xạ</h2>
-              <p class="text-xs text-ink-muted">Chọn cấp độ, phương thức kiểm tra và các chủ đề muốn luyện tập.</p>
+              <h2 class="font-serif font-bold text-2xl sm:text-3xl text-primary tracking-tight">Chọn chế độ luyện tập</h2>
+              <p class="text-sm text-ink-muted">Chọn phương thức kiểm tra phù hợp với mục tiêu hôm nay của bạn.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <!-- Method 1: Gõ Hiragana -->
+              <div class="bg-surface-card p-6 rounded-2xl border border-border-subtle hover:border-primary cursor-pointer transition-all shadow-sm flex flex-col justify-between group" onclick="app.openPracticeMethod('higa_only')">
+                <div class="space-y-4">
+                  <div class="w-14 h-14 rounded-2xl bg-surface-alt border border-border-subtle flex items-center justify-center font-serif text-3xl font-bold text-primary group-hover:scale-105 transition-transform">
+                    あ
+                  </div>
+                  <div>
+                    <h3 class="font-serif font-bold text-lg text-primary">Gõ Hiragana</h3>
+                    <p class="text-xs text-ink-muted mt-1.5 leading-relaxed">Nhìn Hán tự ➔ gõ nhanh cách đọc Romaji/Hiragana tốc độ cao, đúng là tự chuyển câu.</p>
+                  </div>
+                </div>
+                <div class="mt-6 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-primary">
+                  <span>Chọn chế độ này</span>
+                  <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </div>
+              </div>
+
+              <!-- Method 2: Trắc nghiệm -->
+              <div class="bg-surface-card p-6 rounded-2xl border border-border-subtle hover:border-secondary cursor-pointer transition-all shadow-sm flex flex-col justify-between group" onclick="app.openPracticeMethod('mc_only')">
+                <div class="space-y-4">
+                  <div class="w-14 h-14 rounded-2xl bg-vermilion-soft border border-secondary/20 flex items-center justify-center font-serif text-3xl font-bold text-secondary group-hover:scale-105 transition-transform">
+                    択
+                  </div>
+                  <div>
+                    <h3 class="font-serif font-bold text-lg text-primary">Trắc nghiệm nhanh</h3>
+                    <p class="text-xs text-ink-muted mt-1.5 leading-relaxed">Chọn nhanh 1 trong 4 đáp án đúng bằng chuột hoặc phím tắt 1, 2, 3, 4 giống đề thi JLPT.</p>
+                  </div>
+                </div>
+                <div class="mt-6 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-secondary">
+                  <span>Chọn chế độ này</span>
+                  <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </div>
+              </div>
+
+              <!-- Method 3: Phản xạ toàn diện -->
+              <div class="bg-surface-card p-6 rounded-2xl border-2 border-primary/20 hover:border-primary cursor-pointer transition-all shadow-sm flex flex-col justify-between group relative overflow-hidden" onclick="app.openPracticeMethod('higa_and_meaning')">
+                <span class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-matcha-soft text-tertiary text-[10px] font-bold">Khuyên dùng</span>
+                <div class="space-y-4">
+                  <div class="w-14 h-14 rounded-2xl bg-primary text-washi flex items-center justify-center font-serif text-3xl font-bold group-hover:scale-105 transition-transform shadow-sm">
+                    勝
+                  </div>
+                  <div>
+                    <h3 class="font-serif font-bold text-lg text-primary">Phản xạ toàn diện</h3>
+                    <p class="text-xs text-ink-muted mt-1.5 leading-relaxed">Kết hợp gõ đúng Hiragana ➔ khóa ô ➔ chọn nghĩa tiếng Việt để nhớ sâu tuyệt đối.</p>
+                  </div>
+                </div>
+                <div class="mt-6 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-primary">
+                  <span>Chọn chế độ này</span>
+                  <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUBVIEW A: CHỌN CHỦ ĐỀ (TOPIC PICKER) -->
+          <div id="practice-setup-screen" class="space-y-6 hidden">
+            <div class="flex items-center gap-3">
+              <button class="w-10 h-10 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary flex items-center justify-center transition-colors shadow-sm" onclick="app.backToPracticeMethods()" title="Đổi chế độ luyện tập">
+                <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+              </button>
+              <div>
+                <span id="practice-selected-method-badge" class="text-[11px] font-bold uppercase tracking-wider text-secondary block">Chế độ: Phản xạ toàn diện</span>
+                <h2 class="font-serif font-bold text-xl sm:text-2xl text-primary">Chọn cấp độ & chủ đề kiểm tra</h2>
+              </div>
             </div>
 
             <!-- Level Selector -->
             <div class="flex items-center gap-3">
-              <button id="p-lvl-n5" class="flex-1 py-3 rounded-xl bg-primary text-washi text-xs font-bold transition-all shadow-sm" onclick="app.setPracticeLevel('N5')">
-                Kanji N5 (350 chữ)
+              <button id="p-lvl-n5" class="flex-1 py-3.5 rounded-xl bg-primary text-washi text-xs sm:text-sm font-bold transition-all shadow-sm" onclick="app.setPracticeLevel('N5')">
+                Kanji N5
               </button>
-              <button id="p-lvl-n4" class="flex-1 py-3 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs font-bold transition-all shadow-sm" onclick="app.setPracticeLevel('N4')">
-                Kanji N4 (711 chữ)
+              <button id="p-lvl-n4" class="flex-1 py-3.5 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs sm:text-sm font-bold transition-all shadow-sm" onclick="app.setPracticeLevel('N4')">
+                Kanji N4
               </button>
-              <button id="p-lvl-radicals" class="flex-1 py-3 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs font-bold transition-all shadow-sm" onclick="app.setPracticeLevel('RADICALS')">
+              <button id="p-lvl-radicals" class="flex-1 py-3.5 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs sm:text-sm font-bold transition-all shadow-sm" onclick="app.setPracticeLevel('RADICALS')">
                 214 Bộ thủ
               </button>
             </div>
 
-            <!-- Practice Method Radio Cards -->
-            <div class="bg-surface-card p-5 rounded-2xl border border-border-subtle space-y-3 shadow-sm">
-              <span class="text-xs font-bold text-primary uppercase tracking-wider block">1. Phương thức rèn luyện</span>
-              
-              <div class="space-y-2.5">
-                <label class="flex items-start gap-3 p-3.5 rounded-xl border border-border-subtle hover:bg-surface-alt cursor-pointer transition-all">
-                  <input type="radio" name="practice_method" value="higa_and_meaning" checked class="mt-0.5 accent-primary cursor-pointer">
-                  <div class="flex-1">
-                    <span class="text-xs font-bold text-primary block">Gõ Hiragana + Chọn nghĩa (Khuyên dùng)</span>
-                    <span class="text-[11px] text-ink-muted block mt-0.5">Gõ đúng Hiragana ➔ khóa ô ➔ hiện 4 đáp án chọn nghĩa (phím 1, 2, 3, 4).</span>
-                  </div>
-                </label>
-
-                <label class="flex items-start gap-3 p-3.5 rounded-xl border border-border-subtle hover:bg-surface-alt cursor-pointer transition-all">
-                  <input type="radio" name="practice_method" value="higa_only" class="mt-0.5 accent-primary cursor-pointer">
-                  <div class="flex-1">
-                    <span class="text-xs font-bold text-primary block">Chỉ gõ Hiragana (Tốc độ cao)</span>
-                    <span class="text-[11px] text-ink-muted block mt-0.5">Tắt trắc nghiệm: chỉ cần gõ đúng Hiragana là tự động nhảy sang câu tiếp theo.</span>
-                  </div>
-                </label>
-
-                <label class="flex items-start gap-3 p-3.5 rounded-xl border border-border-subtle hover:bg-surface-alt cursor-pointer transition-all">
-                  <input type="radio" name="practice_method" value="mc_only" class="mt-0.5 accent-primary cursor-pointer">
-                  <div class="flex-1">
-                    <span class="text-xs font-bold text-primary block">Trắc nghiệm 4 đáp án</span>
-                    <span class="text-[11px] text-ink-muted block mt-0.5">Chọn nhanh cách đọc hoặc ý nghĩa đúng với 4 lựa chọn (phím 1, 2, 3, 4).</span>
-                  </div>
-                </label>
-              </div>
-            </div>
-
             <!-- Topics Selection -->
-            <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-primary uppercase tracking-wider">2. Chọn chủ đề (<span id="practice-selected-count">0</span> đã chọn)</span>
-                <button class="text-xs font-bold text-secondary hover:underline" onclick="app.toggleAllPracticeTopics()">Chọn tất cả</button>
+            <div class="bg-surface-card p-5 rounded-2xl border border-border-subtle space-y-4 shadow-sm">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-bold text-primary uppercase tracking-wider">Chủ đề kiểm tra (<span id="practice-selected-count">0</span> đã chọn)</span>
+                <div class="flex items-center gap-4">
+                  <label class="flex items-center gap-2 text-xs text-ink-muted cursor-pointer select-none">
+                    <input id="practice-only-unremembered" type="checkbox" class="accent-secondary w-4 h-4 cursor-pointer" onchange="app.toggleOnlyUnremembered(this.checked)">
+                    <span>Chỉ ôn từ chưa nhớ</span>
+                  </label>
+                  <button class="text-xs font-bold text-secondary hover:underline" onclick="app.toggleAllPracticeTopics()">Chọn tất cả</button>
+                </div>
               </div>
 
-              <div id="practice-topics-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[300px] overflow-y-auto pr-1">
+              <div id="practice-topics-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[340px] overflow-y-auto pr-1">
                 <!-- Populated dynamically -->
               </div>
             </div>
 
             <!-- Start Button -->
-            <button class="w-full py-4 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-sm tracking-wide shadow-md transition-all flex items-center justify-center gap-2" onclick="app.startPracticeSession()">
-              <span class="material-symbols-outlined text-[20px]">play_arrow</span>
-              <span>Bắt đầu rèn luyện ngay</span>
+            <button class="w-full py-4 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-sm sm:text-base tracking-wide shadow-md transition-all flex items-center justify-center gap-2" onclick="app.startPracticeSession()">
+              <span class="material-symbols-outlined text-[22px]">play_arrow</span>
+              <span>Bắt đầu bài kiểm tra</span>
             </button>
           </div>
 
@@ -631,37 +692,37 @@
               <div id="arena-progress-bar" class="bg-primary h-full rounded-full transition-all duration-300" style="width: 3%;"></div>
             </div>
 
-            <!-- KANJI FLASH CARD -->
-            <div class="bg-surface-card rounded-2xl p-8 sm:p-12 border border-border-subtle shadow-sm text-center relative flex flex-col items-center justify-center min-h-[250px]">
+            <!-- KANJI FLASH CARD (Scaled generously for Web) -->
+            <div class="bg-surface-card rounded-2xl p-8 sm:p-14 border border-border-subtle shadow-sm text-center relative flex flex-col items-center justify-center min-h-[290px] sm:min-h-[320px]">
               <!-- Top Tags -->
               <div class="absolute top-4 left-5 flex items-center gap-2">
-                <span id="arena-level-chip" class="px-2.5 py-0.5 rounded-md bg-surface-alt text-[11px] font-bold text-primary">N5</span>
-                <span id="arena-streak-badge" class="px-2.5 py-0.5 rounded-md bg-vermilion-soft text-[11px] font-bold text-secondary hidden">🔥 Streak: <span id="arena-streak-num">0</span></span>
+                <span id="arena-level-chip" class="px-3 py-1 rounded-lg bg-surface-alt text-xs font-bold text-primary">N5</span>
+                <span id="arena-streak-badge" class="px-3 py-1 rounded-lg bg-vermilion-soft text-xs font-bold text-secondary hidden">🔥 Streak: <span id="arena-streak-num">0</span></span>
               </div>
 
               <!-- Ask AI Context Button -->
-              <button class="absolute top-4 right-5 px-2.5 py-1 rounded-full bg-vermilion-soft text-secondary hover:opacity-85 text-[11px] font-bold flex items-center gap-1 transition-opacity" onclick="app.askAiAboutCurrentScreen()" title="Hỏi Gia sư AI về chữ Hán này">
-                <span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+              <button class="absolute top-4 right-5 px-3 py-1.5 rounded-full bg-vermilion-soft text-secondary hover:opacity-85 text-xs font-bold flex items-center gap-1 transition-opacity" onclick="app.askAiAboutCurrentScreen()" title="Hỏi Gia sư AI về chữ Hán này">
+                <span class="material-symbols-outlined text-[15px]">auto_awesome</span>
                 <span>Hỏi AI</span>
               </button>
 
               <!-- Hint Box -->
-              <div id="arena-hint-box" class="text-xs font-bold text-secondary mb-2 min-h-[18px]"></div>
+              <div id="arena-hint-box" class="text-sm font-bold text-secondary mb-3 min-h-[20px]"></div>
 
               <!-- Main Kanji -->
               <div class="cursor-pointer select-none group" onclick="app.speakCurrentWord()">
-                <span id="arena-kanji" class="kanji-glyph text-7xl sm:text-8xl font-normal text-primary tracking-tight transition-transform group-hover:scale-105 inline-block">一</span>
+                <span id="arena-kanji" class="kanji-glyph text-8xl sm:text-9xl font-normal text-primary tracking-tight transition-transform group-hover:scale-105 inline-block">一</span>
               </div>
 
               <!-- Sound Pill -->
-              <button class="mt-3 text-xs text-ink-dim hover:text-primary flex items-center gap-1.5 transition-colors" onclick="app.speakCurrentWord()">
+              <button class="mt-4 px-3.5 py-1.5 rounded-full bg-surface-alt hover:bg-border-subtle text-xs text-ink-muted hover:text-primary flex items-center gap-1.5 transition-colors" onclick="app.speakCurrentWord()">
                 <span class="material-symbols-outlined text-[16px]">volume_up</span>
                 <span id="arena-reading-display">Bấm để nghe phát âm</span>
               </button>
             </div>
 
             <!-- HIRAGANA INPUT AREA -->
-            <div id="arena-input-section" class="space-y-2">
+            <div id="arena-input-section" class="space-y-2.5">
               <div class="relative flex items-center">
                 <input 
                   id="arena-hiragana-input" 
@@ -670,7 +731,7 @@
                   autocomplete="off"
                   autocorrect="off"
                   spellcheck="false"
-                  class="w-full text-center text-2xl sm:text-3xl font-bold py-4 px-12 rounded-2xl bg-surface-card border-2 border-border-subtle focus:border-primary focus:outline-none transition-all placeholder:text-ink-dim placeholder:font-normal placeholder:text-base shadow-sm text-primary" 
+                  class="w-full text-center text-3xl sm:text-4xl font-bold py-5 px-14 rounded-2xl bg-surface-card border-2 border-border-subtle focus:border-primary focus:outline-none transition-all placeholder:text-ink-dim placeholder:font-normal placeholder:text-lg shadow-sm text-primary" 
                   placeholder="Gõ Romaji (ví dụ: sakana)..."
                   oninput="app.onArenaInput(this.value)"
                   onkeydown="app.onArenaInputKeyDown(event)"
@@ -685,22 +746,22 @@
               </div>
             </div>
 
-            <!-- 4 CHOICES BUTTONS -->
-            <div id="arena-choices-section" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              <button id="choice-btn-0" class="flex items-center justify-between p-4 rounded-xl bg-surface-card border border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(0)">
-                <span class="choice-text text-sm font-semibold text-primary flex-1 pr-2 truncate">Lựa chọn 1</span>
+            <!-- 4 CHOICES BUTTONS (Spacious for Web) -->
+            <div id="arena-choices-section" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+              <button id="choice-btn-0" class="flex items-center justify-between p-5 rounded-2xl bg-surface-card border-2 border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(0)">
+                <span class="choice-text text-base font-semibold text-primary flex-1 pr-3 truncate">Lựa chọn 1</span>
                 <span class="key-badge">1</span>
               </button>
-              <button id="choice-btn-1" class="flex items-center justify-between p-4 rounded-xl bg-surface-card border border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(1)">
-                <span class="choice-text text-sm font-semibold text-primary flex-1 pr-2 truncate">Lựa chọn 2</span>
+              <button id="choice-btn-1" class="flex items-center justify-between p-5 rounded-2xl bg-surface-card border-2 border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(1)">
+                <span class="choice-text text-base font-semibold text-primary flex-1 pr-3 truncate">Lựa chọn 2</span>
                 <span class="key-badge">2</span>
               </button>
-              <button id="choice-btn-2" class="flex items-center justify-between p-4 rounded-xl bg-surface-card border border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(2)">
-                <span class="choice-text text-sm font-semibold text-primary flex-1 pr-2 truncate">Lựa chọn 3</span>
+              <button id="choice-btn-2" class="flex items-center justify-between p-5 rounded-2xl bg-surface-card border-2 border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(2)">
+                <span class="choice-text text-base font-semibold text-primary flex-1 pr-3 truncate">Lựa chọn 3</span>
                 <span class="key-badge">3</span>
               </button>
-              <button id="choice-btn-3" class="flex items-center justify-between p-4 rounded-xl bg-surface-card border border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(3)">
-                <span class="choice-text text-sm font-semibold text-primary flex-1 pr-2 truncate">Lựa chọn 4</span>
+              <button id="choice-btn-3" class="flex items-center justify-between p-5 rounded-2xl bg-surface-card border-2 border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(3)">
+                <span class="choice-text text-base font-semibold text-primary flex-1 pr-3 truncate">Lựa chọn 4</span>
                 <span class="key-badge">4</span>
               </button>
             </div>
@@ -814,21 +875,33 @@
         <!-- ================= VIEW 4: CÁ NHÂN & CÀI ĐẶT ================= -->
         <div id="view-profile" class="space-y-6 hidden max-w-2xl mx-auto">
           
-          <!-- Profile Hero Card -->
+          <!-- Profile Hero Card (Google Auth + Cloud Sync App ⇄ Web) -->
           <div class="bg-surface-card rounded-2xl p-6 sm:p-8 border border-border-subtle flex flex-col sm:flex-row items-center gap-6 shadow-sm">
-            <div class="w-18 h-18 sm:w-20 sm:h-20 rounded-full bg-surface-alt border-2 border-primary/20 flex items-center justify-center font-serif font-bold text-3xl text-primary shadow-inner">
-              勝
+            <div id="profile-avatar-box" class="w-20 h-20 rounded-full bg-surface-alt border-2 border-primary/20 flex items-center justify-center font-serif font-bold text-3xl text-primary shadow-inner overflow-hidden flex-shrink-0">
+              <span id="profile-avatar-kanji">勝</span>
+              <img id="profile-avatar-img" src="" alt="Avatar" class="w-full h-full object-cover hidden">
             </div>
-            <div class="space-y-1 text-center sm:text-left flex-1">
-              <h2 class="font-serif font-bold text-xl sm:text-2xl text-primary">Học viên Kanji Kachi</h2>
-              <p class="text-xs text-ink-muted">kanji.kachi@learning.jp</p>
-              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-2">
-                <span class="px-3 py-1 rounded-full bg-surface-alt text-primary text-xs font-bold border border-border-subtle">
-                  Học viên N5 & N4
+            <div class="space-y-1.5 text-center sm:text-left flex-1 min-w-0">
+              <h2 id="profile-display-name" class="font-serif font-bold text-xl sm:text-2xl text-primary truncate">Học viên Kanji Kachi</h2>
+              <p id="profile-email" class="text-xs text-ink-muted truncate">Chưa đăng nhập · Dữ liệu đang lưu tạm trên trình duyệt</p>
+              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-1.5">
+                <span id="profile-sync-badge" class="px-3 py-1 rounded-full bg-surface-alt text-ink-muted text-xs font-bold border border-border-subtle flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[15px]">cloud_off</span>
+                  <span>Chưa đồng bộ</span>
                 </span>
                 <span class="px-3 py-1 rounded-full bg-vermilion-soft text-secondary text-xs font-bold">
                   Chuỗi <strong id="profile-streak-badge">1</strong> ngày 🔥
                 </span>
+              </div>
+              <div class="pt-3 flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+                <button id="profile-btn-google-login" class="px-4 py-2.5 rounded-xl bg-primary hover:bg-primary/95 text-washi text-xs font-bold flex items-center gap-2 transition-all shadow-sm" onclick="app.signInWithGoogle()">
+                  <svg class="w-4 h-4 bg-white rounded-full p-0.5 flex-shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                  <span>Đăng nhập Google để đồng bộ App & Web</span>
+                </button>
+                <button id="profile-btn-logout" class="px-4 py-2 rounded-xl bg-surface-alt hover:bg-border-subtle text-ink-muted hover:text-secondary text-xs font-bold flex items-center gap-1.5 transition-colors hidden" onclick="app.signOutGoogle()">
+                  <span class="material-symbols-outlined text-[16px]">logout</span>
+                  <span>Đăng xuất</span>
+                </button>
               </div>
             </div>
           </div>

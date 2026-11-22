@@ -356,7 +356,7 @@
     updateDailyStreak();
     initDailySpotlight();
 
-    // Grid of Topics
+    // Grid of Topics (Mỗi chủ đề chia rõ 2 nút: Học Flashcard & Luyện phản xạ)
     const grid = document.getElementById('home-topics-grid');
     if (grid) {
       const sampleTopics = TOPICS.slice(0, 9);
@@ -364,25 +364,26 @@
         const isN5 = t.level === 'N5';
         const badgeColor = isN5 ? 'text-primary bg-surface-alt' : 'text-secondary bg-vermilion-soft';
         return `
-          <div class="bg-surface-card p-4 sm:p-5 rounded-2xl border border-border-subtle hover:border-primary transition-all cursor-pointer shadow-sm flex flex-col justify-between group" onclick="app.startTopicPractice('${t.id}')">
+          <div class="bg-surface-card p-4 sm:p-5 rounded-2xl border border-border-subtle hover:border-primary/40 transition-all shadow-sm flex flex-col justify-between group">
             <div class="space-y-2">
               <div class="flex items-center justify-between">
                 <span class="px-2 py-0.5 rounded text-[10px] font-bold ${badgeColor}">${t.level}</span>
                 <span class="text-[11px] text-ink-muted font-medium">${t.count} chữ</span>
               </div>
-              <h3 class="font-serif font-bold text-sm sm:text-base text-primary group-hover:text-secondary transition-colors truncate">
+              <h3 class="font-serif font-bold text-sm sm:text-base text-primary truncate">
                 ${t.title}
               </h3>
               <p class="text-[11px] text-ink-muted leading-relaxed">Bộ từ vựng Hán tự trọng tâm chuẩn JLPT N5 & N4.</p>
             </div>
 
-            <div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between">
-              <span class="text-xs font-bold text-primary group-hover:text-secondary flex items-center gap-1 transition-colors">
-                <span>Rèn luyện</span>
-                <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </span>
-              <button class="w-7 h-7 rounded-full hover:bg-surface-alt text-ink-dim hover:text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.startTopicFlashcards('${t.id}')" title="Thẻ Flashcard 3D">
-                <span class="material-symbols-outlined text-[16px]">style</span>
+            <div class="mt-4 pt-3 border-t border-border-subtle grid grid-cols-2 gap-2">
+              <button class="py-2 px-2.5 rounded-xl bg-vermilion-soft hover:opacity-90 text-secondary text-[11px] font-bold flex items-center justify-center gap-1 transition-opacity" onclick="app.startTopicFlashcards('${t.id}')" title="Học bằng thẻ Flashcard 3D">
+                <span class="material-symbols-outlined text-[15px]">style</span>
+                <span>Học thẻ</span>
+              </button>
+              <button class="py-2 px-2.5 rounded-xl bg-surface-alt hover:bg-primary hover:text-washi text-primary text-[11px] font-bold flex items-center justify-center gap-1 transition-colors" onclick="app.startTopicPractice('${t.id}')" title="Kiểm tra phản xạ">
+                <span class="material-symbols-outlined text-[15px]">draw</span>
+                <span>Luyện tập</span>
               </button>
             </div>
           </div>
@@ -645,10 +646,34 @@
     renderFlashcardCard();
   }
 
+  function markFlashcardRemembered() {
+    if (flashcardDeck.length === 0) return;
+    const item = flashcardDeck[flashcardIndex];
+    if (!state.rememberedIds.includes(item.id)) {
+      state.rememberedIds.push(item.id);
+    }
+    state.forgottenIds = state.forgottenIds.filter(i => i !== item.id);
+    saveState();
+    playAudioChime(true);
+    syncDeltaToCloud({
+      addVocabRemembered: [item.id],
+      removeReviewNeeded: [item.id],
+      lastStudiedKanjiId: item.id
+    });
+    nextFlashcard();
+  }
+
   function markFlashcardForgotten() {
     if (flashcardDeck.length === 0) return;
     const item = flashcardDeck[flashcardIndex];
-    toggleBookmarkId(item.id);
+    if (!state.forgottenIds.includes(item.id)) {
+      state.forgottenIds.push(item.id);
+    }
+    saveState();
+    syncDeltaToCloud({
+      addReviewNeeded: [item.id],
+      lastStudiedKanjiId: item.id
+    });
     nextFlashcard();
   }
 
@@ -677,6 +702,40 @@
   let currentRoundCorrect = 0;
   let currentRoundWrongIds = new Set();
   let currentChoices = [];
+
+  function openPracticeMethod(method) {
+    practiceConfig.method = method || 'higa_and_meaning';
+    const badge = document.getElementById('practice-selected-method-badge');
+    if (badge) {
+      if (practiceConfig.method === 'higa_only') {
+        badge.textContent = 'Chế độ: Gõ Hiragana (あ)';
+      } else if (practiceConfig.method === 'mc_only') {
+        badge.textContent = 'Chế độ: Trắc nghiệm nhanh (択)';
+      } else {
+        badge.textContent = 'Chế độ: Phản xạ toàn diện (勝)';
+      }
+    }
+    const hub = document.getElementById('practice-method-hub');
+    const setup = document.getElementById('practice-setup-screen');
+    const arena = document.getElementById('practice-arena-screen');
+    const summary = document.getElementById('practice-summary-screen');
+    if (hub) hub.classList.add('hidden');
+    if (arena) arena.classList.add('hidden');
+    if (summary) summary.classList.add('hidden');
+    if (setup) setup.classList.remove('hidden');
+    renderPracticeTopicList();
+  }
+
+  function backToPracticeMethods() {
+    const hub = document.getElementById('practice-method-hub');
+    const setup = document.getElementById('practice-setup-screen');
+    const arena = document.getElementById('practice-arena-screen');
+    const summary = document.getElementById('practice-summary-screen');
+    if (setup) setup.classList.add('hidden');
+    if (arena) arena.classList.add('hidden');
+    if (summary) summary.classList.add('hidden');
+    if (hub) hub.classList.remove('hidden');
+  }
 
   function setPracticeLevel(level) {
     practiceConfig.level = level;
@@ -741,21 +800,10 @@
     practiceConfig.method = method;
   }
 
-  function toggleOnlyUnremembered() {
-    practiceConfig.onlyUnremembered = !practiceConfig.onlyUnremembered;
-    const thumb = document.getElementById('thumb-only-unremembered');
-    const btn = document.getElementById('btn-toggle-only-unremembered');
-    if (thumb && btn) {
-      if (practiceConfig.onlyUnremembered) {
-        btn.classList.remove('bg-border-strong');
-        btn.classList.add('bg-secondary');
-        thumb.classList.add('translate-x-6');
-      } else {
-        btn.classList.remove('bg-secondary');
-        btn.classList.add('bg-border-strong');
-        thumb.classList.remove('translate-x-6');
-      }
-    }
+  function toggleOnlyUnremembered(checked) {
+    practiceConfig.onlyUnremembered = typeof checked === 'boolean'
+      ? checked
+      : !practiceConfig.onlyUnremembered;
   }
 
   function startPracticeSession(customDeck = null) {
@@ -796,6 +844,8 @@
     currentRoundCorrect = 0;
     currentRoundWrongIds.clear();
 
+    const hub = document.getElementById('practice-method-hub');
+    if (hub) hub.classList.add('hidden');
     document.getElementById('practice-setup-screen').classList.add('hidden');
     document.getElementById('practice-summary-screen').classList.add('hidden');
     document.getElementById('practice-arena-screen').classList.remove('hidden');
@@ -1013,6 +1063,11 @@
       }
       state.forgottenIds = state.forgottenIds.filter(id => id !== word.id);
       state.correctCount += 1;
+      syncDeltaToCloud({
+        addPracticeRemembered: [word.id],
+        removeReviewNeeded: [word.id],
+        lastStudiedKanjiId: word.id
+      });
     } else {
       questionStatus[currentIndex] = 'wrong';
       currentStreak = 0;
@@ -1021,6 +1076,10 @@
       if (!state.forgottenIds.includes(word.id)) {
         state.forgottenIds.push(word.id);
       }
+      syncDeltaToCloud({
+        addReviewNeeded: [word.id],
+        lastStudiedKanjiId: word.id
+      });
     }
 
     const streakBadge = document.getElementById('arena-streak-badge');
@@ -1174,12 +1233,15 @@
   }
 
   function toggleBookmarkId(id) {
+    let added = false;
     if (state.forgottenIds.includes(id)) {
       state.forgottenIds = state.forgottenIds.filter(i => i !== id);
     } else {
       state.forgottenIds.push(id);
+      added = true;
     }
     saveState();
+    syncDeltaToCloud(added ? { addReviewNeeded: [id] } : { removeReviewNeeded: [id] });
     if (!views.vocab.classList.contains('hidden')) renderVocabScreen();
     if (!views.home.classList.contains('hidden')) renderHomeScreen();
     if (!views.profile.classList.contains('hidden')) renderProfileScreen();
@@ -1932,6 +1994,139 @@ Nhiệm vụ của bạn:
     startPracticeSession();
   }
 
+  // ================= 13.5 GOOGLE AUTH & FIRESTORE CLOUD SYNC (WEB ⇄ MOBILE APP) =================
+  function updateAuthUI(user) {
+    const headerLogin = document.getElementById('header-btn-login');
+    const headerUser = document.getElementById('header-btn-user');
+    const headerAvatar = document.getElementById('header-user-avatar');
+    const headerName = document.getElementById('header-user-name');
+
+    const profileKanji = document.getElementById('profile-avatar-kanji');
+    const profileImg = document.getElementById('profile-avatar-img');
+    const profileName = document.getElementById('profile-display-name');
+    const profileEmail = document.getElementById('profile-email');
+    const profileSyncBadge = document.getElementById('profile-sync-badge');
+    const profileLoginBtn = document.getElementById('profile-btn-google-login');
+    const profileLogoutBtn = document.getElementById('profile-btn-logout');
+
+    if (user) {
+      if (headerLogin) headerLogin.classList.add('hidden');
+      if (headerUser) headerUser.classList.remove('hidden');
+      if (headerAvatar && user.photoURL) headerAvatar.src = user.photoURL;
+      if (headerName) headerName.textContent = user.displayName || 'Học viên';
+
+      if (profileName) profileName.textContent = user.displayName || 'Học viên Kanji Kachi';
+      if (profileEmail) profileEmail.textContent = user.email || '';
+      if (user.photoURL && profileImg && profileKanji) {
+        profileImg.src = user.photoURL;
+        profileImg.classList.remove('hidden');
+        profileKanji.classList.add('hidden');
+      }
+      if (profileSyncBadge) {
+        profileSyncBadge.className = 'px-3 py-1 rounded-full bg-matcha-soft text-tertiary text-xs font-bold border border-tertiary/20 flex items-center gap-1.5';
+        profileSyncBadge.innerHTML = '<span class="material-symbols-outlined text-[15px]">cloud_done</span><span>Đã đồng bộ App & Web</span>';
+      }
+      if (profileLoginBtn) profileLoginBtn.classList.add('hidden');
+      if (profileLogoutBtn) profileLogoutBtn.classList.remove('hidden');
+    } else {
+      if (headerLogin) headerLogin.classList.remove('hidden');
+      if (headerUser) headerUser.classList.add('hidden');
+
+      if (profileName) profileName.textContent = 'Học viên Kanji Kachi';
+      if (profileEmail) profileEmail.textContent = 'Chưa đăng nhập · Dữ liệu đang lưu tạm trên trình duyệt';
+      if (profileImg && profileKanji) {
+        profileImg.classList.add('hidden');
+        profileKanji.classList.remove('hidden');
+      }
+      if (profileSyncBadge) {
+        profileSyncBadge.className = 'px-3 py-1 rounded-full bg-surface-alt text-ink-muted text-xs font-bold border border-border-subtle flex items-center gap-1.5';
+        profileSyncBadge.innerHTML = '<span class="material-symbols-outlined text-[15px]">cloud_off</span><span>Chưa đồng bộ</span>';
+      }
+      if (profileLoginBtn) profileLoginBtn.classList.remove('hidden');
+      if (profileLogoutBtn) profileLogoutBtn.classList.add('hidden');
+    }
+  }
+
+  function mergeCloudProgress(cloudData) {
+    if (!cloudData) return;
+
+    const cloudPractice = Array.isArray(cloudData.practiceRememberedIds) ? cloudData.practiceRememberedIds : [];
+    const cloudVocab = Array.isArray(cloudData.vocabRememberedIds) ? cloudData.vocabRememberedIds : [];
+    const cloudReview = Array.isArray(cloudData.reviewNeededIds) ? cloudData.reviewNeededIds : [];
+
+    // Union remembered IDs from both Practice & Vocab on App + Web
+    const mergedRemembered = new Set([...state.rememberedIds, ...cloudPractice, ...cloudVocab]);
+    const mergedForgotten = new Set([...state.forgottenIds, ...cloudReview]);
+
+    state.rememberedIds = Array.from(mergedRemembered);
+    state.forgottenIds = Array.from(mergedForgotten);
+    saveState();
+
+    if (cloudData.profileDisplayName) {
+      const profileName = document.getElementById('profile-display-name');
+      if (profileName) profileName.textContent = cloudData.profileDisplayName;
+    }
+
+    if (views.profile && !views.profile.classList.contains('hidden')) renderProfileScreen();
+    if (views.vocab && !views.vocab.classList.contains('hidden')) renderVocabScreen();
+    if (views.home && !views.home.classList.contains('hidden')) renderHomeScreen();
+  }
+
+  function syncDeltaToCloud(payload) {
+    if (window.kanjiFirebaseSync && window.kanjiFirebaseSync.getCurrentUser()) {
+      window.kanjiFirebaseSync.syncProgress(payload).catch(err => {
+        console.warn('[Cloud Sync] Upload skipped:', err.message || err);
+      });
+    }
+  }
+
+  async function signInWithGoogle() {
+    try {
+      if (!window.kanjiFirebaseSync || !window.kanjiFirebaseSync.isReady()) {
+        alert('Dịch vụ đăng nhập Google đang khởi tạo, vui lòng thử lại sau 2 giây.');
+        return;
+      }
+      await window.kanjiFirebaseSync.signInWithGoogle();
+    } catch (err) {
+      console.error('Google Sign-In error:', err);
+      if (err && err.code === 'auth/popup-closed-by-user') return;
+      if (err && err.code === 'auth/unauthorized-domain') {
+        alert('Domain này chưa được thêm vào Authorized Domains trong Firebase Authentication. Vào Firebase Console -> Authentication -> Settings -> Authorized domains để thêm kanjispeedmaster.vercel.app nhé!');
+        return;
+      }
+      alert('Không thể đăng nhập Google: ' + (err.message || err));
+    }
+  }
+
+  async function signOutGoogle() {
+    if (!confirm('Bạn có chắc muốn đăng xuất khỏi tài khoản Google?')) return;
+    try {
+      if (window.kanjiFirebaseSync) {
+        await window.kanjiFirebaseSync.signOutUser();
+      }
+    } catch (err) {
+      console.error('Sign-out error:', err);
+    }
+  }
+
+  function initCloudSync() {
+    let attempts = 0;
+    const tryBind = () => {
+      if (window.kanjiFirebaseSync && window.kanjiFirebaseSync.isReady()) {
+        window.kanjiFirebaseSync.onAuthChange((user) => {
+          updateAuthUI(user);
+        });
+        window.kanjiFirebaseSync.onCloudProgress((cloudData) => {
+          mergeCloudProgress(cloudData);
+        });
+      } else if (attempts < 30) {
+        attempts += 1;
+        setTimeout(tryBind, 150);
+      }
+    };
+    tryBind();
+  }
+
   // AdSense Safe Push
   function initAdSense() {
     try {
@@ -1953,6 +2148,7 @@ Nhiệm vụ của bạn:
     applyTheme();
     updateHeaderTTSButton();
     updateAiTokenUi();
+    initCloudSync();
     initAdSense();
     setPracticeLevel('N5');
     renderHomeScreen();
@@ -1977,8 +2173,11 @@ Nhiệm vụ của bạn:
     flipFlashcard,
     nextFlashcard,
     prevFlashcard,
+    markFlashcardRemembered,
     markFlashcardForgotten,
     speakFlashcardWord,
+    openPracticeMethod,
+    backToPracticeMethods,
     setPracticeLevel,
     togglePracticeTopic,
     toggleAllPracticeTopics,
@@ -2026,7 +2225,10 @@ Nhiệm vụ của bạn:
     submitAiChat,
     sendPresetPrompt,
     askAiAboutCurrentScreen,
-    clearAiContext
+    clearAiContext,
+    // Google Auth & Cloud Sync
+    signInWithGoogle,
+    signOutGoogle
   };
 
 })();
