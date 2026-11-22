@@ -148,6 +148,46 @@
       const pct = Math.max(0, Math.min(100, Math.round((remaining / quota.limit) * 100)));
       profileBar.style.width = pct + '%';
     }
+
+    // Token Usage Modal (if open)
+    const modalCount = document.getElementById('token-modal-count');
+    const modalBar = document.getElementById('token-modal-bar');
+    const modalUsed = document.getElementById('token-modal-used');
+    const modalAcc = document.getElementById('token-modal-account');
+    if (modalCount) modalCount.textContent = `${remainingFormatted} / ${limitFormatted} token`;
+    if (modalUsed) modalUsed.textContent = `${nf.format(quota.used || 0)} token`;
+    if (modalBar) {
+      const pct = Math.max(0, Math.min(100, Math.round((remaining / quota.limit) * 100)));
+      modalBar.style.width = pct + '%';
+    }
+    if (modalAcc) {
+      const user = window.kanjiFirebaseSync ? window.kanjiFirebaseSync.getCurrentUser() : null;
+      modalAcc.textContent = user ? (user.email || user.displayName) : 'Khách (chưa đăng nhập)';
+    }
+  }
+
+  function getResetCountdownText() {
+    const now = new Date();
+    const utc7Ms = now.getTime() + 7 * 3600 * 1000;
+    const msInDay = 24 * 3600 * 1000;
+    const msRemaining = msInDay - (utc7Ms % msInDay);
+    const totalMinutes = Math.floor(msRemaining / 60000);
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    return `Làm mới sau ${hours} giờ ${minutes} phút`;
+  }
+
+  function openTokenUsageModal() {
+    updateAiTokenUi();
+    const countdownEl = document.getElementById('token-modal-reset-countdown');
+    if (countdownEl) countdownEl.textContent = getResetCountdownText();
+    const modal = document.getElementById('modal-token-usage');
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeTokenUsageModal() {
+    const modal = document.getElementById('modal-token-usage');
+    if (modal) modal.classList.add('hidden');
   }
 
   // ================= 2. DOM REFERENCES =================
@@ -2324,6 +2364,8 @@ Nhiệm vụ của bạn:
     sendPresetPrompt,
     askAiAboutCurrentScreen,
     clearAiContext,
+    openTokenUsageModal,
+    closeTokenUsageModal,
     // Google Auth & Cloud Sync
     signInWithGoogle,
     signOutGoogle
