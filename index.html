@@ -275,12 +275,18 @@
               </p>
 
               <!-- Bottom Action Row -->
-              <div class="pt-3 border-t border-border-subtle flex items-center justify-between text-xs">
+              <div class="pt-3 border-t border-border-subtle flex items-center justify-between gap-2 text-xs">
                 <span class="text-ink-dim">Tự động chọn ngẫu nhiên mỗi ngày • JLPT N5/N4</span>
-                <button class="font-bold text-secondary hover:text-secondary/80 flex items-center gap-1 transition-colors" onclick="app.practiceSpotlight()">
-                  <span>Luyện tập từ này</span>
-                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                </button>
+                <div class="flex items-center gap-3">
+                  <button class="font-bold text-primary hover:text-secondary flex items-center gap-1 transition-colors" onclick="app.askAiAboutCurrentScreen()" title="Hỏi Gia sư AI về từ này">
+                    <span class="material-symbols-outlined text-[15px] text-secondary">auto_awesome</span>
+                    <span>Hỏi AI</span>
+                  </button>
+                  <button class="font-bold text-secondary hover:text-secondary/80 flex items-center gap-1 transition-colors" onclick="app.practiceSpotlight()">
+                    <span>Luyện tập từ này</span>
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -456,9 +462,15 @@
                 <div class="absolute inset-0 w-full h-full bg-surface-card border-2 border-secondary/30 rounded-2xl p-6 flex flex-col justify-between items-center text-center backface-hidden rotate-y-180">
                   <div class="w-full flex items-center justify-between text-xs text-ink-muted">
                     <span class="text-xs font-bold text-secondary">Mặt sau</span>
-                    <button class="w-8 h-8 rounded-full hover:bg-surface-alt text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.speakFlashcardWord()">
-                      <span class="material-symbols-outlined text-[18px]">volume_up</span>
-                    </button>
+                    <div class="flex items-center gap-1">
+                      <button class="px-2.5 py-1 rounded-full bg-vermilion-soft text-secondary hover:opacity-85 text-[11px] font-bold flex items-center gap-1 transition-opacity" onclick="event.stopPropagation(); app.askAiAboutCurrentScreen()" title="Hỏi Gia sư AI về thẻ này">
+                        <span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                        <span>Hỏi AI</span>
+                      </button>
+                      <button class="w-8 h-8 rounded-full hover:bg-surface-alt text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.speakFlashcardWord()">
+                        <span class="material-symbols-outlined text-[18px]">volume_up</span>
+                      </button>
+                    </div>
                   </div>
 
                   <div class="my-auto flex flex-col items-center space-y-2">
@@ -626,6 +638,12 @@
                 <span id="arena-level-chip" class="px-2.5 py-0.5 rounded-md bg-surface-alt text-[11px] font-bold text-primary">N5</span>
                 <span id="arena-streak-badge" class="px-2.5 py-0.5 rounded-md bg-vermilion-soft text-[11px] font-bold text-secondary hidden">🔥 Streak: <span id="arena-streak-num">0</span></span>
               </div>
+
+              <!-- Ask AI Context Button -->
+              <button class="absolute top-4 right-5 px-2.5 py-1 rounded-full bg-vermilion-soft text-secondary hover:opacity-85 text-[11px] font-bold flex items-center gap-1 transition-opacity" onclick="app.askAiAboutCurrentScreen()" title="Hỏi Gia sư AI về chữ Hán này">
+                <span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                <span>Hỏi AI</span>
+              </button>
 
               <!-- Hint Box -->
               <div id="arena-hint-box" class="text-xs font-bold text-secondary mb-2 min-h-[18px]"></div>
@@ -1075,6 +1093,19 @@
           <p class="text-ink-muted">Hôm nay bạn muốn hiểu thêm gì về 1.061 Hán tự N5/N4, bộ thủ hay ví dụ câu? Hãy chọn gợi ý bên dưới hoặc gõ câu hỏi nhé!</p>
         </div>
       </div>
+    </div>
+
+    <!-- Active Screen Context Pill (AI tự nhận diện từ đang học trên màn hình) -->
+    <div id="ai-context-bar" class="px-3 py-1.5 border-t border-border-subtle bg-surface-alt/80 flex items-center justify-between gap-2 text-[11px] flex-shrink-0 hidden">
+      <div class="flex items-center gap-1.5 min-w-0">
+        <span class="material-symbols-outlined text-secondary text-[15px] flex-shrink-0">visibility</span>
+        <span class="text-ink-muted flex-shrink-0">Đang xem:</span>
+        <span id="ai-context-kanji" class="font-serif font-bold text-primary truncate"></span>
+        <span id="ai-context-sub" class="text-ink-dim truncate"></span>
+      </div>
+      <button class="text-ink-dim hover:text-primary flex items-center justify-center p-0.5 rounded transition-colors flex-shrink-0" onclick="app.clearAiContext()" title="Bỏ ngữ cảnh từ này">
+        <span class="material-symbols-outlined text-[14px]">close</span>
+      </button>
     </div>
 
     <!-- Quick Prompt Suggestion Chips -->

@@ -613,6 +613,7 @@
     }
 
     if (backKanji) backKanji.textContent = item.kanji;
+    updateAiContextBar();
     if (backReading) backReading.textContent = item.displayReading;
     if (backMeaning) backMeaning.textContent = item.meaning;
     if (backExamples) backExamples.textContent = item.examples ? `Ví dụ: ${item.examples}` : '';
@@ -837,6 +838,7 @@
     // Main Kanji
     const kanjiEl = document.getElementById('arena-kanji');
     if (kanjiEl) kanjiEl.textContent = word.kanji;
+    updateAiContextBar();
 
     // Hint box
     const hintBox = document.getElementById('arena-hint-box');
@@ -1412,6 +1414,68 @@
 
   // ================= 12. AI CHAT GIA SƯ KANJI =================
   let isAiGenerating = false;
+  let aiContextDismissed = false;
+  let lastAutoContextKey = '';
+
+  function getActiveScreenContextWord() {
+    let detected = null;
+    const practiceView = document.getElementById('view-practice');
+    const arenaScreen = document.getElementById('practice-arena-screen');
+    const vocabView = document.getElementById('view-vocab');
+    const flashcardSub = document.getElementById('vocab-subview-flashcard');
+    const homeView = document.getElementById('view-home');
+
+    if (practiceView && !practiceView.classList.contains('hidden') && arenaScreen && !arenaScreen.classList.contains('hidden')) {
+      detected = practiceDeck[currentIndex] || null;
+    } else if (vocabView && !vocabView.classList.contains('hidden') && flashcardSub && !flashcardSub.classList.contains('hidden')) {
+      detected = flashcardDeck[flashcardIndex] || null;
+    } else if (homeView && !homeView.classList.contains('hidden') && currentSpotlightWord) {
+      detected = currentSpotlightWord;
+    }
+
+    const detectedKey = detected ? `${detected.kanji}_${detected.reading || ''}` : '';
+    if (detectedKey !== lastAutoContextKey) {
+      lastAutoContextKey = detectedKey;
+      aiContextDismissed = false;
+    }
+
+    return aiContextDismissed ? null : detected;
+  }
+
+  function updateAiContextBar() {
+    const bar = document.getElementById('ai-context-bar');
+    const kanjiEl = document.getElementById('ai-context-kanji');
+    const subEl = document.getElementById('ai-context-sub');
+    const inputEl = document.getElementById('ai-chat-input');
+    if (!bar) return;
+
+    const word = getActiveScreenContextWord();
+    if (word) {
+      const reading = word.displayReading || word.reading || '';
+      if (kanjiEl) kanjiEl.textContent = word.kanji;
+      if (subEl) subEl.textContent = reading ? `(${reading})` : '';
+      bar.classList.remove('hidden');
+      if (inputEl) {
+        inputEl.placeholder = `Hỏi AI về "${word.kanji}" (vd: nhớ sao, ví dụ, cách dùng)...`;
+      }
+    } else {
+      bar.classList.add('hidden');
+      if (inputEl) {
+        inputEl.placeholder = 'Hỏi gia sư Kanji (vd: cách nhớ chữ 桜, ngữ pháp です)...';
+      }
+    }
+  }
+
+  function clearAiContext() {
+    aiContextDismissed = true;
+    updateAiContextBar();
+  }
+
+  function askAiAboutCurrentScreen() {
+    aiContextDismissed = false;
+    toggleAiChat(true);
+    updateAiContextBar();
+  }
 
   function toggleAiChat(forceOpen) {
     const box = document.getElementById('ai-chat-box');
@@ -1427,6 +1491,7 @@
       if (dot) dot.classList.add('hidden');
 
       updateAiTokenUi();
+      updateAiContextBar();
       const input = document.getElementById('ai-chat-input');
       if (input) {
         setTimeout(() => input.focus(), 100);
@@ -1456,23 +1521,17 @@
 
   function sendPresetPrompt(promptText) {
     if (isAiGenerating) return;
+    aiContextDismissed = false;
     toggleAiChat(true);
+    updateAiContextBar();
 
-    let contextWord = null;
-    const arenaActive = !document.getElementById('practice-arena-screen').classList.contains('hidden');
-    if (arenaActive && practiceDeck[currentIndex]) {
-      contextWord = practiceDeck[currentIndex];
-    } else if (currentSpotlightWord) {
-      contextWord = currentSpotlightWord;
+    const contextWord = getActiveScreenContextWord();
+    let displayPrompt = promptText;
+    if (contextWord && (promptText.includes('Từ này') || promptText.includes('chữ Hán này') || promptText.includes('từ này'))) {
+      displayPrompt = `[${contextWord.kanji}] ${promptText}`;
     }
 
-    let fullPrompt = promptText;
-    if (contextWord && (promptText.includes('Từ này') || promptText.includes('chữ Hán này'))) {
-      const reading = contextWord.displayReading || contextWord.reading || '';
-      fullPrompt = `Về từ "${contextWord.kanji}" (${reading} - ${contextWord.meaning}): ${promptText}`;
-    }
-
-    handleUserAiQuery(fullPrompt);
+    handleUserAiQuery(displayPrompt);
   }
 
   function appendAiMessage(role, htmlContent) {
@@ -1645,7 +1704,16 @@ Nhiệm vụ của bạn:
 
       // Pass previous history (excluding the query we just pushed)
       const previousHistory = chatHistory.slice(0, -1);
-      const result = await firebaseAI.ask(query, previousHistory, GEMINI_SYSTEM_INSTRUCTION);
+
+      // Automatically attach active screen Kanji context so AI knows what the user is studying
+      const ctxWord = getActiveScreenContextWord();
+      let promptForAI = query;
+      if (ctxWord) {
+        const ctxReading = ctxWord.displayReading || ctxWord.reading || '';
+        promptForAI = `[Ngữ cảnh màn hình hiện tại: Người dùng đang xem từ/chữ Hán "${ctxWord.kanji}" (cách đọc: ${ctxReading}, nghĩa: ${ctxWord.meaning}, cấp độ: ${ctxWord.level || 'N5/N4'})]\nCâu hỏi của người dùng: ${query}`;
+      }
+
+      const result = await firebaseAI.ask(promptForAI, previousHistory, GEMINI_SYSTEM_INSTRUCTION);
 
       const ind = document.getElementById('ai-typing-indicator');
       if (ind) ind.remove();
@@ -1956,7 +2024,9 @@ Nhiệm vụ của bạn:
     practiceSpotlight,
     toggleAiChat,
     submitAiChat,
-    sendPresetPrompt
+    sendPresetPrompt,
+    askAiAboutCurrentScreen,
+    clearAiContext
   };
 
 })();
