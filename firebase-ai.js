@@ -2,7 +2,7 @@
 // Includes: Firebase AI Logic + App Check (reCAPTCHA v3) + Google Auth + Firestore Real-Time Sync
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-import { initializeAppCheck, ReCaptchaV3Provider, getToken } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app-check.js";
+import { initializeAppCheck, ReCaptchaEnterpriseProvider, getToken } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app-check.js";
 import { getAI, getGenerativeModel, GoogleAIBackend } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-ai.js";
 import {
   getAuth,
@@ -42,7 +42,7 @@ let initError = null;
 try {
   firebaseApp = initializeApp(firebaseConfig);
   appCheckInstance = initializeAppCheck(firebaseApp, {
-    provider: new ReCaptchaV3Provider(RECAPTCHA_V3_SITE_KEY),
+    provider: new ReCaptchaEnterpriseProvider(RECAPTCHA_V3_SITE_KEY),
     isTokenAutoRefreshEnabled: true
   });
   aiService = getAI(firebaseApp, { backend: new GoogleAIBackend() });
