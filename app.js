@@ -429,6 +429,10 @@
   let currentVocabLevel = 'N5';
   let currentVocabSubView = 'list';
   let flashcardDeck = [];
+  let fcFullTopicDeck = [];
+  let fcCurrentTopicId = null;
+  let fcSessionRememberedIds = new Set();
+  let fcSessionForgottenIds = new Set();
   let flashcardIndex = 0;
   let flashcardFlipped = false;
 
@@ -642,10 +646,12 @@
   function openFlashcardTopic(topicId) {
     const picker = document.getElementById('flashcard-topic-picker');
     const player = document.getElementById('flashcard-player');
+    const summary = document.getElementById('flashcard-summary');
     const titleEl = document.getElementById('flashcard-active-topic-title');
     const topic = TOPICS.find(t => t.id === topicId);
     if (titleEl && topic) titleEl.textContent = topic.title;
     if (picker) picker.classList.add('hidden');
+    if (summary) summary.classList.add('hidden');
     if (player) player.classList.remove('hidden');
     onFlashcardTopicChange(topicId);
   }
@@ -653,7 +659,9 @@
   function backToFlashcardTopics() {
     const picker = document.getElementById('flashcard-topic-picker');
     const player = document.getElementById('flashcard-player');
+    const summary = document.getElementById('flashcard-summary');
     if (player) player.classList.add('hidden');
+    if (summary) summary.classList.add('hidden');
     if (picker) picker.classList.remove('hidden');
     renderFlashcardTopicPicker(currentVocabLevel);
   }
@@ -661,7 +669,11 @@
   function onFlashcardTopicChange(topicId) {
     const isRadical = topicId.startsWith('rad_');
     const source = isRadical ? RADICALS_DATA : KANJI_DATA;
+    fcCurrentTopicId = topicId;
     flashcardDeck = source.filter(it => it.topicId === topicId);
+    fcFullTopicDeck = [...flashcardDeck];
+    fcSessionRememberedIds.clear();
+    fcSessionForgottenIds.clear();
     flashcardIndex = 0;
     flashcardFlipped = false;
     renderFlashcardCard();
@@ -718,7 +730,94 @@
 
   function nextFlashcard() {
     if (flashcardDeck.length === 0) return;
-    flashcardIndex = (flashcardIndex + 1) % flashcardDeck.length;
+    if (flashcardIndex + 1 < flashcardDeck.length) {
+      flashcardIndex += 1;
+      renderFlashcardCard();
+    } else {
+      finishFlashcardSession();
+    }
+  }
+
+  function finishFlashcardSession() {
+    const player = document.getElementById('flashcard-player');
+    const summary = document.getElementById('flashcard-summary');
+    if (player) player.classList.add('hidden');
+    if (summary) summary.classList.remove('hidden');
+
+    const topic = TOPICS.find(t => t.id === fcCurrentTopicId);
+    const topicNameEl = document.getElementById('fc-summary-topic-name');
+    if (topicNameEl) topicNameEl.textContent = topic ? topic.title : 'Lượt học Flashcard';
+
+    const totalEl = document.getElementById('fc-summary-total');
+    const remEl = document.getElementById('fc-summary-remembered');
+    const forgEl = document.getElementById('fc-summary-forgotten');
+
+    if (totalEl) totalEl.textContent = flashcardDeck.length;
+    if (remEl) remEl.textContent = fcSessionRememberedIds.size;
+    if (forgEl) forgEl.textContent = fcSessionForgottenIds.size;
+
+    const forgSec = document.getElementById('fc-summary-forgotten-section');
+    const forgList = document.getElementById('fc-summary-forgotten-list');
+    const retryBtn = document.getElementById('fc-summary-btn-retry-forgotten');
+    const retryCount = document.getElementById('fc-summary-retry-count');
+
+    if (fcSessionForgottenIds.size > 0) {
+      const forgottenWords = flashcardDeck.filter(w => fcSessionForgottenIds.has(w.id));
+      if (forgSec) forgSec.classList.remove('hidden');
+      if (retryBtn) retryBtn.classList.remove('hidden');
+      if (retryCount) retryCount.textContent = forgottenWords.length;
+
+      if (forgList) {
+        forgList.innerHTML = forgottenWords.map(w => `
+          <div class="bg-surface-alt p-3 rounded-xl border border-border-subtle flex items-center justify-between">
+            <div class="flex items-center gap-3 min-w-0">
+              <span class="kanji-glyph text-2xl font-normal text-primary flex-shrink-0">${w.kanji}</span>
+              <div class="min-w-0">
+                <span class="text-xs font-bold text-secondary block truncate">${w.displayReading || w.reading || ''}</span>
+                <span class="text-xs text-primary font-medium truncate block">${w.meaning}</span>
+              </div>
+            </div>
+            <button class="w-8 h-8 rounded-full flex items-center justify-center text-ink-dim hover:text-primary hover:bg-surface-card flex-shrink-0" onclick="app.speakWordText('${w.kanji}')">
+              <span class="material-symbols-outlined text-[18px]">volume_up</span>
+            </button>
+          </div>
+        `).join('');
+      }
+    } else {
+      if (forgSec) forgSec.classList.add('hidden');
+      if (retryBtn) retryBtn.classList.add('hidden');
+    }
+  }
+
+  function retryFlashcardForgotten() {
+    const forgottenWords = flashcardDeck.filter(w => fcSessionForgottenIds.has(w.id));
+    if (forgottenWords.length === 0) return;
+
+    flashcardDeck = forgottenWords;
+    fcSessionRememberedIds.clear();
+    fcSessionForgottenIds.clear();
+    flashcardIndex = 0;
+    flashcardFlipped = false;
+
+    const summary = document.getElementById('flashcard-summary');
+    const player = document.getElementById('flashcard-player');
+    if (summary) summary.classList.add('hidden');
+    if (player) player.classList.remove('hidden');
+    renderFlashcardCard();
+  }
+
+  function restartFlashcardDeck() {
+    if (fcFullTopicDeck.length === 0) return;
+    flashcardDeck = [...fcFullTopicDeck];
+    fcSessionRememberedIds.clear();
+    fcSessionForgottenIds.clear();
+    flashcardIndex = 0;
+    flashcardFlipped = false;
+
+    const summary = document.getElementById('flashcard-summary');
+    const player = document.getElementById('flashcard-player');
+    if (summary) summary.classList.add('hidden');
+    if (player) player.classList.remove('hidden');
     renderFlashcardCard();
   }
 
@@ -758,6 +857,8 @@
   function markFlashcardRemembered() {
     if (flashcardDeck.length === 0 || isFlashcardAnimating) return;
     const item = flashcardDeck[flashcardIndex];
+    fcSessionRememberedIds.add(item.id);
+    fcSessionForgottenIds.delete(item.id);
     if (!state.rememberedIds.includes(item.id)) {
       state.rememberedIds.push(item.id);
     }
@@ -775,6 +876,8 @@
   function markFlashcardForgotten() {
     if (flashcardDeck.length === 0 || isFlashcardAnimating) return;
     const item = flashcardDeck[flashcardIndex];
+    fcSessionForgottenIds.add(item.id);
+    fcSessionRememberedIds.delete(item.id);
     if (!state.forgottenIds.includes(item.id)) {
       state.forgottenIds.push(item.id);
     }
@@ -1219,9 +1322,11 @@
 
     const totalEl = document.getElementById('summary-total');
     const correctEl = document.getElementById('summary-correct');
+    const wrongEl = document.getElementById('summary-wrong');
 
     if (totalEl) totalEl.textContent = practiceDeck.length;
     if (correctEl) correctEl.textContent = currentRoundCorrect;
+    if (wrongEl) wrongEl.textContent = currentRoundWrongIds.size;
 
     const unrememberedSec = document.getElementById('summary-unremembered-section');
     const unrememberedList = document.getElementById('summary-unremembered-list');
@@ -2334,6 +2439,8 @@ Nhiệm vụ của bạn:
     prevFlashcard,
     markFlashcardRemembered,
     markFlashcardForgotten,
+    retryFlashcardForgotten,
+    restartFlashcardDeck,
     speakFlashcardWord,
     openPracticeMethod,
     backToPracticeMethods,

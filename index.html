@@ -478,18 +478,71 @@
               </div>
             </div>
 
-            <!-- Flashcard Self-Assessment Controls (Giống App Mobile: Chưa nhớ / Đã nhớ) -->
-            <div class="grid grid-cols-2 gap-3 pt-1">
-              <button class="py-3.5 rounded-xl bg-vermilion-soft border border-secondary/20 text-secondary hover:opacity-90 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm" onclick="app.markFlashcardForgotten()">
-                <span class="material-symbols-outlined text-[20px]">history</span>
-                <span>Chưa nhớ (Ôn lại)</span>
-              </button>
+              <!-- Flashcard Self-Assessment Controls (Giống App Mobile: Chưa nhớ / Đã nhớ) -->
+              <div class="grid grid-cols-2 gap-3 pt-1">
+                <button class="py-3.5 rounded-xl bg-vermilion-soft border border-secondary/20 text-secondary hover:opacity-90 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm" onclick="app.markFlashcardForgotten()">
+                  <span class="material-symbols-outlined text-[20px]">history</span>
+                  <span>Chưa nhớ (Ôn lại)</span>
+                </button>
 
-              <button class="py-3.5 rounded-xl bg-matcha-soft border border-tertiary/20 text-tertiary hover:opacity-90 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm" onclick="app.markFlashcardRemembered()">
-                <span class="material-symbols-outlined text-[20px]">check_circle</span>
-                <span>Đã nhớ</span>
-              </button>
+                <button class="py-3.5 rounded-xl bg-matcha-soft border border-tertiary/20 text-tertiary hover:opacity-90 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm" onclick="app.markFlashcardRemembered()">
+                  <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                  <span>Đã nhớ</span>
+                </button>
+              </div>
             </div>
+
+            <!-- Stage 3: Trang Tổng Kết Flashcard (Học thuộc bao nhiêu, chưa nhớ bao nhiêu, ôn lại chưa nhớ / ôn lại hết) -->
+            <div id="flashcard-summary" class="space-y-6 hidden max-w-2xl mx-auto">
+              <div class="bg-surface-card rounded-2xl p-7 sm:p-8 border border-border-subtle shadow-md text-center space-y-6">
+                <div class="w-16 h-16 rounded-full bg-matcha-soft text-tertiary flex items-center justify-center mx-auto">
+                  <span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+                </div>
+
+                <div class="space-y-1">
+                  <h2 class="font-serif font-bold text-2xl text-primary">Hoàn thành lượt học Flashcard!</h2>
+                  <p id="fc-summary-topic-name" class="text-xs text-ink-muted">Số đếm & Tiền tệ</p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3 text-center py-1">
+                  <div class="bg-surface-alt p-4 rounded-xl border border-border-subtle">
+                    <span class="text-[11px] text-ink-muted font-medium block">Tổng số thẻ</span>
+                    <span id="fc-summary-total" class="font-serif font-bold text-xl text-primary mt-1 block">0</span>
+                  </div>
+                  <div class="bg-matcha-soft/70 p-4 rounded-xl border border-tertiary/20">
+                    <span class="text-[11px] text-tertiary font-semibold block">Đã thuộc</span>
+                    <span id="fc-summary-remembered" class="font-serif font-bold text-xl text-tertiary mt-1 block">0</span>
+                  </div>
+                  <div class="bg-vermilion-soft/70 p-4 rounded-xl border border-secondary/20">
+                    <span class="text-[11px] text-secondary font-semibold block">Chưa nhớ</span>
+                    <span id="fc-summary-forgotten" class="font-serif font-bold text-xl text-secondary mt-1 block">0</span>
+                  </div>
+                </div>
+
+                <!-- Danh sách từ chưa nhớ trong lượt học -->
+                <div id="fc-summary-forgotten-section" class="text-left space-y-2.5 hidden">
+                  <span class="text-xs font-bold text-secondary uppercase tracking-wider block">Từ cần ôn lại trong lượt này</span>
+                  <div id="fc-summary-forgotten-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[240px] overflow-y-auto pr-1">
+                    <!-- Populated dynamically -->
+                  </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="space-y-2.5 pt-2">
+                  <button id="fc-summary-btn-retry-forgotten" class="w-full py-3.5 rounded-xl bg-secondary hover:bg-secondary/90 text-washi font-bold text-xs sm:text-sm transition-colors shadow-sm flex items-center justify-center gap-2 hidden" onclick="app.retryFlashcardForgotten()">
+                    <span class="material-symbols-outlined text-[18px]">replay</span>
+                    <span>Ôn lại các từ chưa nhớ (<span id="fc-summary-retry-count">0</span> từ)</span>
+                  </button>
+                  <div class="flex flex-col sm:flex-row gap-2.5">
+                    <button class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.restartFlashcardDeck()">
+                      Ôn lại hết từ đầu
+                    </button>
+                    <button class="flex-1 py-3 rounded-xl bg-surface-alt text-ink-muted hover:text-primary font-bold text-xs transition-colors" onclick="app.backToFlashcardTopics()">
+                      Chọn chủ đề khác
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -787,25 +840,43 @@
                 <p class="text-xs text-ink-muted">Bạn đã hoàn thành lượt luyện tập với kết quả xuất sắc.</p>
               </div>
 
-              <div class="grid grid-cols-2 gap-3 text-center py-2">
+              <div class="grid grid-cols-3 gap-3 text-center py-2">
                 <div class="bg-surface-alt p-4 rounded-xl border border-border-subtle">
                   <span class="text-[11px] text-ink-muted font-medium block">Tổng số từ</span>
-                  <span id="summary-total" class="font-serif font-bold text-xl text-primary mt-1 block">35</span>
+                  <span id="summary-total" class="font-serif font-bold text-xl text-primary mt-1 block">0</span>
                 </div>
-                <div class="bg-surface-alt p-4 rounded-xl border border-border-subtle">
-                  <span class="text-[11px] text-ink-muted font-medium block">Số câu đúng</span>
-                  <span id="summary-correct" class="font-serif font-bold text-xl text-tertiary mt-1 block">32</span>
+                <div class="bg-matcha-soft/70 p-4 rounded-xl border border-tertiary/20">
+                  <span class="text-[11px] text-tertiary font-semibold block">Đã thuộc</span>
+                  <span id="summary-correct" class="font-serif font-bold text-xl text-tertiary mt-1 block">0</span>
+                </div>
+                <div class="bg-vermilion-soft/70 p-4 rounded-xl border border-secondary/20">
+                  <span class="text-[11px] text-secondary font-semibold block">Chưa nhớ</span>
+                  <span id="summary-wrong" class="font-serif font-bold text-xl text-secondary mt-1 block">0</span>
+                </div>
+              </div>
+
+              <!-- Danh sách từ chưa nhớ trong bài luyện tập -->
+              <div id="summary-unremembered-section" class="text-left space-y-2.5 hidden">
+                <span class="text-xs font-bold text-secondary uppercase tracking-wider block">Từ cần ôn lại trong lượt này</span>
+                <div id="summary-unremembered-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[240px] overflow-y-auto pr-1">
+                  <!-- Populated dynamically -->
                 </div>
               </div>
 
               <!-- Action buttons -->
-              <div class="flex flex-col sm:flex-row gap-3 pt-2">
-                <button class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.restartSamePractice()">
-                  Luyện lại từ đầu
+              <div class="space-y-2.5 pt-2">
+                <button id="summary-btn-retry-unremembered" class="w-full py-3.5 rounded-xl bg-secondary hover:bg-secondary/90 text-washi font-bold text-xs sm:text-sm transition-colors shadow-sm flex items-center justify-center gap-2 hidden" onclick="app.retryUnrememberedSummary()">
+                  <span class="material-symbols-outlined text-[18px]">replay</span>
+                  <span>Ôn lại các từ chưa nhớ (<span id="summary-unremembered-count">0</span> từ)</span>
                 </button>
-                <button class="flex-1 py-3 rounded-xl bg-surface-alt text-ink-muted hover:text-primary font-bold text-xs transition-colors" onclick="app.switchTab('home')">
-                  Về Trang chủ
-                </button>
+                <div class="flex flex-col sm:flex-row gap-2.5">
+                  <button class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.restartSamePractice()">
+                    Ôn lại hết từ đầu
+                  </button>
+                  <button class="flex-1 py-3 rounded-xl bg-surface-alt text-ink-muted hover:text-primary font-bold text-xs transition-colors" onclick="app.backToPracticeMethods()">
+                    Chọn bài khác
+                  </button>
+                </div>
               </div>
 
               <!-- Web AdSense Container (Y chang vị trí StudyResultsBanner trong app) -->
