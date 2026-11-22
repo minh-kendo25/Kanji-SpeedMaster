@@ -2,6 +2,7 @@
 // Uses the official Firebase JS SDK (firebase/ai) connected to project: kanji-kachi
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app-check.js";
 import { getAI, getGenerativeModel, GoogleAIBackend } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-ai.js";
 
 const firebaseConfig = {
@@ -14,12 +15,18 @@ const firebaseConfig = {
   measurementId: "G-PS80608ZFE"
 };
 
+const RECAPTCHA_V3_SITE_KEY = "6LfPhSwuAAAAAHfup9qNZQ4KN_iIX2krlTFQREVV";
+
 let firebaseApp = null;
 let aiService = null;
 let initError = null;
 
 try {
   firebaseApp = initializeApp(firebaseConfig);
+  initializeAppCheck(firebaseApp, {
+    provider: new ReCaptchaV3Provider(RECAPTCHA_V3_SITE_KEY),
+    isTokenAutoRefreshEnabled: true
+  });
   aiService = getAI(firebaseApp, { backend: new GoogleAIBackend() });
 } catch (err) {
   console.error("[Firebase AI Logic] Initialization failed:", err);
