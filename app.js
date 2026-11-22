@@ -23,7 +23,10 @@
     preferences: {
       mcMode: 'after_higa', // 'after_higa' | 'disabled' | 'both'
       soundEnabled: true,
-      romajiAutoConvert: true
+      romajiAutoConvert: true,
+      ttsRate: 0.95,
+      ttsVolume: 1.0,
+      ttsVoiceName: ''
     }
   };
 
@@ -185,35 +188,135 @@
     profile: document.getElementById('sb-nav-profile')
   };
 
-  // ================= 3. TTS VOICE & SOUND =================
+  // ================= 3. TTS VOICE & SOUND (CROSS-PLATFORM WINDOWS / ANDROID / iOS) =================
   let jaVoice = null;
+  let jaVoicesList = [];
+  let activeUtterance = null;
+  let ttsSpeakTimer = null;
+
+  function resolveBestJapaneseVoice() {
+    if (!('speechSynthesis' in window)) return null;
+    const voices = window.speechSynthesis.getVoices() || [];
+    jaVoicesList = voices.filter(v =>
+      (v.lang && (v.lang.toLowerCase().startsWith('ja') || v.lang.toUpperCase().includes('JP'))) ||
+      (v.name && /japan|kyoko|otoya|haruka|nanami|keita|ayumi|ichiro|o-ren/i.test(v.name))
+    );
+
+    const savedName = state.preferences && state.preferences.ttsVoiceName;
+    if (savedName) {
+      const exact = jaVoicesList.find(v => v.name === savedName);
+      if (exact) return exact;
+    }
+
+    // Prefer natural voices on iOS/Android/Windows
+    return (
+      jaVoicesList.find(v => /google\s*日本語|nanami|kyoko|o-ren|haruka/i.test(v.name)) ||
+      jaVoicesList.find(v => v.lang && v.lang.toLowerCase() === 'ja-jp') ||
+      jaVoicesList[0] ||
+      null
+    );
+  }
+
+  function populateTtsVoiceSelect() {
+    const select = document.getElementById('tts-voice-select');
+    if (!select) return;
+    const savedName = (state.preferences && state.preferences.ttsVoiceName) || '';
+    const options = ['<option value="">Tự động chọn giọng Nhật tốt nhất</option>'];
+    jaVoicesList.forEach(v => {
+      const selected = v.name === savedName ? 'selected' : '';
+      options.push(`<option value="${escapeHtml(v.name)}" ${selected}>${escapeHtml(v.name)} (${escapeHtml(v.lang)})</option>`);
+    });
+    select.innerHTML = options.join('');
+  }
 
   function initVoices() {
     if ('speechSynthesis' in window) {
       const updateVoices = () => {
-        const voices = window.speechSynthesis.getVoices();
-        jaVoice = voices.find(v => v.lang.startsWith('ja') || v.lang.includes('JP')) || null;
+        jaVoice = resolveBestJapaneseVoice();
+        populateTtsVoiceSelect();
       };
       updateVoices();
       if (window.speechSynthesis.onvoiceschanged !== undefined) {
         window.speechSynthesis.onvoiceschanged = updateVoices;
       }
+      // Mobile browsers sometimes populate voices lazily after first frame
+      setTimeout(updateVoices, 400);
+      setTimeout(updateVoices, 1200);
     }
   }
 
-  function speakJapanese(text) {
-    if (!state.preferences.soundEnabled) return;
+  function speakJapanese(text, forceSpeak = false) {
+    if (!text) return;
+    if (!forceSpeak && !state.preferences.soundEnabled) return;
     if (!('speechSynthesis' in window)) return;
+
     try {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'ja-JP';
-      utterance.rate = 0.95;
-      if (jaVoice) utterance.voice = jaVoice;
-      window.speechSynthesis.speak(utterance);
+      const synth = window.speechSynthesis;
+      jaVoice = resolveBestJapaneseVoice() || jaVoice;
+
+      const rate = typeof state.preferences.ttsRate === 'number' ? state.preferences.ttsRate : 0.95;
+      const volume = typeof state.preferences.ttsVolume === 'number' ? state.preferences.ttsVolume : 1.0;
+      if (volume <= 0) return;
+
+      const doSpeak = () => {
+        const utterance = new SpeechSynthesisUtterance(String(text));
+        utterance.lang = 'ja-JP';
+        utterance.rate = Math.max(0.5, Math.min(1.5, rate));
+        utterance.volume = Math.max(0, Math.min(1, volume));
+        if (jaVoice) utterance.voice = jaVoice;
+
+        // Keep strong reference to prevent iOS Safari garbage collection mid-speech
+        activeUtterance = utterance;
+        utterance.onend = () => { if (activeUtterance === utterance) activeUtterance = null; };
+        utterance.onerror = () => { if (activeUtterance === utterance) activeUtterance = null; };
+
+        if (synth.paused) synth.resume();
+        synth.speak(utterance);
+      };
+
+      if (ttsSpeakTimer) {
+        clearTimeout(ttsSpeakTimer);
+        ttsSpeakTimer = null;
+      }
+
+      if (synth.speaking || synth.pending) {
+        synth.cancel();
+        // Small yield prevents iOS Safari & Chrome Android from dropping the new utterance after cancel()
+        ttsSpeakTimer = setTimeout(doSpeak, 50);
+      } else {
+        doSpeak();
+      }
     } catch (e) {
       console.warn('TTS error:', e);
     }
+  }
+
+  function setTtsRate(val) {
+    const num = parseFloat(val);
+    if (isNaN(num)) return;
+    state.preferences.ttsRate = Math.max(0.5, Math.min(1.5, num));
+    saveState();
+    const label = document.getElementById('tts-rate-label');
+    if (label) label.textContent = `${state.preferences.ttsRate.toFixed(2).replace(/\.00$/, '.0')}x`;
+  }
+
+  function setTtsVolume(val) {
+    const pct = parseInt(val, 10);
+    if (isNaN(pct)) return;
+    state.preferences.ttsVolume = Math.max(0, Math.min(100, pct)) / 100;
+    saveState();
+    const label = document.getElementById('tts-volume-label');
+    if (label) label.textContent = `${pct}%`;
+  }
+
+  function setTtsVoice(name) {
+    state.preferences.ttsVoiceName = name || '';
+    jaVoice = resolveBestJapaneseVoice();
+    saveState();
+  }
+
+  function testTtsVoice() {
+    speakJapanese('日本語を勉強します。こんにちは！', true);
   }
 
   function playAudioChime(isCorrect) {
@@ -323,7 +426,7 @@
   let currentSpotlightWord = null;
 
   function initDailySpotlight() {
-    const allItems = window.KANJI_DATA || [];
+    const allItems = (typeof KANJI_DATA !== 'undefined' && Array.isArray(KANJI_DATA)) ? KANJI_DATA : [];
     if (!allItems.length) return;
 
     // Filter sentence candidates matching mobile app HomeScreen.kt
@@ -368,7 +471,12 @@
 
   function speakSpotlight() {
     if (currentSpotlightWord) {
-      speakJapanese(currentSpotlightWord.kanji || currentSpotlightWord.reading);
+      speakJapanese(currentSpotlightWord.kanji || currentSpotlightWord.reading, true);
+      return;
+    }
+    const kanjiEl = document.getElementById('spotlight-kanji');
+    if (kanjiEl && kanjiEl.textContent.trim()) {
+      speakJapanese(kanjiEl.textContent.trim(), true);
     }
   }
 
@@ -891,7 +999,7 @@
 
   function speakFlashcardWord() {
     if (flashcardDeck[flashcardIndex]) {
-      speakJapanese(flashcardDeck[flashcardIndex].kanji);
+      speakJapanese(flashcardDeck[flashcardIndex].kanji, true);
     }
   }
 
@@ -1396,14 +1504,14 @@
   function speakCurrentWord() {
     const currentWord = practiceDeck[currentIndex];
     if (currentWord) {
-      speakJapanese(currentWord.kanji);
+      speakJapanese(currentWord.kanji, true);
       const pill = document.getElementById('arena-reading-display');
       if (pill) pill.textContent = currentWord.displayReading;
     }
   }
 
   function speakWordText(text) {
-    speakJapanese(text);
+    speakJapanese(text, true);
   }
 
   function toggleCurrentBookmark() {
@@ -1609,10 +1717,17 @@
       }
     }
 
-    const settingsKeyInput = document.getElementById('settings-gemini-key-input');
-    if (settingsKeyInput) {
-      settingsKeyInput.value = state.geminiApiKey || '';
-    }
+    const rate = typeof state.preferences.ttsRate === 'number' ? state.preferences.ttsRate : 0.95;
+    const volPct = Math.round((typeof state.preferences.ttsVolume === 'number' ? state.preferences.ttsVolume : 1.0) * 100);
+    const rateSlider = document.getElementById('tts-rate-slider');
+    const rateLabel = document.getElementById('tts-rate-label');
+    const volSlider = document.getElementById('tts-volume-slider');
+    const volLabel = document.getElementById('tts-volume-label');
+    if (rateSlider) rateSlider.value = rate;
+    if (rateLabel) rateLabel.textContent = `${rate.toFixed(2).replace(/\.00$/, '.0')}x`;
+    if (volSlider) volSlider.value = volPct;
+    if (volLabel) volLabel.textContent = `${volPct}%`;
+    populateTtsVoiceSelect();
   }
 
   function toggleSound() {
@@ -2475,6 +2590,10 @@ Nhiệm vụ của bạn:
     toggleSoundSetting,
     toggleRomajiSetting,
     toggleSound,
+    setTtsRate,
+    setTtsVolume,
+    setTtsVoice,
+    testTtsVoice,
     resetAllProgress,
     startPracticeFromHome,
     startFlashcardsFromHome,
