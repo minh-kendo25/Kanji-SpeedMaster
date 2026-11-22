@@ -3,67 +3,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 :root {
-  /* Brand RGB channels for Tailwind dynamic opacity */
-  --bg-washi-rgb: 253, 251, 247;
-  --bg-card-rgb: 255, 255, 255;
-  --bg-card-alt-rgb: 247, 245, 240;
-  --border-subtle-rgb: 239, 235, 228;
-  --border-strong-rgb: 220, 215, 206;
-  --ink-primary-rgb: 30, 35, 42;
-  --ink-secondary-rgb: 61, 68, 80;
-  --ink-muted-rgb: 107, 114, 128;
-  --ink-dim-rgb: 156, 163, 175;
-  --vermilion-rgb: 232, 74, 54;
-  --matcha-rgb: 74, 124, 89;
+  /* Brand RGB channels (SPACE-SEPARATED for Tailwind rgb(var(...) / <alpha-value>)) */
+  --bg-washi-rgb: 248 246 241;
+  --bg-card-rgb: 255 255 255;
+  --bg-card-alt-rgb: 243 240 234;
+  --border-subtle-rgb: 234 229 220;
+  --border-strong-rgb: 214 208 198;
+  --ink-primary-rgb: 28 33 40;
+  --ink-secondary-rgb: 61 68 80;
+  --ink-muted-rgb: 107 114 128;
+  --ink-dim-rgb: 148 163 184;
+  --vermilion-rgb: 232 74 54;
+  --matcha-rgb: 59 135 84;
 
-  /* Standard Brand Hex Colors */
-  --bg-washi: #FDFBF7;
+  /* Standard Brand Hex Colors (Light Mode - matching Mobile App Washi) */
+  --bg-washi: #F8F6F1;
   --bg-card: #FFFFFF;
-  --bg-card-alt: #F7F5F0;
-  --border-subtle: #EFEBE4;
-  --border-strong: #DCD7CE;
-  --ink-primary: #1E232A;
+  --bg-card-alt: #F3F0EA;
+  --border-subtle: #EAE5DC;
+  --border-strong: #D6D0C6;
+  --ink-primary: #1C2128;
   --ink-secondary: #3D4450;
   --ink-muted: #6B7280;
-  --ink-dim: #9CA3AF;
+  --ink-dim: #94A3B8;
   --vermilion: #E84A36;
-  --vermilion-soft: #FDE8E5;
-  --matcha: #4A7C59;
-  --matcha-soft: #EDF5F0;
+  --vermilion-soft: #FDECE9;
+  --matcha: #3B8754;
+  --matcha-soft: #E6F5EC;
   --font-serif: 'Noto Serif', serif;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --sidebar-width: 260px;
 }
 
-/* ================= DARK MODE SUMI NIGHT PALETTE ================= */
+/* ================= DARK MODE (MATCHING MOBILE APP MIDNIGHT NAVY) ================= */
 html.dark {
-  /* Dark RGB channels for Tailwind */
-  --bg-washi-rgb: 19, 23, 29;
-  --bg-card-rgb: 26, 33, 43;
-  --bg-card-alt-rgb: 34, 43, 56;
-  --border-subtle-rgb: 42, 53, 68;
-  --border-strong-rgb: 58, 73, 94;
-  --ink-primary-rgb: 250, 250, 250;
-  --ink-secondary-rgb: 216, 222, 232;
-  --ink-muted-rgb: 156, 163, 175;
-  --ink-dim-rgb: 107, 114, 128;
-  --vermilion-rgb: 255, 99, 82;
-  --matcha-rgb: 82, 174, 110;
+  /* Dark RGB channels (SPACE-SEPARATED for Tailwind) */
+  --bg-washi-rgb: 14 19 27;
+  --bg-card-rgb: 23 31 44;
+  --bg-card-alt-rgb: 31 41 55;
+  --border-subtle-rgb: 41 53 72;
+  --border-strong-rgb: 62 79 105;
+  --ink-primary-rgb: 241 245 249;
+  --ink-secondary-rgb: 203 213 225;
+  --ink-muted-rgb: 148 163 184;
+  --ink-dim-rgb: 100 116 139;
+  --vermilion-rgb: 255 94 71;
+  --matcha-rgb: 74 222 128;
 
-  /* Dark Sumi Hex Colors */
-  --bg-washi: #13171D;
-  --bg-card: #1A212B;
-  --bg-card-alt: #222B38;
-  --border-subtle: #2A3544;
-  --border-strong: #3A495E;
-  --ink-primary: #FAFAFA;
-  --ink-secondary: #D8DEE8;
-  --ink-muted: #9CA3AF;
-  --ink-dim: #6B7280;
-  --vermilion: #FF6352;
-  --vermilion-soft: rgba(255, 99, 82, 0.16);
-  --matcha: #52AE6E;
-  --matcha-soft: rgba(82, 174, 110, 0.16);
+  /* Dark Midnight Navy Hex Colors */
+  --bg-washi: #0E131B;
+  --bg-card: #171F2C;
+  --bg-card-alt: #1F2937;
+  --border-subtle: #293548;
+  --border-strong: #3E4F69;
+  --ink-primary: #F1F5F9;
+  --ink-secondary: #CBD5E1;
+  --ink-muted: #94A3B8;
+  --ink-dim: #64748B;
+  --vermilion: #FF5E47;
+  --vermilion-soft: rgba(255, 94, 71, 0.16);
+  --matcha: #4ADE80;
+  --matcha-soft: rgba(74, 222, 128, 0.14);
 }
 
 .bg-vermilion-soft {
@@ -78,9 +78,35 @@ html.dark .bg-secondary {
   color: #FFFFFF !important;
 }
 
+/* Signature glowing Vermilion AI FAB matching Mobile App */
+#btn-ai-bubble {
+  background: linear-gradient(135deg, #FF624D 0%, #DC3522 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(232, 74, 54, 0.38) !important;
+}
+#btn-ai-bubble:hover {
+  box-shadow: 0 10px 28px rgba(232, 74, 54, 0.52) !important;
+}
+#btn-ai-bubble .material-symbols-outlined {
+  color: #FFFFFF !important;
+}
+
+/* Daily Spotlight Dark Mode polish matching Mobile App */
+html.dark #home-daily-spotlight {
+  background: linear-gradient(145deg, #162230 0%, #171F2C 100%);
+  border-color: #2A3B52;
+}
+html.dark #spotlight-btn-tts {
+  background-color: rgba(255, 94, 71, 0.16);
+  color: #FF5E47;
+}
+html.dark #spotlight-btn-tts:hover {
+  background-color: rgba(255, 94, 71, 0.28);
+}
+
 html.dark .web-ad-container {
-  background-image: radial-gradient(#2A3544 1px, transparent 1px);
-  background-color: rgba(34, 43, 56, 0.45);
+  background-image: radial-gradient(#293548 1px, transparent 1px);
+  background-color: rgba(23, 31, 44, 0.6);
 }
 
 * {
