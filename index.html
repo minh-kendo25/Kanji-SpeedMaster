@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Kanji Kachi (漢字勝ち) · Nền tảng rèn luyện Hán tự N5 & N4</title>
+  <title>Kanji Kachi (漢字勝ち) · Luyện phản xạ Hán tự N5 & N4</title>
   
   <!-- Favicon / Logo -->
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="apple-touch-icon" href="logo.png">
 
-  <!-- Google Fonts & Material Symbols -->
+  <!-- Fonts & Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,21 +23,17 @@
       theme: {
         extend: {
           colors: {
-            "app-bg": "var(--bg-app)",
-            "app-sidebar": "var(--bg-sidebar)",
-            "app-topbar": "var(--bg-topbar)",
-            "app-card": "var(--bg-card)",
-            "app-card-hover": "var(--bg-card-hover)",
-            "app-input": "var(--bg-input)",
-            "app-border": "var(--border-color)",
-            "app-border-subtle": "var(--border-subtle)",
-            "app-text": "var(--text-main)",
-            "app-text-muted": "var(--text-muted)",
-            "app-text-dim": "var(--text-dim)",
-            "app-accent": "var(--primary-accent)",
-            "app-accent-hover": "var(--primary-hover)",
-            "app-red": "var(--vermilion)",
-            "app-green": "var(--matcha)"
+            "washi": "#FDFBF7",
+            "primary": "#1E232A",
+            "secondary": "#E84A36",
+            "tertiary": "#4A7C59",
+            "surface-card": "#FFFFFF",
+            "surface-alt": "#F7F5F0",
+            "border-subtle": "#EFEBE4",
+            "border-strong": "#DCD7CE",
+            "ink-text": "#1E232A",
+            "ink-muted": "#6B7280",
+            "ink-dim": "#9CA3AF"
           },
           fontFamily: {
             serif: ["Noto Serif", "serif"],
@@ -49,879 +45,765 @@
   </script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-app-bg text-app-text font-sans h-full overflow-hidden select-none">
+<body class="bg-washi text-ink-text font-sans min-h-full flex flex-col selection:bg-secondary/20">
 
-  <!-- ================= MASTER LAYOUT WRAPPER ================= -->
-  <div id="app-layout">
-
-    <!-- ================= 1. LEFT SIDEBAR (QUIZLET STYLE) ================= -->
-    <aside id="app-sidebar" class="fixed lg:static inset-y-0 left-0 z-50 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
-      <!-- Sidebar Header / Logo -->
-      <div class="h-16 px-5 flex items-center justify-between border-b border-app-border">
-        <div class="flex items-center gap-3 cursor-pointer" onclick="app.switchTab('home')">
-          <img src="logo.png" alt="Kanji Kachi Logo" class="h-8 w-8 object-contain rounded-lg shadow-sm border border-app-border">
-          <div class="flex flex-col">
-            <span class="font-serif font-bold text-base text-app-text tracking-tight leading-none">Kanji Kachi</span>
-            <span class="text-[10px] text-app-text-dim font-semibold tracking-wider mt-0.5">漢字勝ち · N5/N4</span>
-          </div>
+  <!-- ================= TOP WEB HEADER (DESKTOP & MOBILE RESPONSIVE) ================= -->
+  <header class="sticky top-0 z-40 bg-washi/95 backdrop-blur-md border-b border-border-subtle shadow-[0_1px_4px_rgba(0,0,0,0.02)]">
+    <div class="max-w-5xl mx-auto h-16 px-4 sm:px-6 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-3 cursor-pointer select-none flex-shrink-0" onclick="app.switchTab('home')">
+        <img src="logo.png" alt="Kanji Kachi Logo" class="h-9 w-9 object-contain rounded-lg shadow-sm border border-border-subtle">
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-base sm:text-lg text-primary tracking-tight leading-tight">Kanji Kachi</span>
+          <span class="text-[10px] sm:text-[11px] text-ink-muted font-semibold tracking-wider">漢字勝ち · N5 & N4</span>
         </div>
-        <!-- Close button on mobile -->
-        <button class="lg:hidden text-app-text-muted hover:text-app-text" onclick="app.toggleMobileSidebar()">
-          <span class="material-symbols-outlined text-[20px]">close</span>
+      </div>
+
+      <!-- Navigation Tabs (Clean Web Bar) -->
+      <nav class="hidden md:flex items-center gap-1.5 p-1 bg-surface-alt rounded-xl border border-border-subtle">
+        <button id="nav-btn-home" class="px-4 py-1.5 rounded-lg text-xs font-semibold text-primary transition-all nav-tab-active" onclick="app.switchTab('home')">
+          Trang chủ
+        </button>
+        <button id="nav-btn-practice" class="px-4 py-1.5 rounded-lg text-xs font-semibold text-ink-muted hover:text-primary transition-all" onclick="app.switchTab('practice')">
+          Luyện phản xạ
+        </button>
+        <button id="nav-btn-vocab" class="px-4 py-1.5 rounded-lg text-xs font-semibold text-ink-muted hover:text-primary transition-all" onclick="app.switchTab('vocab')">
+          Từ vựng & Flashcard
+        </button>
+        <button id="nav-btn-profile" class="px-4 py-1.5 rounded-lg text-xs font-semibold text-ink-muted hover:text-primary transition-all" onclick="app.switchTab('profile')">
+          Cá nhân
+        </button>
+      </nav>
+
+      <!-- Right Controls -->
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <!-- Streak Badge -->
+        <div class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-card border border-border-subtle text-xs font-bold text-secondary shadow-sm">
+          <span>Chuỗi</span>
+          <span id="header-streak-num">1</span>
+          <span>ngày 🔥</span>
+        </div>
+
+        <!-- Sound Toggle Button -->
+        <button id="header-btn-tts" class="w-9 h-9 flex items-center justify-center rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" title="Bật/Tắt phát âm Tokyo" onclick="app.toggleSound()">
+          <span id="header-icon-tts" class="material-symbols-outlined text-[20px]">volume_up</span>
+        </button>
+
+        <!-- Settings Button -->
+        <button class="w-9 h-9 flex items-center justify-center rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" title="Cài đặt luyện tập" onclick="app.openSettings()">
+          <span class="material-symbols-outlined text-[20px]">settings</span>
         </button>
       </div>
 
-      <!-- Sidebar Navigation Menu -->
-      <div class="flex-1 overflow-y-auto px-3 py-4 space-y-6">
-        <!-- Main Navigation Section -->
-        <div class="space-y-1">
-          <button id="nav-btn-home" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-app-text hover:bg-app-card transition-colors nav-item-active" onclick="app.switchTab('home')">
-            <span class="material-symbols-outlined text-[20px] text-app-accent">cottage</span>
-            <span>Trang chủ</span>
-          </button>
+    </div>
 
-          <button id="nav-btn-practice" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-app-text-muted hover:text-app-text hover:bg-app-card transition-colors" onclick="app.switchTab('practice')">
-            <span class="material-symbols-outlined text-[20px] text-app-red">draw</span>
-            <span>Luyện phản xạ</span>
-          </button>
+    <!-- Mobile Navigation Sub-bar (< md) -->
+    <div class="md:hidden flex items-center justify-around border-t border-border-subtle bg-surface-card px-2 py-1.5">
+      <button id="m-nav-home" class="flex-1 py-1 text-center text-xs font-bold text-primary" onclick="app.switchTab('home')">
+        Trang chủ
+      </button>
+      <button id="m-nav-practice" class="flex-1 py-1 text-center text-xs font-semibold text-ink-muted hover:text-primary" onclick="app.switchTab('practice')">
+        Luyện phản xạ
+      </button>
+      <button id="m-nav-vocab" class="flex-1 py-1 text-center text-xs font-semibold text-ink-muted hover:text-primary" onclick="app.switchTab('vocab')">
+        Từ vựng
+      </button>
+      <button id="m-nav-profile" class="flex-1 py-1 text-center text-xs font-semibold text-ink-muted hover:text-primary" onclick="app.switchTab('profile')">
+        Cá nhân
+      </button>
+    </div>
+  </header>
 
-          <button id="nav-btn-flashcards" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-app-text-muted hover:text-app-text hover:bg-app-card transition-colors" onclick="app.startFlashcardsFromHome('N5')">
-            <span class="material-symbols-outlined text-[20px] text-amber-500">style</span>
-            <span>Thẻ ghi nhớ (Flashcard)</span>
-          </button>
+  <!-- ================= MAIN WEB WORKSPACE ================= -->
+  <main class="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
 
-          <button id="nav-btn-vocab" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-app-text-muted hover:text-app-text hover:bg-app-card transition-colors" onclick="app.switchTab('vocab')">
-            <span class="material-symbols-outlined text-[20px] text-emerald-500">menu_book</span>
-            <span>Thư viện từ vựng</span>
-          </button>
-        </div>
-
-        <!-- Section: Lộ trình JLPT -->
-        <div class="space-y-1">
-          <span class="px-3 text-[10px] font-bold text-app-text-dim uppercase tracking-wider block">Lộ trình & Cấp độ</span>
-          
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-app-text-muted hover:text-app-text hover:bg-app-card transition-colors" onclick="app.startPracticeFromHome('N5')">
-            <div class="flex items-center gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-app-accent"></span>
-              <span>Kanji N5</span>
-            </div>
-            <span class="text-[10px] text-app-text-dim bg-app-input px-1.5 py-0.5 rounded">350 chữ</span>
-          </button>
-
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-app-text-muted hover:text-app-text hover:bg-app-card transition-colors" onclick="app.startPracticeFromHome('N4')">
-            <div class="flex items-center gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-app-red"></span>
-              <span>Kanji N4</span>
-            </div>
-            <span class="text-[10px] text-app-text-dim bg-app-input px-1.5 py-0.5 rounded">711 chữ</span>
-          </button>
-
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-app-text-muted hover:text-app-text hover:bg-app-card transition-colors" onclick="app.startPracticeFromHome('RADICALS')">
-            <div class="flex items-center gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span>214 Bộ thủ Khang Hy</span>
-            </div>
-            <span class="text-[10px] text-app-text-dim bg-app-input px-1.5 py-0.5 rounded">214 bộ</span>
-          </button>
-
-          <button class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-medium text-app-text-muted hover:text-app-text hover:bg-app-card transition-colors" onclick="app.startForgottenPractice()">
-            <div class="flex items-center gap-2.5">
-              <span class="material-symbols-outlined text-[16px] text-amber-500" style="font-variation-settings: 'FILL' 1;">bookmark</span>
-              <span>Sổ tay từ chưa nhớ</span>
-            </div>
-            <span id="sidebar-unremembered-count" class="text-[10px] text-app-red font-bold bg-app-input px-1.5 py-0.5 rounded">0</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Sidebar Footer / User Profile & Settings -->
-      <div class="p-3 border-t border-app-border space-y-2">
-        <div class="flex items-center justify-between p-2 rounded-xl hover:bg-app-card transition-colors cursor-pointer" onclick="app.switchTab('profile')">
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-full bg-app-input border border-app-border flex items-center justify-center font-serif font-bold text-xs text-app-text">
-              勝
-            </div>
-            <div class="flex flex-col">
-              <span class="text-xs font-bold text-app-text truncate max-w-[110px]">Học viên Kachi</span>
-              <span class="text-[10px] text-app-text-dim">Cá nhân & Cài đặt</span>
-            </div>
-          </div>
-          <span class="text-xs font-bold text-amber-500 flex items-center gap-0.5">
-            <span id="sidebar-streak-num">1</span>🔥
-          </span>
-        </div>
-      </div>
-    </aside>
-
-    <!-- Sidebar Backdrop on Mobile -->
-    <div id="sidebar-backdrop" class="fixed inset-0 bg-black/50 z-40 lg:hidden hidden" onclick="app.toggleMobileSidebar()"></div>
-
-    <!-- ================= 2. MAIN WORKSPACE ================= -->
-    <div id="app-main-workspace">
+    <!-- ================= VIEW 1: TRANG CHỦ ================= -->
+    <div id="view-home" class="space-y-8">
       
-      <!-- TOP NAVIGATION BAR (QUIZLET STYLE) -->
-      <header id="app-topbar" class="h-16 border-b border-app-border bg-app-topbar px-4 lg:px-8 flex items-center justify-between gap-4 z-30">
-        <!-- Left: Hamburger (mobile/tablet) + Breadcrumbs -->
-        <div class="flex items-center gap-3">
-          <button class="lg:hidden text-app-text-muted hover:text-app-text p-1.5 rounded-lg hover:bg-app-card transition-colors" onclick="app.toggleMobileSidebar()">
-            <span class="material-symbols-outlined text-[22px]">menu</span>
-          </button>
-          <div class="hidden sm:flex items-center gap-2 text-xs font-semibold text-app-text-muted">
-            <span id="topbar-section-title">Trang chủ</span>
+      <!-- Greeting Banner -->
+      <div class="space-y-2">
+        <div class="flex items-center gap-2 text-secondary">
+          <span class="w-2 h-2 rounded-full bg-secondary"></span>
+          <span class="text-xs uppercase tracking-wider font-bold">Rèn luyện chánh niệm</span>
+        </div>
+        <h1 class="font-serif font-bold text-2xl sm:text-3xl text-primary tracking-tight">Hôm nay bạn muốn rèn luyện gì?</h1>
+        <p class="text-sm text-ink-muted">15 phút gõ và phản xạ mỗi ngày để nhớ sâu 1.061 Hán tự N5 & N4.</p>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+        <div class="bg-surface-card p-4 rounded-xl border border-border-subtle shadow-sm flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-surface-alt flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[22px]">history_edu</span>
+          </div>
+          <div>
+            <span class="text-[11px] text-ink-muted font-medium block">Đã ôn luyện</span>
+            <div class="flex items-baseline gap-1 mt-0.5">
+              <span id="stat-total-practiced" class="font-serif font-bold text-lg text-primary">0</span>
+              <span class="text-[11px] text-ink-dim">/ 1.061</span>
+            </div>
           </div>
         </div>
 
-        <!-- Center: Universal Search Input (Quizlet style rounded-full) -->
-        <div class="flex-1 max-w-xl mx-auto">
-          <div class="relative flex items-center bg-app-input rounded-full px-4 py-2 border border-app-border focus-within:border-app-accent transition-colors">
-            <span class="material-symbols-outlined text-app-text-dim text-[18px] mr-2.5 select-none">search</span>
-            <input 
-              id="global-search-input" 
-              type="text" 
-              class="w-full bg-transparent text-xs sm:text-sm text-app-text placeholder:text-app-text-dim focus:outline-none" 
-              placeholder="Tìm kiếm bài kiểm tra, Hán tự, Hiragana, nghĩa tiếng Việt..." 
-              oninput="app.onGlobalSearch(this.value)"
-            >
-            <button id="global-search-clear" class="text-app-text-dim hover:text-app-text hidden" onclick="app.clearGlobalSearch()">
-              <span class="material-symbols-outlined text-[16px]">close</span>
+        <div class="bg-surface-card p-4 rounded-xl border border-border-subtle shadow-sm flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-matcha-soft flex items-center justify-center text-tertiary">
+            <span class="material-symbols-outlined text-[22px]">check_circle</span>
+          </div>
+          <div>
+            <span class="text-[11px] text-ink-muted font-medium block">Độ chính xác</span>
+            <div class="flex items-baseline gap-1 mt-0.5">
+              <span id="stat-accuracy" class="font-serif font-bold text-lg text-tertiary">100%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-card p-4 rounded-xl border border-border-subtle shadow-sm flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-vermilion-soft flex items-center justify-center text-secondary">
+            <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+          </div>
+          <div>
+            <span class="text-[11px] text-ink-muted font-medium block">Chuỗi ngày học</span>
+            <div class="flex items-baseline gap-1 mt-0.5">
+              <span id="home-streak-count" class="font-serif font-bold text-lg text-secondary">1</span>
+              <span class="text-[11px] text-ink-dim">ngày 🔥</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-card p-4 rounded-xl border border-border-subtle shadow-sm flex items-center gap-3.5 cursor-pointer hover:border-secondary transition-colors" onclick="app.startForgottenPractice()">
+          <div class="w-10 h-10 rounded-xl bg-surface-alt flex items-center justify-center text-secondary">
+            <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+          </div>
+          <div>
+            <span class="text-[11px] text-ink-muted font-medium block">Từ chưa nhớ</span>
+            <div class="flex items-baseline gap-1 mt-0.5">
+              <span id="stat-unremembered" class="font-serif font-bold text-lg text-secondary">0</span>
+              <span class="text-[11px] text-ink-dim">chữ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 Main Action Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Action Card 1: Practice Reflex -->
+        <div class="bg-surface-card p-6 rounded-2xl border border-border-subtle hover:border-primary cursor-pointer transition-all shadow-sm flex flex-col justify-between group" onclick="app.switchTab('practice')">
+          <div class="space-y-3">
+            <div class="w-11 h-11 rounded-xl bg-primary text-washi flex items-center justify-center group-hover:scale-105 transition-transform shadow-sm">
+              <span class="material-symbols-outlined text-[24px]">draw</span>
+            </div>
+            <div>
+              <h3 class="font-serif font-bold text-lg text-primary">Luyện phản xạ Hán tự</h3>
+              <p class="text-xs text-ink-muted mt-1 leading-relaxed">Gõ Romaji ➔ Hiragana mượt mà, khóa input khi đúng và chọn nghĩa với phím 1, 2, 3, 4.</p>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-primary">
+            <span>Bắt đầu rèn luyện ngay</span>
+            <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </div>
+        </div>
+
+        <!-- Action Card 2: Flashcards 3D -->
+        <div class="bg-surface-card p-6 rounded-2xl border border-border-subtle hover:border-primary cursor-pointer transition-all shadow-sm flex flex-col justify-between group" onclick="app.startFlashcardsFromHome('N5')">
+          <div class="space-y-3">
+            <div class="w-11 h-11 rounded-xl bg-surface-alt text-secondary flex items-center justify-center group-hover:scale-105 transition-transform shadow-sm">
+              <span class="material-symbols-outlined text-[24px]">style</span>
+            </div>
+            <div>
+              <h3 class="font-serif font-bold text-lg text-primary">Thẻ ghi nhớ (Flashcard 3D)</h3>
+              <p class="text-xs text-ink-muted mt-1 leading-relaxed">Lật thẻ 3D trực quan, nghe phát âm giọng Tokyo chuẩn, xem nghĩa và các từ ghép thực tế.</p>
+            </div>
+          </div>
+          <div class="mt-5 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-secondary">
+            <span>Lật thẻ học từ vựng</span>
+            <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sổ tay từ chưa nhớ (khi có từ lưu) -->
+      <div id="home-card-review-forgotten" class="bg-surface-card p-4 rounded-xl border border-secondary/40 shadow-sm flex items-center justify-between hidden">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-vermilion-soft text-secondary flex items-center justify-center">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-xs sm:text-sm text-primary">Sổ tay từ chưa nhớ</h4>
+            <p class="text-[11px] text-ink-muted"><span id="home-unremembered-label">0</span> chữ Hán cần củng cố lại</p>
+          </div>
+        </div>
+        <button class="px-4 py-2 rounded-lg bg-secondary text-washi text-xs font-bold hover:bg-secondary/90 transition-colors shadow-sm" onclick="app.startForgottenPractice()">
+          Ôn tập ngay
+        </button>
+      </div>
+
+      <!-- Featured Topics Grid -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h2 class="font-serif font-bold text-lg text-primary">Chủ đề Hán tự N5 & N4</h2>
+          <button class="text-xs font-bold text-secondary hover:underline flex items-center gap-1" onclick="app.switchTab('vocab')">
+            <span>Xem toàn bộ 19 chủ đề</span>
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+          </button>
+        </div>
+
+        <div id="home-topics-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= VIEW 2: THƯ VIỆN TỪ VỰNG & FLASHCARDS ================= -->
+    <div id="view-vocab" class="space-y-6 hidden">
+      
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 class="font-serif font-bold text-xl sm:text-2xl text-primary tracking-tight">Thư viện từ vựng Hán tự</h2>
+          <p class="text-xs text-ink-muted mt-0.5">Kho 1.061 từ vựng JLPT N5 & N4 cùng 214 Bộ thủ Khang Hy.</p>
+        </div>
+
+        <!-- Mode Toggle: Danh sách vs Flashcard 3D -->
+        <div class="flex p-1 bg-surface-alt rounded-xl border border-border-subtle self-start sm:self-auto">
+          <button id="vocab-tab-list" class="px-4 py-1.5 text-xs font-semibold rounded-lg bg-surface-card text-primary shadow-sm transition-all flex items-center gap-1.5" onclick="app.setVocabSubView('list')">
+            <span class="material-symbols-outlined text-[16px]">view_list</span>
+            <span>Danh sách từ</span>
+          </button>
+          <button id="vocab-tab-flashcard" class="px-4 py-1.5 text-xs font-semibold rounded-lg text-ink-muted hover:text-primary transition-all flex items-center gap-1.5" onclick="app.setVocabSubView('flashcard')">
+            <span class="material-symbols-outlined text-[16px]">style</span>
+            <span>Thẻ Flashcard 3D</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Level Filter Selector -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-1">
+        <button id="lvl-filter-n5" class="px-4 py-2 rounded-xl bg-primary text-washi text-xs font-bold flex items-center gap-2 transition-all shadow-sm" onclick="app.filterVocabLevel('N5')">
+          <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          <span>Kanji N5 (350 chữ)</span>
+        </button>
+        <button id="lvl-filter-n4" class="px-4 py-2 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs font-semibold transition-all" onclick="app.filterVocabLevel('N4')">
+          <span>Kanji N4 (711 chữ)</span>
+        </button>
+        <button id="lvl-filter-radicals" class="px-4 py-2 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs font-semibold transition-all" onclick="app.filterVocabLevel('RADICALS')">
+          <span>214 Bộ thủ Khang Hy</span>
+        </button>
+      </div>
+
+      <!-- SUBVIEW A: DANH SÁCH BẢNG TỪ -->
+      <div id="vocab-subview-list" class="space-y-4">
+        <!-- Search Input -->
+        <div class="relative flex items-center bg-surface-card rounded-xl px-4 py-2.5 border border-border-subtle focus-within:border-primary transition-colors shadow-sm">
+          <span class="material-symbols-outlined text-ink-dim text-[20px] mr-2.5">search</span>
+          <input id="vocab-search-input" type="text" class="w-full bg-transparent text-xs sm:text-sm text-primary placeholder:text-ink-dim focus:outline-none" placeholder="Tìm kiếm Hán tự, Hiragana hoặc nghĩa tiếng Việt..." oninput="app.onVocabSearch(this.value)">
+          <button id="vocab-search-clear" class="text-ink-dim hover:text-primary hidden" onclick="app.clearVocabSearch()">
+            <span class="material-symbols-outlined text-[18px]">close</span>
+          </button>
+        </div>
+
+        <!-- Topics Accordion Container -->
+        <div id="vocab-topics-container" class="space-y-3">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- SUBVIEW B: THẺ FLASHCARD 3D TRÊN WEB -->
+      <div id="vocab-subview-flashcard" class="space-y-5 hidden max-w-xl mx-auto">
+        <!-- Flashcard Topic Selector -->
+        <div class="flex items-center justify-between bg-surface-card px-4 py-3 rounded-xl border border-border-subtle shadow-sm">
+          <span class="text-xs text-ink-muted font-medium">Chủ đề:</span>
+          <select id="flashcard-topic-select" class="bg-transparent text-xs font-bold text-primary focus:outline-none cursor-pointer max-w-[260px] truncate" onchange="app.onFlashcardTopicChange(this.value)">
+            <!-- Options populated dynamically -->
+          </select>
+        </div>
+
+        <!-- 3D Card Canvas -->
+        <div class="perspective-1000 w-full min-h-[330px] cursor-pointer" onclick="app.flipFlashcard()">
+          <div id="flashcard-inner" class="relative w-full h-[330px] rounded-2xl transition-transform duration-500 transform-style-3d shadow-md">
+            
+            <!-- Front Face -->
+            <div class="absolute inset-0 w-full h-full bg-surface-card border border-border-subtle rounded-2xl p-6 flex flex-col justify-between items-center text-center backface-hidden">
+              <div class="w-full flex items-center justify-between text-xs text-ink-muted">
+                <span id="fc-level-badge" class="px-2.5 py-0.5 rounded-md bg-surface-alt font-bold text-primary">N5</span>
+                <span id="fc-counter" class="font-semibold">1 / 10</span>
+                <button class="w-8 h-8 rounded-full hover:bg-surface-alt text-ink-muted hover:text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.speakFlashcardWord()" title="Nghe phát âm">
+                  <span class="material-symbols-outlined text-[18px]">volume_up</span>
+                </button>
+              </div>
+
+              <!-- Main Kanji Glyph -->
+              <div class="my-auto flex flex-col items-center">
+                <span id="fc-kanji" class="kanji-glyph text-7xl sm:text-8xl font-normal text-primary select-none">一</span>
+                <span class="text-xs text-ink-dim mt-2 flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[15px]">touch_app</span> Chạm để lật thẻ
+                </span>
+              </div>
+
+              <div class="w-full text-center text-xs text-ink-muted font-medium">
+                <span id="fc-topic-hint">Số đếm & Tiền tệ</span>
+              </div>
+            </div>
+
+            <!-- Back Face -->
+            <div class="absolute inset-0 w-full h-full bg-surface-card border-2 border-secondary/30 rounded-2xl p-6 flex flex-col justify-between items-center text-center backface-hidden rotate-y-180">
+              <div class="w-full flex items-center justify-between text-xs text-ink-muted">
+                <span class="text-xs font-bold text-secondary">Mặt sau</span>
+                <button class="w-8 h-8 rounded-full hover:bg-surface-alt text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.speakFlashcardWord()">
+                  <span class="material-symbols-outlined text-[18px]">volume_up</span>
+                </button>
+              </div>
+
+              <div class="my-auto flex flex-col items-center space-y-2">
+                <span id="fc-back-kanji" class="kanji-glyph text-3xl font-semibold text-primary">一</span>
+                <span id="fc-back-reading" class="text-2xl font-bold text-secondary font-sans tracking-wide">いち</span>
+                <p id="fc-back-meaning" class="text-base font-semibold text-primary max-w-md">Số 1, một</p>
+                <p id="fc-back-examples" class="text-xs text-ink-muted max-w-sm italic"></p>
+              </div>
+
+              <div class="w-full text-center text-xs text-ink-dim">
+                Chạm để lật lại mặt trước
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Flashcard Controls -->
+        <div class="flex items-center justify-between gap-3 pt-1">
+          <button class="flex-1 py-3 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm" onclick="app.prevFlashcard()">
+            <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+            <span>Trước</span>
+          </button>
+          
+          <button class="flex-1 py-3 rounded-xl bg-surface-card border border-secondary/30 text-secondary hover:bg-vermilion-soft font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm" onclick="app.markFlashcardForgotten()">
+            <span class="material-symbols-outlined text-[18px]">bookmark</span>
+            <span>Chưa nhớ</span>
+          </button>
+
+          <button class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm" onclick="app.nextFlashcard()">
+            <span>Tiếp theo</span>
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ================= VIEW 3: LUYỆN TẬP PHẢN XẠ ================= -->
+    <div id="view-practice" class="space-y-6 hidden max-w-3xl mx-auto">
+      
+      <!-- SUBVIEW A: CẤU HÌNH RÈN LUYỆN (SETUP) -->
+      <div id="practice-setup-screen" class="space-y-6">
+        <div class="space-y-1">
+          <div class="flex items-center gap-1.5 text-secondary">
+            <span class="w-2 h-2 rounded-full bg-secondary"></span>
+            <span class="text-xs uppercase tracking-wider font-bold">Luyện phản xạ Hán tự</span>
+          </div>
+          <h2 class="font-serif font-bold text-2xl text-primary">Cấu hình bài thi phản xạ</h2>
+          <p class="text-xs text-ink-muted">Chọn cấp độ, phương thức kiểm tra và các chủ đề muốn luyện tập.</p>
+        </div>
+
+        <!-- Level Selector Tabs -->
+        <div class="flex items-center gap-3">
+          <button id="p-lvl-n5" class="flex-1 py-3 rounded-xl bg-primary text-washi text-xs font-bold transition-all shadow-sm" onclick="app.setPracticeLevel('N5')">
+            Kanji N5 (350 chữ)
+          </button>
+          <button id="p-lvl-n4" class="flex-1 py-3 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs font-bold transition-all shadow-sm" onclick="app.setPracticeLevel('N4')">
+            Kanji N4 (711 chữ)
+          </button>
+          <button id="p-lvl-radicals" class="flex-1 py-3 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs font-bold transition-all shadow-sm" onclick="app.setPracticeLevel('RADICALS')">
+            214 Bộ thủ
+          </button>
+        </div>
+
+        <!-- Practice Method Selection -->
+        <div class="bg-surface-card p-5 rounded-2xl border border-border-subtle space-y-3 shadow-sm">
+          <span class="text-xs font-bold text-primary uppercase tracking-wider block">1. Phương thức rèn luyện</span>
+          
+          <div class="space-y-2.5">
+            <label class="flex items-start gap-3 p-3.5 rounded-xl border border-border-subtle hover:bg-surface-alt cursor-pointer transition-all">
+              <input type="radio" name="practice_method" value="higa_and_meaning" checked class="mt-0.5 accent-primary cursor-pointer">
+              <div class="flex-1">
+                <span class="text-xs font-bold text-primary block">Gõ Hiragana + Chọn nghĩa (Khuyên dùng)</span>
+                <span class="text-[11px] text-ink-muted block mt-0.5">Gõ đúng Hiragana ➔ khóa ô ➔ hiện 4 đáp án chọn nghĩa (phím 1, 2, 3, 4).</span>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-3 p-3.5 rounded-xl border border-border-subtle hover:bg-surface-alt cursor-pointer transition-all">
+              <input type="radio" name="practice_method" value="higa_only" class="mt-0.5 accent-primary cursor-pointer">
+              <div class="flex-1">
+                <span class="text-xs font-bold text-primary block">Chỉ gõ Hiragana (Tốc độ cao)</span>
+                <span class="text-[11px] text-ink-muted block mt-0.5">Tắt trắc nghiệm: chỉ cần gõ đúng Hiragana là tự động nhảy sang câu tiếp theo.</span>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-3 p-3.5 rounded-xl border border-border-subtle hover:bg-surface-alt cursor-pointer transition-all">
+              <input type="radio" name="practice_method" value="mc_only" class="mt-0.5 accent-primary cursor-pointer">
+              <div class="flex-1">
+                <span class="text-xs font-bold text-primary block">Trắc nghiệm 4 đáp án</span>
+                <span class="text-[11px] text-ink-muted block mt-0.5">Chọn nhanh cách đọc hoặc ý nghĩa đúng với 4 lựa chọn (phím 1, 2, 3, 4).</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Filter: Only Unremembered Words -->
+        <div class="bg-surface-card p-4 rounded-2xl border border-border-subtle flex items-center justify-between shadow-sm">
+          <div>
+            <span class="text-xs font-bold text-primary block">Chỉ luyện các từ chưa nhớ 🔖</span>
+            <span class="text-[11px] text-ink-muted">Chỉ ôn lại những từ bạn đã bookmark hoặc trả lời sai.</span>
+          </div>
+          <button id="btn-toggle-only-unremembered" class="w-12 h-6 rounded-full bg-border-strong p-0.5 flex items-center transition-colors focus:outline-none" onclick="app.toggleOnlyUnremembered()">
+            <div id="thumb-only-unremembered" class="w-5 h-5 rounded-full bg-white shadow-sm transform transition-transform"></div>
+          </button>
+        </div>
+
+        <!-- Topics Selection -->
+        <div class="space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">2. Chọn chủ đề (<span id="practice-selected-count">0</span> đã chọn)</span>
+            <button class="text-xs font-bold text-secondary hover:underline" onclick="app.toggleAllPracticeTopics()">Chọn tất cả</button>
+          </div>
+
+          <div id="practice-topics-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[300px] overflow-y-auto pr-1">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Big Start Button -->
+        <button class="w-full py-4 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-sm tracking-wide shadow-md transition-all flex items-center justify-center gap-2" onclick="app.startPracticeSession()">
+          <span class="material-symbols-outlined text-[20px]">play_arrow</span>
+          <span>Bắt đầu rèn luyện ngay</span>
+        </button>
+      </div>
+
+      <!-- SUBVIEW B: ARENA LUYỆN TẬP PHẢN XẠ (ACTIVE) -->
+      <div id="practice-arena-screen" class="space-y-5 hidden">
+        
+        <!-- Arena Header Bar -->
+        <div class="bg-surface-card p-4 rounded-2xl border border-border-subtle flex items-center justify-between shadow-sm">
+          <div class="flex items-center gap-3">
+            <button class="w-9 h-9 rounded-xl bg-surface-alt text-ink-muted hover:text-primary flex items-center justify-center transition-colors" title="Thoát về danh sách" onclick="app.exitPracticeSession()">
+              <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+            </button>
+            <div>
+              <span id="arena-topic-title" class="text-xs sm:text-sm font-bold text-primary block truncate max-w-[180px] sm:max-w-xs">Số đếm & Tiền tệ</span>
+              <span id="arena-counter" class="text-[11px] text-ink-muted font-medium">Câu 1 / 35</span>
+            </div>
+          </div>
+
+          <!-- Arena Action Icons -->
+          <div class="flex items-center gap-1.5">
+            <button id="arena-btn-tts" class="w-9 h-9 rounded-xl text-ink-muted hover:text-primary hover:bg-surface-alt flex items-center justify-center transition-colors" title="Phát âm Tokyo (Space)" onclick="app.speakCurrentWord()">
+              <span class="material-symbols-outlined text-[20px]">volume_up</span>
+            </button>
+
+            <button id="arena-btn-hint" class="w-9 h-9 rounded-xl text-ink-muted hover:text-secondary hover:bg-surface-alt flex items-center justify-center transition-colors" title="Gợi ý chữ cái đầu" onclick="app.hintFirstChar()">
+              <span class="material-symbols-outlined text-[20px]">lightbulb</span>
+            </button>
+
+            <button id="arena-btn-bookmark" class="w-9 h-9 rounded-xl text-ink-muted hover:text-secondary hover:bg-surface-alt flex items-center justify-center transition-colors" title="Đánh dấu từ chưa nhớ" onclick="app.toggleCurrentBookmark()">
+              <span id="arena-icon-bookmark" class="material-symbols-outlined text-[20px]">bookmark_border</span>
+            </button>
+
+            <button class="w-9 h-9 rounded-xl text-ink-muted hover:text-primary hover:bg-surface-alt flex items-center justify-center transition-colors" title="Bảng chọn câu (Ctrl+G)" onclick="app.openJumpGrid()">
+              <span class="material-symbols-outlined text-[20px]">grid_view</span>
+            </button>
+
+            <button class="w-9 h-9 rounded-xl text-ink-muted hover:text-primary hover:bg-surface-alt flex items-center justify-center transition-colors" title="Cài đặt luyện tập" onclick="app.openSettings()">
+              <span class="material-symbols-outlined text-[20px]">settings</span>
             </button>
           </div>
         </div>
 
-        <!-- Right Action Controls -->
-        <div class="flex items-center gap-2">
-          <!-- Quick Practice CTA Button -->
-          <button class="hidden sm:flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-app-accent hover:bg-app-accent-hover text-white text-xs font-bold transition-all shadow-sm" onclick="app.switchTab('practice')">
-            <span class="material-symbols-outlined text-[18px]">add</span>
-            <span>Rèn luyện</span>
-          </button>
+        <!-- Linear Progress Bar -->
+        <div class="w-full bg-border-subtle h-2 rounded-full overflow-hidden">
+          <div id="arena-progress-bar" class="bg-primary h-full rounded-full transition-all duration-300" style="width: 3%;"></div>
+        </div>
 
-          <!-- TTS Sound Toggle -->
-          <button id="header-btn-tts" class="w-9 h-9 flex items-center justify-center rounded-full text-app-text-muted hover:text-app-text hover:bg-app-card transition-colors" title="Bật/Tắt phát âm Tokyo" onclick="app.toggleSound()">
-            <span id="header-icon-tts" class="material-symbols-outlined text-[20px]">volume_up</span>
-          </button>
+        <!-- KANJI FLASH CARD -->
+        <div class="bg-surface-card rounded-2xl p-8 sm:p-12 border border-border-subtle shadow-sm text-center relative flex flex-col items-center justify-center min-h-[250px]">
+          <!-- Top Tags -->
+          <div class="absolute top-4 left-5 flex items-center gap-2">
+            <span id="arena-level-chip" class="px-2.5 py-0.5 rounded-md bg-surface-alt text-[11px] font-bold text-primary">N5</span>
+            <span id="arena-streak-badge" class="px-2.5 py-0.5 rounded-md bg-vermilion-soft text-[11px] font-bold text-secondary hidden">🔥 Streak: <span id="arena-streak-num">0</span></span>
+          </div>
 
-          <!-- Theme Toggle (Dark / Light) -->
-          <button id="btn-theme-toggle" class="w-9 h-9 flex items-center justify-center rounded-full text-app-text-muted hover:text-app-text hover:bg-app-card transition-colors" title="Đổi giao diện Sáng / Tối" onclick="app.toggleTheme()">
-            <span id="icon-theme" class="material-symbols-outlined text-[20px]">dark_mode</span>
-          </button>
+          <!-- Hint Box -->
+          <div id="arena-hint-box" class="text-xs font-bold text-secondary mb-2 min-h-[18px]"></div>
 
-          <!-- Settings Button -->
-          <button class="w-9 h-9 flex items-center justify-center rounded-full text-app-text-muted hover:text-app-text hover:bg-app-card transition-colors" title="Cài đặt luyện tập" onclick="app.openSettings()">
-            <span class="material-symbols-outlined text-[20px]">settings</span>
+          <!-- Main Kanji -->
+          <div class="cursor-pointer select-none group" onclick="app.speakCurrentWord()">
+            <span id="arena-kanji" class="kanji-glyph text-7xl sm:text-8xl font-normal text-primary tracking-tight transition-transform group-hover:scale-105 inline-block">一</span>
+          </div>
+
+          <!-- Sound Pill -->
+          <button class="mt-3 text-xs text-ink-dim hover:text-primary flex items-center gap-1.5 transition-colors" onclick="app.speakCurrentWord()">
+            <span class="material-symbols-outlined text-[16px]">volume_up</span>
+            <span id="arena-reading-display">Bấm để nghe phát âm</span>
           </button>
         </div>
-      </header>
 
-      <!-- SCROLLABLE CONTENT BODY -->
-      <main id="app-scroll-content">
-
-        <!-- ================= VIEW 1: TRANG CHỦ (QUIZLET DASHBOARD) ================= -->
-        <div id="view-home" class="max-w-6xl mx-auto space-y-8">
+        <!-- HIRAGANA INPUT AREA -->
+        <div id="arena-input-section" class="space-y-2">
+          <div class="relative flex items-center">
+            <input 
+              id="arena-hiragana-input" 
+              type="text" 
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              spellcheck="false"
+              class="w-full text-center text-2xl sm:text-3xl font-bold py-4 px-12 rounded-2xl bg-surface-card border-2 border-border-subtle focus:border-primary focus:outline-none transition-all placeholder:text-ink-dim placeholder:font-normal placeholder:text-base shadow-sm text-primary" 
+              placeholder="Gõ Romaji (ví dụ: sakana)..."
+              oninput="app.onArenaInput(this.value)"
+              onkeydown="app.onArenaInputKeyDown(event)"
+            >
+            <div id="arena-input-status-icon" class="absolute right-4 text-ink-dim flex items-center">
+              <span class="material-symbols-outlined text-[24px]">keyboard</span>
+            </div>
+          </div>
           
-          <!-- SECTION 1: HỌC TIẾP (CONTINUE STUDYING CARDS - LIKE QUIZLET) -->
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <h2 class="font-serif font-bold text-lg sm:text-xl text-app-text">Học tiếp</h2>
-              <span class="text-xs font-medium text-app-text-dim">Đang rèn luyện</span>
+          <div id="arena-input-message" class="text-center text-xs text-ink-muted min-h-[16px]">
+            Hệ thống tự động chuyển đổi: <code class="bg-surface-alt px-1.5 py-0.5 rounded text-[11px] text-primary">sakana</code> ➔ <code class="bg-surface-alt px-1.5 py-0.5 rounded text-[11px] text-tertiary font-bold">さかな</code>
+          </div>
+        </div>
+
+        <!-- 4 CHOICES BUTTONS -->
+        <div id="arena-choices-section" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <button id="choice-btn-0" class="flex items-center justify-between p-4 rounded-xl bg-surface-card border border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(0)">
+            <span class="choice-text text-sm font-semibold text-primary flex-1 pr-2 truncate">Lựa chọn 1</span>
+            <span class="key-badge">1</span>
+          </button>
+          <button id="choice-btn-1" class="flex items-center justify-between p-4 rounded-xl bg-surface-card border border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(1)">
+            <span class="choice-text text-sm font-semibold text-primary flex-1 pr-2 truncate">Lựa chọn 2</span>
+            <span class="key-badge">2</span>
+          </button>
+          <button id="choice-btn-2" class="flex items-center justify-between p-4 rounded-xl bg-surface-card border border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(2)">
+            <span class="choice-text text-sm font-semibold text-primary flex-1 pr-2 truncate">Lựa chọn 3</span>
+            <span class="key-badge">3</span>
+          </button>
+          <button id="choice-btn-3" class="flex items-center justify-between p-4 rounded-xl bg-surface-card border border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(3)">
+            <span class="choice-text text-sm font-semibold text-primary flex-1 pr-2 truncate">Lựa chọn 4</span>
+            <span class="key-badge">4</span>
+          </button>
+        </div>
+
+        <!-- ARENA BOTTOM BAR (BALANCED & ALIGNED) -->
+        <div class="flex items-center justify-between gap-3 pt-2">
+          <button id="arena-btn-back" class="py-2.5 px-5 rounded-xl bg-surface-card border border-border-subtle text-xs font-bold text-ink-muted hover:text-primary transition-colors flex items-center gap-2 shadow-sm" onclick="app.prevWord()">
+            <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+            <span>⬅️ Quay lại</span>
+          </button>
+
+          <button id="arena-btn-finish" class="py-2.5 px-6 rounded-xl bg-secondary hover:bg-secondary/90 text-washi text-xs font-bold transition-colors flex items-center gap-2 shadow-sm" onclick="app.finishPracticeEarly()">
+            <span class="material-symbols-outlined text-[18px]">check_circle</span>
+            <span>Hoàn tất bài thi</span>
+          </button>
+
+          <button id="arena-btn-skip" class="py-2.5 px-5 rounded-xl bg-surface-card border border-border-subtle text-xs font-bold text-ink-muted hover:text-primary transition-colors flex items-center gap-2 shadow-sm" onclick="app.skipWord()">
+            <span>Bỏ qua</span>
+            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+          </button>
+        </div>
+
+        <!-- SHORTCUTS TIPS FOOTER (SPLIT LINE-BY-LINE) -->
+        <div class="bg-surface-card rounded-xl p-4 border border-border-subtle text-xs text-ink-muted space-y-2 select-none shadow-sm">
+          <div class="font-bold text-primary flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-secondary">tips_and_updates</span>
+            <span>Mẹo phím tắt nhanh:</span>
+          </div>
+          <div class="flex items-center gap-2 text-[11px]">
+            <span>• Bấm</span> <span class="key-badge">⊞ Chọn câu</span> <span>(hoặc</span> <span class="key-badge">Ctrl+G</span><span>) để nhảy nhanh đến câu bất kỳ.</span>
+          </div>
+          <div class="flex items-center gap-2 text-[11px]">
+            <span>• Bấm phím</span> <span class="key-badge">1</span> <span class="key-badge">2</span> <span class="key-badge">3</span> <span class="key-badge">4</span> <span>để chọn nghĩa trắc nghiệm.</span>
+          </div>
+          <div class="flex items-center gap-2 text-[11px]">
+            <span>• Bấm</span> <span class="key-badge">⬅️ Quay lại</span> <span>(hoặc</span> <span class="key-badge">Ctrl+Z</span><span>) nếu lỡ tay ấn qua.</span>
+          </div>
+          <div class="flex items-center gap-2 text-[11px]">
+            <span>• Bấm phím</span> <span class="key-badge">Space</span> <span>để nghe lại phát âm tiếng Nhật chuẩn Tokyo.</span>
+          </div>
+          <div class="flex items-center gap-2 text-[11px]">
+            <span>• Bấm</span> <span class="key-badge">⚙️ Cài đặt</span> <span>để tùy chỉnh chế độ trắc nghiệm & âm thanh.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SUBVIEW C: SUMMARY / COMPLETION SCREEN -->
+      <div id="practice-summary-screen" class="space-y-6 hidden max-w-2xl mx-auto">
+        <div class="bg-surface-card rounded-2xl p-8 border border-border-subtle shadow-md text-center space-y-6">
+          <div class="w-16 h-16 rounded-full bg-matcha-soft text-tertiary flex items-center justify-center mx-auto">
+            <span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+          </div>
+
+          <div class="space-y-1">
+            <h2 class="font-serif font-bold text-2xl text-primary">Hoàn thành bài rèn luyện!</h2>
+            <p class="text-xs text-ink-muted">Bạn đã hoàn thành lượt luyện tập với kết quả xuất sắc.</p>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 text-center py-2">
+            <div class="bg-surface-alt p-4 rounded-xl border border-border-subtle">
+              <span class="text-[11px] text-ink-muted font-medium block">Tổng số từ</span>
+              <span id="summary-total" class="font-serif font-bold text-xl text-primary mt-1 block">35</span>
             </div>
-
-            <!-- Quizlet Style Featured Hero Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <!-- Feature Card 1 -->
-              <div class="bg-app-card p-5 sm:p-6 rounded-2xl border border-app-border hover:border-app-accent/50 transition-all shadow-sm flex flex-col justify-between group">
-                <div class="space-y-3">
-                  <div class="flex items-center justify-between">
-                    <span class="px-2.5 py-0.5 rounded-md bg-app-input text-[11px] font-bold text-app-accent">N5 · Marugoto / Minna</span>
-                    <span class="text-xs font-semibold text-amber-500 flex items-center gap-1">
-                      <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                      <span>Đang học</span>
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 class="font-serif font-bold text-lg text-app-text group-hover:text-app-accent transition-colors">
-                      漢字 Số đếm & Tiền tệ (n5_01)
-                    </h3>
-                    <p class="text-xs text-app-text-muted mt-1">Luyện phản xạ gõ Romaji chuyển Hiragana và chọn nghĩa.</p>
-                  </div>
-
-                  <!-- Multi-color progress bar like Quizlet -->
-                  <div>
-                    <div class="w-full bg-app-input h-2 rounded-full overflow-hidden flex">
-                      <div class="bg-emerald-500 h-full" style="width: 75%;"></div>
-                      <div class="bg-amber-500 h-full" style="width: 25%;"></div>
-                    </div>
-                    <div class="flex justify-between items-center mt-1.5 text-[11px] text-app-text-dim">
-                      <span>Đã hoàn thành 35/35 thẻ</span>
-                      <span class="text-emerald-500 font-bold">100%</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="mt-5 pt-4 border-t border-app-border flex items-center justify-between">
-                  <button class="px-5 py-2 rounded-xl bg-app-accent hover:bg-app-accent-hover text-white text-xs font-bold transition-colors shadow-sm flex items-center gap-1.5" onclick="app.startTopicPractice('n5_01')">
-                    <span class="material-symbols-outlined text-[16px]">play_arrow</span>
-                    <span>Tiếp tục</span>
-                  </button>
-
-                  <button class="text-xs font-semibold text-app-text-muted hover:text-app-text flex items-center gap-1" onclick="app.startFlashcardsFromHome('N5')">
-                    <span class="material-symbols-outlined text-[16px]">style</span>
-                    <span>Lật thẻ</span>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Feature Card 2 -->
-              <div class="bg-app-card p-5 sm:p-6 rounded-2xl border border-app-border hover:border-app-red/50 transition-all shadow-sm flex flex-col justify-between group">
-                <div class="space-y-3">
-                  <div class="flex items-center justify-between">
-                    <span class="px-2.5 py-0.5 rounded-md bg-app-input text-[11px] font-bold text-app-red">N4 · Trung cấp</span>
-                    <span class="text-xs font-semibold text-app-text-dim">11 Chủ đề</span>
-                  </div>
-
-                  <div>
-                    <h3 class="font-serif font-bold text-lg text-app-text group-hover:text-app-red transition-colors">
-                      漢字 Bốn mùa, Thời tiết & Sinh hoạt (n4_02)
-                    </h3>
-                    <p class="text-xs text-app-text-muted mt-1">711 từ vựng Hán tự cốt lõi chuẩn bị cho kỳ thi JLPT N4.</p>
-                  </div>
-
-                  <div>
-                    <div class="w-full bg-app-input h-2 rounded-full overflow-hidden flex">
-                      <div class="bg-app-accent h-full" style="width: 45%;"></div>
-                      <div class="bg-app-input h-full" style="width: 55%;"></div>
-                    </div>
-                    <div class="flex justify-between items-center mt-1.5 text-[11px] text-app-text-dim">
-                      <span>Đã ôn tập 48/72 thẻ</span>
-                      <span class="text-app-accent font-bold">66%</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="mt-5 pt-4 border-t border-app-border flex items-center justify-between">
-                  <button class="px-5 py-2 rounded-xl bg-app-red hover:bg-red-600 text-white text-xs font-bold transition-colors shadow-sm flex items-center gap-1.5" onclick="app.startTopicPractice('n4_02')">
-                    <span class="material-symbols-outlined text-[16px]">play_arrow</span>
-                    <span>Luyện ngay</span>
-                  </button>
-
-                  <button class="text-xs font-semibold text-app-text-muted hover:text-app-text flex items-center gap-1" onclick="app.startFlashcardsFromHome('N4')">
-                    <span class="material-symbols-outlined text-[16px]">style</span>
-                    <span>Lật thẻ</span>
-                  </button>
-                </div>
-              </div>
+            <div class="bg-surface-alt p-4 rounded-xl border border-border-subtle">
+              <span class="text-[11px] text-ink-muted font-medium block">Số câu đúng</span>
+              <span id="summary-correct" class="font-serif font-bold text-xl text-tertiary mt-1 block">32</span>
+            </div>
+            <div class="bg-surface-alt p-4 rounded-xl border border-border-subtle">
+              <span class="text-[11px] text-ink-muted font-medium block">Chuỗi cao nhất</span>
+              <span id="summary-max-streak" class="font-serif font-bold text-xl text-secondary mt-1 block">15 🔥</span>
             </div>
           </div>
 
-          <!-- SECTION 2: THỐNG KÊ NHANH (QUICK METRICS) -->
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
-            <div class="bg-app-card p-4 rounded-xl border border-app-border flex items-center gap-3.5">
-              <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-app-accent flex items-center justify-center">
-                <span class="material-symbols-outlined text-[22px]">history_edu</span>
-              </div>
-              <div>
-                <span class="text-[11px] text-app-text-dim font-medium block">Đã ôn luyện</span>
-                <span id="stat-total-practiced" class="font-serif font-bold text-lg text-app-text">0</span>
-                <span class="text-[11px] text-app-text-dim">/ 1.061 chữ</span>
-              </div>
-            </div>
-
-            <div class="bg-app-card p-4 rounded-xl border border-app-border flex items-center gap-3.5">
-              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
-                <span class="material-symbols-outlined text-[22px]">check_circle</span>
-              </div>
-              <div>
-                <span class="text-[11px] text-app-text-dim font-medium block">Độ chính xác</span>
-                <span id="stat-accuracy" class="font-serif font-bold text-lg text-emerald-500">100%</span>
-                <span class="text-[11px] text-app-text-dim">phản xạ</span>
-              </div>
-            </div>
-
-            <div class="bg-app-card p-4 rounded-xl border border-app-border flex items-center gap-3.5">
-              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
-                <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
-              </div>
-              <div>
-                <span class="text-[11px] text-app-text-dim font-medium block">Chuỗi học tập</span>
-                <span id="home-streak-count" class="font-serif font-bold text-lg text-amber-500">1</span>
-                <span class="text-[11px] text-app-text-dim">ngày liên tiếp</span>
-              </div>
-            </div>
-
-            <div class="bg-app-card p-4 rounded-xl border border-app-border flex items-center gap-3.5 cursor-pointer hover:border-app-red/50 transition-colors" onclick="app.startForgottenPractice()">
-              <div class="w-10 h-10 rounded-xl bg-red-500/10 text-app-red flex items-center justify-center">
-                <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
-              </div>
-              <div>
-                <span class="text-[11px] text-app-text-dim font-medium block">Từ chưa nhớ</span>
-                <span id="stat-unremembered" class="font-serif font-bold text-lg text-app-red">0</span>
-                <span class="text-[11px] text-app-text-dim">cần củng cố</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- SECTION 3: GẦN ĐÂY / TẤT CẢ CHỦ ĐỀ HÁN TỰ (GRID VIEW LIKE QUIZLET) -->
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <h2 class="font-serif font-bold text-lg sm:text-xl text-app-text">Gần đây · Lộ trình chủ đề</h2>
-              <button class="text-xs font-semibold text-app-accent hover:underline flex items-center gap-1" onclick="app.switchTab('vocab')">
-                <span>Xem tất cả 19 chủ đề</span>
-                <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-              </button>
-            </div>
-
-            <!-- Grid of Topic Cards -->
-            <div id="home-topics-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+          <!-- Unremembered list in round -->
+          <div id="summary-unremembered-section" class="text-left space-y-2 pt-2 border-t border-border-subtle hidden">
+            <span class="text-xs font-bold text-secondary uppercase tracking-wider block">Các từ cần chú ý ôn lại:</span>
+            <div id="summary-unremembered-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[200px] overflow-y-auto pr-1">
               <!-- Dynamically populated -->
             </div>
           </div>
 
-        </div>
-
-        <!-- ================= VIEW 2: THƯ VIỆN TỪ VỰNG & FLASHCARDS ================= -->
-        <div id="view-vocab" class="max-w-6xl mx-auto space-y-6 hidden">
-          <!-- Library Header -->
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <h2 class="font-serif font-bold text-xl sm:text-2xl text-app-text tracking-tight">Thư viện Hán tự & Bộ thủ</h2>
-              <p class="text-xs text-app-text-muted mt-0.5">Toàn bộ 1.061 từ vựng N5, N4 cùng 214 Bộ thủ Khang Hy.</p>
-            </div>
-
-            <!-- View Switcher (Danh sách vs Flashcard 3D) -->
-            <div class="flex p-1 bg-app-card rounded-xl border border-app-border">
-              <button id="vocab-tab-list" class="px-4 py-1.5 text-xs font-semibold rounded-lg bg-app-input text-app-text shadow-sm transition-all flex items-center gap-1.5" onclick="app.setVocabSubView('list')">
-                <span class="material-symbols-outlined text-[16px]">view_list</span>
-                <span>Danh sách từ</span>
-              </button>
-              <button id="vocab-tab-flashcard" class="px-4 py-1.5 text-xs font-semibold rounded-lg text-app-text-muted hover:text-app-text transition-all flex items-center gap-1.5" onclick="app.setVocabSubView('flashcard')">
-                <span class="material-symbols-outlined text-[16px]">style</span>
-                <span>Thẻ Flashcard 3D</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Level Filters -->
-          <div class="flex items-center gap-2 overflow-x-auto pb-1">
-            <button id="lvl-filter-n5" class="px-4 py-2 rounded-xl bg-app-accent text-white text-xs font-bold flex items-center gap-2 transition-all shadow-sm" onclick="app.filterVocabLevel('N5')">
-              <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
-              <span>Kanji N5 (350 chữ)</span>
+          <!-- Action buttons -->
+          <div class="flex flex-col sm:flex-row gap-3 pt-2">
+            <button id="summary-btn-retry-unremembered" class="flex-1 py-3 rounded-xl bg-secondary hover:bg-secondary/90 text-washi font-bold text-xs transition-colors shadow-sm hidden" onclick="app.retryUnrememberedSummary()">
+              Luyện lại các từ sai (<span id="summary-unremembered-count">0</span>)
             </button>
-            <button id="lvl-filter-n4" class="px-4 py-2 rounded-xl bg-app-card border border-app-border text-app-text-muted hover:text-app-text text-xs font-semibold transition-all" onclick="app.filterVocabLevel('N4')">
-              <span>Kanji N4 (711 chữ)</span>
+            <button class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.restartSamePractice()">
+              Luyện lại từ đầu
             </button>
-            <button id="lvl-filter-radicals" class="px-4 py-2 rounded-xl bg-app-card border border-app-border text-app-text-muted hover:text-app-text text-xs font-semibold transition-all" onclick="app.filterVocabLevel('RADICALS')">
-              <span>214 Bộ thủ Khang Hy</span>
+            <button class="flex-1 py-3 rounded-xl bg-surface-alt text-ink-muted hover:text-primary font-bold text-xs transition-colors" onclick="app.switchTab('home')">
+              Về Trang chủ
             </button>
           </div>
-
-          <!-- SUBVIEW A: DANH SÁCH BẢNG TỪ VỰNG -->
-          <div id="vocab-subview-list" class="space-y-4">
-            <!-- Search Inside Vocab -->
-            <div class="relative flex items-center bg-app-card rounded-xl px-4 py-2.5 border border-app-border focus-within:border-app-accent transition-colors">
-              <span class="material-symbols-outlined text-app-text-dim text-[20px] mr-2.5">search</span>
-              <input id="vocab-search-input" type="text" class="w-full bg-transparent text-xs sm:text-sm text-app-text placeholder:text-app-text-dim focus:outline-none" placeholder="Tìm kiếm theo Hán tự, Hiragana hoặc nghĩa tiếng Việt..." oninput="app.onVocabSearch(this.value)">
-              <button id="vocab-search-clear" class="text-app-text-dim hover:text-app-text hidden" onclick="app.clearVocabSearch()">
-                <span class="material-symbols-outlined text-[18px]">close</span>
-              </button>
-            </div>
-
-            <!-- Topics Accordion Container -->
-            <div id="vocab-topics-container" class="space-y-3">
-              <!-- Populated dynamically -->
-            </div>
-          </div>
-
-          <!-- SUBVIEW B: THẺ FLASHCARD 3D TRÊN DESKTOP -->
-          <div id="vocab-subview-flashcard" class="space-y-5 hidden max-w-2xl mx-auto">
-            <!-- Flashcard Topic Selector -->
-            <div class="flex items-center justify-between bg-app-card px-4 py-3 rounded-xl border border-app-border">
-              <span class="text-xs text-app-text-dim font-medium">Chủ đề thẻ:</span>
-              <select id="flashcard-topic-select" class="bg-transparent text-xs font-semibold text-app-text focus:outline-none cursor-pointer max-w-[260px] truncate" onchange="app.onFlashcardTopicChange(this.value)">
-                <!-- Options populated dynamically -->
-              </select>
-            </div>
-
-            <!-- Flashcard Canvas Container -->
-            <div class="perspective-1000 w-full min-h-[340px] cursor-pointer" onclick="app.flipFlashcard()">
-              <div id="flashcard-inner" class="relative w-full h-[340px] rounded-2xl transition-transform duration-500 transform-style-3d shadow-md">
-                <!-- Front Face -->
-                <div class="absolute inset-0 w-full h-full bg-app-card border border-app-border rounded-2xl p-6 flex flex-col justify-between items-center text-center backface-hidden">
-                  <div class="w-full flex items-center justify-between text-xs text-app-text-dim">
-                    <span id="fc-level-badge" class="px-2 py-0.5 rounded-md bg-app-input font-bold text-app-accent">N5</span>
-                    <span id="fc-counter" class="font-semibold">1 / 10</span>
-                    <button class="w-8 h-8 rounded-full hover:bg-app-input text-app-text-dim hover:text-app-text flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.speakFlashcardWord()" title="Nghe phát âm (Space)">
-                      <span class="material-symbols-outlined text-[18px]">volume_up</span>
-                    </button>
-                  </div>
-
-                  <!-- Main Kanji Glyph -->
-                  <div class="my-auto flex flex-col items-center">
-                    <span id="fc-kanji" class="kanji-glyph text-7xl sm:text-8xl font-normal text-app-text select-none">一</span>
-                    <span class="text-xs text-app-text-dim mt-3 flex items-center gap-1.5">
-                      <span class="material-symbols-outlined text-[15px]">touch_app</span> Chạm hoặc bấm phím Space để lật thẻ
-                    </span>
-                  </div>
-
-                  <div class="w-full text-center text-xs text-app-text-muted font-medium">
-                    <span id="fc-topic-hint">Số đếm & Tiền tệ</span>
-                  </div>
-                </div>
-
-                <!-- Back Face -->
-                <div class="absolute inset-0 w-full h-full bg-app-card border-2 border-app-accent/40 rounded-2xl p-6 flex flex-col justify-between items-center text-center backface-hidden rotate-y-180">
-                  <div class="w-full flex items-center justify-between text-xs text-app-text-dim">
-                    <span class="text-xs font-bold text-app-red">Mặt sau thẻ</span>
-                    <button class="w-8 h-8 rounded-full hover:bg-app-input text-app-text flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.speakFlashcardWord()">
-                      <span class="material-symbols-outlined text-[18px]">volume_up</span>
-                    </button>
-                  </div>
-
-                  <div class="my-auto flex flex-col items-center space-y-2">
-                    <span id="fc-back-kanji" class="kanji-glyph text-4xl font-semibold text-app-text">一</span>
-                    <span id="fc-back-reading" class="text-2xl font-bold text-app-red font-sans tracking-wide">いち</span>
-                    <p id="fc-back-meaning" class="text-base font-semibold text-app-text max-w-md">Số 1, một</p>
-                    <p id="fc-back-examples" class="text-xs text-app-text-muted max-w-sm italic mt-1"></p>
-                  </div>
-
-                  <div class="w-full text-center text-xs text-app-text-dim">
-                    Bấm để lật lại mặt trước
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Flashcard Desktop Navigation Controls -->
-            <div class="flex items-center justify-between gap-3 pt-2">
-              <button class="flex-1 py-3 rounded-xl bg-app-card border border-app-border text-app-text-muted hover:text-app-text font-bold text-xs flex items-center justify-center gap-2 transition-colors" onclick="app.prevFlashcard()">
-                <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-                <span>Trước</span>
-              </button>
-              
-              <button class="flex-1 py-3 rounded-xl bg-app-card border border-app-red/40 text-app-red hover:bg-red-500/10 font-bold text-xs flex items-center justify-center gap-2 transition-colors" onclick="app.markFlashcardForgotten()">
-                <span class="material-symbols-outlined text-[18px]">bookmark</span>
-                <span>Chưa nhớ</span>
-              </button>
-
-              <button class="flex-1 py-3 rounded-xl bg-app-accent hover:bg-app-accent-hover text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-sm" onclick="app.nextFlashcard()">
-                <span>Tiếp theo</span>
-                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-              </button>
-            </div>
-          </div>
         </div>
+      </div>
 
-        <!-- ================= VIEW 3: PHÒNG LUYỆN TẬP PHẢN XẠ ================= -->
-        <div id="view-practice" class="max-w-4xl mx-auto space-y-6 hidden">
-          
-          <!-- SUBVIEW A: CẤU HÌNH & CHỌN CHỦ ĐỀ (SETUP SCREEN) -->
-          <div id="practice-setup-screen" class="space-y-6">
-            <div class="space-y-1">
-              <span class="text-xs font-bold text-app-red uppercase tracking-wider">Chế độ thi đấu phản xạ tốc độ</span>
-              <h2 class="font-serif font-bold text-2xl text-app-text">Cấu hình rèn luyện Hán tự</h2>
-              <p class="text-xs text-app-text-muted">Chọn cấp độ, phương thức kiểm tra và các chủ đề muốn luyện tập.</p>
-            </div>
-
-            <!-- Level Selector -->
-            <div class="flex items-center gap-3">
-              <button id="p-lvl-n5" class="flex-1 py-3 rounded-xl bg-app-accent text-white text-xs font-bold transition-all shadow-sm" onclick="app.setPracticeLevel('N5')">
-                Kanji N5 (350 chữ)
-              </button>
-              <button id="p-lvl-n4" class="flex-1 py-3 rounded-xl bg-app-card border border-app-border text-app-text-muted hover:text-app-text text-xs font-bold transition-all" onclick="app.setPracticeLevel('N4')">
-                Kanji N4 (711 chữ)
-              </button>
-              <button id="p-lvl-radicals" class="flex-1 py-3 rounded-xl bg-app-card border border-app-border text-app-text-muted hover:text-app-text text-xs font-bold transition-all" onclick="app.setPracticeLevel('RADICALS')">
-                214 Bộ thủ
-              </button>
-            </div>
-
-            <!-- Practice Method Radio Cards -->
-            <div class="bg-app-card p-5 rounded-2xl border border-app-border space-y-3 shadow-sm">
-              <span class="text-xs font-bold text-app-text uppercase tracking-wider block">1. Phương thức rèn luyện</span>
-              
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <label class="flex flex-col justify-between p-3.5 rounded-xl border border-app-border bg-app-input/50 hover:border-app-accent cursor-pointer transition-all">
-                  <div class="flex items-start gap-2.5">
-                    <input type="radio" name="practice_method" value="higa_and_meaning" checked class="mt-0.5 accent-blue-500">
-                    <div>
-                      <span class="text-xs font-bold text-app-text block">Gõ Hiragana + Chọn nghĩa</span>
-                      <span class="text-[11px] text-app-text-muted block mt-1">Gõ đúng Hiragana ➔ khóa ô ➔ hiện 4 đáp án chọn nghĩa (phím 1-4).</span>
-                    </div>
-                  </div>
-                  <span class="mt-2 text-[10px] text-app-accent font-bold">Khuyên dùng</span>
-                </label>
-
-                <label class="flex flex-col justify-between p-3.5 rounded-xl border border-app-border bg-app-input/50 hover:border-app-accent cursor-pointer transition-all">
-                  <div class="flex items-start gap-2.5">
-                    <input type="radio" name="practice_method" value="higa_only" class="mt-0.5 accent-blue-500">
-                    <div>
-                      <span class="text-xs font-bold text-app-text block">Chỉ gõ Hiragana</span>
-                      <span class="text-[11px] text-app-text-muted block mt-1">Tắt trắc nghiệm: chỉ cần gõ đúng Hiragana là tự động nhảy sang câu tiếp.</span>
-                    </div>
-                  </div>
-                  <span class="mt-2 text-[10px] text-emerald-500 font-bold">Tốc độ cao</span>
-                </label>
-
-                <label class="flex flex-col justify-between p-3.5 rounded-xl border border-app-border bg-app-input/50 hover:border-app-accent cursor-pointer transition-all">
-                  <div class="flex items-start gap-2.5">
-                    <input type="radio" name="practice_method" value="mc_only" class="mt-0.5 accent-blue-500">
-                    <div>
-                      <span class="text-xs font-bold text-app-text block">Trắc nghiệm 4 đáp án</span>
-                      <span class="text-[11px] text-app-text-muted block mt-1">Chọn nhanh ý nghĩa hoặc cách đọc đúng với 4 lựa chọn (phím 1, 2, 3, 4).</span>
-                    </div>
-                  </div>
-                  <span class="mt-2 text-[10px] text-amber-500 font-bold">Thuần trắc nghiệm</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Filter: Only unremembered toggle -->
-            <div class="bg-app-card p-4 rounded-2xl border border-app-border flex items-center justify-between">
-              <div>
-                <span class="text-xs font-bold text-app-text block">Chỉ luyện các từ chưa nhớ 🔖</span>
-                <span class="text-[11px] text-app-text-muted">Chỉ ôn lại những từ bạn đã bookmark hoặc trả lời sai trước đây.</span>
-              </div>
-              <button id="btn-toggle-only-unremembered" class="w-12 h-6 rounded-full bg-app-input p-0.5 flex items-center transition-colors focus:outline-none" onclick="app.toggleOnlyUnremembered()">
-                <div id="thumb-only-unremembered" class="w-5 h-5 rounded-full bg-white shadow-sm transform transition-transform"></div>
-              </button>
-            </div>
-
-            <!-- Topics Selection Grid -->
-            <div class="space-y-3">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-app-text uppercase tracking-wider">2. Chọn chủ đề (<span id="practice-selected-count">0</span> đã chọn)</span>
-                <button class="text-xs font-bold text-app-accent hover:underline" onclick="app.toggleAllPracticeTopics()">Chọn tất cả</button>
-              </div>
-
-              <div id="practice-topics-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[320px] overflow-y-auto pr-1">
-                <!-- Dynamically populated -->
-              </div>
-            </div>
-
-            <!-- Big Start Button -->
-            <button class="w-full py-4 rounded-xl bg-app-accent hover:bg-app-accent-hover text-white font-bold text-sm tracking-wide shadow-md transition-all flex items-center justify-center gap-2" onclick="app.startPracticeSession()">
-              <span class="material-symbols-outlined text-[22px]">play_arrow</span>
-              <span>Bắt đầu rèn luyện ngay</span>
-            </button>
-          </div>
-
-          <!-- SUBVIEW B: ARENA LUYỆN TẬP PHẢN XẠ (ACTIVE DESKTOP ARENA) -->
-          <div id="practice-arena-screen" class="space-y-5 hidden max-w-3xl mx-auto">
-            
-            <!-- Arena Top Controls Bar -->
-            <div class="bg-app-card p-4 rounded-2xl border border-app-border flex items-center justify-between shadow-sm">
-              <div class="flex items-center gap-3">
-                <button class="w-9 h-9 rounded-xl bg-app-input text-app-text-muted hover:text-app-text flex items-center justify-center transition-colors" title="Thoát về danh sách" onclick="app.exitPracticeSession()">
-                  <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-                </button>
-                <div>
-                  <span id="arena-topic-title" class="text-xs sm:text-sm font-bold text-app-text block truncate max-w-[200px] sm:max-w-xs">Số đếm & Tiền tệ</span>
-                  <span id="arena-counter" class="text-[11px] text-app-text-dim font-medium">Câu 1 / 35</span>
-                </div>
-              </div>
-
-              <!-- Arena Icons: Sound, Hint, Bookmark, Jump Grid, Settings -->
-              <div class="flex items-center gap-1.5">
-                <button id="arena-btn-tts" class="w-9 h-9 rounded-xl text-app-text-muted hover:text-app-text hover:bg-app-input flex items-center justify-center transition-colors" title="Phát âm Tokyo (Space)" onclick="app.speakCurrentWord()">
-                  <span class="material-symbols-outlined text-[20px]">volume_up</span>
-                </button>
-
-                <button id="arena-btn-hint" class="w-9 h-9 rounded-xl text-app-text-muted hover:text-amber-500 hover:bg-app-input flex items-center justify-center transition-colors" title="Gợi ý chữ cái đầu" onclick="app.hintFirstChar()">
-                  <span class="material-symbols-outlined text-[20px]">lightbulb</span>
-                </button>
-
-                <button id="arena-btn-bookmark" class="w-9 h-9 rounded-xl text-app-text-muted hover:text-app-red hover:bg-app-input flex items-center justify-center transition-colors" title="Đánh dấu từ chưa nhớ" onclick="app.toggleCurrentBookmark()">
-                  <span id="arena-icon-bookmark" class="material-symbols-outlined text-[20px]">bookmark_border</span>
-                </button>
-
-                <button class="w-9 h-9 rounded-xl text-app-text-muted hover:text-app-text hover:bg-app-input flex items-center justify-center transition-colors" title="Bảng chọn câu (Ctrl+G)" onclick="app.openJumpGrid()">
-                  <span class="material-symbols-outlined text-[20px]">grid_view</span>
-                </button>
-
-                <button class="w-9 h-9 rounded-xl text-app-text-muted hover:text-app-text hover:bg-app-input flex items-center justify-center transition-colors" title="Cài đặt luyện tập" onclick="app.openSettings()">
-                  <span class="material-symbols-outlined text-[20px]">settings</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Linear Progress Bar -->
-            <div class="w-full bg-app-input h-2 rounded-full overflow-hidden">
-              <div id="arena-progress-bar" class="bg-app-accent h-full rounded-full transition-all duration-300" style="width: 3%;"></div>
-            </div>
-
-            <!-- DESKTOP KANJI DISPLAY CARD -->
-            <div class="bg-app-card rounded-2xl p-8 sm:p-12 border border-app-border shadow-sm text-center relative flex flex-col items-center justify-center min-h-[260px]">
-              <!-- Tags Header -->
-              <div class="absolute top-4 left-5 flex items-center gap-2">
-                <span id="arena-level-chip" class="px-2.5 py-0.5 rounded-md bg-app-input text-[11px] font-bold text-app-accent">N5</span>
-                <span id="arena-streak-badge" class="px-2.5 py-0.5 rounded-md bg-amber-500/15 text-[11px] font-bold text-amber-500 hidden">🔥 Streak: <span id="arena-streak-num">0</span></span>
-              </div>
-
-              <!-- Hint Text Overlay -->
-              <div id="arena-hint-box" class="text-xs font-semibold text-amber-500 mb-2 min-h-[18px]"></div>
-
-              <!-- Main Kanji Glyph -->
-              <div class="cursor-pointer select-none group" onclick="app.speakCurrentWord()">
-                <span id="arena-kanji" class="kanji-glyph text-7xl sm:text-8xl font-normal text-app-text tracking-tight transition-transform group-hover:scale-105 inline-block">一</span>
-              </div>
-
-              <!-- Sound Pill -->
-              <button class="mt-3 text-xs text-app-text-dim hover:text-app-text flex items-center gap-1.5 transition-colors" onclick="app.speakCurrentWord()">
-                <span class="material-symbols-outlined text-[16px]">volume_up</span>
-                <span id="arena-reading-display">Bấm để nghe phát âm</span>
-              </button>
-            </div>
-
-            <!-- HIRAGANA INPUT AREA (ROMAJI AUTO-CONVERT) -->
-            <div id="arena-input-section" class="space-y-2">
-              <div class="relative flex items-center">
-                <input 
-                  id="arena-hiragana-input" 
-                  type="text" 
-                  autocapitalize="none"
-                  autocomplete="off"
-                  autocorrect="off"
-                  spellcheck="false"
-                  class="w-full text-center text-2xl sm:text-3xl font-bold py-4 px-12 rounded-2xl bg-app-card border-2 border-app-border focus:border-app-accent focus:outline-none transition-all placeholder:text-app-text-dim placeholder:font-normal placeholder:text-base shadow-sm text-app-text" 
-                  placeholder="Gõ Romaji (ví dụ: sakana)..."
-                  oninput="app.onArenaInput(this.value)"
-                  onkeydown="app.onArenaInputKeyDown(event)"
-                >
-                <div id="arena-input-status-icon" class="absolute right-4 text-app-text-dim flex items-center">
-                  <span class="material-symbols-outlined text-[24px]">keyboard</span>
-                </div>
-              </div>
-              
-              <div id="arena-input-message" class="text-center text-xs text-app-text-dim min-h-[16px]">
-                Hệ thống tự động chuyển đổi: <code class="bg-app-input px-1.5 py-0.5 rounded text-[11px] text-app-text">sakana</code> ➔ <code class="bg-app-input px-1.5 py-0.5 rounded text-[11px] text-emerald-400">さかな</code>
-              </div>
-            </div>
-
-            <!-- 4 MULTIPLE CHOICE BUTTONS IN 2x2 DESKTOP GRID -->
-            <div id="arena-choices-section" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              <button id="choice-btn-0" class="flex items-center justify-between p-4 rounded-xl bg-app-card border border-app-border hover:border-app-accent transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(0)">
-                <span class="choice-text text-sm font-semibold text-app-text flex-1 pr-2 truncate">Lựa chọn 1</span>
-                <span class="key-badge">1</span>
-              </button>
-              <button id="choice-btn-1" class="flex items-center justify-between p-4 rounded-xl bg-app-card border border-app-border hover:border-app-accent transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(1)">
-                <span class="choice-text text-sm font-semibold text-app-text flex-1 pr-2 truncate">Lựa chọn 2</span>
-                <span class="key-badge">2</span>
-              </button>
-              <button id="choice-btn-2" class="flex items-center justify-between p-4 rounded-xl bg-app-card border border-app-border hover:border-app-accent transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(2)">
-                <span class="choice-text text-sm font-semibold text-app-text flex-1 pr-2 truncate">Lựa chọn 3</span>
-                <span class="key-badge">3</span>
-              </button>
-              <button id="choice-btn-3" class="flex items-center justify-between p-4 rounded-xl bg-app-card border border-app-border hover:border-app-accent transition-all text-left shadow-sm group cursor-pointer" onclick="app.onSelectChoice(3)">
-                <span class="choice-text text-sm font-semibold text-app-text flex-1 pr-2 truncate">Lựa chọn 4</span>
-                <span class="key-badge">4</span>
-              </button>
-            </div>
-
-            <!-- ARENA NAVIGATION BAR (CLEAN & BALANCED) -->
-            <div class="flex items-center justify-between gap-3 pt-2">
-              <button id="arena-btn-back" class="py-2.5 px-5 rounded-xl bg-app-card border border-app-border text-xs font-bold text-app-text-muted hover:text-app-text transition-colors flex items-center gap-2" onclick="app.prevWord()">
-                <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-                <span>⬅️ Quay lại</span>
-              </button>
-
-              <button id="arena-btn-finish" class="py-2.5 px-6 rounded-xl bg-app-red hover:bg-red-600 text-white text-xs font-bold transition-colors flex items-center gap-2 shadow-sm" onclick="app.finishPracticeEarly()">
-                <span class="material-symbols-outlined text-[18px]">check_circle</span>
-                <span>Hoàn tất bài thi</span>
-              </button>
-
-              <button id="arena-btn-skip" class="py-2.5 px-5 rounded-xl bg-app-card border border-app-border text-xs font-bold text-app-text-muted hover:text-app-text transition-colors flex items-center gap-2" onclick="app.skipWord()">
-                <span>Bỏ qua</span>
-                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-              </button>
-            </div>
-
-            <!-- SHORTCUTS TIPS FOOTER (SPLIT LINE-BY-LINE) -->
-            <div class="bg-app-card rounded-xl p-4 border border-app-border text-xs text-app-text-dim space-y-2 select-none">
-              <div class="font-bold text-app-text flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-[16px] text-amber-500">tips_and_updates</span>
-                <span>Mẹo phím tắt nhanh:</span>
-              </div>
-              <div class="flex items-center gap-2 text-[11px]">
-                <span>• Bấm</span> <span class="key-badge">⊞ Chọn câu</span> <span>(hoặc</span> <span class="key-badge">Ctrl+G</span><span>) để nhảy nhanh đến câu bất kỳ.</span>
-              </div>
-              <div class="flex items-center gap-2 text-[11px]">
-                <span>• Bấm phím</span> <span class="key-badge">1</span> <span class="key-badge">2</span> <span class="key-badge">3</span> <span class="key-badge">4</span> <span>để chọn nghĩa trắc nghiệm.</span>
-              </div>
-              <div class="flex items-center gap-2 text-[11px]">
-                <span>• Bấm</span> <span class="key-badge">⬅️ Quay lại</span> <span>(hoặc</span> <span class="key-badge">Ctrl+Z</span><span>) nếu lỡ tay ấn qua.</span>
-              </div>
-              <div class="flex items-center gap-2 text-[11px]">
-                <span>• Bấm phím</span> <span class="key-badge">Space</span> <span>để nghe lại phát âm tiếng Nhật chuẩn Tokyo.</span>
-              </div>
-              <div class="flex items-center gap-2 text-[11px]">
-                <span>• Bấm</span> <span class="key-badge">⚙️ Cài đặt</span> <span>để tùy chỉnh chế độ trắc nghiệm & âm thanh.</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- SUBVIEW C: SUMMARY / COMPLETION SCREEN -->
-          <div id="practice-summary-screen" class="space-y-6 hidden max-w-2xl mx-auto">
-            <div class="bg-app-card rounded-2xl p-8 border border-app-border shadow-md text-center space-y-6">
-              <div class="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto">
-                <span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
-              </div>
-
-              <div class="space-y-1">
-                <h2 class="font-serif font-bold text-2xl text-app-text">Hoàn thành bài rèn luyện!</h2>
-                <p class="text-xs text-app-text-muted">Bạn đã hoàn thành lượt luyện tập với kết quả xuất sắc.</p>
-              </div>
-
-              <div class="grid grid-cols-3 gap-3 text-center py-2">
-                <div class="bg-app-input p-4 rounded-xl border border-app-border">
-                  <span class="text-[11px] text-app-text-dim font-medium block">Tổng số từ</span>
-                  <span id="summary-total" class="font-serif font-bold text-xl text-app-text mt-1 block">35</span>
-                </div>
-                <div class="bg-app-input p-4 rounded-xl border border-app-border">
-                  <span class="text-[11px] text-app-text-dim font-medium block">Số câu đúng</span>
-                  <span id="summary-correct" class="font-serif font-bold text-xl text-emerald-500 mt-1 block">32</span>
-                </div>
-                <div class="bg-app-input p-4 rounded-xl border border-app-border">
-                  <span class="text-[11px] text-app-text-dim font-medium block">Chuỗi cao nhất</span>
-                  <span id="summary-max-streak" class="font-serif font-bold text-xl text-amber-500 mt-1 block">15 🔥</span>
-                </div>
-              </div>
-
-              <!-- Unremembered list in round -->
-              <div id="summary-unremembered-section" class="text-left space-y-2 pt-2 border-t border-app-border hidden">
-                <span class="text-xs font-bold text-app-red uppercase tracking-wider block">Các từ cần chú ý ôn lại:</span>
-                <div id="summary-unremembered-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[200px] overflow-y-auto pr-1">
-                  <!-- Dynamically populated -->
-                </div>
-              </div>
-
-              <!-- Action buttons -->
-              <div class="flex flex-col sm:flex-row gap-3 pt-2">
-                <button id="summary-btn-retry-unremembered" class="flex-1 py-3 rounded-xl bg-app-red hover:bg-red-600 text-white font-bold text-xs transition-colors hidden" onclick="app.retryUnrememberedSummary()">
-                  Luyện lại các từ sai (<span id="summary-unremembered-count">0</span>)
-                </button>
-                <button class="flex-1 py-3 rounded-xl bg-app-accent hover:bg-app-accent-hover text-white font-bold text-xs transition-colors" onclick="app.restartSamePractice()">
-                  Luyện lại từ đầu
-                </button>
-                <button class="flex-1 py-3 rounded-xl bg-app-input text-app-text-muted hover:text-app-text font-bold text-xs transition-colors" onclick="app.switchTab('home')">
-                  Về Trang chủ
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ================= VIEW 4: CÁ NHÂN & CÀI ĐẶT ================= -->
-        <div id="view-profile" class="max-w-4xl mx-auto space-y-6 hidden">
-          <!-- Profile Card -->
-          <div class="bg-app-card rounded-2xl p-6 sm:p-8 border border-app-border flex flex-col sm:flex-row items-center gap-6">
-            <div class="w-20 h-20 rounded-full bg-app-input border-2 border-app-accent/40 flex items-center justify-center font-serif font-bold text-3xl text-app-text shadow-inner">
-              勝
-            </div>
-            <div class="space-y-1 text-center sm:text-left flex-1">
-              <h2 class="font-serif font-bold text-xl sm:text-2xl text-app-text">Học viên Kanji Kachi</h2>
-              <p class="text-xs text-app-text-muted">kanji.kachi@learning.jp</p>
-              <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-2">
-                <span class="px-3 py-1 rounded-full bg-app-input text-app-accent text-xs font-bold border border-app-border">
-                  Học viên N5 & N4
-                </span>
-                <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-500 text-xs font-bold border border-amber-500/20">
-                  Chuỗi <strong id="profile-streak-badge">1</strong> ngày 🔥
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Goal Target Card -->
-          <div class="bg-app-card rounded-2xl p-6 border border-app-border space-y-3">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-app-accent text-[20px]">flag</span>
-                <span class="text-xs font-bold text-app-text uppercase tracking-wider">Mục tiêu JLPT</span>
-              </div>
-              <span id="profile-goal-percent" class="text-xs font-bold text-app-accent">0%</span>
-            </div>
-            <p class="text-sm font-semibold text-app-text">Chinh phục 1.061 từ vựng Hán tự N5 & N4</p>
-            <div class="w-full h-2.5 bg-app-input rounded-full overflow-hidden">
-              <div id="profile-goal-bar" class="h-full bg-app-accent rounded-full transition-all duration-500" style="width: 0%;"></div>
-            </div>
-            <div class="flex justify-between items-center text-xs text-app-text-dim">
-              <span>Đã thuộc: <strong id="profile-learned-count" class="text-app-text">0</strong> / 1.061 chữ</span>
-              <span>214 Bộ thủ Khang Hy</span>
-            </div>
-          </div>
-
-          <!-- Settings List -->
-          <div class="bg-app-card rounded-2xl border border-app-border divide-y divide-app-border overflow-hidden">
-            <div class="p-4 flex items-center justify-between hover:bg-app-card-hover transition-colors cursor-pointer" onclick="app.openSettings()">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl bg-app-input flex items-center justify-center text-app-accent">
-                  <span class="material-symbols-outlined text-[20px]">tune</span>
-                </div>
-                <div>
-                  <span class="text-xs sm:text-sm font-bold text-app-text block">Chế độ trắc nghiệm</span>
-                  <span id="profile-mc-mode-label" class="text-[11px] text-app-text-muted">Hiện sau khi viết đúng Hiragana</span>
-                </div>
-              </div>
-              <span class="material-symbols-outlined text-app-text-dim text-[20px]">chevron_right</span>
-            </div>
-
-            <div class="p-4 flex items-center justify-between hover:bg-app-card-hover transition-colors cursor-pointer" onclick="app.startForgottenPractice()">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl bg-app-input flex items-center justify-center text-amber-500">
-                  <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
-                </div>
-                <div>
-                  <span class="text-xs sm:text-sm font-bold text-app-text block">Sổ tay từ chưa nhớ</span>
-                  <span id="profile-starred-count" class="text-[11px] text-app-text-muted">0 chữ đã lưu</span>
-                </div>
-              </div>
-              <span class="material-symbols-outlined text-app-text-dim text-[20px]">chevron_right</span>
-            </div>
-
-            <div class="p-4 flex items-center justify-between hover:bg-app-card-hover transition-colors cursor-pointer" onclick="app.resetAllProgress()">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl bg-app-input flex items-center justify-center text-app-red">
-                  <span class="material-symbols-outlined text-[20px]">restart_alt</span>
-                </div>
-                <div>
-                  <span class="text-xs sm:text-sm font-bold text-app-red block">Đặt lại toàn bộ tiến độ</span>
-                  <span class="text-[11px] text-app-text-muted">Xóa sạch streak, từ đã học và bắt đầu lại từ đầu</span>
-                </div>
-              </div>
-              <span class="material-symbols-outlined text-app-text-dim text-[20px]">chevron_right</span>
-            </div>
-          </div>
-        </div>
-
-      </main>
     </div>
-  </div>
+
+    <!-- ================= VIEW 4: CÁ NHÂN & CÀI ĐẶT ================= -->
+    <div id="view-profile" class="space-y-6 hidden max-w-2xl mx-auto">
+      
+      <!-- Profile Hero Card -->
+      <div class="bg-surface-card rounded-2xl p-6 sm:p-8 border border-border-subtle flex flex-col sm:flex-row items-center gap-6 shadow-sm">
+        <div class="w-18 h-18 sm:w-20 sm:h-20 rounded-full bg-surface-alt border-2 border-primary/20 flex items-center justify-center font-serif font-bold text-3xl text-primary shadow-inner">
+          勝
+        </div>
+        <div class="space-y-1 text-center sm:text-left flex-1">
+          <h2 class="font-serif font-bold text-xl sm:text-2xl text-primary">Học viên Kanji Kachi</h2>
+          <p class="text-xs text-ink-muted">kanji.kachi@learning.jp</p>
+          <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 pt-2">
+            <span class="px-3 py-1 rounded-full bg-surface-alt text-primary text-xs font-bold border border-border-subtle">
+              Học viên N5 & N4
+            </span>
+            <span class="px-3 py-1 rounded-full bg-vermilion-soft text-secondary text-xs font-bold">
+              Chuỗi <strong id="profile-streak-badge">1</strong> ngày 🔥
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Goal Target Card -->
+      <div class="bg-surface-card rounded-2xl p-6 border border-border-subtle space-y-3 shadow-sm">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary text-[20px]" style="font-variation-settings: 'FILL' 1;">flag</span>
+            <span class="text-xs font-bold text-primary uppercase tracking-wider">Mục tiêu JLPT</span>
+          </div>
+          <span id="profile-goal-percent" class="text-xs font-bold text-secondary">0%</span>
+        </div>
+        <p class="text-sm font-semibold text-primary">Chinh phục 1.061 từ vựng Hán tự N5 & N4</p>
+        <div class="w-full h-2.5 bg-surface-alt rounded-full overflow-hidden">
+          <div id="profile-goal-bar" class="h-full bg-secondary rounded-full transition-all duration-500" style="width: 0%;"></div>
+        </div>
+        <div class="flex justify-between items-center text-xs text-ink-muted">
+          <span>Đã thuộc: <strong id="profile-learned-count" class="text-primary">0</strong> / 1.061 chữ</span>
+          <span>214 Bộ thủ Khang Hy</span>
+        </div>
+      </div>
+
+      <!-- Options List -->
+      <div class="bg-surface-card rounded-2xl border border-border-subtle divide-y divide-border-subtle overflow-hidden shadow-sm">
+        <div class="p-4 flex items-center justify-between hover:bg-surface-alt transition-colors cursor-pointer" onclick="app.openSettings()">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-surface-alt flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-[20px]">tune</span>
+            </div>
+            <div>
+              <span class="text-xs sm:text-sm font-bold text-primary block">Tùy chỉnh chế độ trắc nghiệm</span>
+              <span id="profile-mc-mode-label" class="text-[11px] text-ink-muted">Hiện sau khi viết đúng Hiragana</span>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
+        </div>
+
+        <div class="p-4 flex items-center justify-between hover:bg-surface-alt transition-colors cursor-pointer" onclick="app.startForgottenPractice()">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-surface-alt flex items-center justify-center text-secondary">
+              <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+            </div>
+            <div>
+              <span class="text-xs sm:text-sm font-bold text-primary block">Sổ tay từ chưa nhớ</span>
+              <span id="profile-starred-count" class="text-[11px] text-ink-muted">0 chữ đã lưu</span>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
+        </div>
+
+        <div class="p-4 flex items-center justify-between hover:bg-surface-alt transition-colors cursor-pointer" onclick="app.resetAllProgress()">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-surface-alt flex items-center justify-center text-secondary">
+              <span class="material-symbols-outlined text-[20px]">restart_alt</span>
+            </div>
+            <div>
+              <span class="text-xs sm:text-sm font-bold text-secondary block">Đặt lại toàn bộ tiến độ</span>
+              <span class="text-[11px] text-ink-muted">Xóa sạch streak, từ đã thuộc và bắt đầu lại từ đầu</span>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
+        </div>
+      </div>
+
+      <!-- App Info Footer -->
+      <footer class="text-center py-4">
+        <p class="text-xs text-ink-dim tracking-wider font-medium">Kanji Kachi 漢字勝ち • Web Edition v2.0</p>
+      </footer>
+
+    </div>
+
+  </main>
 
   <!-- ================= MODAL 1: QUESTION JUMP GRID MODAL (⊞ CHỌN CÂU) ================= -->
-  <div id="modal-jump-grid" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-    <div class="bg-app-card w-full max-w-lg rounded-2xl p-6 border border-app-border shadow-2xl space-y-4 max-h-[85vh] flex flex-col">
-      <div class="flex items-center justify-between pb-3 border-b border-app-border">
+  <div id="modal-jump-grid" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-surface-card w-full max-w-lg rounded-2xl p-6 border border-border-subtle shadow-2xl space-y-4 max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between pb-3 border-b border-border-subtle">
         <div class="flex items-center gap-2">
-          <span class="material-symbols-outlined text-app-accent text-[22px]">grid_view</span>
-          <h3 class="font-serif font-bold text-base text-app-text">Bảng danh sách câu hỏi</h3>
+          <span class="material-symbols-outlined text-primary text-[22px]">grid_view</span>
+          <h3 class="font-serif font-bold text-base text-primary">Bảng danh sách câu hỏi</h3>
         </div>
-        <button class="w-8 h-8 rounded-full hover:bg-app-input flex items-center justify-center text-app-text-dim hover:text-app-text" onclick="app.closeJumpGrid()">
+        <button class="w-8 h-8 rounded-full hover:bg-surface-alt flex items-center justify-center text-ink-dim hover:text-primary" onclick="app.closeJumpGrid()">
           <span class="material-symbols-outlined text-[20px]">close</span>
         </button>
       </div>
 
       <div class="flex items-center gap-3 text-xs">
-        <span class="flex items-center gap-1.5 text-emerald-500 font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> Đã đúng</span>
-        <span class="flex items-center gap-1.5 text-app-red font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-app-red inline-block"></span> Sai/Đánh dấu</span>
-        <span class="flex items-center gap-1.5 text-app-text-dim font-semibold"><span class="w-2.5 h-2.5 rounded-full bg-app-input inline-block"></span> Chưa làm</span>
+        <span class="flex items-center gap-1.5 text-tertiary font-bold"><span class="w-2.5 h-2.5 rounded-full bg-tertiary inline-block"></span> Đã đúng</span>
+        <span class="flex items-center gap-1.5 text-secondary font-bold"><span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span> Sai/Đánh dấu</span>
+        <span class="flex items-center gap-1.5 text-ink-muted font-bold"><span class="w-2.5 h-2.5 rounded-full bg-surface-alt inline-block"></span> Chưa làm</span>
       </div>
 
       <div id="jump-grid-container" class="grid grid-cols-5 sm:grid-cols-7 gap-2 overflow-y-auto pr-1 flex-1 py-2">
-        <!-- Dynamically populated buttons -->
+        <!-- Dynamically populated -->
       </div>
 
-      <div class="pt-3 border-t border-app-border">
-        <button class="w-full py-2.5 rounded-xl bg-app-input font-bold text-xs text-app-text hover:bg-app-card transition-colors" onclick="app.closeJumpGrid()">
+      <div class="pt-3 border-t border-border-subtle">
+        <button class="w-full py-2.5 rounded-xl bg-surface-alt font-bold text-xs text-primary hover:bg-border-subtle transition-colors" onclick="app.closeJumpGrid()">
           Đóng bảng chọn
         </button>
       </div>
@@ -929,75 +811,75 @@
   </div>
 
   <!-- ================= MODAL 2: SETTINGS MODAL (⚙️ CÀI ĐẶT) ================= -->
-  <div id="modal-settings" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
-    <div class="bg-app-card w-full max-w-md rounded-2xl p-6 border border-app-border shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between pb-3 border-b border-app-border">
+  <div id="modal-settings" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-surface-card w-full max-w-md rounded-2xl p-6 border border-border-subtle shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-border-subtle">
         <div class="flex items-center gap-2">
-          <span class="material-symbols-outlined text-app-accent text-[22px]">settings</span>
-          <h3 class="font-serif font-bold text-base text-app-text">Cài đặt luyện tập</h3>
+          <span class="material-symbols-outlined text-primary text-[22px]">settings</span>
+          <h3 class="font-serif font-bold text-base text-primary">Cài đặt luyện tập</h3>
         </div>
-        <button class="w-8 h-8 rounded-full hover:bg-app-input flex items-center justify-center text-app-text-dim hover:text-app-text" onclick="app.closeSettings()">
+        <button class="w-8 h-8 rounded-full hover:bg-surface-alt flex items-center justify-center text-ink-dim hover:text-primary" onclick="app.closeSettings()">
           <span class="material-symbols-outlined text-[20px]">close</span>
         </button>
       </div>
 
       <!-- Setting Section: Chế độ trắc nghiệm -->
       <div class="space-y-2.5">
-        <span class="text-xs font-bold text-app-text uppercase tracking-wider block">Chế độ trắc nghiệm</span>
+        <span class="text-xs font-bold text-primary uppercase tracking-wider block">Chế độ trắc nghiệm</span>
         <div class="space-y-2">
-          <label class="flex items-start gap-3 p-3 rounded-xl border border-app-border hover:bg-app-input cursor-pointer transition-colors" onclick="app.setSettingMcMode('after_higa')">
-            <input type="radio" name="setting_mc_mode" value="after_higa" id="radio-mc-after" class="mt-0.5 accent-blue-500">
+          <label class="flex items-start gap-3 p-3 rounded-xl border border-border-subtle hover:bg-surface-alt cursor-pointer transition-colors" onclick="app.setSettingMcMode('after_higa')">
+            <input type="radio" name="setting_mc_mode" value="after_higa" id="radio-mc-after" class="mt-0.5 accent-primary cursor-pointer">
             <div>
-              <span class="text-xs font-bold text-app-text block">Hiện sau khi viết đúng Hiragana</span>
-              <span class="text-[11px] text-app-text-muted block mt-0.5">Khóa box nhập lại sau khi viết đúng higa ➔ hiện 4 nút chọn nghĩa (bấm 1, 2, 3, 4).</span>
+              <span class="text-xs font-bold text-primary block">Hiện sau khi viết đúng Hiragana</span>
+              <span class="text-[11px] text-ink-muted block mt-0.5">Khóa box nhập lại sau khi viết đúng higa ➔ hiện 4 nút chọn nghĩa (bấm 1, 2, 3, 4).</span>
             </div>
           </label>
 
-          <label class="flex items-start gap-3 p-3 rounded-xl border border-app-border hover:bg-app-input cursor-pointer transition-colors" onclick="app.setSettingMcMode('disabled')">
-            <input type="radio" name="setting_mc_mode" value="disabled" id="radio-mc-disabled" class="mt-0.5 accent-blue-500">
+          <label class="flex items-start gap-3 p-3 rounded-xl border border-border-subtle hover:bg-surface-alt cursor-pointer transition-colors" onclick="app.setSettingMcMode('disabled')">
+            <input type="radio" name="setting_mc_mode" value="disabled" id="radio-mc-disabled" class="mt-0.5 accent-primary cursor-pointer">
             <div>
-              <span class="text-xs font-bold text-app-text block">Tắt luôn trắc nghiệm (Chỉ gõ Hiragana)</span>
-              <span class="text-[11px] text-app-text-muted block mt-0.5">Không hiện trắc nghiệm. Gõ đúng Hiragana là tự động nhảy sang câu tiếp theo.</span>
+              <span class="text-xs font-bold text-primary block">Tắt luôn trắc nghiệm (Chỉ gõ Hiragana)</span>
+              <span class="text-[11px] text-ink-muted block mt-0.5">Không hiện trắc nghiệm. Gõ đúng Hiragana là tự động nhảy sang câu tiếp theo.</span>
             </div>
           </label>
 
-          <label class="flex items-start gap-3 p-3 rounded-xl border border-app-border hover:bg-app-input cursor-pointer transition-colors" onclick="app.setSettingMcMode('both')">
-            <input type="radio" name="setting_mc_mode" value="both" id="radio-mc-both" class="mt-0.5 accent-blue-500">
+          <label class="flex items-start gap-3 p-3 rounded-xl border border-border-subtle hover:bg-surface-alt cursor-pointer transition-colors" onclick="app.setSettingMcMode('both')">
+            <input type="radio" name="setting_mc_mode" value="both" id="radio-mc-both" class="mt-0.5 accent-primary cursor-pointer">
             <div>
-              <span class="text-xs font-bold text-app-text block">Hiện cả hai cùng lúc</span>
-              <span class="text-[11px] text-app-text-muted block mt-0.5">Hiển thị cả ô gõ Hiragana và 4 nút chọn nghĩa đồng thời.</span>
+              <span class="text-xs font-bold text-primary block">Hiện cả hai cùng lúc</span>
+              <span class="text-[11px] text-ink-muted block mt-0.5">Hiển thị cả ô gõ Hiragana và 4 nút chọn nghĩa đồng thời.</span>
             </div>
           </label>
         </div>
       </div>
 
       <!-- Setting Section: Audio & Romaji Toggles -->
-      <div class="space-y-3 pt-3 border-t border-app-border">
-        <span class="text-xs font-bold text-app-text uppercase tracking-wider block">Tiện ích học tập</span>
+      <div class="space-y-3 pt-3 border-t border-border-subtle">
+        <span class="text-xs font-bold text-primary uppercase tracking-wider block">Tiện ích học tập</span>
 
         <div class="flex items-center justify-between">
           <div>
-            <span class="text-xs font-bold text-app-text block">Tự động phát âm khi chuyển từ</span>
-            <span class="text-[11px] text-app-text-muted">Web Speech API giọng Tokyo bản xứ</span>
+            <span class="text-xs font-bold text-primary block">Tự động phát âm khi chuyển từ</span>
+            <span class="text-[11px] text-ink-muted">Web Speech API giọng Tokyo chuẩn</span>
           </div>
-          <button id="toggle-sound-btn" class="w-12 h-6 rounded-full bg-app-accent p-0.5 flex items-center transition-colors focus:outline-none" onclick="app.toggleSoundSetting()">
+          <button id="toggle-sound-btn" class="w-12 h-6 rounded-full bg-primary p-0.5 flex items-center transition-colors focus:outline-none" onclick="app.toggleSoundSetting()">
             <div id="toggle-sound-thumb" class="w-5 h-5 rounded-full bg-white shadow-sm transform translate-x-6 transition-transform"></div>
           </button>
         </div>
 
         <div class="flex items-center justify-between">
           <div>
-            <span class="text-xs font-bold text-app-text block">Tự động chuyển Romaji ➔ Hiragana</span>
-            <span class="text-[11px] text-app-text-muted">Gõ 'sakana' tự chuyển 'さかな'</span>
+            <span class="text-xs font-bold text-primary block">Tự động chuyển Romaji ➔ Hiragana</span>
+            <span class="text-[11px] text-ink-muted">Gõ 'sakana' tự chuyển 'さかな'</span>
           </div>
-          <button id="toggle-romaji-btn" class="w-12 h-6 rounded-full bg-app-accent p-0.5 flex items-center transition-colors focus:outline-none" onclick="app.toggleRomajiSetting()">
+          <button id="toggle-romaji-btn" class="w-12 h-6 rounded-full bg-primary p-0.5 flex items-center transition-colors focus:outline-none" onclick="app.toggleRomajiSetting()">
             <div id="toggle-romaji-thumb" class="w-5 h-5 rounded-full bg-white shadow-sm transform translate-x-6 transition-transform"></div>
           </button>
         </div>
       </div>
 
-      <div class="pt-3 border-t border-app-border">
-        <button class="w-full py-3 rounded-xl bg-app-accent hover:bg-app-accent-hover text-white font-bold text-xs transition-colors shadow-sm" onclick="app.closeSettings()">
+      <div class="pt-3 border-t border-border-subtle">
+        <button class="w-full py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.closeSettings()">
           Lưu & Đóng cài đặt
         </button>
       </div>

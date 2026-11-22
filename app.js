@@ -1,11 +1,11 @@
-// Kanji Kachi - Desktop Web Engine (Quizlet Inspired)
-// Complete Practice Reflex, Flashcards, and Universal Library
+// Kanji Kachi - Web Edition Engine
+// Authentic Modern Sumi & Paper Theme (#1E232A, #E84A36, #4A7C59, #FDFBF7)
 
 (function () {
   'use strict';
 
   // ================= 1. LOCAL STORAGE & STATE =================
-  const STORAGE_KEY = 'kanji_kachi_web_v3';
+  const STORAGE_KEY = 'kanji_kachi_state_clean_v1';
 
   const defaultState = {
     streak: 1,
@@ -17,8 +17,7 @@
     preferences: {
       mcMode: 'after_higa', // 'after_higa' | 'disabled' | 'both'
       soundEnabled: true,
-      romajiAutoConvert: true,
-      isDarkTheme: true
+      romajiAutoConvert: true
     }
   };
 
@@ -44,7 +43,6 @@
     }
   }
 
-  // Update Daily Streak
   function updateDailyStreak() {
     const today = new Date().toISOString().slice(0, 10);
     if (!state.lastPracticeDate) {
@@ -64,7 +62,7 @@
     saveState();
   }
 
-  // ================= 2. DOM ELEMENT REFERENCES =================
+  // ================= 2. DOM REFERENCES =================
   const views = {
     home: document.getElementById('view-home'),
     vocab: document.getElementById('view-vocab'),
@@ -72,13 +70,21 @@
     profile: document.getElementById('view-profile')
   };
 
-  const navBtns = {
+  const desktopNavBtns = {
     home: document.getElementById('nav-btn-home'),
     practice: document.getElementById('nav-btn-practice'),
-    vocab: document.getElementById('nav-btn-vocab')
+    vocab: document.getElementById('nav-btn-vocab'),
+    profile: document.getElementById('nav-btn-profile')
   };
 
-  // ================= 3. TTS VOICE & CHIMES =================
+  const mobileNavBtns = {
+    home: document.getElementById('m-nav-home'),
+    practice: document.getElementById('m-nav-practice'),
+    vocab: document.getElementById('m-nav-vocab'),
+    profile: document.getElementById('m-nav-profile')
+  };
+
+  // ================= 3. TTS VOICE & SOUND =================
   let jaVoice = null;
 
   function initVoices() {
@@ -122,58 +128,25 @@
       
       const now = ctx.currentTime;
       if (isCorrect) {
-        osc.frequency.setValueAtTime(523.25, now); // C5
-        osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+        osc.frequency.setValueAtTime(523.25, now);
+        osc.frequency.setValueAtTime(659.25, now + 0.08);
         gain.gain.setValueAtTime(0.12, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
         osc.start(now);
         osc.stop(now + 0.3);
       } else {
-        osc.frequency.setValueAtTime(220, now); // A3
+        osc.frequency.setValueAtTime(220, now);
         gain.gain.setValueAtTime(0.15, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
         osc.start(now);
         osc.stop(now + 0.26);
       }
     } catch (e) {
-      // AudioContext blocked before user interaction, silent fail
+      // AudioContext blocked before gesture, safe ignore
     }
   }
 
-  // ================= 4. THEME & MOBILE SIDEBAR =================
-  function initTheme() {
-    if (state.preferences.isDarkTheme) {
-      document.body.classList.remove('theme-light');
-      const icon = document.getElementById('icon-theme');
-      if (icon) icon.textContent = 'light_mode';
-    } else {
-      document.body.classList.add('theme-light');
-      const icon = document.getElementById('icon-theme');
-      if (icon) icon.textContent = 'dark_mode';
-    }
-  }
-
-  function toggleTheme() {
-    state.preferences.isDarkTheme = !state.preferences.isDarkTheme;
-    saveState();
-    initTheme();
-  }
-
-  function toggleMobileSidebar() {
-    const sidebar = document.getElementById('app-sidebar');
-    const backdrop = document.getElementById('sidebar-backdrop');
-    if (!sidebar || !backdrop) return;
-
-    if (sidebar.classList.contains('-translate-x-full')) {
-      sidebar.classList.remove('-translate-x-full');
-      backdrop.classList.remove('hidden');
-    } else {
-      sidebar.classList.add('-translate-x-full');
-      backdrop.classList.add('hidden');
-    }
-  }
-
-  // ================= 5. TAB SWITCHER =================
+  // ================= 4. TAB NAVIGATION =================
   function switchTab(tabName) {
     Object.keys(views).forEach(name => {
       if (views[name]) {
@@ -185,51 +158,38 @@
       }
     });
 
-    // Update active nav button
-    Object.keys(navBtns).forEach(name => {
-      const btn = navBtns[name];
+    // Update Desktop Nav Tabs
+    Object.keys(desktopNavBtns).forEach(name => {
+      const btn = desktopNavBtns[name];
       if (!btn) return;
       if (name === tabName) {
-        btn.classList.add('nav-item-active');
-        btn.classList.remove('text-app-text-muted');
-        btn.classList.add('text-app-text');
+        btn.classList.add('nav-tab-active');
+        btn.classList.remove('text-ink-muted');
       } else {
-        btn.classList.remove('nav-item-active');
-        btn.classList.add('text-app-text-muted');
-        btn.classList.remove('text-app-text');
+        btn.classList.remove('nav-tab-active');
+        btn.classList.add('text-ink-muted');
       }
     });
 
-    // Update topbar section breadcrumb
-    const topTitle = document.getElementById('topbar-section-title');
-    if (topTitle) {
-      const map = {
-        home: 'Trang chủ',
-        practice: 'Luyện phản xạ Hán tự',
-        vocab: 'Thư viện từ vựng',
-        profile: 'Cá nhân & Cài đặt'
-      };
-      topTitle.textContent = map[tabName] || 'Kanji Kachi';
-    }
+    // Update Mobile Nav Sub-bar
+    Object.keys(mobileNavBtns).forEach(name => {
+      const btn = mobileNavBtns[name];
+      if (!btn) return;
+      if (name === tabName) {
+        btn.className = "flex-1 py-1 text-center text-xs font-bold text-primary border-b-2 border-secondary";
+      } else {
+        btn.className = "flex-1 py-1 text-center text-xs font-semibold text-ink-muted hover:text-primary";
+      }
+    });
 
-    // Close mobile sidebar if open
-    const sidebar = document.getElementById('app-sidebar');
-    const backdrop = document.getElementById('sidebar-backdrop');
-    if (sidebar && !sidebar.classList.contains('-translate-x-full') && window.innerWidth < 1024) {
-      sidebar.classList.add('-translate-x-full');
-      if (backdrop) backdrop.classList.add('hidden');
-    }
-
-    // Scroll main viewport to top
-    const scrollPane = document.getElementById('app-scroll-content');
-    if (scrollPane) scrollPane.scrollTop = 0;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     if (tabName === 'home') renderHomeScreen();
     if (tabName === 'vocab') renderVocabScreen();
     if (tabName === 'profile') renderProfileScreen();
   }
 
-  // ================= 6. HOME SCREEN LOGIC =================
+  // ================= 5. HOME SCREEN LOGIC =================
   function renderHomeScreen() {
     updateDailyStreak();
 
@@ -237,8 +197,8 @@
     const streakEl = document.getElementById('home-streak-count');
     if (streakEl) streakEl.textContent = state.streak;
 
-    const sideStreak = document.getElementById('sidebar-streak-num');
-    if (sideStreak) sideStreak.textContent = state.streak;
+    const headStreak = document.getElementById('header-streak-num');
+    if (headStreak) headStreak.textContent = state.streak;
 
     const practicedEl = document.getElementById('stat-total-practiced');
     if (practicedEl) practicedEl.textContent = state.totalPracticed;
@@ -254,36 +214,44 @@
     const unremEl = document.getElementById('stat-unremembered');
     if (unremEl) unremEl.textContent = state.forgottenIds.length;
 
-    const sideUnrem = document.getElementById('sidebar-unremembered-count');
-    if (sideUnrem) sideUnrem.textContent = state.forgottenIds.length;
+    // Forgotten Card
+    const forgottenCard = document.getElementById('home-card-review-forgotten');
+    const forgottenLabel = document.getElementById('home-unremembered-label');
+    if (forgottenCard && forgottenLabel) {
+      if (state.forgottenIds.length > 0) {
+        forgottenCard.classList.remove('hidden');
+        forgottenLabel.textContent = state.forgottenIds.length;
+      } else {
+        forgottenCard.classList.add('hidden');
+      }
+    }
 
-    // Render Quizlet-style Topic Cards Grid
-    const topicsGrid = document.getElementById('home-topics-grid');
-    if (topicsGrid) {
-      // Show first 6 topics or all
+    // Grid of Topics
+    const grid = document.getElementById('home-topics-grid');
+    if (grid) {
       const sampleTopics = TOPICS.slice(0, 9);
-      topicsGrid.innerHTML = sampleTopics.map(t => {
+      grid.innerHTML = sampleTopics.map(t => {
         const isN5 = t.level === 'N5';
-        const badgeColor = isN5 ? 'text-app-accent bg-blue-500/10' : 'text-app-red bg-red-500/10';
+        const badgeColor = isN5 ? 'text-primary bg-surface-alt' : 'text-secondary bg-vermilion-soft';
         return `
-          <div class="bg-app-card p-4 sm:p-5 rounded-2xl border border-app-border hover:border-app-accent/60 transition-all cursor-pointer shadow-sm flex flex-col justify-between group" onclick="app.startTopicPractice('${t.id}')">
-            <div class="space-y-2.5">
+          <div class="bg-surface-card p-4 sm:p-5 rounded-2xl border border-border-subtle hover:border-primary transition-all cursor-pointer shadow-sm flex flex-col justify-between group" onclick="app.startTopicPractice('${t.id}')">
+            <div class="space-y-2">
               <div class="flex items-center justify-between">
                 <span class="px-2 py-0.5 rounded text-[10px] font-bold ${badgeColor}">${t.level}</span>
-                <span class="text-[11px] text-app-text-dim font-medium">${t.count} chữ</span>
+                <span class="text-[11px] text-ink-muted font-medium">${t.count} chữ</span>
               </div>
-              <h3 class="font-serif font-bold text-sm sm:text-base text-app-text group-hover:text-app-accent transition-colors truncate">
+              <h3 class="font-serif font-bold text-sm sm:text-base text-primary group-hover:text-secondary transition-colors truncate">
                 ${t.title}
               </h3>
-              <p class="text-[11px] text-app-text-muted">Chủ đề từ vựng trọng tâm trong giáo trình Marugoto & Minna.</p>
+              <p class="text-[11px] text-ink-muted leading-relaxed">Bộ từ vựng Hán tự trọng tâm trong giáo trình Marugoto & Minna.</p>
             </div>
 
-            <div class="mt-4 pt-3 border-t border-app-border flex items-center justify-between">
-              <span class="text-xs font-bold text-app-text-muted group-hover:text-app-accent flex items-center gap-1 transition-colors">
+            <div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between">
+              <span class="text-xs font-bold text-primary group-hover:text-secondary flex items-center gap-1 transition-colors">
                 <span>Rèn luyện</span>
                 <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </span>
-              <button class="w-7 h-7 rounded-full hover:bg-app-input text-app-text-dim hover:text-app-text flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.startTopicFlashcards('${t.id}')" title="Lật thẻ Flashcard">
+              <button class="w-7 h-7 rounded-full hover:bg-surface-alt text-ink-dim hover:text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.startTopicFlashcards('${t.id}')" title="Thẻ Flashcard 3D">
                 <span class="material-symbols-outlined text-[16px]">style</span>
               </button>
             </div>
@@ -293,7 +261,7 @@
     }
   }
 
-  // ================= 7. VOCABULARY & FLASHCARDS LOGIC =================
+  // ================= 6. VOCABULARY & FLASHCARDS LOGIC =================
   let currentVocabLevel = 'N5';
   let currentVocabSubView = 'list';
   let flashcardDeck = [];
@@ -312,13 +280,13 @@
     const fcSub = document.getElementById('vocab-subview-flashcard');
 
     if (mode === 'list') {
-      listBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-lg bg-app-input text-app-text shadow-sm transition-all flex items-center gap-1.5";
-      fcBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-lg text-app-text-muted hover:text-app-text transition-all flex items-center gap-1.5";
+      listBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-lg bg-surface-card text-primary shadow-sm transition-all flex items-center gap-1.5";
+      fcBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-lg text-ink-muted hover:text-primary transition-all flex items-center gap-1.5";
       listSub.classList.remove('hidden');
       fcSub.classList.add('hidden');
     } else {
-      fcBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-lg bg-app-input text-app-text shadow-sm transition-all flex items-center gap-1.5";
-      listBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-lg text-app-text-muted hover:text-app-text transition-all flex items-center gap-1.5";
+      fcBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-lg bg-surface-card text-primary shadow-sm transition-all flex items-center gap-1.5";
+      listBtn.className = "px-4 py-1.5 text-xs font-semibold rounded-lg text-ink-muted hover:text-primary transition-all flex items-center gap-1.5";
       fcSub.classList.remove('hidden');
       listSub.classList.add('hidden');
       setupFlashcardsForLevel(currentVocabLevel);
@@ -331,9 +299,9 @@
       const btn = document.getElementById('lvl-filter-' + lvl.toLowerCase());
       if (!btn) return;
       if (lvl === level) {
-        btn.className = "px-4 py-2 rounded-xl bg-app-accent text-white text-xs font-bold flex items-center gap-2 transition-all shadow-sm";
+        btn.className = "px-4 py-2 rounded-xl bg-primary text-washi text-xs font-bold flex items-center gap-2 transition-all shadow-sm";
       } else {
-        btn.className = "px-4 py-2 rounded-xl bg-app-card border border-app-border text-app-text-muted hover:text-app-text text-xs font-semibold transition-all";
+        btn.className = "px-4 py-2 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs font-semibold transition-all";
       }
     });
 
@@ -362,9 +330,9 @@
 
       container.innerHTML = `
         <div class="space-y-2">
-          <span class="text-xs font-bold text-app-text-muted block">Tìm thấy ${filtered.length} từ vựng:</span>
-          <div class="bg-app-card rounded-2xl p-2 border border-app-border divide-y divide-app-border shadow-sm">
-            ${filtered.length > 0 ? filtered.map(renderVocabRow).join('') : '<p class="p-6 text-xs text-center text-app-text-dim">Không tìm thấy từ vựng nào khớp với từ khóa tìm kiếm.</p>'}
+          <span class="text-xs font-bold text-ink-muted block">Tìm thấy ${filtered.length} từ vựng:</span>
+          <div class="bg-surface-card rounded-2xl p-2 border border-border-subtle divide-y divide-border-subtle shadow-sm">
+            ${filtered.length > 0 ? filtered.map(renderVocabRow).join('') : '<p class="p-6 text-xs text-center text-ink-dim">Không tìm thấy từ vựng nào khớp với từ khóa tìm kiếm.</p>'}
           </div>
         </div>
       `;
@@ -374,26 +342,26 @@
     container.innerHTML = topics.map(topic => {
       const topicItems = items.filter(it => it.topicId === topic.id);
       return `
-        <div class="bg-app-card rounded-2xl border border-app-border overflow-hidden shadow-sm">
-          <div class="p-4 flex items-center justify-between cursor-pointer hover:bg-app-card-hover transition-colors select-none" onclick="app.toggleTopicAccordion('${topic.id}')">
+        <div class="bg-surface-card rounded-2xl border border-border-subtle overflow-hidden shadow-sm">
+          <div class="p-4 flex items-center justify-between cursor-pointer hover:bg-surface-alt transition-colors select-none" onclick="app.toggleTopicAccordion('${topic.id}')">
             <div class="flex items-center gap-3">
-              <span class="w-2 h-2 rounded-full ${topic.level === 'N5' ? 'bg-app-accent' : (topic.level === 'N4' ? 'bg-app-red' : 'bg-emerald-500')}"></span>
+              <span class="w-2 h-2 rounded-full ${topic.level === 'N5' ? 'bg-primary' : (topic.level === 'N4' ? 'bg-secondary' : 'bg-tertiary')}"></span>
               <div>
-                <span class="text-xs sm:text-sm font-bold text-app-text block">${topic.title}</span>
-                <span class="text-[11px] text-app-text-dim">${topicItems.length} Hán tự</span>
+                <span class="text-xs sm:text-sm font-bold text-primary block">${topic.title}</span>
+                <span class="text-[11px] text-ink-muted">${topicItems.length} Hán tự</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
-              <button class="px-3 py-1 rounded-lg bg-app-input hover:bg-app-accent hover:text-white text-xs font-bold text-app-text transition-colors" onclick="event.stopPropagation(); app.startTopicPractice('${topic.id}')">
+              <button class="px-3 py-1 rounded-lg bg-surface-alt hover:bg-primary hover:text-washi text-xs font-bold text-primary transition-colors" onclick="event.stopPropagation(); app.startTopicPractice('${topic.id}')">
                 Luyện tập
               </button>
-              <button class="w-7 h-7 rounded-full hover:bg-app-input text-app-text-dim hover:text-app-text flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.startTopicFlashcards('${topic.id}')" title="Thẻ Flashcard">
+              <button class="w-7 h-7 rounded-full hover:bg-surface-alt text-ink-dim hover:text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.startTopicFlashcards('${topic.id}')" title="Thẻ Flashcard 3D">
                 <span class="material-symbols-outlined text-[18px]">style</span>
               </button>
-              <span id="acc-icon-${topic.id}" class="material-symbols-outlined text-app-text-dim text-[20px] transition-transform">expand_more</span>
+              <span id="acc-icon-${topic.id}" class="material-symbols-outlined text-ink-dim text-[20px] transition-transform">expand_more</span>
             </div>
           </div>
-          <div id="acc-content-${topic.id}" class="hidden divide-y divide-app-border border-t border-app-border bg-app-bg/40">
+          <div id="acc-content-${topic.id}" class="hidden divide-y divide-border-subtle border-t border-border-subtle bg-washi/40">
             ${topicItems.map(renderVocabRow).join('')}
           </div>
         </div>
@@ -404,20 +372,20 @@
   function renderVocabRow(item) {
     const isForgotten = state.forgottenIds.includes(item.id);
     return `
-      <div class="p-3.5 flex items-center justify-between hover:bg-app-card-hover transition-colors">
+      <div class="p-3.5 flex items-center justify-between hover:bg-surface-alt transition-colors">
         <div class="flex items-center gap-4">
-          <span class="kanji-glyph text-3xl font-normal text-app-text w-12 text-center select-none">${item.kanji}</span>
+          <span class="kanji-glyph text-3xl font-normal text-primary w-12 text-center select-none">${item.kanji}</span>
           <div class="flex flex-col">
-            <span class="text-xs font-bold text-app-red font-sans">${item.displayReading}</span>
-            <span class="text-xs sm:text-sm text-app-text font-medium">${item.meaning}</span>
-            ${item.examples ? `<span class="text-[11px] text-app-text-dim italic mt-0.5">${item.examples}</span>` : ''}
+            <span class="text-xs font-bold text-secondary font-sans">${item.displayReading}</span>
+            <span class="text-xs sm:text-sm text-primary font-medium">${item.meaning}</span>
+            ${item.examples ? `<span class="text-[11px] text-ink-muted italic mt-0.5">${item.examples}</span>` : ''}
           </div>
         </div>
         <div class="flex items-center gap-1">
-          <button class="w-8 h-8 rounded-full flex items-center justify-center text-app-text-dim hover:text-app-text hover:bg-app-input transition-colors" onclick="app.speakWordText('${item.kanji}')" title="Nghe phát âm">
+          <button class="w-8 h-8 rounded-full flex items-center justify-center text-ink-dim hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.speakWordText('${item.kanji}')" title="Nghe phát âm">
             <span class="material-symbols-outlined text-[18px]">volume_up</span>
           </button>
-          <button class="w-8 h-8 rounded-full flex items-center justify-center ${isForgotten ? 'text-amber-500' : 'text-app-text-dim'} hover:text-amber-500 hover:bg-app-input transition-colors" onclick="app.toggleBookmarkId(${item.id})" title="Đánh dấu sổ tay">
+          <button class="w-8 h-8 rounded-full flex items-center justify-center ${isForgotten ? 'text-secondary' : 'text-ink-dim'} hover:text-secondary hover:bg-surface-alt transition-colors" onclick="app.toggleBookmarkId(${item.id})" title="Đánh dấu sổ tay">
             <span class="material-symbols-outlined text-[18px]">${isForgotten ? 'bookmark' : 'bookmark_border'}</span>
           </button>
         </div>
@@ -451,30 +419,6 @@
     const input = document.getElementById('vocab-search-input');
     if (input) input.value = '';
     onVocabSearch('');
-  }
-
-  // Universal Global Search in Topbar
-  function onGlobalSearch(query) {
-    const clearBtn = document.getElementById('global-search-clear');
-    if (clearBtn) {
-      if (query) clearBtn.classList.remove('hidden');
-      else clearBtn.classList.add('hidden');
-    }
-    if (query.trim()) {
-      switchTab('vocab');
-      setVocabSubView('list');
-      const input = document.getElementById('vocab-search-input');
-      if (input) input.value = query;
-      renderVocabTopicsList(currentVocabLevel, query);
-    }
-  }
-
-  function clearGlobalSearch() {
-    const input = document.getElementById('global-search-input');
-    if (input) input.value = '';
-    const clearBtn = document.getElementById('global-search-clear');
-    if (clearBtn) clearBtn.classList.add('hidden');
-    clearVocabSearch();
   }
 
   // Flashcards Setup
@@ -572,7 +516,7 @@
     }
   }
 
-  // ================= 8. PRACTICE SETUP & ARENA LOGIC =================
+  // ================= 7. PRACTICE SETUP & ARENA LOGIC =================
   let practiceConfig = {
     level: 'N5',
     method: 'higa_and_meaning',
@@ -598,9 +542,9 @@
       const btn = document.getElementById('p-lvl-' + lvl.toLowerCase());
       if (!btn) return;
       if (lvl === level) {
-        btn.className = "flex-1 py-3 rounded-xl bg-app-accent text-white text-xs font-bold transition-all shadow-sm";
+        btn.className = "flex-1 py-3 rounded-xl bg-primary text-washi text-xs font-bold transition-all shadow-sm";
       } else {
-        btn.className = "flex-1 py-3 rounded-xl bg-app-card border border-app-border text-app-text-muted hover:text-app-text text-xs font-bold transition-all";
+        btn.className = "flex-1 py-3 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs font-bold transition-all shadow-sm";
       }
     });
 
@@ -621,12 +565,12 @@
     list.innerHTML = topics.map(t => {
       const isChecked = practiceConfig.selectedTopicIds.has(t.id);
       return `
-        <label class="flex items-center justify-between p-3.5 rounded-xl border ${isChecked ? 'border-app-accent bg-app-input' : 'border-app-border bg-app-card'} cursor-pointer transition-all shadow-sm" onclick="app.togglePracticeTopic('${t.id}')">
+        <label class="flex items-center justify-between p-3.5 rounded-xl border ${isChecked ? 'border-primary bg-surface-alt' : 'border-border-subtle bg-surface-card'} cursor-pointer transition-all shadow-sm" onclick="app.togglePracticeTopic('${t.id}')">
           <div class="flex items-center gap-3">
-            <input type="checkbox" ${isChecked ? 'checked' : ''} class="accent-blue-500 cursor-pointer" onclick="event.stopPropagation(); app.togglePracticeTopic('${t.id}')">
-            <span class="text-xs font-bold text-app-text truncate max-w-[200px]">${t.title}</span>
+            <input type="checkbox" ${isChecked ? 'checked' : ''} class="accent-primary cursor-pointer" onclick="event.stopPropagation(); app.togglePracticeTopic('${t.id}')">
+            <span class="text-xs font-bold text-primary truncate max-w-[200px]">${t.title}</span>
           </div>
-          <span class="text-[11px] text-app-text-dim">${t.count} chữ</span>
+          <span class="text-[11px] text-ink-muted">${t.count} chữ</span>
         </label>
       `;
     }).join('');
@@ -661,12 +605,12 @@
     const btn = document.getElementById('btn-toggle-only-unremembered');
     if (thumb && btn) {
       if (practiceConfig.onlyUnremembered) {
-        btn.classList.remove('bg-app-input');
-        btn.classList.add('bg-app-red');
+        btn.classList.remove('bg-border-strong');
+        btn.classList.add('bg-secondary');
         thumb.classList.add('translate-x-6');
       } else {
-        btn.classList.remove('bg-app-red');
-        btn.classList.add('bg-app-input');
+        btn.classList.remove('bg-secondary');
+        btn.classList.add('bg-border-strong');
         thumb.classList.remove('translate-x-6');
       }
     }
@@ -774,12 +718,12 @@
       if (inputEl) {
         inputEl.value = '';
         inputEl.disabled = false;
-        inputEl.classList.remove('border-emerald-500', 'bg-emerald-500/10', 'border-app-red', 'bg-red-500/10');
-        inputEl.classList.add('border-app-border', 'bg-app-card');
+        inputEl.classList.remove('border-tertiary', 'bg-matcha-soft', 'border-secondary', 'bg-vermilion-soft');
+        inputEl.classList.add('border-border-subtle', 'bg-surface-card');
         inputEl.focus();
       }
       if (inputStatus) inputStatus.innerHTML = '<span class="material-symbols-outlined text-[24px]">keyboard</span>';
-      if (inputMsg) inputMsg.innerHTML = 'Hệ thống tự động chuyển đổi: <code class="bg-app-input px-1.5 py-0.5 rounded text-[11px] text-app-text">sakana</code> ➔ <code class="bg-app-input px-1.5 py-0.5 rounded text-[11px] text-emerald-400">さかな</code>';
+      if (inputMsg) inputMsg.innerHTML = 'Hệ thống tự động chuyển đổi: <code class="bg-surface-alt px-1.5 py-0.5 rounded text-[11px] text-primary">sakana</code> ➔ <code class="bg-surface-alt px-1.5 py-0.5 rounded text-[11px] text-tertiary font-bold">さかな</code>';
     }
 
     // Generate choices
@@ -791,7 +735,7 @@
       if (practiceConfig.method === 'higa_only' || state.preferences.mcMode === 'disabled') {
         choicesSection.classList.add('hidden');
       } else if (state.preferences.mcMode === 'after_higa' && practiceConfig.method !== 'mc_only') {
-        choicesSection.classList.add('hidden'); // wait until Hiragana is correct
+        choicesSection.classList.add('hidden');
       } else {
         choicesSection.classList.remove('hidden');
       }
@@ -820,7 +764,7 @@
       if (!btn) continue;
       const textSpan = btn.querySelector('.choice-text');
       if (textSpan) textSpan.textContent = currentChoices[i] || '';
-      btn.className = "flex items-center justify-between p-4 rounded-xl bg-app-card border border-app-border hover:border-app-accent transition-all text-left shadow-sm group cursor-pointer";
+      btn.className = "flex items-center justify-between p-4 rounded-xl bg-surface-card border border-border-subtle hover:border-primary transition-all text-left shadow-sm group cursor-pointer";
       btn.disabled = false;
     }
   }
@@ -845,20 +789,20 @@
     const validReadings = (currentWord.readings || [currentWord.displayReading]).map(r => RomajiConverter.normalize(r));
     
     if (validReadings.includes(normInput)) {
-      // Correct Hiragana reading!
+      // Correct reading!
       isInputLocked = true;
       inputEl.disabled = true;
-      inputEl.classList.remove('border-app-border', 'bg-app-card');
-      inputEl.classList.add('border-emerald-500', 'bg-emerald-500/10');
+      inputEl.classList.remove('border-border-subtle', 'bg-surface-card');
+      inputEl.classList.add('border-tertiary', 'bg-matcha-soft');
       
       const inputStatus = document.getElementById('arena-input-status-icon');
       if (inputStatus) {
-        inputStatus.innerHTML = '<span class="material-symbols-outlined text-emerald-500 text-[24px]">check_circle</span>';
+        inputStatus.innerHTML = '<span class="material-symbols-outlined text-tertiary text-[24px]">check_circle</span>';
       }
 
       const inputMsg = document.getElementById('arena-input-message');
       if (inputMsg) {
-        inputMsg.innerHTML = `<span class="text-emerald-400 font-bold">Chính xác! (${currentWord.displayReading})</span>`;
+        inputMsg.innerHTML = `<span class="text-tertiary font-bold">Chính xác! (${currentWord.displayReading})</span>`;
       }
 
       playAudioChime(true);
@@ -892,14 +836,14 @@
     if (!btn) return;
 
     if (chosenMeaning === currentWord.meaning) {
-      btn.classList.remove('bg-app-card', 'border-app-border');
-      btn.classList.add('bg-emerald-500/20', 'border-emerald-500');
+      btn.classList.remove('bg-surface-card', 'border-border-subtle');
+      btn.classList.add('bg-matcha-soft', 'border-tertiary');
       playAudioChime(true);
       markQuestionResult(true);
       setTimeout(() => advanceNextWord(), 380);
     } else {
-      btn.classList.remove('bg-app-card', 'border-app-border');
-      btn.classList.add('bg-red-500/20', 'border-app-red', 'animate-shake');
+      btn.classList.remove('bg-surface-card', 'border-border-subtle');
+      btn.classList.add('bg-vermilion-soft', 'border-secondary', 'animate-shake');
       playAudioChime(false);
       hadErrorOnCurrent = true;
       markQuestionResult(false);
@@ -1001,15 +945,15 @@
       const wrongWords = practiceDeck.filter(w => currentRoundWrongIds.has(w.id));
       if (unrememberedList) {
         unrememberedList.innerHTML = wrongWords.map(w => `
-          <div class="bg-app-input p-3 rounded-xl border border-app-border flex items-center justify-between">
+          <div class="bg-surface-alt p-3 rounded-xl border border-border-subtle flex items-center justify-between">
             <div class="flex items-center gap-3">
-              <span class="kanji-glyph text-2xl font-normal text-app-text">${w.kanji}</span>
+              <span class="kanji-glyph text-2xl font-normal text-primary">${w.kanji}</span>
               <div>
-                <span class="text-xs font-bold text-app-red block">${w.displayReading}</span>
-                <span class="text-xs text-app-text font-medium truncate max-w-[130px] block">${w.meaning}</span>
+                <span class="text-xs font-bold text-secondary block">${w.displayReading}</span>
+                <span class="text-xs text-primary font-medium truncate max-w-[130px] block">${w.meaning}</span>
               </div>
             </div>
-            <button class="w-8 h-8 rounded-full flex items-center justify-center text-app-text-dim hover:text-app-text hover:bg-app-card" onclick="app.speakWordText('${w.kanji}')">
+            <button class="w-8 h-8 rounded-full flex items-center justify-center text-ink-dim hover:text-primary hover:bg-surface-card" onclick="app.speakWordText('${w.kanji}')">
               <span class="material-symbols-outlined text-[18px]">volume_up</span>
             </button>
           </div>
@@ -1079,10 +1023,10 @@
     if (!icon) return;
     if (state.forgottenIds.includes(id)) {
       icon.textContent = 'bookmark';
-      icon.parentElement.classList.add('text-amber-500');
+      icon.parentElement.classList.add('text-secondary');
     } else {
       icon.textContent = 'bookmark_border';
-      icon.parentElement.classList.remove('text-amber-500');
+      icon.parentElement.classList.remove('text-secondary');
     }
   }
 
@@ -1098,7 +1042,7 @@
     if (!views.profile.classList.contains('hidden')) renderProfileScreen();
   }
 
-  // ================= 9. JUMP GRID MODAL (⊞ CHỌN CÂU) =================
+  // ================= 8. JUMP GRID MODAL (⊞ CHỌN CÂU) =================
   function openJumpGrid() {
     const modal = document.getElementById('modal-jump-grid');
     const grid = document.getElementById('jump-grid-container');
@@ -1106,15 +1050,15 @@
 
     grid.innerHTML = practiceDeck.map((word, i) => {
       const status = questionStatus[i] || 'unvisited';
-      let colorClass = 'bg-app-input text-app-text-muted border-app-border';
+      let colorClass = 'bg-surface-alt text-ink-muted border-border-subtle';
       if (status === 'correct') {
-        colorClass = 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40 font-bold';
+        colorClass = 'bg-matcha-soft text-tertiary border-tertiary font-bold';
       } else if (status === 'wrong' || state.forgottenIds.includes(word.id)) {
-        colorClass = 'bg-red-500/20 text-app-red border-red-500/40 font-bold';
+        colorClass = 'bg-vermilion-soft text-secondary border-secondary font-bold';
       }
 
       if (i === currentIndex) {
-        colorClass += ' ring-2 ring-app-accent';
+        colorClass += ' ring-2 ring-primary';
       }
 
       return `
@@ -1138,7 +1082,7 @@
     loadArenaWord(index);
   }
 
-  // ================= 10. SETTINGS MODAL (⚙️ CÀI ĐẶT) =================
+  // ================= 9. SETTINGS MODAL (⚙️ CÀI ĐẶT) =================
   function openSettings() {
     const modal = document.getElementById('modal-settings');
     if (!modal) return;
@@ -1199,12 +1143,12 @@
     const sThumb = document.getElementById('toggle-sound-thumb');
     if (sBtn && sThumb) {
       if (state.preferences.soundEnabled) {
-        sBtn.classList.remove('bg-app-input');
-        sBtn.classList.add('bg-app-accent');
+        sBtn.classList.remove('bg-border-strong');
+        sBtn.classList.add('bg-primary');
         sThumb.classList.add('translate-x-6');
       } else {
-        sBtn.classList.remove('bg-app-accent');
-        sBtn.classList.add('bg-app-input');
+        sBtn.classList.remove('bg-primary');
+        sBtn.classList.add('bg-border-strong');
         sThumb.classList.remove('translate-x-6');
       }
     }
@@ -1213,12 +1157,12 @@
     const rThumb = document.getElementById('toggle-romaji-thumb');
     if (rBtn && rThumb) {
       if (state.preferences.romajiAutoConvert) {
-        rBtn.classList.remove('bg-app-input');
-        rBtn.classList.add('bg-app-accent');
+        rBtn.classList.remove('bg-border-strong');
+        rBtn.classList.add('bg-primary');
         rThumb.classList.add('translate-x-6');
       } else {
-        rBtn.classList.remove('bg-app-accent');
-        rBtn.classList.add('bg-app-input');
+        rBtn.classList.remove('bg-primary');
+        rBtn.classList.add('bg-border-strong');
         rThumb.classList.remove('translate-x-6');
       }
     }
@@ -1235,7 +1179,7 @@
     }
   }
 
-  // ================= 11. PROFILE SCREEN LOGIC =================
+  // ================= 10. PROFILE SCREEN LOGIC =================
   function renderProfileScreen() {
     const streakBadge = document.getElementById('profile-streak-badge');
     if (streakBadge) streakBadge.textContent = state.streak;
@@ -1278,7 +1222,7 @@
     }
   }
 
-  // ================= 12. GLOBAL KEYBOARD SHORTCUTS =================
+  // ================= 11. GLOBAL KEYBOARD SHORTCUTS =================
   function initKeyboardShortcuts() {
     window.addEventListener('keydown', (e) => {
       const jumpGridOpen = !document.getElementById('modal-jump-grid').classList.contains('hidden');
@@ -1332,7 +1276,7 @@
     });
   }
 
-  // Navigation Shortcut Helpers
+  // Shortcuts Helpers
   function startPracticeFromHome(level) {
     switchTab('practice');
     setPracticeLevel(level.toUpperCase());
@@ -1376,7 +1320,7 @@
     const thumb = document.getElementById('thumb-only-unremembered');
     const btn = document.getElementById('btn-toggle-only-unremembered');
     if (thumb && btn) {
-      btn.classList.add('bg-app-red');
+      btn.classList.add('bg-secondary');
       thumb.classList.add('translate-x-6');
     }
     const isRadical = practiceConfig.level === 'RADICALS';
@@ -1389,9 +1333,8 @@
     }
   }
 
-  // ================= 13. INITIALIZATION =================
+  // ================= 12. INITIALIZATION =================
   function init() {
-    initTheme();
     initVoices();
     initKeyboardShortcuts();
     updateHeaderTTSButton();
@@ -1401,13 +1344,9 @@
 
   document.addEventListener('DOMContentLoaded', init);
 
-  // Expose methods to global app namespace for inline HTML calls
+  // Expose global app methods
   window.app = {
     switchTab,
-    toggleTheme,
-    toggleMobileSidebar,
-    onGlobalSearch,
-    clearGlobalSearch,
     renderHomeScreen,
     renderVocabScreen,
     renderProfileScreen,
