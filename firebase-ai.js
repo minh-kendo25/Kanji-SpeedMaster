@@ -2,7 +2,7 @@
 // Includes: Firebase AI Logic + App Check (reCAPTCHA v3) + Google Auth + Firestore Real-Time Sync
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app-check.js";
+import { initializeAppCheck, ReCaptchaV3Provider, getToken } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app-check.js";
 import { getAI, getGenerativeModel, GoogleAIBackend } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-ai.js";
 import {
   getAuth,
@@ -33,6 +33,7 @@ const firebaseConfig = {
 const RECAPTCHA_V3_SITE_KEY = "6LfPhSwuAAAAAHfup9qNZQ4KN_iIX2krlTFQREVV";
 
 let firebaseApp = null;
+let appCheckInstance = null;
 let aiService = null;
 let authService = null;
 let dbService = null;
@@ -40,7 +41,7 @@ let initError = null;
 
 try {
   firebaseApp = initializeApp(firebaseConfig);
-  initializeAppCheck(firebaseApp, {
+  appCheckInstance = initializeAppCheck(firebaseApp, {
     provider: new ReCaptchaV3Provider(RECAPTCHA_V3_SITE_KEY),
     isTokenAutoRefreshEnabled: true
   });
@@ -54,14 +55,24 @@ try {
 
 // ================= 1. FIREBASE AI LOGIC =================
 const FALLBACK_MODELS = [
+  "gemini-2.5-flash-lite",
   "gemini-2.5-flash",
-  "gemini-2.0-flash",
-  "gemini-2.0-flash-lite"
+  "gemini-2.0-flash"
 ];
 
 async function ask(query, history = [], systemInstruction = "") {
   if (initError || !aiService) {
     throw initError || new Error("Firebase AI Logic chưa được khởi tạo.");
+  }
+
+  // Verify App Check token first so we surface clear diagnostics if misconfigured
+  if (appCheckInstance) {
+    try {
+      await getToken(appCheckInstance, false);
+    } catch (acErr) {
+      console.error("[Firebase App Check] Token fetch failed:", acErr);
+      throw new Error(`App Check chưa xác thực được (${acErr.code || acErr.message}). Hãy kiểm tra đã dán Secret Key reCAPTCHA v3 vào Firebase Console -> App Check -> Kanji Kachi Web chưa!`);
+    }
   }
 
   const contents = [];
