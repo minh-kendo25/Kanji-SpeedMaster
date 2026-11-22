@@ -373,7 +373,7 @@
               <h3 class="font-serif font-bold text-sm sm:text-base text-primary group-hover:text-secondary transition-colors truncate">
                 ${t.title}
               </h3>
-              <p class="text-[11px] text-ink-muted leading-relaxed">Bộ từ vựng Hán tự trọng tâm trong giáo trình Marugoto & Minna.</p>
+              <p class="text-[11px] text-ink-muted leading-relaxed">Bộ từ vựng Hán tự trọng tâm chuẩn JLPT N5 & N4.</p>
             </div>
 
             <div class="mt-4 pt-3 border-t border-border-subtle flex items-center justify-between">
