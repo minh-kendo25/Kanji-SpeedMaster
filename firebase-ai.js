@@ -55,9 +55,9 @@ try {
 
 // ================= 1. FIREBASE AI LOGIC =================
 const FALLBACK_MODELS = [
-  "gemini-2.5-flash-lite",
-  "gemini-2.5-flash",
-  "gemini-2.0-flash"
+  "gemini-3.5-flash-lite",
+  "gemini-3.8-flash",
+  "gemini-2.5-flash"
 ];
 
 async function ask(query, history = [], systemInstruction = "") {
@@ -250,6 +250,12 @@ async function syncProgress(payload) {
 
   if (payload.lastStudiedKanjiId !== undefined) {
     additions.lastStudiedKanjiId = payload.lastStudiedKanjiId;
+  }
+  if (payload.aiTokenDay !== undefined) {
+    additions.aiTokenDay = payload.aiTokenDay;
+  }
+  if (payload.aiTokensUsed !== undefined) {
+    additions.aiTokensUsed = payload.aiTokensUsed;
   }
 
   await setDoc(userRef, { ...updates, ...additions }, { merge: true });

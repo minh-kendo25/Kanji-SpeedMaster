@@ -84,17 +84,27 @@
     return utc7.toISOString().slice(0, 10);
   }
 
+  function getActiveAccountKey() {
+    const user = window.kanjiFirebaseSync ? window.kanjiFirebaseSync.getCurrentUser() : null;
+    return (user && user.uid) ? user.uid : 'guest';
+  }
+
   function getAiTokenQuota() {
     const today = getVietnamDateStr();
-    if (!state.aiTokens || typeof state.aiTokens !== 'object' || state.aiTokens.day !== today) {
-      state.aiTokens = {
+    const accKey = getActiveAccountKey();
+    if (!state.aiTokensByAccount || typeof state.aiTokensByAccount !== 'object') {
+      state.aiTokensByAccount = {};
+    }
+    const current = state.aiTokensByAccount[accKey];
+    if (!current || typeof current !== 'object' || current.day !== today) {
+      state.aiTokensByAccount[accKey] = {
         day: today,
         used: 0,
         limit: 12000
       };
       saveState();
     }
-    return state.aiTokens;
+    return state.aiTokensByAccount[accKey];
   }
 
   function consumeAiTokens(amount) {
@@ -102,6 +112,10 @@
     quota.used = Math.min(quota.limit, (quota.used || 0) + amount);
     saveState();
     updateAiTokenUi();
+    syncDeltaToCloud({
+      aiTokenDay: quota.day,
+      aiTokensUsed: quota.used
+    });
     return quota.limit - quota.used;
   }
 
@@ -2092,20 +2106,46 @@ Nhiệm vụ của bạn:
     }
   }
 
+  let lastSyncedUid = null;
+
   function mergeCloudProgress(cloudData) {
-    if (!cloudData) return;
+    const user = window.kanjiFirebaseSync ? window.kanjiFirebaseSync.getCurrentUser() : null;
+    const uid = user ? user.uid : null;
+    const switchedAccount = uid !== lastSyncedUid;
+    lastSyncedUid = uid;
+
+    if (!cloudData) {
+      if (switchedAccount) {
+        state.rememberedIds = [];
+        state.forgottenIds = [];
+        saveState();
+      }
+      updateAiTokenUi();
+      return;
+    }
 
     const cloudPractice = Array.isArray(cloudData.practiceRememberedIds) ? cloudData.practiceRememberedIds : [];
     const cloudVocab = Array.isArray(cloudData.vocabRememberedIds) ? cloudData.vocabRememberedIds : [];
     const cloudReview = Array.isArray(cloudData.reviewNeededIds) ? cloudData.reviewNeededIds : [];
 
-    // Union remembered IDs from both Practice & Vocab on App + Web
-    const mergedRemembered = new Set([...state.rememberedIds, ...cloudPractice, ...cloudVocab]);
-    const mergedForgotten = new Set([...state.forgottenIds, ...cloudReview]);
+    if (switchedAccount) {
+      // Fresh account load: use this account's cloud progress directly
+      state.rememberedIds = Array.from(new Set([...cloudPractice, ...cloudVocab]));
+      state.forgottenIds = Array.from(new Set(cloudReview));
+    } else {
+      state.rememberedIds = Array.from(new Set([...state.rememberedIds, ...cloudPractice, ...cloudVocab]));
+      state.forgottenIds = Array.from(new Set([...state.forgottenIds, ...cloudReview]));
+    }
 
-    state.rememberedIds = Array.from(mergedRemembered);
-    state.forgottenIds = Array.from(mergedForgotten);
+    // Sync per-account AI token usage from Firestore if same Vietnam day
+    const today = getVietnamDateStr();
+    if (cloudData.aiTokenDay === today && typeof cloudData.aiTokensUsed === 'number') {
+      const quota = getAiTokenQuota();
+      quota.used = Math.max(quota.used || 0, cloudData.aiTokensUsed);
+    }
+
     saveState();
+    updateAiTokenUi();
 
     if (cloudData.profileDisplayName) {
       const profileName = document.getElementById('profile-display-name');
@@ -2166,6 +2206,10 @@ Nhiệm vụ của bạn:
       if (window.kanjiFirebaseSync && window.kanjiFirebaseSync.isReady()) {
         window.kanjiFirebaseSync.onAuthChange((user) => {
           updateAuthUI(user);
+          if (!user) {
+            lastSyncedUid = null;
+          }
+          updateAiTokenUi();
         });
         window.kanjiFirebaseSync.onCloudProgress((cloudData) => {
           mergeCloudProgress(cloudData);
