@@ -414,9 +414,15 @@
                 <span id="flashcard-active-topic-title" class="text-xs sm:text-sm font-bold text-primary truncate">Số đếm & Tiền tệ</span>
               </div>
 
-            <!-- 3D Card Canvas (Scaled nicely for Web) -->
-            <div class="perspective-1000 w-full min-h-[370px] sm:min-h-[400px] cursor-pointer" onclick="app.flipFlashcard()">
-              <div id="flashcard-inner" class="relative w-full h-[370px] sm:h-[400px] rounded-2xl transition-transform duration-500 transform-style-3d shadow-md">
+            <!-- 3D Card Deck Stack (Giống bộ bài xếp chồng) -->
+            <div class="relative pt-1 pb-2">
+              <!-- Subtle Deck Shadow Cards Underneath -->
+              <div class="pointer-events-none absolute inset-x-6 top-4 bottom-0 rounded-2xl bg-surface-card/60 border border-border-subtle/70 shadow-sm"></div>
+              <div class="pointer-events-none absolute inset-x-3 top-2.5 bottom-1 rounded-2xl bg-surface-card/85 border border-border-subtle shadow-sm"></div>
+
+              <!-- Active Moving Card Stage -->
+              <div id="flashcard-stage" class="relative z-10 perspective-1000 w-full min-h-[370px] sm:min-h-[400px] cursor-pointer" onclick="app.flipFlashcard()">
+                <div id="flashcard-inner" class="relative w-full h-[370px] sm:h-[400px] rounded-2xl transition-transform duration-500 transform-style-3d shadow-md">
                 
                 <!-- Front Face -->
                 <div class="absolute inset-0 w-full h-full bg-surface-card border border-border-subtle rounded-2xl p-7 flex flex-col justify-between items-center text-center backface-hidden">
@@ -468,6 +474,7 @@
                   </div>
                 </div>
 
+              </div>
               </div>
             </div>
 

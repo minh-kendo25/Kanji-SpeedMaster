@@ -728,8 +728,35 @@
     renderFlashcardCard();
   }
 
+  let isFlashcardAnimating = false;
+
+  function animateFlashcardNext(direction) {
+    const stage = document.getElementById('flashcard-stage');
+    if (!stage) {
+      nextFlashcard();
+      return;
+    }
+
+    isFlashcardAnimating = true;
+    stage.classList.remove('fc-anim-right', 'fc-anim-left', 'fc-anim-deal');
+    void stage.offsetWidth; // trigger reflow
+    stage.classList.add(direction === 'right' ? 'fc-anim-right' : 'fc-anim-left');
+
+    setTimeout(() => {
+      nextFlashcard();
+      stage.classList.remove('fc-anim-right', 'fc-anim-left');
+      void stage.offsetWidth;
+      stage.classList.add('fc-anim-deal');
+
+      setTimeout(() => {
+        stage.classList.remove('fc-anim-deal');
+        isFlashcardAnimating = false;
+      }, 260);
+    }, 220);
+  }
+
   function markFlashcardRemembered() {
-    if (flashcardDeck.length === 0) return;
+    if (flashcardDeck.length === 0 || isFlashcardAnimating) return;
     const item = flashcardDeck[flashcardIndex];
     if (!state.rememberedIds.includes(item.id)) {
       state.rememberedIds.push(item.id);
@@ -742,11 +769,11 @@
       removeReviewNeeded: [item.id],
       lastStudiedKanjiId: item.id
     });
-    nextFlashcard();
+    animateFlashcardNext('right');
   }
 
   function markFlashcardForgotten() {
-    if (flashcardDeck.length === 0) return;
+    if (flashcardDeck.length === 0 || isFlashcardAnimating) return;
     const item = flashcardDeck[flashcardIndex];
     if (!state.forgottenIds.includes(item.id)) {
       state.forgottenIds.push(item.id);
@@ -756,7 +783,7 @@
       addReviewNeeded: [item.id],
       lastStudiedKanjiId: item.id
     });
-    nextFlashcard();
+    animateFlashcardNext('left');
   }
 
   function speakFlashcardWord() {

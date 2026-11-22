@@ -336,3 +336,49 @@ html, body {
   background-image: radial-gradient(#EFEBE4 1px, transparent 1px);
   background-size: 12px 12px;
 }
+
+/* ================= FLASHCARD DECK SHUFFLE ANIMATIONS ================= */
+@keyframes fcSwipeRight {
+  0% {
+    transform: translateX(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(140px) translateY(-14px) rotate(13deg) scale(0.92);
+    opacity: 0;
+  }
+}
+
+@keyframes fcSwipeLeft {
+  0% {
+    transform: translateX(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-140px) translateY(-14px) rotate(-13deg) scale(0.92);
+    opacity: 0;
+  }
+}
+
+@keyframes fcDealIn {
+  0% {
+    transform: translateY(18px) scale(0.93);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.fc-anim-right {
+  animation: fcSwipeRight 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.fc-anim-left {
+  animation: fcSwipeLeft 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.fc-anim-deal {
+  animation: fcDealIn 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
