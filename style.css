@@ -1,24 +1,50 @@
-/* Kanji Kachi - Modern Sumi & Paper Theme */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+/* Kanji Kachi - Desktop Web Edition (Quizlet Inspired) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 :root {
-  --bg-washi: #fbf9f5;
-  --surface-low: #f5f3ef;
-  --surface-container: #efeeea;
-  --surface-high: #eae8e4;
-  --surface-highest: #e4e2de;
-  --surface-card: #ffffff;
-  --ink-primary: #080d13;
-  --ink-secondary: #1e232a;
-  --ink-muted: #45474b;
-  --ink-border: #e4e2de;
-  --vermilion: #b52517;
-  --vermilion-soft: #ffdad4;
-  --matcha: #4a7c59;
-  --matcha-soft: #e8f5e9;
+  /* Dark Theme (Default - Quizlet / Sleek Ink Navy) */
+  --bg-app: #0b0f19;
+  --bg-sidebar: #0f172a;
+  --bg-topbar: #0f172a;
+  --bg-card: #151e33;
+  --bg-card-hover: #1c2742;
+  --bg-input: #1a233a;
+  --border-color: #24304f;
+  --border-subtle: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  --primary-accent: #3b82f6;
+  --primary-hover: #2563eb;
+  --vermilion: #ef4444;
+  --vermilion-soft: rgba(239, 68, 68, 0.15);
+  --matcha: #10b981;
+  --matcha-soft: rgba(16, 185, 129, 0.15);
   --font-serif: 'Noto Serif', serif;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --sidebar-width: 250px;
+}
+
+/* Light Theme overrides */
+body.theme-light {
+  --bg-app: #f8fafc;
+  --bg-sidebar: #ffffff;
+  --bg-topbar: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-input: #f1f5f9;
+  --border-color: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #94a3b8;
+  --primary-accent: #2563eb;
+  --primary-hover: #1d4ed8;
+  --vermilion: #dc2626;
+  --vermilion-soft: #fee2e2;
+  --matcha: #059669;
+  --matcha-soft: #d1fae5;
 }
 
 * {
@@ -30,21 +56,74 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
-  background-color: var(--bg-washi);
-  color: var(--ink-primary);
+  height: 100%;
+  background-color: var(--bg-app);
+  color: var(--text-main);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
-/* Hide scrollbars but keep scroll functionality */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+/* Layout container */
+#app-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+
+/* Sidebar */
+#app-sidebar {
+  width: var(--sidebar-width);
+  height: 100%;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 40;
+}
+
+/* Main workspace */
+#app-main-workspace {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--bg-app);
+}
+
+/* Scrollable page body */
+#app-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.5rem 2rem 4rem 2rem;
+}
+
+@media (max-width: 768px) {
+  #app-scroll-content {
+    padding: 1rem 1rem 5rem 1rem;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
 }
 
 /* Kanji display styling */
@@ -68,7 +147,32 @@ html, body {
   transform: rotateY(180deg);
 }
 
-/* Gentle feedback animations */
+/* Keyboard hint badges */
+.key-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background-color: var(--bg-input);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+/* Active navigation item styling */
+.nav-item-active {
+  background-color: var(--bg-card);
+  color: var(--text-main) !important;
+  font-weight: 600;
+  border-left: 3px solid var(--vermilion);
+}
+
+/* Feedback animations */
 @keyframes shakeX {
   0%, 100% { transform: translateX(0); }
   20%, 60% { transform: translateX(-6px); }
@@ -80,47 +184,9 @@ html, body {
 
 @keyframes popSuccess {
   0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.04); }
   100% { transform: scale(1); }
 }
 .animate-pop {
   animation: popSuccess 0.3s ease-out;
-}
-
-@keyframes pulseSubtle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-.animate-subtle-pulse {
-  animation: pulseSubtle 1.8s infinite;
-}
-
-/* Smooth transitions */
-.transition-card {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Mobile safe areas */
-.pt-safe {
-  padding-top: max(env(safe-area-inset-top), 0px);
-}
-.pb-safe {
-  padding-bottom: max(env(safe-area-inset-bottom), 12px);
-}
-
-/* Keyboard hint badges */
-.key-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1;
-  padding: 2px 6px;
-  border-radius: 4px;
-  background-color: var(--surface-high);
-  color: var(--ink-muted);
-  border: 1px solid var(--ink-border);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
 }
