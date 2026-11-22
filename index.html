@@ -153,17 +153,8 @@
       </div>
 
       <!-- Sidebar Footer -->
-      <div class="p-3 border-t border-border-subtle bg-surface-alt/50 flex items-center justify-between text-xs">
+      <div class="p-3 border-t border-border-subtle bg-surface-alt/50 flex items-center justify-center text-xs">
         <span class="text-ink-dim text-[11px] font-medium">Kanji Kachi v2.0</span>
-        <div class="flex items-center gap-2">
-          <button class="w-7 h-7 rounded-lg hover:bg-surface-card flex items-center justify-center text-ink-muted hover:text-primary transition-colors" onclick="app.toggleTheme()" title="Chuyển chế độ Tối / Sáng">
-            <span id="sidebar-icon-theme" class="material-symbols-outlined text-[16px]">dark_mode</span>
-          </button>
-          <button class="text-ink-muted hover:text-primary flex items-center gap-1 font-semibold" onclick="app.openSettings()">
-            <span class="material-symbols-outlined text-[16px]">settings</span>
-            <span>Cài đặt</span>
-          </button>
-        </div>
       </div>
 
     </aside>
@@ -666,7 +657,6 @@
               <!-- Top Tags -->
               <div class="absolute top-4 left-5 flex items-center gap-2">
                 <span id="arena-level-chip" class="px-3 py-1 rounded-lg bg-surface-alt text-xs font-bold text-primary">N5</span>
-                <span id="arena-streak-badge" class="px-3 py-1 rounded-lg bg-vermilion-soft text-xs font-bold text-secondary hidden">🔥 Streak: <span id="arena-streak-num">0</span></span>
               </div>
 
               <!-- Ask AI Context Button -->
@@ -790,7 +780,7 @@
                 <p class="text-xs text-ink-muted">Bạn đã hoàn thành lượt luyện tập với kết quả xuất sắc.</p>
               </div>
 
-              <div class="grid grid-cols-3 gap-3 text-center py-2">
+              <div class="grid grid-cols-2 gap-3 text-center py-2">
                 <div class="bg-surface-alt p-4 rounded-xl border border-border-subtle">
                   <span class="text-[11px] text-ink-muted font-medium block">Tổng số từ</span>
                   <span id="summary-total" class="font-serif font-bold text-xl text-primary mt-1 block">35</span>
@@ -798,10 +788,6 @@
                 <div class="bg-surface-alt p-4 rounded-xl border border-border-subtle">
                   <span class="text-[11px] text-ink-muted font-medium block">Số câu đúng</span>
                   <span id="summary-correct" class="font-serif font-bold text-xl text-tertiary mt-1 block">32</span>
-                </div>
-                <div class="bg-surface-alt p-4 rounded-xl border border-border-subtle">
-                  <span class="text-[11px] text-ink-muted font-medium block">Chuỗi cao nhất</span>
-                  <span id="summary-max-streak" class="font-serif font-bold text-xl text-secondary mt-1 block">15 🔥</span>
                 </div>
               </div>
 
@@ -857,9 +843,6 @@
                 <span id="profile-sync-badge" class="px-3 py-1 rounded-full bg-surface-alt text-ink-muted text-xs font-bold border border-border-subtle flex items-center gap-1.5">
                   <span class="material-symbols-outlined text-[15px]">cloud_off</span>
                   <span>Chưa đồng bộ</span>
-                </span>
-                <span class="px-3 py-1 rounded-full bg-vermilion-soft text-secondary text-xs font-bold">
-                  Chuỗi <strong id="profile-streak-badge">1</strong> ngày 🔥
                 </span>
               </div>
               <div class="pt-3 flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
@@ -920,7 +903,79 @@
                 </div>
                 <div>
                   <span class="text-xs sm:text-sm font-bold text-secondary block">Đặt lại toàn bộ tiến độ</span>
-                  <span class="text-[11px] text-ink-muted">Xóa sạch streak, từ đã thuộc và bắt đầu lại từ đầu</span>
+                  <span class="text-[11px] text-ink-muted">Xóa sạch từ đã thuộc, từ cần ôn lại và bắt đầu lại từ đầu</span>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
+            </div>
+          </div>
+
+          <!-- THÔNG TIN & TRỢ GIÚP (BÊ TỪ MOBILE APP SANG WEB) -->
+          <div class="bg-surface-card rounded-2xl border border-border-subtle divide-y divide-border-subtle shadow-sm overflow-hidden">
+            <div class="px-5 py-3 bg-surface-alt/50">
+              <span class="text-[11px] font-bold text-ink-dim uppercase tracking-wider">Thông tin & Trợ giúp</span>
+            </div>
+
+            <div class="p-4 flex items-center justify-between hover:bg-surface-alt transition-colors cursor-pointer" onclick="app.openLegalModal('support')">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-surface-alt flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[20px]">help_outline</span>
+                </div>
+                <div>
+                  <span class="text-xs sm:text-sm font-bold text-primary block">Trung tâm hỗ trợ & FAQ</span>
+                  <span class="text-[11px] text-ink-muted">Hướng dẫn đồng bộ App ⇄ Web, phát âm, liên hệ</span>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
+            </div>
+
+            <div class="p-4 flex items-center justify-between hover:bg-surface-alt transition-colors cursor-pointer" onclick="app.openLegalModal('about')">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-surface-alt flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[20px]">info</span>
+                </div>
+                <div>
+                  <span class="text-xs sm:text-sm font-bold text-primary block">Về Kanji Kachi</span>
+                  <span class="text-[11px] text-ink-muted">Ý nghĩa, phương pháp học & thông tin nhà phát triển</span>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
+            </div>
+
+            <div class="p-4 flex items-center justify-between hover:bg-surface-alt transition-colors cursor-pointer" onclick="app.openLegalModal('terms')">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-surface-alt flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[20px]">description</span>
+                </div>
+                <div>
+                  <span class="text-xs sm:text-sm font-bold text-primary block">Điều khoản dịch vụ</span>
+                  <span class="text-[11px] text-ink-muted">Quy định sử dụng nền tảng Kanji Kachi</span>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
+            </div>
+
+            <div class="p-4 flex items-center justify-between hover:bg-surface-alt transition-colors cursor-pointer" onclick="app.openLegalModal('privacy')">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-surface-alt flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[20px]">shield</span>
+                </div>
+                <div>
+                  <span class="text-xs sm:text-sm font-bold text-primary block">Chính sách quyền riêng tư</span>
+                  <span class="text-[11px] text-ink-muted">Cam kết bảo vệ dữ liệu tài khoản & quyền riêng tư</span>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
+            </div>
+
+            <div class="p-4 flex items-center justify-between hover:bg-surface-alt transition-colors cursor-pointer" onclick="app.openLegalModal('licenses')">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-surface-alt flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[20px]">code</span>
+                </div>
+                <div>
+                  <span class="text-xs sm:text-sm font-bold text-primary block">Giấy phép mã nguồn mở</span>
+                  <span class="text-[11px] text-ink-muted">Các thư viện và phông chữ được sử dụng</span>
                 </div>
               </div>
               <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
@@ -1192,8 +1247,73 @@
     </div>
   </div>
 
+  <!-- ================= MODAL: BẮT BUỘC ĐỒNG Ý ĐIỀU KHOẢN & DỊCH VỤ ================= -->
+  <div id="modal-terms-consent" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+    <div class="bg-surface-card w-full max-w-md rounded-2xl p-6 sm:p-7 border border-border-subtle shadow-2xl space-y-5">
+      <div class="flex items-center gap-3 pb-3 border-b border-border-subtle">
+        <img src="logo.png" alt="Kanji Kachi" class="w-10 h-10 rounded-xl border border-border-subtle object-contain flex-shrink-0">
+        <div>
+          <h3 class="font-serif font-bold text-base sm:text-lg text-primary">Chào mừng đến với Kanji Kachi</h3>
+          <span class="text-[11px] text-ink-muted">Vui lòng xác nhận điều khoản trước khi bắt đầu</span>
+        </div>
+      </div>
+
+      <div class="space-y-3 text-xs text-ink-muted leading-relaxed">
+        <p>Để tiếp tục sử dụng nền tảng học Hán tự <strong class="text-primary">Kanji Kachi</strong> (bao gồm tính năng Flashcard, Luyện phản xạ, Đồng bộ đám mây và Gia sư Kanji AI), bạn vui lòng đọc và đồng ý với các quy định của chúng tôi:</p>
+
+        <div class="grid grid-cols-2 gap-2.5 pt-1">
+          <button type="button" class="p-2.5 rounded-xl bg-surface-alt hover:bg-border-subtle border border-border-subtle text-primary font-bold text-xs flex items-center justify-center gap-1.5 transition-colors" onclick="app.openLegalModal('terms')">
+            <span class="material-symbols-outlined text-[16px] text-secondary">description</span>
+            <span>Điều khoản dịch vụ</span>
+          </button>
+          <button type="button" class="p-2.5 rounded-xl bg-surface-alt hover:bg-border-subtle border border-border-subtle text-primary font-bold text-xs flex items-center justify-center gap-1.5 transition-colors" onclick="app.openLegalModal('privacy')">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">shield</span>
+            <span>Quyền riêng tư</span>
+          </button>
+        </div>
+
+        <div class="space-y-2.5 pt-2 border-t border-border-subtle">
+          <label class="flex items-start gap-2.5 cursor-pointer select-none">
+            <input id="terms-check-read" type="checkbox" class="mt-0.5 w-4 h-4 accent-secondary cursor-pointer flex-shrink-0" onchange="app.onTermsCheckChange()">
+            <span class="text-xs text-primary font-medium leading-snug">Tôi đã đọc và đồng ý với <strong>Điều khoản dịch vụ</strong> và <strong>Chính sách quyền riêng tư</strong> của Kanji Kachi. <span class="text-secondary">*</span></span>
+          </label>
+
+          <label class="flex items-start gap-2.5 cursor-pointer select-none">
+            <input id="terms-check-dont-show" type="checkbox" checked class="mt-0.5 w-4 h-4 accent-primary cursor-pointer flex-shrink-0">
+            <span class="text-xs text-ink-muted leading-snug">Không hiển thị lại thông báo này ở các lần truy cập sau.</span>
+          </label>
+        </div>
+      </div>
+
+      <button id="btn-terms-accept" type="button" disabled class="w-full py-3 rounded-xl bg-primary text-washi font-bold text-xs sm:text-sm transition-all shadow-sm disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/95" onclick="app.acceptTermsConsent()">
+        Đồng ý & Bắt đầu học
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= MODAL: ĐỌC NỘI DUNG PHÁP LÝ & TRỢ GIÚP ================= -->
+  <div id="modal-legal" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden" onclick="if (event.target === this) app.closeLegalModal()">
+    <div class="bg-surface-card w-full max-w-2xl rounded-2xl border border-border-subtle shadow-2xl flex flex-col max-h-[85vh] overflow-hidden">
+      <div class="px-6 py-4 border-b border-border-subtle flex items-center justify-between flex-shrink-0 bg-surface-alt/50">
+        <h3 id="legal-modal-title" class="font-serif font-bold text-base sm:text-lg text-primary">Thông tin</h3>
+        <button class="w-8 h-8 rounded-full hover:bg-surface-card flex items-center justify-center text-ink-dim hover:text-primary transition-colors" onclick="app.closeLegalModal()">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+      <div id="legal-modal-body" class="flex-1 overflow-y-auto p-6 space-y-3 text-xs sm:text-sm text-ink-muted leading-relaxed">
+        <!-- Rendered from legal.js -->
+      </div>
+      <div class="px-6 py-3.5 border-t border-border-subtle bg-surface-card flex-shrink-0">
+        <button class="w-full py-2.5 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.closeLegalModal()">
+          Đóng
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script type="module" src="firebase-ai.js"></script>
+  <script src="legal.js"></script>
   <script src="data.js"></script>
   <script src="romaji.js"></script>
   <script src="app.js"></script>

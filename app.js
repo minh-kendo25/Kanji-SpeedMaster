@@ -8,7 +8,6 @@
   const STORAGE_KEY = 'kanji_kachi_state_clean_v1';
 
   const defaultState = {
-    streak: 1,
     lastPracticeDate: null,
     totalPracticed: 0,
     correctCount: 0,
@@ -56,25 +55,6 @@
     } catch (e) {
       console.warn('Could not save to localStorage:', e);
     }
-  }
-
-  function updateDailyStreak() {
-    const today = new Date().toISOString().slice(0, 10);
-    if (!state.lastPracticeDate) {
-      state.streak = 1;
-      state.lastPracticeDate = today;
-    } else if (state.lastPracticeDate !== today) {
-      const last = new Date(state.lastPracticeDate);
-      const now = new Date(today);
-      const diffDays = Math.round((now - last) / (1000 * 60 * 60 * 24));
-      if (diffDays === 1) {
-        state.streak += 1;
-      } else if (diffDays > 1) {
-        state.streak = 1;
-      }
-      state.lastPracticeDate = today;
-    }
-    saveState();
   }
 
   // AI Token Quota Helpers (UTC+7 Vietnam Timezone)
@@ -407,7 +387,6 @@
   }
 
   function renderHomeScreen() {
-    updateDailyStreak();
     initDailySpotlight();
 
     // Grid of Topics (Mỗi chủ đề chia rõ 2 nút: Học Flashcard & Luyện phản xạ)
@@ -800,8 +779,6 @@
   let hadErrorOnCurrent = false;
   let revealedHint = false;
   let isInputLocked = false;
-  let currentStreak = 0;
-  let maxStreak = 0;
   let currentRoundCorrect = 0;
   let currentRoundWrongIds = new Set();
   let currentChoices = [];
@@ -942,8 +919,6 @@
     hadErrorOnCurrent = false;
     revealedHint = false;
     isInputLocked = false;
-    currentStreak = 0;
-    maxStreak = 0;
     currentRoundCorrect = 0;
     currentRoundWrongIds.clear();
 
@@ -1157,9 +1132,7 @@
 
     if (isCorrect && !hadErrorOnCurrent) {
       questionStatus[currentIndex] = 'correct';
-      currentStreak += 1;
       currentRoundCorrect += 1;
-      if (currentStreak > maxStreak) maxStreak = currentStreak;
 
       if (!state.rememberedIds.includes(word.id)) {
         state.rememberedIds.push(word.id);
@@ -1173,7 +1146,6 @@
       });
     } else {
       questionStatus[currentIndex] = 'wrong';
-      currentStreak = 0;
       currentRoundWrongIds.add(word.id);
 
       if (!state.forgottenIds.includes(word.id)) {
@@ -1183,17 +1155,6 @@
         addReviewNeeded: [word.id],
         lastStudiedKanjiId: word.id
       });
-    }
-
-    const streakBadge = document.getElementById('arena-streak-badge');
-    const streakNum = document.getElementById('arena-streak-num');
-    if (streakBadge && streakNum) {
-      if (currentStreak >= 2) {
-        streakBadge.classList.remove('hidden');
-        streakNum.textContent = currentStreak;
-      } else {
-        streakBadge.classList.add('hidden');
-      }
     }
 
     saveState();
@@ -1231,11 +1192,9 @@
 
     const totalEl = document.getElementById('summary-total');
     const correctEl = document.getElementById('summary-correct');
-    const streakEl = document.getElementById('summary-max-streak');
 
     if (totalEl) totalEl.textContent = practiceDeck.length;
     if (correctEl) correctEl.textContent = currentRoundCorrect;
-    if (streakEl) streakEl.textContent = `${maxStreak} 🔥`;
 
     const unrememberedSec = document.getElementById('summary-unremembered-section');
     const unrememberedList = document.getElementById('summary-unremembered-list');
@@ -1537,40 +1496,17 @@
 
   // ================= 11. PROFILE SCREEN LOGIC =================
   function renderProfileScreen() {
-    const streakBadge = document.getElementById('profile-streak-badge');
-    if (streakBadge) streakBadge.textContent = state.streak;
-
-    const totalWords = KANJI_DATA.length;
-    const learned = Math.min(state.rememberedIds.length, totalWords);
-    const percent = Math.min(100, Math.round((learned / totalWords) * 100));
-
-    const learnedCountEl = document.getElementById('profile-learned-count');
-    if (learnedCountEl) learnedCountEl.textContent = learned;
-
-    const goalBar = document.getElementById('profile-goal-bar');
-    if (goalBar) goalBar.style.width = percent + '%';
-
-    const goalPercent = document.getElementById('profile-goal-percent');
-    if (goalPercent) goalPercent.textContent = percent + '%';
-
     updateAiTokenUi();
-
-    const mcLabel = document.getElementById('profile-mc-mode-label');
-    if (mcLabel) {
-      if (state.preferences.mcMode === 'disabled') {
-        mcLabel.textContent = 'Tắt trắc nghiệm (Chỉ gõ Hiragana)';
-      } else if (state.preferences.mcMode === 'both') {
-        mcLabel.textContent = 'Hiện cả hai cùng lúc';
-      } else {
-        mcLabel.textContent = 'Hiện trắc nghiệm sau khi viết đúng';
-      }
-    }
   }
 
   function resetAllProgress() {
-    if (confirm('CẢNH BÁO: Thao tác này sẽ đặt lại chuỗi streak và toàn bộ từ đã thuộc. Bạn có chắc chắn không?')) {
-      state = Object.assign({}, defaultState);
+    if (confirm('CẢNH BÁO: Thao tác này sẽ đặt lại toàn bộ từ đã thuộc và từ cần ôn lại. Bạn có chắc chắn không?')) {
+      state.rememberedIds = [];
+      state.forgottenIds = [];
+      state.totalPracticed = 0;
+      state.correctCount = 0;
       saveState();
+      syncDeltaToCloud({ reset: true });
       renderHomeScreen();
       renderProfileScreen();
       alert('Đã đặt lại tiến độ thành công!');
@@ -2262,6 +2198,63 @@ Nhiệm vụ của bạn:
     tryBind();
   }
 
+  // ================= 13.8 LEGAL MODALS & MANDATORY TERMS CONSENT =================
+  const TERMS_CONSENT_KEY = 'kanji_kachi_terms_dont_show_v1';
+
+  function openLegalModal(docKey) {
+    const docs = window.KANJI_LEGAL_CONTENT || {};
+    const entry = docs[docKey];
+    if (!entry) return;
+
+    const titleEl = document.getElementById('legal-modal-title');
+    const bodyEl = document.getElementById('legal-modal-body');
+    const modal = document.getElementById('modal-legal');
+    if (titleEl) titleEl.textContent = entry.title;
+    if (bodyEl) bodyEl.innerHTML = formatMarkdownToHtml(entry.markdown.trim());
+    if (modal) modal.classList.remove('hidden');
+  }
+
+  function closeLegalModal() {
+    const modal = document.getElementById('modal-legal');
+    if (modal) modal.classList.add('hidden');
+  }
+
+  function initTermsConsent() {
+    let dontShow = false;
+    try {
+      dontShow = localStorage.getItem(TERMS_CONSENT_KEY) === 'true';
+    } catch (e) {}
+
+    if (!dontShow) {
+      const modal = document.getElementById('modal-terms-consent');
+      if (modal) modal.classList.remove('hidden');
+      onTermsCheckChange();
+    }
+  }
+
+  function onTermsCheckChange() {
+    const readCheck = document.getElementById('terms-check-read');
+    const acceptBtn = document.getElementById('btn-terms-accept');
+    if (acceptBtn) {
+      acceptBtn.disabled = !(readCheck && readCheck.checked);
+    }
+  }
+
+  function acceptTermsConsent() {
+    const readCheck = document.getElementById('terms-check-read');
+    if (!readCheck || !readCheck.checked) return;
+
+    const dontShowCheck = document.getElementById('terms-check-dont-show');
+    if (dontShowCheck && dontShowCheck.checked) {
+      try {
+        localStorage.setItem(TERMS_CONSENT_KEY, 'true');
+      } catch (e) {}
+    }
+
+    const modal = document.getElementById('modal-terms-consent');
+    if (modal) modal.classList.add('hidden');
+  }
+
   // AdSense Safe Push
   function initAdSense() {
     try {
@@ -2287,6 +2280,7 @@ Nhiệm vụ của bạn:
     initAdSense();
     setPracticeLevel('N5');
     renderHomeScreen();
+    initTermsConsent();
   }
 
   document.addEventListener('DOMContentLoaded', init);
@@ -2368,7 +2362,12 @@ Nhiệm vụ của bạn:
     closeTokenUsageModal,
     // Google Auth & Cloud Sync
     signInWithGoogle,
-    signOutGoogle
+    signOutGoogle,
+    // Legal & Mandatory Terms Consent
+    openLegalModal,
+    closeLegalModal,
+    onTermsCheckChange,
+    acceptTermsConsent
   };
 
 })();
