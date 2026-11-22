@@ -563,17 +563,83 @@
     }
   }
 
-  // Flashcards Setup
-  function setupFlashcardsForLevel(level) {
-    const select = document.getElementById('flashcard-topic-select');
-    if (!select) return;
+  // Flashcards Setup (Chủ đề trước -> Học thẻ 3D, y hệt App Mobile)
+  function renderFlashcardTopicPicker(level) {
+    const grid = document.getElementById('flashcard-topics-grid');
+    const titleEl = document.getElementById('flashcard-picker-title');
+    const countEl = document.getElementById('flashcard-picker-count');
+    if (!grid) return;
 
     const topics = TOPICS.filter(t => t.level === level);
-    select.innerHTML = topics.map(t => `<option value="${t.id}">${t.title} (${t.count} chữ)</option>`).join('');
+    const isRadical = level === 'RADICALS';
+    const source = isRadical ? RADICALS_DATA : KANJI_DATA;
 
-    if (topics.length > 0) {
-      onFlashcardTopicChange(topics[0].id);
+    if (titleEl) {
+      titleEl.textContent = isRadical ? '214 Bộ thủ Khang Hy' : `Chủ đề từ vựng ${level}`;
     }
+    if (countEl) {
+      countEl.textContent = isRadical ? `${topics.length} bộ nét` : `${topics.length} chủ đề`;
+    }
+
+    const radius = 22;
+    const circumference = 2 * Math.PI * radius;
+
+    grid.innerHTML = topics.map(t => {
+      const items = source.filter(it => it.topicId === t.id);
+      const total = items.length || 1;
+      const learned = items.filter(it => state.rememberedIds.includes(it.id)).length;
+      const pct = Math.min(100, Math.round((learned / total) * 100));
+      const offset = circumference - (pct / 100) * circumference;
+      const ringColor = pct === 100 ? 'var(--matcha)' : 'var(--vermilion)';
+      const previewKanji = items.slice(0, 7).map(it => it.kanji).join('  ') + (items.length > 7 ? ' ...' : '');
+
+      return `
+        <div class="bg-surface-card p-5 rounded-2xl border border-border-subtle hover:border-primary cursor-pointer transition-all shadow-sm flex items-center justify-between gap-4 group" onclick="app.openFlashcardTopic('${t.id}')">
+          <div class="min-w-0 flex-1 space-y-2">
+            <h4 class="font-serif font-bold text-base sm:text-lg text-primary group-hover:text-secondary transition-colors truncate">${t.title}</h4>
+            <p class="kanji-glyph text-sm text-ink-muted tracking-wide truncate">${previewKanji}</p>
+            <span class="text-[11px] text-ink-dim block">${learned} / ${items.length} chữ đã nhớ</span>
+          </div>
+
+          <div class="relative w-14 h-14 flex items-center justify-center flex-shrink-0">
+            <svg class="w-14 h-14 -rotate-90" viewBox="0 0 56 56">
+              <circle cx="28" cy="28" r="${radius}" fill="none" stroke="var(--border-subtle)" stroke-width="4.5"></circle>
+              <circle cx="28" cy="28" r="${radius}" fill="none" stroke="${ringColor}" stroke-width="4.5" stroke-linecap="round"
+                stroke-dasharray="${circumference.toFixed(1)}" stroke-dashoffset="${offset.toFixed(1)}"></circle>
+            </svg>
+            <span class="absolute text-xs font-bold text-primary">${pct}%</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function setupFlashcardsForLevel(level) {
+    const select = document.getElementById('flashcard-topic-select');
+    const topics = TOPICS.filter(t => t.level === level);
+    if (select) {
+      select.innerHTML = topics.map(t => `<option value="${t.id}">${t.title} (${t.count} chữ)</option>`).join('');
+    }
+    renderFlashcardTopicPicker(level);
+    backToFlashcardTopics();
+  }
+
+  function openFlashcardTopic(topicId) {
+    const picker = document.getElementById('flashcard-topic-picker');
+    const player = document.getElementById('flashcard-player');
+    const select = document.getElementById('flashcard-topic-select');
+    if (select) select.value = topicId;
+    if (picker) picker.classList.add('hidden');
+    if (player) player.classList.remove('hidden');
+    onFlashcardTopicChange(topicId);
+  }
+
+  function backToFlashcardTopics() {
+    const picker = document.getElementById('flashcard-topic-picker');
+    const player = document.getElementById('flashcard-player');
+    if (player) player.classList.add('hidden');
+    if (picker) picker.classList.remove('hidden');
+    renderFlashcardTopicPicker(currentVocabLevel);
   }
 
   function onFlashcardTopicChange(topicId) {
@@ -1981,11 +2047,7 @@ Nhiệm vụ của bạn:
       switchTab('vocab');
       setVocabSubView('flashcard');
       filterVocabLevel(topic.level);
-      const select = document.getElementById('flashcard-topic-select');
-      if (select) {
-        select.value = topicId;
-        onFlashcardTopicChange(topicId);
-      }
+      openFlashcardTopic(topicId);
     }
   }
 
@@ -2170,6 +2232,9 @@ Nhiệm vụ của bạn:
     toggleTopicAccordion,
     onVocabSearch,
     clearVocabSearch,
+    openFlashcardTopic,
+    backToFlashcardTopics,
+    onFlashcardTopicChange,
     flipFlashcard,
     nextFlashcard,
     prevFlashcard,
