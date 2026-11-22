@@ -1,5 +1,5 @@
 // Kanji Kachi - Web Edition Engine
-// Authentic Modern Sumi & Paper Theme (#1E232A, #E84A36, #4A7C59, #FDFBF7)
+// Right Sidebar Navigation (Quizlet Style) with Sumi & Paper Palette
 
 (function () {
   'use strict';
@@ -70,18 +70,11 @@
     profile: document.getElementById('view-profile')
   };
 
-  const desktopNavBtns = {
-    home: document.getElementById('nav-btn-home'),
-    practice: document.getElementById('nav-btn-practice'),
-    vocab: document.getElementById('nav-btn-vocab'),
-    profile: document.getElementById('nav-btn-profile')
-  };
-
-  const mobileNavBtns = {
-    home: document.getElementById('m-nav-home'),
-    practice: document.getElementById('m-nav-practice'),
-    vocab: document.getElementById('m-nav-vocab'),
-    profile: document.getElementById('m-nav-profile')
+  const sidebarNavBtns = {
+    home: document.getElementById('sb-nav-home'),
+    practice: document.getElementById('sb-nav-practice'),
+    vocab: document.getElementById('sb-nav-vocab'),
+    profile: document.getElementById('sb-nav-profile')
   };
 
   // ================= 3. TTS VOICE & SOUND =================
@@ -146,7 +139,22 @@
     }
   }
 
-  // ================= 4. TAB NAVIGATION =================
+  // ================= 4. RIGHT SIDEBAR TOGGLE =================
+  function toggleRightSidebar() {
+    const sidebar = document.getElementById('app-sidebar-right');
+    const backdrop = document.getElementById('sidebar-backdrop');
+    if (!sidebar || !backdrop) return;
+
+    if (sidebar.classList.contains('translate-x-full')) {
+      sidebar.classList.remove('translate-x-full');
+      backdrop.classList.remove('hidden');
+    } else {
+      sidebar.classList.add('translate-x-full');
+      backdrop.classList.add('hidden');
+    }
+  }
+
+  // ================= 5. TAB NAVIGATION =================
   function switchTab(tabName) {
     Object.keys(views).forEach(name => {
       if (views[name]) {
@@ -158,44 +166,54 @@
       }
     });
 
-    // Update Desktop Nav Tabs
-    Object.keys(desktopNavBtns).forEach(name => {
-      const btn = desktopNavBtns[name];
+    // Update Right Sidebar Nav Items
+    Object.keys(sidebarNavBtns).forEach(name => {
+      const btn = sidebarNavBtns[name];
       if (!btn) return;
+      const icon = btn.querySelector('.nav-icon');
       if (name === tabName) {
-        btn.classList.add('nav-tab-active');
+        btn.classList.add('nav-item-active');
         btn.classList.remove('text-ink-muted');
+        btn.classList.add('text-primary');
+        if (icon) {
+          icon.classList.remove('text-ink-dim');
+          icon.classList.add('text-secondary');
+        }
       } else {
-        btn.classList.remove('nav-tab-active');
+        btn.classList.remove('nav-item-active');
         btn.classList.add('text-ink-muted');
+        btn.classList.remove('text-primary');
+        if (icon) {
+          icon.classList.add('text-ink-dim');
+          icon.classList.remove('text-secondary');
+        }
       }
     });
 
-    // Update Mobile Nav Sub-bar
-    Object.keys(mobileNavBtns).forEach(name => {
-      const btn = mobileNavBtns[name];
-      if (!btn) return;
-      if (name === tabName) {
-        btn.className = "flex-1 py-1 text-center text-xs font-bold text-primary border-b-2 border-secondary";
-      } else {
-        btn.className = "flex-1 py-1 text-center text-xs font-semibold text-ink-muted hover:text-primary";
-      }
-    });
+    // Auto-close right sidebar on mobile
+    const sidebar = document.getElementById('app-sidebar-right');
+    const backdrop = document.getElementById('sidebar-backdrop');
+    if (sidebar && !sidebar.classList.contains('translate-x-full') && window.innerWidth < 1024) {
+      sidebar.classList.add('translate-x-full');
+      if (backdrop) backdrop.classList.add('hidden');
+    }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll main viewport to top
+    const scrollPane = document.getElementById('app-scroll-content');
+    if (scrollPane) scrollPane.scrollTop = 0;
 
     if (tabName === 'home') renderHomeScreen();
     if (tabName === 'vocab') renderVocabScreen();
     if (tabName === 'profile') renderProfileScreen();
   }
 
-  // ================= 5. HOME SCREEN LOGIC =================
+  // ================= 6. HOME SCREEN LOGIC =================
   function renderHomeScreen() {
     updateDailyStreak();
 
     // Stats
     const streakEl = document.getElementById('home-streak-count');
-    if (streakEl) streakEl.textContent = state.streak;
+    if (streakEl) streakEl.textContent = `${state.streak} ngày 🔥`;
 
     const headStreak = document.getElementById('header-streak-num');
     if (headStreak) headStreak.textContent = state.streak;
@@ -212,7 +230,10 @@
     }
 
     const unremEl = document.getElementById('stat-unremembered');
-    if (unremEl) unremEl.textContent = state.forgottenIds.length;
+    if (unremEl) unremEl.textContent = `${state.forgottenIds.length} chữ`;
+
+    const sbUnrem = document.getElementById('sb-unremembered-badge');
+    if (sbUnrem) sbUnrem.textContent = state.forgottenIds.length;
 
     // Forgotten Card
     const forgottenCard = document.getElementById('home-card-review-forgotten');
@@ -261,7 +282,7 @@
     }
   }
 
-  // ================= 6. VOCABULARY & FLASHCARDS LOGIC =================
+  // ================= 7. VOCABULARY & FLASHCARDS LOGIC =================
   let currentVocabLevel = 'N5';
   let currentVocabSubView = 'list';
   let flashcardDeck = [];
@@ -421,6 +442,17 @@
     onVocabSearch('');
   }
 
+  // Universal Global Search
+  function onGlobalSearch(query) {
+    if (query.trim()) {
+      switchTab('vocab');
+      setVocabSubView('list');
+      const input = document.getElementById('vocab-search-input');
+      if (input) input.value = query;
+      renderVocabTopicsList(currentVocabLevel, query);
+    }
+  }
+
   // Flashcards Setup
   function setupFlashcardsForLevel(level) {
     const select = document.getElementById('flashcard-topic-select');
@@ -516,7 +548,7 @@
     }
   }
 
-  // ================= 7. PRACTICE SETUP & ARENA LOGIC =================
+  // ================= 8. PRACTICE SETUP & ARENA LOGIC =================
   let practiceConfig = {
     level: 'N5',
     method: 'higa_and_meaning',
@@ -1042,7 +1074,7 @@
     if (!views.profile.classList.contains('hidden')) renderProfileScreen();
   }
 
-  // ================= 8. JUMP GRID MODAL (⊞ CHỌN CÂU) =================
+  // ================= 9. JUMP GRID MODAL (⊞ CHỌN CÂU) =================
   function openJumpGrid() {
     const modal = document.getElementById('modal-jump-grid');
     const grid = document.getElementById('jump-grid-container');
@@ -1082,7 +1114,7 @@
     loadArenaWord(index);
   }
 
-  // ================= 9. SETTINGS MODAL (⚙️ CÀI ĐẶT) =================
+  // ================= 10. SETTINGS MODAL (⚙️ CÀI ĐẶT) =================
   function openSettings() {
     const modal = document.getElementById('modal-settings');
     if (!modal) return;
@@ -1179,7 +1211,7 @@
     }
   }
 
-  // ================= 10. PROFILE SCREEN LOGIC =================
+  // ================= 11. PROFILE SCREEN LOGIC =================
   function renderProfileScreen() {
     const streakBadge = document.getElementById('profile-streak-badge');
     if (streakBadge) streakBadge.textContent = state.streak;
@@ -1222,7 +1254,7 @@
     }
   }
 
-  // ================= 11. GLOBAL KEYBOARD SHORTCUTS =================
+  // ================= 12. GLOBAL KEYBOARD SHORTCUTS =================
   function initKeyboardShortcuts() {
     window.addEventListener('keydown', (e) => {
       const jumpGridOpen = !document.getElementById('modal-jump-grid').classList.contains('hidden');
@@ -1333,7 +1365,7 @@
     }
   }
 
-  // ================= 12. INITIALIZATION =================
+  // ================= 13. INITIALIZATION =================
   function init() {
     initVoices();
     initKeyboardShortcuts();
@@ -1344,9 +1376,11 @@
 
   document.addEventListener('DOMContentLoaded', init);
 
-  // Expose global app methods
+  // Expose global methods
   window.app = {
     switchTab,
+    toggleRightSidebar,
+    onGlobalSearch,
     renderHomeScreen,
     renderVocabScreen,
     renderProfileScreen,

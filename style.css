@@ -1,4 +1,4 @@
-/* Kanji Kachi - Modern Sumi & Paper Theme (Web Edition) */
+/* Kanji Kachi - Modern Sumi & Paper Theme (Right Sidebar Edition) */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
@@ -19,6 +19,7 @@
   --matcha-soft: #EDF5F0;
   --font-serif: 'Noto Serif', serif;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --sidebar-width: 260px;
 }
 
 * {
@@ -30,25 +31,78 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   background-color: var(--bg-washi);
   color: var(--ink-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+/* Master Layout */
+#app-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Main Content Area (Left/Center) */
+#app-main-workspace {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--bg-washi);
+  min-width: 0;
+}
+
+/* Scrollable Container */
+#app-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.5rem 2rem 4rem 2rem;
+}
+
+@media (max-width: 768px) {
+  #app-scroll-content {
+    padding: 1rem 1rem 4rem 1rem;
+  }
+}
+
+/* Right Sidebar */
+#app-sidebar-right {
+  width: var(--sidebar-width);
+  height: 100%;
+  background-color: var(--bg-washi);
+  border-left: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 50;
+}
+
+/* Active Nav Item in Sidebar (Quizlet Style) */
+.nav-item-active {
+  background-color: var(--bg-card-alt) !important;
+  color: var(--ink-primary) !important;
+  font-weight: 700 !important;
+  border-left: 3px solid var(--vermilion);
+}
+
+.nav-item-active .nav-icon {
+  color: var(--vermilion) !important;
+  font-variation-settings: 'FILL' 1;
 }
 
 /* Kanji display */
 .kanji-glyph {
   font-family: var(--font-serif);
   font-feature-settings: "palt" 1;
-}
-
-/* Nav Tab Active */
-.nav-tab-active {
-  background-color: var(--ink-primary);
-  color: var(--bg-washi) !important;
-  font-weight: 600;
 }
 
 /* 3D Flip Card for Flashcards */
