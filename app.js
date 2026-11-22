@@ -830,8 +830,6 @@
     });
 
     practiceConfig.selectedTopicIds.clear();
-    const topics = TOPICS.filter(t => t.level === level);
-    topics.forEach(t => practiceConfig.selectedTopicIds.add(t.id));
     renderPracticeTopicList();
   }
 
@@ -892,11 +890,13 @@
     } else {
       const isRadical = practiceConfig.level === 'RADICALS';
       const source = isRadical ? RADICALS_DATA : KANJI_DATA;
-      
-      let candidateItems = source.filter(it => practiceConfig.selectedTopicIds.has(it.topicId));
-      if (candidateItems.length === 0) {
-        candidateItems = source.filter(it => it.level === practiceConfig.level);
+
+      if (practiceConfig.selectedTopicIds.size === 0) {
+        alert('Vui lòng chọn ít nhất một chủ đề để bắt đầu bài kiểm tra.');
+        return;
       }
+
+      let candidateItems = source.filter(it => practiceConfig.selectedTopicIds.has(it.topicId));
 
       if (practiceConfig.onlyUnremembered) {
         candidateItems = candidateItems.filter(it => state.forgottenIds.includes(it.id));
