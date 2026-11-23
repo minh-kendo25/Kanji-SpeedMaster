@@ -56,7 +56,7 @@ Kanji Kachi ("chúng tôi") cam kết bảo vệ sự riêng tư và bảo mật
 
 ### 6. Quyền của người dùng & Liên hệ
 - Bạn có thể đặt lại toàn bộ tiến độ học tập bất cứ lúc nào trong trang **Cá nhân**.
-- Bạn có quyền yêu cầu xóa vĩnh viễn toàn bộ dữ liệu tài khoản trên máy chủ đám mây trong vòng 48 giờ qua email: **phamhoangbaominh2005@gmail.com** (Người chịu trách nhiệm dữ liệu: **Phạm Hoàng Bảo Minh**).
+- Bạn có quyền yêu cầu xóa vĩnh viễn toàn bộ dữ liệu tài khoản trên máy chủ đám mây trong vòng 48 giờ qua email: **theocean2505@gmail.com** (Người chịu trách nhiệm dữ liệu: **Phạm Hoàng Bảo Minh**).
 `
   },
 
@@ -92,7 +92,7 @@ Chúng tôi cấp cho bạn quyền sử dụng cá nhân, không độc quyền
 - Chúng tôi không chịu trách nhiệm đối với gián đoạn ngoài tầm kiểm soát từ nhà mạng hoặc hạ tầng máy chủ đám mây.
 
 ### 7. Luật điều chỉnh & Liên hệ
-Các điều khoản này được điều chỉnh theo pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam. Mọi thắc mắc vui lòng gửi về: **phamhoangbaominh2005@gmail.com**.
+Các điều khoản này được điều chỉnh theo pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam. Mọi thắc mắc vui lòng gửi về: **theocean2505@gmail.com**.
 `
   },
 
@@ -115,7 +115,7 @@ Vào trang **Cá nhân** ➔ bấm **"Đặt lại toàn bộ tiến độ"**. T
 
 ### 5. Báo lỗi từ vựng hoặc góp ý tính năng mới?
 Mọi đóng góp xin gửi về:
-- **Email hỗ trợ:** phamhoangbaominh2005@gmail.com
+- **Email hỗ trợ:** theocean2505@gmail.com
 - **Thời gian phản hồi:** Trong vòng 24 – 48 giờ làm việc.
 `
   },
