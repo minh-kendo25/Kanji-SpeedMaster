@@ -2652,6 +2652,12 @@ Nhiệm vụ của bạn:
   }
 
   function initTermsConsent() {
+    // Do not block search engine / Google AdSense review crawlers with a full-screen overlay
+    const ua = (navigator && navigator.userAgent) ? navigator.userAgent : '';
+    if (/Googlebot|Mediapartners-Google|AdsBot-Google|bingbot|Slurp|DuckDuckBot|crawler|spider|bot/i.test(ua)) {
+      return;
+    }
+
     let dontShow = false;
     try {
       dontShow = localStorage.getItem(TERMS_CONSENT_KEY) === 'true';
@@ -2687,11 +2693,13 @@ Nhiệm vụ của bạn:
     if (modal) modal.classList.add('hidden');
   }
 
-  // AdSense Safe Push
+  // AdSense Safe Push (only push real numeric ad slots; Auto Ads is handled by <head> script)
   function initAdSense() {
     try {
-      const adElements = document.querySelectorAll('ins.adsbygoogle');
-      adElements.forEach(() => {
+      const adElements = document.querySelectorAll('ins.adsbygoogle[data-ad-slot]');
+      adElements.forEach((el) => {
+        const slot = el.getAttribute('data-ad-slot') || '';
+        if (!/^\d+$/.test(slot)) return;
         try {
           (window.adsbygoogle = window.adsbygoogle || []).push({});
         } catch (e) {}

@@ -47,6 +47,15 @@
       home_topics_title: 'Chủ đề Hán tự · Học & Luyện tập',
       home_topics_sub: 'Chọn chủ đề để học bằng Flashcard hoặc làm bài kiểm tra phản xạ ngay.',
       home_view_all_topics: 'Xem toàn bộ chủ đề',
+      home_guide_eyebrow: 'Cẩm nang tự học JLPT',
+      home_guide_title: 'Phương pháp chinh phục 1.061 Hán tự N5/N4 & 214 Bộ thủ',
+      home_guide_desc: 'Tìm hiểu cách phân biệt Onyomi – Kunyomi, bảng 12 bộ thủ Khang Hy cốt lõi, các cặp Kanji dễ nhầm lẫn trong đề thi JLPT và lộ trình luyện phản xạ 15 phút mỗi ngày.',
+      home_guide_cta: 'Đọc cẩm nang',
+      footer_guide: 'Cẩm nang Kanji',
+      footer_about: 'Giới thiệu',
+      footer_terms: 'Điều khoản dịch vụ',
+      footer_privacy: 'Chính sách quyền riêng tư',
+      footer_contact: 'Liên hệ & Hỗ trợ',
 
       // Vocab & Flashcards
       vocab_title: 'Thư viện Từ vựng & Flashcard',
@@ -249,6 +258,15 @@
       home_topics_title: 'Kanji Topics · Study & Practice',
       home_topics_sub: 'Pick a topic to study with 3D Flashcards or start a reflex quiz immediately.',
       home_view_all_topics: 'View all topics',
+      home_guide_eyebrow: 'JLPT Self-Study Guide',
+      home_guide_title: 'How to Master 1,061 N5/N4 Kanji & 214 Kangxi Radicals',
+      home_guide_desc: 'Learn how Onyomi & Kunyomi work, explore the 12 core Kangxi radicals, avoid commonly confused JLPT Kanji pairs, and follow a 15-minute daily reflex routine.',
+      home_guide_cta: 'Read Study Guide',
+      footer_guide: 'Kanji Guide',
+      footer_about: 'About',
+      footer_terms: 'Terms of Service',
+      footer_privacy: 'Privacy Policy',
+      footer_contact: 'Contact & Support',
 
       // Vocab & Flashcards
       vocab_title: 'Vocabulary & Flashcards Library',
