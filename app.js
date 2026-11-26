@@ -14,6 +14,7 @@
     rememberedIds: [],
     forgottenIds: [],
     theme: 'light', // 'light' | 'dark'
+    lang: null, // 'vi' | 'en'
     geminiApiKey: '',
     aiTokens: {
       day: null,
@@ -145,7 +146,7 @@
     }
     if (modalAcc) {
       const user = window.kanjiFirebaseSync ? window.kanjiFirebaseSync.getCurrentUser() : null;
-      modalAcc.textContent = user ? (user.email || user.displayName) : 'Khách (chưa đăng nhập)';
+      modalAcc.textContent = user ? (user.email || user.displayName) : window.t('profile_guest_label');
     }
   }
 
@@ -157,13 +158,13 @@
     const totalMinutes = Math.floor(msRemaining / 60000);
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
-    return `Làm mới sau ${hours} giờ ${minutes} phút`;
+    return window.t('ai_reset_countdown', hours, minutes);
   }
 
   function openTokenUsageModal() {
     const user = window.kanjiFirebaseSync ? window.kanjiFirebaseSync.getCurrentUser() : null;
     if (!user) {
-      alert('Vui lòng đăng nhập Google để xem hạn mức Token AI của bạn.');
+      alert(window.t('ai_token_login_alert'));
       return;
     }
     updateAiTokenUi();
@@ -227,10 +228,12 @@
     const select = document.getElementById('tts-voice-select');
     if (!select) return;
     const savedName = (state.preferences && state.preferences.ttsVoiceName) || '';
-    const options = ['<option value="">Giọng Tokyo Neural · Nanami (Mặc định)</option>'];
+    const defaultLabel = escapeHtml(window.t('voice_default_neural'));
+    const devicePrefix = escapeHtml(window.t('voice_device_prefix'));
+    const options = [`<option value="">${defaultLabel}</option>`];
     jaVoicesList.forEach(v => {
       const selected = v.name === savedName ? 'selected' : '';
-      options.push(`<option value="${escapeHtml(v.name)}" ${selected}>Giọng máy: ${escapeHtml(v.name)} (${escapeHtml(v.lang)})</option>`);
+      options.push(`<option value="${escapeHtml(v.name)}" ${selected}>${devicePrefix}: ${escapeHtml(v.name)} (${escapeHtml(v.lang)})</option>`);
     });
     select.innerHTML = options.join('');
   }
@@ -520,9 +523,9 @@
     if (kanjiEl) kanjiEl.textContent = currentSpotlightWord.kanji;
     if (readingEl) {
       const reading = currentSpotlightWord.displayReading || currentSpotlightWord.reading || '';
-      readingEl.textContent = `Cách đọc: ${reading}`;
+      readingEl.textContent = window.t('spotlight_reading', reading);
     }
-    if (meaningEl) meaningEl.textContent = currentSpotlightWord.meaning || '';
+    if (meaningEl) meaningEl.textContent = window.localizedMeaning(currentSpotlightWord);
     if (watermarkEl) {
       const firstChar = (currentSpotlightWord.kanji || '日')[0];
       watermarkEl.textContent = firstChar;
@@ -569,10 +572,10 @@
             <div class="space-y-2">
               <div class="flex items-center justify-between">
                 <span class="px-2 py-0.5 rounded text-[10px] font-bold ${badgeColor}">${t.level}</span>
-                <span class="text-[11px] text-ink-muted font-medium">${t.count} chữ</span>
+                <span class="text-[11px] text-ink-muted font-medium">${window.t('vocab_words_count', t.count)}</span>
               </div>
               <h3 class="font-serif font-bold text-sm sm:text-base text-primary truncate">
-                ${t.title}
+                ${window.localizedTopicTitle(t)}
               </h3>
               <p class="text-[11px] text-ink-muted leading-relaxed">Bộ từ vựng Hán tự trọng tâm chuẩn JLPT N5 & N4.</p>
             </div>
@@ -580,11 +583,11 @@
             <div class="mt-4 pt-3 border-t border-border-subtle grid grid-cols-2 gap-2">
               <button class="py-2 px-2.5 rounded-xl bg-vermilion-soft hover:opacity-90 text-secondary text-[11px] font-bold flex items-center justify-center gap-1 transition-opacity" onclick="app.startTopicFlashcards('${t.id}')" title="Học bằng thẻ Flashcard 3D">
                 <span class="material-symbols-outlined text-[15px]">style</span>
-                <span>Học thẻ</span>
+                <span>${window.t('vocab_btn_cards')}</span>
               </button>
               <button class="py-2 px-2.5 rounded-xl bg-surface-alt hover:bg-primary hover:text-washi text-primary text-[11px] font-bold flex items-center justify-center gap-1 transition-colors" onclick="app.startTopicPractice('${t.id}')" title="Kiểm tra phản xạ">
                 <span class="material-symbols-outlined text-[15px]">draw</span>
-                <span>Luyện tập</span>
+                <span>${window.t('vocab_btn_practice')}</span>
               </button>
             </div>
           </div>
@@ -642,13 +645,15 @@
       const filtered = items.filter(it => 
         it.kanji.toLowerCase().includes(q) ||
         it.meaning.toLowerCase().includes(q) ||
+        (it.meaningEn && it.meaningEn.toLowerCase().includes(q)) ||
         (it.readings && it.readings.some(r => r.toLowerCase().includes(q))) ||
-        (it.displayReading && it.displayReading.toLowerCase().includes(q))
+        (it.displayReading && it.displayReading.toLowerCase().includes(q)) ||
+        (it.displayReadingEn && it.displayReadingEn.toLowerCase().includes(q))
       );
 
       container.innerHTML = `
         <div class="space-y-2">
-          <span class="text-xs font-bold text-ink-muted block">Tìm thấy ${filtered.length} từ vựng:</span>
+          <span class="text-xs font-bold text-ink-muted block">${window.t('search_found', filtered.length)}</span>
           <div class="bg-surface-card rounded-2xl p-2 border border-border-subtle divide-y divide-border-subtle shadow-sm">
             ${filtered.length > 0 ? filtered.map(renderVocabRow).join('') : '<p class="p-6 text-xs text-center text-ink-dim">Không tìm thấy từ vựng nào khớp với từ khóa tìm kiếm.</p>'}
           </div>
@@ -665,8 +670,8 @@
             <div class="flex items-center gap-3">
               <span class="w-2 h-2 rounded-full ${topic.level === 'N5' ? 'bg-primary' : (topic.level === 'N4' ? 'bg-secondary' : 'bg-tertiary')}"></span>
               <div>
-                <span class="text-xs sm:text-sm font-bold text-primary block">${topic.title}</span>
-                <span class="text-[11px] text-ink-muted">${topicItems.length} Hán tự</span>
+                <span class="text-xs sm:text-sm font-bold text-primary block">${window.localizedTopicTitle(topic)}</span>
+                <span class="text-[11px] text-ink-muted">${window.t('topic_words', topicItems.length)}</span>
               </div>
             </div>
             <div class="flex items-center gap-2">
@@ -694,8 +699,8 @@
         <div class="flex items-center gap-4">
           <span class="kanji-glyph text-3xl font-normal text-primary w-12 text-center select-none">${item.kanji}</span>
           <div class="flex flex-col">
-            <span class="text-xs font-bold text-secondary font-sans">${item.displayReading}</span>
-            <span class="text-xs sm:text-sm text-primary font-medium">${item.meaning}</span>
+            <span class="text-xs font-bold text-secondary font-sans">${window.localizedReading(item)}</span>
+            <span class="text-xs sm:text-sm text-primary font-medium">${window.localizedMeaning(item)}</span>
             ${item.examples ? `<span class="text-[11px] text-ink-muted italic mt-0.5">${item.examples}</span>` : ''}
           </div>
         </div>
@@ -762,10 +767,10 @@
     const source = isRadical ? RADICALS_DATA : KANJI_DATA;
 
     if (titleEl) {
-      titleEl.textContent = isRadical ? '214 Bộ thủ Khang Hy' : `Chủ đề từ vựng ${level}`;
+      titleEl.textContent = isRadical ? window.t('vocab_section_radicals') : window.t('vocab_section_level', level);
     }
     if (countEl) {
-      countEl.textContent = isRadical ? `${topics.length} bộ nét` : `${topics.length} chủ đề`;
+      countEl.textContent = isRadical ? window.t('vocab_count_radicals', topics.length) : window.t('vocab_count_topics', topics.length);
     }
 
     const radius = 22;
@@ -783,9 +788,9 @@
       return `
         <div class="bg-surface-card p-5 rounded-2xl border border-border-subtle hover:border-primary cursor-pointer transition-all shadow-sm flex items-center justify-between gap-4 group" onclick="app.openFlashcardTopic('${t.id}')">
           <div class="min-w-0 flex-1 space-y-2">
-            <h4 class="font-serif font-bold text-base sm:text-lg text-primary group-hover:text-secondary transition-colors truncate">${t.title}</h4>
+            <h4 class="font-serif font-bold text-base sm:text-lg text-primary group-hover:text-secondary transition-colors truncate">${window.localizedTopicTitle(t)}</h4>
             <p class="kanji-glyph text-sm text-ink-muted tracking-wide truncate">${previewKanji}</p>
-            <span class="text-[11px] text-ink-dim block">${learned} / ${items.length} chữ đã nhớ</span>
+            <span class="text-[11px] text-ink-dim block">${window.t('vocab_learned_count', learned, items.length)}</span>
           </div>
 
           <div class="relative w-14 h-14 flex items-center justify-center flex-shrink-0">
@@ -805,7 +810,7 @@
     const select = document.getElementById('flashcard-topic-select');
     const topics = TOPICS.filter(t => t.level === level);
     if (select) {
-      select.innerHTML = topics.map(t => `<option value="${t.id}">${t.title} (${t.count} chữ)</option>`).join('');
+      select.innerHTML = topics.map(t => `<option value="${t.id}">${window.localizedTopicTitle(t)} (${window.t('vocab_words_count', t.count)})</option>`).join('');
     }
     renderFlashcardTopicPicker(level);
     backToFlashcardTopics();
@@ -817,7 +822,7 @@
     const summary = document.getElementById('flashcard-summary');
     const titleEl = document.getElementById('flashcard-active-topic-title');
     const topic = TOPICS.find(t => t.id === topicId);
-    if (titleEl && topic) titleEl.textContent = topic.title;
+    if (titleEl && topic) titleEl.textContent = window.localizedTopicTitle(topic);
     if (picker) picker.classList.add('hidden');
     if (summary) summary.classList.add('hidden');
     if (player) player.classList.remove('hidden');
@@ -872,14 +877,14 @@
     if (counterEl) counterEl.textContent = `${flashcardIndex + 1} / ${flashcardDeck.length}`;
     if (topicHint) {
       const topic = TOPICS.find(t => t.id === item.topicId);
-      topicHint.textContent = topic ? topic.title : '';
+      topicHint.textContent = topic ? window.localizedTopicTitle(topic) : '';
     }
 
     if (backKanji) backKanji.textContent = item.kanji;
     updateAiContextBar();
-    if (backReading) backReading.textContent = item.displayReading;
-    if (backMeaning) backMeaning.textContent = item.meaning;
-    if (backExamples) backExamples.textContent = item.examples ? `Ví dụ: ${item.examples}` : '';
+    if (backReading) backReading.textContent = window.localizedReading(item);
+    if (backMeaning) backMeaning.textContent = window.localizedMeaning(item);
+    if (backExamples) backExamples.textContent = item.examples ? window.t('examples_prefix', item.examples) : '';
   }
 
   function flipFlashcard() {
@@ -917,7 +922,7 @@
 
     const topic = TOPICS.find(t => t.id === fcCurrentTopicId);
     const topicNameEl = document.getElementById('fc-summary-topic-name');
-    if (topicNameEl) topicNameEl.textContent = topic ? topic.title : 'Lượt học Flashcard';
+    if (topicNameEl) topicNameEl.textContent = topic ? window.localizedTopicTitle(topic) : window.t('nav_flashcards');
 
     const totalEl = document.getElementById('fc-summary-total');
     const remEl = document.getElementById('fc-summary-remembered');
@@ -945,7 +950,7 @@
               <span class="kanji-glyph text-2xl font-normal text-primary flex-shrink-0">${w.kanji}</span>
               <div class="min-w-0">
                 <span class="text-xs font-bold text-secondary block truncate">${w.displayReading || w.reading || ''}</span>
-                <span class="text-xs text-primary font-medium truncate block">${w.meaning}</span>
+                <span class="text-xs text-primary font-medium truncate block">${window.localizedMeaning(w)}</span>
               </div>
             </div>
             <button class="w-8 h-8 rounded-full flex items-center justify-center text-ink-dim hover:text-primary hover:bg-surface-card flex-shrink-0" onclick="app.speakWordText('${w.kanji}')">
@@ -1090,11 +1095,11 @@
     const badge = document.getElementById('practice-selected-method-badge');
     if (badge) {
       if (practiceConfig.method === 'higa_only') {
-        badge.textContent = 'Chế độ: Gõ Hiragana (あ)';
+        badge.textContent = window.t('mode_higa');
       } else if (practiceConfig.method === 'mc_only') {
-        badge.textContent = 'Chế độ: Trắc nghiệm nhanh (択)';
+        badge.textContent = window.t('mode_mc');
       } else {
-        badge.textContent = 'Chế độ: Phản xạ toàn diện (勝)';
+        badge.textContent = window.t('mode_combo');
       }
     }
     const hub = document.getElementById('practice-method-hub');
@@ -1149,9 +1154,9 @@
         <div class="flex items-center justify-between p-3.5 rounded-xl border ${isChecked ? 'border-primary bg-surface-alt' : 'border-border-subtle bg-surface-card hover:border-border-strong'} cursor-pointer transition-all shadow-sm select-none" onclick="app.togglePracticeTopic('${t.id}')">
           <div class="flex items-center gap-3 min-w-0">
             <input type="checkbox" ${isChecked ? 'checked' : ''} class="accent-secondary w-4 h-4 pointer-events-none flex-shrink-0" tabindex="-1">
-            <span class="text-xs sm:text-sm font-bold text-primary truncate">${t.title}</span>
+            <span class="text-xs sm:text-sm font-bold text-primary truncate">${window.localizedTopicTitle(t)}</span>
           </div>
-          <span class="text-[11px] text-ink-muted flex-shrink-0 ml-2">${t.count} chữ</span>
+          <span class="text-[11px] text-ink-muted flex-shrink-0 ml-2">${window.t('vocab_words_count', t.count)}</span>
         </div>
       `;
     }).join('');
@@ -1244,12 +1249,12 @@
 
     // Header counter and title
     const counterEl = document.getElementById('arena-counter');
-    if (counterEl) counterEl.textContent = `Câu ${index + 1} / ${practiceDeck.length}`;
+    if (counterEl) counterEl.textContent = window.t('question_counter', index + 1, practiceDeck.length);
 
     const topicEl = document.getElementById('arena-topic-title');
     if (topicEl) {
       const topic = TOPICS.find(t => t.id === word.topicId);
-      topicEl.textContent = topic ? topic.title : 'Luyện phản xạ Hán tự';
+      topicEl.textContent = topic ? window.localizedTopicTitle(topic) : window.t('nav_practice');
     }
 
     const pBar = document.getElementById('arena-progress-bar');
@@ -1276,7 +1281,7 @@
 
     // Reading display pill
     const readingPill = document.getElementById('arena-reading-display');
-    if (readingPill) readingPill.textContent = 'Bấm để nghe phát âm';
+    if (readingPill) readingPill.textContent = window.t('tap_listen');
 
     // Input box reset
     const inputSection = document.getElementById('arena-input-section');
@@ -1325,12 +1330,12 @@
     const pool = isRadical ? RADICALS_DATA : KANJI_DATA;
     
     const distractors = pool
-      .filter(it => it.id !== currentWord.id && it.meaning !== currentWord.meaning)
+      .filter(it => it.id !== currentWord.id && window.localizedMeaning(it) !== window.localizedMeaning(currentWord))
       .sort(() => Math.random() - 0.5)
       .slice(0, 3)
-      .map(it => it.meaning);
+      .map(it => window.localizedMeaning(it));
 
-    currentChoices = [...distractors, currentWord.meaning].sort(() => Math.random() - 0.5);
+    currentChoices = [...distractors, window.localizedMeaning(currentWord)].sort(() => Math.random() - 0.5);
 
     for (let i = 0; i < 4; i++) {
       const btn = document.getElementById(`choice-btn-${i}`);
@@ -1375,7 +1380,7 @@
 
       const inputMsg = document.getElementById('arena-input-message');
       if (inputMsg) {
-        inputMsg.innerHTML = `<span class="text-tertiary font-bold">Chính xác! (${currentWord.displayReading})</span>`;
+        inputMsg.innerHTML = `<span class="text-tertiary font-bold">${window.t('correct_reading', currentWord.displayReading)}</span>`;
       }
 
       playAudioChime(true);
@@ -1408,7 +1413,7 @@
     const btn = document.getElementById(`choice-btn-${index}`);
     if (!btn) return;
 
-    if (chosenMeaning === currentWord.meaning) {
+    if (chosenMeaning === window.localizedMeaning(currentWord)) {
       btn.classList.remove('bg-surface-card', 'border-border-subtle');
       btn.classList.add('bg-matcha-soft', 'border-tertiary');
       playAudioChime(true);
@@ -1483,7 +1488,7 @@
   }
 
   function finishPracticeEarly() {
-    if (confirm('Bạn có chắc muốn kết thúc bài thi và xem kết quả tổng kết?')) {
+    if (confirm(window.t('confirm_finish_early'))) {
       finishPracticeSession();
     }
   }
@@ -1515,13 +1520,13 @@
         unrememberedList.innerHTML = wrongWords.map(w => `
           <div class="bg-surface-alt p-3 rounded-xl border border-border-subtle flex items-center justify-between">
             <div class="flex items-center gap-3">
-              <span class="kanji-glyph text-2xl font-normal text-primary">${w.kanji}</span>
+              <span class="kanji-glyph text-2xl font-normal text-primary">${escapeHtml(w.kanji)}</span>
               <div>
-                <span class="text-xs font-bold text-secondary block">${w.displayReading}</span>
-                <span class="text-xs text-primary font-medium truncate max-w-[130px] block">${w.meaning}</span>
+                <span class="text-xs font-bold text-secondary block">${escapeHtml(window.localizedReading ? window.localizedReading(w) : w.displayReading)}</span>
+                <span class="text-xs text-primary font-medium truncate max-w-[130px] block">${escapeHtml(window.localizedMeaning(w))}</span>
               </div>
             </div>
-            <button class="w-8 h-8 rounded-full flex items-center justify-center text-ink-dim hover:text-primary hover:bg-surface-card" onclick="app.speakWordText('${w.kanji}')">
+            <button class="w-8 h-8 rounded-full flex items-center justify-center text-ink-dim hover:text-primary hover:bg-surface-card" onclick="app.speakWordText('${escapeHtml(w.kanji)}')">
               <span class="material-symbols-outlined text-[18px]">volume_up</span>
             </button>
           </div>
@@ -1545,7 +1550,7 @@
   }
 
   function exitPracticeSession() {
-    if (confirm('Bạn có muốn thoát về màn hình chọn chủ đề không?')) {
+    if (confirm(window.t('confirm_exit_practice'))) {
       document.getElementById('practice-arena-screen').classList.add('hidden');
       document.getElementById('practice-summary-screen').classList.add('hidden');
       document.getElementById('practice-setup-screen').classList.remove('hidden');
@@ -1561,7 +1566,7 @@
     const hintBox = document.getElementById('arena-hint-box');
     const firstChar = currentWord.displayReading.charAt(0);
     if (hintBox) {
-      hintBox.textContent = `💡 Gợi ý chữ cái đầu: "${firstChar}..." (Toàn bộ âm: ${currentWord.displayReading})`;
+      hintBox.textContent = window.t('hint_first_char', firstChar, currentWord.displayReading);
     }
   }
 
@@ -1750,14 +1755,50 @@
     }
   }
 
+  function toggleLanguage() {
+    const cur = window.getAppLang ? window.getAppLang() : (state.lang || 'vi');
+    setLanguage(cur === 'en' ? 'vi' : 'en');
+  }
+
+  function setLanguage(lang) {
+    state.lang = lang === 'en' ? 'en' : 'vi';
+    saveState();
+    if (window.applyStaticI18n) window.applyStaticI18n(state.lang);
+    renderHomeScreen();
+    populateTtsVoiceSelect();
+    updateAiContextBar();
+    if (!document.getElementById('view-vocab')?.classList.contains('hidden')) {
+      renderVocabScreen();
+    }
+    if (!document.getElementById('view-practice')?.classList.contains('hidden')) {
+      if (practiceDeck.length > 0 && !document.getElementById('practice-arena-screen')?.classList.contains('hidden')) {
+        loadArenaWord(currentIndex);
+      } else {
+        renderPracticeTopicList();
+      }
+    }
+    if (!document.getElementById('view-profile')?.classList.contains('hidden')) {
+      renderProfileScreen();
+    }
+    if (window.kanjiFirebaseSync) {
+      updateAuthUI(window.kanjiFirebaseSync.getCurrentUser());
+    } else {
+      updateAuthUI(null);
+    }
+  }
+
   function toggleTheme() {
     state.theme = state.theme === 'dark' ? 'light' : 'dark';
     saveState();
+    if (!state.lang) { state.lang = window.getAppLang ? window.getAppLang() : 'vi'; saveState(); }
+    if (window.applyStaticI18n) window.applyStaticI18n(state.lang);
     applyTheme();
   }
 
   function updateSettingsToggleUI() {
     // Theme toggle in settings
+    if (!state.lang) { state.lang = window.getAppLang ? window.getAppLang() : 'vi'; saveState(); }
+    if (window.applyStaticI18n) window.applyStaticI18n(state.lang);
     applyTheme();
 
     const sBtn = document.getElementById('toggle-sound-btn');
@@ -1818,7 +1859,7 @@
   }
 
   function resetAllProgress() {
-    if (confirm('CẢNH BÁO: Thao tác này sẽ đặt lại toàn bộ từ đã thuộc và từ cần ôn lại. Bạn có chắc chắn không?')) {
+    if (confirm(window.t('confirm_reset_progress'))) {
       state.rememberedIds = [];
       state.forgottenIds = [];
       state.totalPracticed = 0;
@@ -1827,7 +1868,7 @@
       syncDeltaToCloud({ reset: true });
       renderHomeScreen();
       renderProfileScreen();
-      alert('Đã đặt lại tiến độ thành công!');
+      alert(window.t('alert_reset_done'));
     }
   }
 
@@ -1835,6 +1876,9 @@
   let isAiGenerating = false;
   let aiContextDismissed = false;
   let lastAutoContextKey = '';
+  let lastAiQueryTimestamp = 0;
+  const AI_COOLDOWN_MS = 2000;
+  const AI_MAX_QUERY_CHARS = 500;
 
   function getActiveScreenContextWord() {
     let detected = null;
@@ -1875,12 +1919,12 @@
       if (subEl) subEl.textContent = reading ? `(${reading})` : '';
       bar.classList.remove('hidden');
       if (inputEl) {
-        inputEl.placeholder = `Hỏi AI về "${word.kanji}" (vd: nhớ sao, ví dụ, cách dùng)...`;
+        inputEl.placeholder = window.t('tutor_placeholder_word', word.kanji);
       }
     } else {
       bar.classList.add('hidden');
       if (inputEl) {
-        inputEl.placeholder = 'Hỏi gia sư Kanji (vd: cách nhớ chữ 桜, ngữ pháp です)...';
+        inputEl.placeholder = window.t('tutor_placeholder');
       }
     }
   }
@@ -1938,15 +1982,22 @@
     handleUserAiQuery(text);
   }
 
-  function sendPresetPrompt(promptText) {
+  function sendPresetPrompt(promptKeyOrText) {
     if (isAiGenerating) return;
     aiContextDismissed = false;
     toggleAiChat(true);
     updateAiContextBar();
 
+    const presetMap = {
+      usage: 'preset_usage',
+      example: 'preset_example',
+      grammar: 'preset_grammar'
+    };
+    const promptText = presetMap[promptKeyOrText] ? window.t(presetMap[promptKeyOrText]) : promptKeyOrText;
+
     const contextWord = getActiveScreenContextWord();
     let displayPrompt = promptText;
-    if (contextWord && (promptText.includes('Từ này') || promptText.includes('chữ Hán này') || promptText.includes('từ này'))) {
+    if (contextWord && (presetMap[promptKeyOrText] || /từ này|chữ Hán này|this word/i.test(promptText))) {
       displayPrompt = `[${contextWord.kanji}] ${promptText}`;
     }
 
@@ -2075,12 +2126,24 @@ Nhiệm vụ của bạn:
     return formattedLines.join('');
   }
 
-  async function handleUserAiQuery(query) {
+  async function handleUserAiQuery(rawQuery) {
     const user = window.kanjiFirebaseSync ? window.kanjiFirebaseSync.getCurrentUser() : null;
     if (!user) {
       updateAuthUI(null);
       return;
     }
+
+    const query = String(rawQuery || '').trim().slice(0, AI_MAX_QUERY_CHARS);
+    if (!query) return;
+
+    const nowMs = Date.now();
+    const elapsed = nowMs - lastAiQueryTimestamp;
+    if (elapsed < AI_COOLDOWN_MS) {
+      const waitSec = Math.ceil((AI_COOLDOWN_MS - elapsed) / 1000);
+      appendAiMessage('bot', `<p class="text-ink-muted text-xs">${escapeHtml(window.t('ai_rate_limit', waitSec))}</p>`);
+      return;
+    }
+    lastAiQueryTimestamp = nowMs;
 
     const quota = getAiTokenQuota();
     const remaining = quota.limit - quota.used;
@@ -2088,8 +2151,8 @@ Nhiệm vụ của bạn:
     if (remaining <= 0) {
       appendAiMessage('user', query);
       appendAiMessage('bot', `
-        <p class="font-bold text-secondary">Hạn mức token hôm nay đã hết!</p>
-        <p class="text-ink-muted">Bạn đã sử dụng hết 12.000 token AI hôm nay. Hạn mức sẽ được tự động làm mới vào lúc <strong>00:00 (UTC+7)</strong>. Hãy tiếp tục luyện tập phản xạ và từ vựng nhé!</p>
+        <p class="font-bold text-secondary">${escapeHtml(window.t('ai_quota_out_title'))}</p>
+        <p class="text-ink-muted">${escapeHtml(window.t('ai_quota_out_desc'))}</p>
       `);
       return;
     }
@@ -2114,7 +2177,7 @@ Nhiệm vụ của bạn:
         <span class="w-2 h-2 rounded-full bg-secondary animate-bounce"></span>
         <span class="w-2 h-2 rounded-full bg-primary animate-bounce [animation-delay:0.15s]"></span>
         <span class="w-2 h-2 rounded-full bg-tertiary animate-bounce [animation-delay:0.3s]"></span>
-        <span class="ml-1 text-[11px]">Gia sư AI đang soạn câu trả lời...</span>
+        <span class="ml-1 text-[11px]">${escapeHtml(window.t('ai_typing'))}</span>
       </div>
     `;
     container.appendChild(typingIndicator);
@@ -2131,14 +2194,21 @@ Nhiệm vụ của bạn:
       const previousHistory = chatHistory.slice(0, -1);
 
       // Automatically attach active screen Kanji context so AI knows what the user is studying
+      const isEn = window.getAppLang && window.getAppLang() === 'en';
       const ctxWord = getActiveScreenContextWord();
       let promptForAI = query;
       if (ctxWord) {
-        const ctxReading = ctxWord.displayReading || ctxWord.reading || '';
-        promptForAI = `[Ngữ cảnh màn hình hiện tại: Người dùng đang xem từ/chữ Hán "${ctxWord.kanji}" (cách đọc: ${ctxReading}, nghĩa: ${ctxWord.meaning}, cấp độ: ${ctxWord.level || 'N5/N4'})]\nCâu hỏi của người dùng: ${query}`;
+        const ctxReading = window.localizedReading ? window.localizedReading(ctxWord) : (ctxWord.displayReading || ctxWord.reading || '');
+        const ctxMeaning = window.localizedMeaning ? window.localizedMeaning(ctxWord) : ctxWord.meaning;
+        promptForAI = isEn
+          ? `[Current screen context: User is viewing "${ctxWord.kanji}" (reading: ${ctxReading}, meaning: ${ctxMeaning}, level: ${ctxWord.level || 'N5/N4'})]\nUser question: ${query}`
+          : `[Ngữ cảnh màn hình hiện tại: Người dùng đang xem từ/chữ Hán "${ctxWord.kanji}" (cách đọc: ${ctxReading}, nghĩa: ${ctxMeaning}, cấp độ: ${ctxWord.level || 'N5/N4'})]\nCâu hỏi của người dùng: ${query}`;
       }
 
-      const result = await firebaseAI.ask(promptForAI, previousHistory, GEMINI_SYSTEM_INSTRUCTION);
+      const activeSysPrompt = isEn
+        ? 'You are a concise, friendly AI Kanji Tutor for Kanji Kachi (JLPT N5 & N4). Answer in English using simple Markdown, clear Hiragana readings, and example sentences on separate lines.'
+        : GEMINI_SYSTEM_INSTRUCTION;
+      const result = await firebaseAI.ask(promptForAI, previousHistory, activeSysPrompt);
 
       const ind = document.getElementById('ai-typing-indicator');
       if (ind) ind.remove();
@@ -2156,9 +2226,9 @@ Nhiệm vụ của bạn:
 
       appendAiMessage('bot', `
         <div class="space-y-2">
-          <p class="font-bold text-secondary">Gia sư AI tạm thời gián đoạn kết nối</p>
-          <p class="text-ink-muted text-xs leading-relaxed">Chi tiết: <code>${escapeHtml(err.message || 'Lỗi mạng')}</code></p>
-          <p class="text-ink-muted text-[11px]">Vui lòng thử gửi lại câu hỏi sau vài giây nhé!</p>
+          <p class="font-bold text-secondary">${escapeHtml(window.t('ai_error_title'))}</p>
+          <p class="text-ink-muted text-xs leading-relaxed"><code>${escapeHtml(err.message || 'Network error')}</code></p>
+          <p class="text-ink-muted text-[11px]">${escapeHtml(window.t('ai_error_retry'))}</p>
         </div>
       `);
     } finally {
@@ -2386,19 +2456,20 @@ Nhiệm vụ của bạn:
 
       if (headerLogin) headerLogin.classList.add('hidden');
       if (headerUser) headerUser.classList.remove('hidden');
-      if (headerAvatar && user.photoURL) headerAvatar.src = user.photoURL;
-      if (headerName) headerName.textContent = user.displayName || 'Học viên';
+      const safePhotoUrl = (typeof user.photoURL === 'string' && /^https:\/\//i.test(user.photoURL)) ? user.photoURL : '';
+      if (headerAvatar && safePhotoUrl) headerAvatar.src = safePhotoUrl;
+      if (headerName) headerName.textContent = user.displayName || window.t('profile_short_name');
 
-      if (profileName) profileName.textContent = user.displayName || 'Học viên Kanji Kachi';
+      if (profileName) profileName.textContent = user.displayName || window.t('profile_default_name');
       if (profileEmail) profileEmail.textContent = user.email || '';
-      if (user.photoURL && profileImg && profileKanji) {
-        profileImg.src = user.photoURL;
+      if (safePhotoUrl && profileImg && profileKanji) {
+        profileImg.src = safePhotoUrl;
         profileImg.classList.remove('hidden');
         profileKanji.classList.add('hidden');
       }
       if (profileSyncBadge) {
         profileSyncBadge.className = 'px-3 py-1 rounded-full bg-matcha-soft text-tertiary text-xs font-bold border border-tertiary/20 flex items-center gap-1.5';
-        profileSyncBadge.innerHTML = '<span class="material-symbols-outlined text-[15px]">cloud_done</span><span>Đã đồng bộ App & Web</span>';
+        profileSyncBadge.innerHTML = `<span class="material-symbols-outlined text-[15px]">cloud_done</span><span>${escapeHtml(window.t('profile_synced_badge'))}</span>`;
       }
       if (profileLoginBtn) profileLoginBtn.classList.add('hidden');
       if (profileLogoutBtn) profileLogoutBtn.classList.remove('hidden');
@@ -2413,15 +2484,15 @@ Nhiệm vụ của bạn:
       if (headerLogin) headerLogin.classList.remove('hidden');
       if (headerUser) headerUser.classList.add('hidden');
 
-      if (profileName) profileName.textContent = 'Học viên Kanji Kachi';
-      if (profileEmail) profileEmail.textContent = 'Chưa đăng nhập · Dữ liệu đang lưu tạm trên trình duyệt';
+      if (profileName) profileName.textContent = window.t('profile_default_name');
+      if (profileEmail) profileEmail.textContent = window.t('profile_guest_email');
       if (profileImg && profileKanji) {
         profileImg.classList.add('hidden');
         profileKanji.classList.remove('hidden');
       }
       if (profileSyncBadge) {
         profileSyncBadge.className = 'px-3 py-1 rounded-full bg-surface-alt text-ink-muted text-xs font-bold border border-border-subtle flex items-center gap-1.5';
-        profileSyncBadge.innerHTML = '<span class="material-symbols-outlined text-[15px]">cloud_off</span><span>Chưa đồng bộ</span>';
+        profileSyncBadge.innerHTML = `<span class="material-symbols-outlined text-[15px]">cloud_off</span><span>${escapeHtml(window.t('profile_unsynced_badge'))}</span>`;
       }
       if (profileLoginBtn) profileLoginBtn.classList.remove('hidden');
       if (profileLogoutBtn) profileLogoutBtn.classList.add('hidden');
@@ -2512,7 +2583,7 @@ Nhiệm vụ của bạn:
   }
 
   async function signOutGoogle() {
-    if (!confirm('Bạn có chắc muốn đăng xuất khỏi tài khoản Google?')) return;
+    if (!confirm(window.t('confirm_signout'))) return;
     try {
       if (window.kanjiFirebaseSync) {
         await window.kanjiFirebaseSync.signOutUser();
@@ -2544,12 +2615,27 @@ Nhiệm vụ của bạn:
     tryBind();
   }
 
+  // ================= 13.7 MOBILE APP STORE LINKS (BETA PLACEHOLDER) =================
+  // Khi App phát hành công khai trên Google Play / App Store, chỉ cần dán link https:// vào đây:
+  const APP_STORE_LINKS = {
+    android: '', // vd: 'https://play.google.com/store/apps/details?id=com.kanjikachi.app'
+    ios: ''
+  };
+
+  function openMobileAppLink(platform) {
+    const url = APP_STORE_LINKS[platform];
+    if (url && /^https:\/\//i.test(url)) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      alert(window.t('sb_beta_alert'));
+    }
+  }
+
   // ================= 13.8 LEGAL MODALS & MANDATORY TERMS CONSENT =================
   const TERMS_CONSENT_KEY = 'kanji_kachi_terms_dont_show_v1';
 
   function openLegalModal(docKey) {
-    const docs = window.KANJI_LEGAL_CONTENT || {};
-    const entry = docs[docKey];
+    const entry = window.getLegalContent ? window.getLegalContent(docKey) : (window.KANJI_LEGAL_CONTENT || {})[docKey];
     if (!entry) return;
 
     const titleEl = document.getElementById('legal-modal-title');
@@ -2619,6 +2705,8 @@ Nhiệm vụ của bạn:
   function init() {
     initVoices();
     initKeyboardShortcuts();
+    if (!state.lang) { state.lang = window.getAppLang ? window.getAppLang() : 'vi'; saveState(); }
+    if (window.applyStaticI18n) window.applyStaticI18n(state.lang);
     applyTheme();
     updateHeaderTTSButton();
     updateAuthUI(null);
@@ -2701,6 +2789,8 @@ Nhiệm vụ của bạn:
     startTopicFlashcards,
     startForgottenPractice,
     // Theme & Dark Mode
+    toggleLanguage,
+    setLanguage,
     toggleTheme,
     applyTheme,
     // New Features
@@ -2720,7 +2810,9 @@ Nhiệm vụ của bạn:
     openLegalModal,
     closeLegalModal,
     onTermsCheckChange,
-    acceptTermsConsent
+    acceptTermsConsent,
+    // Mobile App Link (Beta Placeholder)
+    openMobileAppLink
   };
 
 })();

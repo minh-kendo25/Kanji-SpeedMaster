@@ -8,120 +8,140 @@ const TOPICS = [
     "id": "n5_01",
     "level": "N5",
     "title": "Số đếm & Tiền tệ",
+    "titleEn": "Numbers & Currency",
     "count": 39
   },
   {
     "id": "n5_02",
     "level": "N5",
     "title": "Thời gian & Lịch",
+    "titleEn": "Time & Calendar",
     "count": 72
   },
   {
     "id": "n5_03",
     "level": "N5",
     "title": "Con người & Gia đình",
+    "titleEn": "People & Family",
     "count": 36
   },
   {
     "id": "n5_04",
     "level": "N5",
     "title": "Phương hướng & Vị trí",
+    "titleEn": "Directions & Positions",
     "count": 37
   },
   {
     "id": "n5_05",
     "level": "N5",
     "title": "Giao thông & Di chuyển",
+    "titleEn": "Transport & Movement",
     "count": 30
   },
   {
     "id": "n5_06",
     "level": "N5",
     "title": "Trường học & Giao tiếp",
+    "titleEn": "School & Communication",
     "count": 43
   },
   {
     "id": "n5_07",
     "level": "N5",
     "title": "Ẩm thực & Mua sắm",
+    "titleEn": "Food & Shopping",
     "count": 38
   },
   {
     "id": "n5_08",
     "level": "N5",
     "title": "Thiên nhiên, Màu sắc & Cơ thể",
+    "titleEn": "Nature, Colors & Body",
     "count": 55
   },
   {
     "id": "n4_01",
     "level": "N4",
     "title": "Gia đình mở rộng, Xã hội & Nghề nghiệp",
+    "titleEn": "Extended Family, Society & Work",
     "count": 59
   },
   {
     "id": "n4_02",
     "level": "N4",
     "title": "Bốn mùa, Buổi trong ngày & Thời tiết",
+    "titleEn": "Seasons, Times of Day & Weather",
     "count": 54
   },
   {
     "id": "n4_03",
     "level": "N4",
     "title": "Ẩm thực, Nấu nướng & Nhà hàng",
+    "titleEn": "Cooking, Dining & Restaurants",
     "count": 62
   },
   {
     "id": "n4_04",
     "level": "N4",
     "title": "Sở thích, Văn hóa & Thể thao",
+    "titleEn": "Hobbies, Culture & Sports",
     "count": 59
   },
   {
     "id": "n4_05",
     "level": "N4",
     "title": "Đô thị, Giao thông & Du lịch",
+    "titleEn": "City, Transit & Travel",
     "count": 80
   },
   {
     "id": "n4_06",
     "level": "N4",
     "title": "Sức khỏe, Cơ thể & Bệnh viện",
+    "titleEn": "Health, Body & Hospital",
     "count": 47
   },
   {
     "id": "n4_07",
     "level": "N4",
     "title": "Trường học, Thi cử & Tư duy",
+    "titleEn": "School, Exams & Thinking",
     "count": 61
   },
   {
     "id": "n4_08",
     "level": "N4",
     "title": "Mua sắm, Đồ vật & Tính chất",
+    "titleEn": "Shopping, Objects & Qualities",
     "count": 81
   },
   {
     "id": "n4_09",
     "level": "N4",
     "title": "Lễ hội, Lịch sử & Tự nhiên mở rộng",
+    "titleEn": "Festivals, History & Nature",
     "count": 50
   },
   {
     "id": "n4_10",
     "level": "N4",
     "title": "Động từ hành động & Sinh hoạt hằng ngày",
+    "titleEn": "Action Verbs & Daily Life",
     "count": 88
   },
   {
     "id": "n4_11",
     "level": "N4",
     "title": "Cảm xúc, An toàn & Khái niệm cốt lõi",
+    "titleEn": "Emotions, Safety & Core Concepts",
     "count": 70
   },
   {
     "id": "rad_1_stroke",
     "level": "RADICALS",
     "title": "Bộ 1 nét (6 bộ)",
+    "titleEn": "1-Stroke Radicals (6)",
     "range": [
       1001,
       1006
@@ -132,6 +152,7 @@ const TOPICS = [
     "id": "rad_2_stroke",
     "level": "RADICALS",
     "title": "Bộ 2 nét (23 bộ)",
+    "titleEn": "2-Stroke Radicals (23)",
     "range": [
       1007,
       1029
@@ -142,6 +163,7 @@ const TOPICS = [
     "id": "rad_3_stroke",
     "level": "RADICALS",
     "title": "Bộ 3 nét (31 bộ)",
+    "titleEn": "3-Stroke Radicals (31)",
     "range": [
       1030,
       1060
@@ -152,6 +174,7 @@ const TOPICS = [
     "id": "rad_4_stroke",
     "level": "RADICALS",
     "title": "Bộ 4 nét (34 bộ)",
+    "titleEn": "4-Stroke Radicals (34)",
     "range": [
       1061,
       1094
@@ -162,6 +185,7 @@ const TOPICS = [
     "id": "rad_5_stroke",
     "level": "RADICALS",
     "title": "Bộ 5 nét (23 bộ)",
+    "titleEn": "5-Stroke Radicals (23)",
     "range": [
       1095,
       1117
@@ -172,6 +196,7 @@ const TOPICS = [
     "id": "rad_6_stroke",
     "level": "RADICALS",
     "title": "Bộ 6 nét (29 bộ)",
+    "titleEn": "6-Stroke Radicals (29)",
     "range": [
       1118,
       1146
@@ -182,6 +207,7 @@ const TOPICS = [
     "id": "rad_7_stroke",
     "level": "RADICALS",
     "title": "Bộ 7 nét (20 bộ)",
+    "titleEn": "7-Stroke Radicals (20)",
     "range": [
       1147,
       1166
@@ -192,6 +218,7 @@ const TOPICS = [
     "id": "rad_8_stroke",
     "level": "RADICALS",
     "title": "Bộ 8 nét (9 bộ)",
+    "titleEn": "8-Stroke Radicals (9)",
     "range": [
       1167,
       1175
@@ -202,6 +229,7 @@ const TOPICS = [
     "id": "rad_9_10_stroke",
     "level": "RADICALS",
     "title": "Bộ 9 - 10 nét (19 bộ)",
+    "titleEn": "9–10 Stroke Radicals (19)",
     "range": [
       1176,
       1194
@@ -212,6 +240,7 @@ const TOPICS = [
     "id": "rad_11_17_stroke",
     "level": "RADICALS",
     "title": "Bộ 11 - 17 nét (20 bộ)",
+    "titleEn": "11–17 Stroke Radicals (20)",
     "range": [
       1195,
       1214
@@ -229,6 +258,7 @@ const KANJI_DATA = [
       "いち"
     ],
     "meaning": "Số 1",
+    "meaningEn": "Number 1",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -240,6 +270,7 @@ const KANJI_DATA = [
       "ひとつ"
     ],
     "meaning": "Một cái",
+    "meaningEn": "One thing",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -251,6 +282,7 @@ const KANJI_DATA = [
       "に"
     ],
     "meaning": "Số 2",
+    "meaningEn": "Number 2",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -262,6 +294,7 @@ const KANJI_DATA = [
       "ふたつ"
     ],
     "meaning": "Hai cái",
+    "meaningEn": "Two things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -273,6 +306,7 @@ const KANJI_DATA = [
       "さん"
     ],
     "meaning": "Số 3",
+    "meaningEn": "Number 3",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -284,6 +318,7 @@ const KANJI_DATA = [
       "みっつ"
     ],
     "meaning": "Ba cái",
+    "meaningEn": "Three things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -296,6 +331,7 @@ const KANJI_DATA = [
       "し"
     ],
     "meaning": "Số 4",
+    "meaningEn": "Number 4",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -307,6 +343,7 @@ const KANJI_DATA = [
       "よっつ"
     ],
     "meaning": "Bốn cái",
+    "meaningEn": "Four things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -318,6 +355,7 @@ const KANJI_DATA = [
       "ご"
     ],
     "meaning": "Số 5",
+    "meaningEn": "Number 5",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -329,6 +367,7 @@ const KANJI_DATA = [
       "いつつ"
     ],
     "meaning": "Năm cái",
+    "meaningEn": "Five things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -340,6 +379,7 @@ const KANJI_DATA = [
       "ろく"
     ],
     "meaning": "Số 6",
+    "meaningEn": "Number 6",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -351,6 +391,7 @@ const KANJI_DATA = [
       "むっつ"
     ],
     "meaning": "Sáu cái",
+    "meaningEn": "Six things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -363,6 +404,7 @@ const KANJI_DATA = [
       "しち"
     ],
     "meaning": "Số 7",
+    "meaningEn": "Number 7",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -374,6 +416,7 @@ const KANJI_DATA = [
       "ななつ"
     ],
     "meaning": "Bảy cái",
+    "meaningEn": "Seven things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -385,6 +428,7 @@ const KANJI_DATA = [
       "はち"
     ],
     "meaning": "Số 8",
+    "meaningEn": "Number 8",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -396,6 +440,7 @@ const KANJI_DATA = [
       "やっつ"
     ],
     "meaning": "Tám cái",
+    "meaningEn": "Eight things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -408,6 +453,7 @@ const KANJI_DATA = [
       "く"
     ],
     "meaning": "Số 9",
+    "meaningEn": "Number 9",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -419,6 +465,7 @@ const KANJI_DATA = [
       "ここのつ"
     ],
     "meaning": "Chín cái",
+    "meaningEn": "Nine things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -430,6 +477,7 @@ const KANJI_DATA = [
       "じゅう"
     ],
     "meaning": "Số 10",
+    "meaningEn": "Number 10",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -441,6 +489,7 @@ const KANJI_DATA = [
       "ひゃく"
     ],
     "meaning": "Một trăm (100)",
+    "meaningEn": "One hundred (100)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -452,6 +501,7 @@ const KANJI_DATA = [
       "さんびゃく"
     ],
     "meaning": "Ba trăm (300)",
+    "meaningEn": "Three hundred (300)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -463,6 +513,7 @@ const KANJI_DATA = [
       "ろっぴゃく"
     ],
     "meaning": "Sáu trăm (600)",
+    "meaningEn": "Six hundred (600)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -474,6 +525,7 @@ const KANJI_DATA = [
       "はっぴゃく"
     ],
     "meaning": "Tám trăm (800)",
+    "meaningEn": "Eight hundred (800)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -485,6 +537,7 @@ const KANJI_DATA = [
       "せん"
     ],
     "meaning": "Một nghìn (1.000)",
+    "meaningEn": "One thousand (1,000)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -496,6 +549,7 @@ const KANJI_DATA = [
       "さんぜん"
     ],
     "meaning": "Ba nghìn (3.000)",
+    "meaningEn": "Three thousand (3,000)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -507,6 +561,7 @@ const KANJI_DATA = [
       "はっせん"
     ],
     "meaning": "Tám nghìn (8.000)",
+    "meaningEn": "Eight thousand (8,000)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -518,6 +573,7 @@ const KANJI_DATA = [
       "いちまん"
     ],
     "meaning": "Mười nghìn (10.000)",
+    "meaningEn": "Ten thousand (10,000)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -529,6 +585,7 @@ const KANJI_DATA = [
       "じゅうまん"
     ],
     "meaning": "Một trăm nghìn (100.000)",
+    "meaningEn": "One hundred thousand (100,000)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -540,6 +597,7 @@ const KANJI_DATA = [
       "ひゃくまん"
     ],
     "meaning": "Một triệu (1.000.000)",
+    "meaningEn": "One million (1,000,000)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -551,6 +609,7 @@ const KANJI_DATA = [
       "えん"
     ],
     "meaning": "Yên (tiền Nhật)",
+    "meaningEn": "Yen (Japanese currency)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -562,6 +621,7 @@ const KANJI_DATA = [
       "ひゃくえん"
     ],
     "meaning": "100 yên",
+    "meaningEn": "100 yen",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -573,6 +633,7 @@ const KANJI_DATA = [
       "せんえん"
     ],
     "meaning": "1.000 yên",
+    "meaningEn": "1,000 yen",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -584,6 +645,7 @@ const KANJI_DATA = [
       "いちまんえん"
     ],
     "meaning": "10.000 yên",
+    "meaningEn": "10,000 yen",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -595,6 +657,7 @@ const KANJI_DATA = [
       "おかね"
     ],
     "meaning": "Tiền",
+    "meaningEn": "Money",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -606,6 +669,7 @@ const KANJI_DATA = [
       "はん"
     ],
     "meaning": "Một nửa, rưỡi",
+    "meaningEn": "Half",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -617,6 +681,7 @@ const KANJI_DATA = [
       "はんぶん"
     ],
     "meaning": "Một nửa",
+    "meaningEn": "Half (portion)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -628,6 +693,7 @@ const KANJI_DATA = [
       "はんとし"
     ],
     "meaning": "Nửa năm",
+    "meaningEn": "Half a year",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -639,6 +705,7 @@ const KANJI_DATA = [
       "はんにち"
     ],
     "meaning": "Nửa ngày",
+    "meaningEn": "Half a day",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -650,6 +717,7 @@ const KANJI_DATA = [
       "じゅうぶん"
     ],
     "meaning": "Đầy đủ",
+    "meaningEn": "Enough, sufficient",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -662,6 +730,7 @@ const KANJI_DATA = [
       "にち"
     ],
     "meaning": "Ngày, mặt trời",
+    "meaningEn": "Day, sun",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -674,6 +743,7 @@ const KANJI_DATA = [
       "げつ"
     ],
     "meaning": "Tháng, mặt trăng",
+    "meaningEn": "Month, moon",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -685,6 +755,7 @@ const KANJI_DATA = [
       "ひ"
     ],
     "meaning": "Lửa",
+    "meaningEn": "Fire",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -696,6 +767,7 @@ const KANJI_DATA = [
       "みず"
     ],
     "meaning": "Nước",
+    "meaningEn": "Water",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -707,6 +779,7 @@ const KANJI_DATA = [
       "き"
     ],
     "meaning": "Cây, gỗ",
+    "meaningEn": "Tree, wood",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -719,6 +792,7 @@ const KANJI_DATA = [
       "きん"
     ],
     "meaning": "Tiền, vàng",
+    "meaningEn": "Money, gold",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -730,6 +804,7 @@ const KANJI_DATA = [
       "つち"
     ],
     "meaning": "Đất",
+    "meaningEn": "Earth, soil",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -741,6 +816,7 @@ const KANJI_DATA = [
       "ようび"
     ],
     "meaning": "Thứ trong tuần",
+    "meaningEn": "Day of the week",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -752,6 +828,7 @@ const KANJI_DATA = [
       "げつようび"
     ],
     "meaning": "Thứ Hai",
+    "meaningEn": "Monday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -763,6 +840,7 @@ const KANJI_DATA = [
       "かようび"
     ],
     "meaning": "Thứ Ba",
+    "meaningEn": "Tuesday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -774,6 +852,7 @@ const KANJI_DATA = [
       "すいようび"
     ],
     "meaning": "Thứ Tư",
+    "meaningEn": "Wednesday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -785,6 +864,7 @@ const KANJI_DATA = [
       "もくようび"
     ],
     "meaning": "Thứ Năm",
+    "meaningEn": "Thursday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -796,6 +876,7 @@ const KANJI_DATA = [
       "きんようび"
     ],
     "meaning": "Thứ Sáu",
+    "meaningEn": "Friday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -807,6 +888,7 @@ const KANJI_DATA = [
       "どようび"
     ],
     "meaning": "Thứ Bảy",
+    "meaningEn": "Saturday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -818,6 +900,7 @@ const KANJI_DATA = [
       "にちようび"
     ],
     "meaning": "Chủ Nhật",
+    "meaningEn": "Sunday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -829,6 +912,7 @@ const KANJI_DATA = [
       "ついたち"
     ],
     "meaning": "Ngày mùng 1",
+    "meaningEn": "1st day of the month",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -840,6 +924,7 @@ const KANJI_DATA = [
       "いちにち"
     ],
     "meaning": "Một ngày",
+    "meaningEn": "One day",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -851,6 +936,7 @@ const KANJI_DATA = [
       "ふつか"
     ],
     "meaning": "Ngày mùng 2 / 2 ngày",
+    "meaningEn": "2nd day / 2 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -862,6 +948,7 @@ const KANJI_DATA = [
       "みっか"
     ],
     "meaning": "Ngày mùng 3 / 3 ngày",
+    "meaningEn": "3rd day / 3 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -873,6 +960,7 @@ const KANJI_DATA = [
       "よっか"
     ],
     "meaning": "Ngày mùng 4 / 4 ngày",
+    "meaningEn": "4th day / 4 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -884,6 +972,7 @@ const KANJI_DATA = [
       "いつか"
     ],
     "meaning": "Ngày mùng 5 / 5 ngày",
+    "meaningEn": "5th day / 5 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -895,6 +984,7 @@ const KANJI_DATA = [
       "むいか"
     ],
     "meaning": "Ngày mùng 6 / 6 ngày",
+    "meaningEn": "6th day / 6 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -906,6 +996,7 @@ const KANJI_DATA = [
       "なのか"
     ],
     "meaning": "Ngày mùng 7 / 7 ngày",
+    "meaningEn": "7th day / 7 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -917,6 +1008,7 @@ const KANJI_DATA = [
       "ようか"
     ],
     "meaning": "Ngày mùng 8 / 8 ngày",
+    "meaningEn": "8th day / 8 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -928,6 +1020,7 @@ const KANJI_DATA = [
       "ここのか"
     ],
     "meaning": "Ngày mùng 9 / 9 ngày",
+    "meaningEn": "9th day / 9 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -939,6 +1032,7 @@ const KANJI_DATA = [
       "とおか"
     ],
     "meaning": "Ngày mùng 10 / 10 ngày",
+    "meaningEn": "10th day / 10 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -950,6 +1044,7 @@ const KANJI_DATA = [
       "はつか"
     ],
     "meaning": "Ngày 20 / 20 ngày",
+    "meaningEn": "20th day / 20 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -961,6 +1056,7 @@ const KANJI_DATA = [
       "いちがつ"
     ],
     "meaning": "Tháng 1",
+    "meaningEn": "January",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -972,6 +1068,7 @@ const KANJI_DATA = [
       "にがつ"
     ],
     "meaning": "Tháng 2",
+    "meaningEn": "February",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -983,6 +1080,7 @@ const KANJI_DATA = [
       "さんがつ"
     ],
     "meaning": "Tháng 3",
+    "meaningEn": "March",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -994,6 +1092,7 @@ const KANJI_DATA = [
       "しがつ"
     ],
     "meaning": "Tháng 4",
+    "meaningEn": "April",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1005,6 +1104,7 @@ const KANJI_DATA = [
       "ごがつ"
     ],
     "meaning": "Tháng 5",
+    "meaningEn": "May",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1016,6 +1116,7 @@ const KANJI_DATA = [
       "ろくがつ"
     ],
     "meaning": "Tháng 6",
+    "meaningEn": "June",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1027,6 +1128,7 @@ const KANJI_DATA = [
       "しちがつ"
     ],
     "meaning": "Tháng 7",
+    "meaningEn": "July",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1038,6 +1140,7 @@ const KANJI_DATA = [
       "はちがつ"
     ],
     "meaning": "Tháng 8",
+    "meaningEn": "August",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1049,6 +1152,7 @@ const KANJI_DATA = [
       "くがつ"
     ],
     "meaning": "Tháng 9",
+    "meaningEn": "September",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1060,6 +1164,7 @@ const KANJI_DATA = [
       "じゅうがつ"
     ],
     "meaning": "Tháng 10",
+    "meaningEn": "October",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1071,6 +1176,7 @@ const KANJI_DATA = [
       "じゅういちがつ"
     ],
     "meaning": "Tháng 11",
+    "meaningEn": "November",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1082,6 +1188,7 @@ const KANJI_DATA = [
       "じゅうにがつ"
     ],
     "meaning": "Tháng 12",
+    "meaningEn": "December",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1093,6 +1200,7 @@ const KANJI_DATA = [
       "いっかげつ"
     ],
     "meaning": "Một tháng (khoảng thời gian)",
+    "meaningEn": "One month (duration)",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1105,6 +1213,7 @@ const KANJI_DATA = [
       "ねん"
     ],
     "meaning": "Năm",
+    "meaningEn": "Year",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1117,6 +1226,7 @@ const KANJI_DATA = [
       "じ"
     ],
     "meaning": "Khi, lúc, giờ",
+    "meaningEn": "Time, hour, o'clock",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1128,6 +1238,7 @@ const KANJI_DATA = [
       "じかん"
     ],
     "meaning": "Thời gian, tiếng đồng hồ",
+    "meaningEn": "Time, hours",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1139,6 +1250,7 @@ const KANJI_DATA = [
       "なんじ"
     ],
     "meaning": "Mấy giờ",
+    "meaningEn": "What time",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1150,6 +1262,7 @@ const KANJI_DATA = [
       "よじ"
     ],
     "meaning": "4 giờ",
+    "meaningEn": "4 o'clock",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1161,6 +1274,7 @@ const KANJI_DATA = [
       "さんじはん"
     ],
     "meaning": "3 giờ rưỡi",
+    "meaningEn": "3:30",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1173,6 +1287,7 @@ const KANJI_DATA = [
       "ぷん"
     ],
     "meaning": "Phút",
+    "meaningEn": "Minute",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1185,6 +1300,7 @@ const KANJI_DATA = [
       "じっぷん"
     ],
     "meaning": "10 phút",
+    "meaningEn": "10 minutes",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1196,6 +1312,7 @@ const KANJI_DATA = [
       "わかる"
     ],
     "meaning": "Hiểu",
+    "meaningEn": "Understand",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1208,6 +1325,7 @@ const KANJI_DATA = [
       "ま"
     ],
     "meaning": "Khoảng giữa, khoảng thời gian",
+    "meaningEn": "Between, interval",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1219,6 +1337,7 @@ const KANJI_DATA = [
       "ふつかかん"
     ],
     "meaning": "Trong vòng 2 ngày",
+    "meaningEn": "Two days (duration)",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1230,6 +1349,7 @@ const KANJI_DATA = [
       "いま"
     ],
     "meaning": "Bây giờ",
+    "meaningEn": "Now",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1241,6 +1361,7 @@ const KANJI_DATA = [
       "きょう"
     ],
     "meaning": "Hôm nay",
+    "meaningEn": "Today",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1252,6 +1373,7 @@ const KANJI_DATA = [
       "こんげつ"
     ],
     "meaning": "Tháng này",
+    "meaningEn": "This month",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1263,6 +1385,7 @@ const KANJI_DATA = [
       "ことし"
     ],
     "meaning": "Năm nay",
+    "meaningEn": "This year",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1274,6 +1397,7 @@ const KANJI_DATA = [
       "こんしゅう"
     ],
     "meaning": "Tuần này",
+    "meaningEn": "This week",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1285,6 +1409,7 @@ const KANJI_DATA = [
       "まいにち"
     ],
     "meaning": "Mỗi ngày",
+    "meaningEn": "Every day",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1296,6 +1421,7 @@ const KANJI_DATA = [
       "まいしゅう"
     ],
     "meaning": "Mỗi tuần",
+    "meaningEn": "Every week",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1307,6 +1433,7 @@ const KANJI_DATA = [
       "まいつき"
     ],
     "meaning": "Mỗi tháng",
+    "meaningEn": "Every month",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1319,6 +1446,7 @@ const KANJI_DATA = [
       "まいねん"
     ],
     "meaning": "Mỗi năm",
+    "meaningEn": "Every year",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1330,6 +1458,7 @@ const KANJI_DATA = [
       "ごぜん"
     ],
     "meaning": "Buổi sáng (trước trưa)",
+    "meaningEn": "Morning, AM",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1341,6 +1470,7 @@ const KANJI_DATA = [
       "ごご"
     ],
     "meaning": "Buổi chiều (sau trưa)",
+    "meaningEn": "Afternoon, PM",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1352,6 +1482,7 @@ const KANJI_DATA = [
       "まえ"
     ],
     "meaning": "Trước, phía trước",
+    "meaningEn": "Before, in front",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1363,6 +1494,7 @@ const KANJI_DATA = [
       "あと"
     ],
     "meaning": "Sau",
+    "meaningEn": "After, later",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1374,6 +1506,7 @@ const KANJI_DATA = [
       "うしろ"
     ],
     "meaning": "Phía sau",
+    "meaningEn": "Behind, back",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1385,6 +1518,7 @@ const KANJI_DATA = [
       "さいご"
     ],
     "meaning": "Cuối cùng",
+    "meaningEn": "Last, final",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1396,6 +1530,7 @@ const KANJI_DATA = [
       "さき"
     ],
     "meaning": "Trước, phía trước",
+    "meaningEn": "Ahead, previous",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1407,6 +1542,7 @@ const KANJI_DATA = [
       "さきに"
     ],
     "meaning": "Trước, làm trước",
+    "meaningEn": "First, ahead",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1418,6 +1554,7 @@ const KANJI_DATA = [
       "せんしゅう"
     ],
     "meaning": "Tuần trước",
+    "meaningEn": "Last week",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1429,6 +1566,7 @@ const KANJI_DATA = [
       "せんげつ"
     ],
     "meaning": "Tháng trước",
+    "meaningEn": "Last month",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1440,6 +1578,7 @@ const KANJI_DATA = [
       "せんじつ"
     ],
     "meaning": "Hôm trước",
+    "meaningEn": "The other day",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1451,6 +1590,7 @@ const KANJI_DATA = [
       "たなばた"
     ],
     "meaning": "Lễ Thất Tịch",
+    "meaningEn": "Tanabata (Star Festival)",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -1462,6 +1602,7 @@ const KANJI_DATA = [
       "ひと"
     ],
     "meaning": "Người",
+    "meaningEn": "Person",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1473,6 +1614,7 @@ const KANJI_DATA = [
       "ひとり"
     ],
     "meaning": "Một người",
+    "meaningEn": "One person, alone",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1484,6 +1626,7 @@ const KANJI_DATA = [
       "ふたり"
     ],
     "meaning": "Hai người",
+    "meaningEn": "Two people",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1495,6 +1638,7 @@ const KANJI_DATA = [
       "よにん"
     ],
     "meaning": "Bốn người",
+    "meaningEn": "Four people",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1506,6 +1650,7 @@ const KANJI_DATA = [
       "きゅうにん"
     ],
     "meaning": "Chín người",
+    "meaningEn": "Nine people",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1517,6 +1662,7 @@ const KANJI_DATA = [
       "ひとびと"
     ],
     "meaning": "Mọi người",
+    "meaningEn": "People, everyone",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1528,6 +1674,7 @@ const KANJI_DATA = [
       "にんげん"
     ],
     "meaning": "Con người, nhân loại",
+    "meaningEn": "Human being",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1539,6 +1686,7 @@ const KANJI_DATA = [
       "おとな"
     ],
     "meaning": "Người lớn",
+    "meaningEn": "Adult",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1550,6 +1698,7 @@ const KANJI_DATA = [
       "ちち"
     ],
     "meaning": "Bố (của mình)",
+    "meaningEn": "Father (humble)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1561,6 +1710,7 @@ const KANJI_DATA = [
       "おとうさん"
     ],
     "meaning": "Bố",
+    "meaningEn": "Father",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1572,6 +1722,7 @@ const KANJI_DATA = [
       "ちちおや"
     ],
     "meaning": "Người cha",
+    "meaningEn": "Father (formal)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1583,6 +1734,7 @@ const KANJI_DATA = [
       "はは"
     ],
     "meaning": "Mẹ (của mình)",
+    "meaningEn": "Mother (humble)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1594,6 +1746,7 @@ const KANJI_DATA = [
       "おかあさん"
     ],
     "meaning": "Mẹ",
+    "meaningEn": "Mother",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1605,6 +1758,7 @@ const KANJI_DATA = [
       "ははおや"
     ],
     "meaning": "Người mẹ",
+    "meaningEn": "Mother (formal)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1616,6 +1770,7 @@ const KANJI_DATA = [
       "こ"
     ],
     "meaning": "Trẻ em, con cái",
+    "meaningEn": "Child",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1627,6 +1782,7 @@ const KANJI_DATA = [
       "こども"
     ],
     "meaning": "Trẻ con",
+    "meaningEn": "Children",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1638,6 +1794,7 @@ const KANJI_DATA = [
       "おとこ"
     ],
     "meaning": "Đàn ông, nam giới",
+    "meaningEn": "Man, male",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1649,6 +1806,7 @@ const KANJI_DATA = [
       "おとこのひと"
     ],
     "meaning": "Người đàn ông",
+    "meaningEn": "Man (adult male)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1660,6 +1818,7 @@ const KANJI_DATA = [
       "おとこのこ"
     ],
     "meaning": "Bé trai",
+    "meaningEn": "Boy",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1671,6 +1830,7 @@ const KANJI_DATA = [
       "だんし"
     ],
     "meaning": "Nam sinh, con trai",
+    "meaningEn": "Male student, boy",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1682,6 +1842,7 @@ const KANJI_DATA = [
       "おんな"
     ],
     "meaning": "Phụ nữ, nữ giới",
+    "meaningEn": "Woman, female",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1693,6 +1854,7 @@ const KANJI_DATA = [
       "おんなのひと"
     ],
     "meaning": "Người phụ nữ",
+    "meaningEn": "Woman (adult female)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1704,6 +1866,7 @@ const KANJI_DATA = [
       "おんなのこ"
     ],
     "meaning": "Bé gái",
+    "meaningEn": "Girl",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1715,6 +1878,7 @@ const KANJI_DATA = [
       "じょし"
     ],
     "meaning": "Nữ sinh, con gái",
+    "meaningEn": "Female student, girl",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1726,6 +1890,7 @@ const KANJI_DATA = [
       "とも"
     ],
     "meaning": "Bạn",
+    "meaningEn": "Friend",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1737,6 +1902,7 @@ const KANJI_DATA = [
       "ともだち"
     ],
     "meaning": "Bạn bè",
+    "meaningEn": "Friend, friends",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1748,6 +1914,7 @@ const KANJI_DATA = [
       "ゆうじん"
     ],
     "meaning": "Người bạn, bạn thân",
+    "meaningEn": "Friend (formal)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1759,6 +1926,7 @@ const KANJI_DATA = [
       "な"
     ],
     "meaning": "Tên",
+    "meaningEn": "Name",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1770,6 +1938,7 @@ const KANJI_DATA = [
       "なまえ"
     ],
     "meaning": "Tên, họ tên",
+    "meaningEn": "Full name, name",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1781,6 +1950,7 @@ const KANJI_DATA = [
       "みょうじ"
     ],
     "meaning": "Họ",
+    "meaningEn": "Family name, surname",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1792,6 +1962,7 @@ const KANJI_DATA = [
       "わたし"
     ],
     "meaning": "Tôi",
+    "meaningEn": "I, me",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1804,6 +1975,7 @@ const KANJI_DATA = [
       "なん"
     ],
     "meaning": "Cái gì",
+    "meaningEn": "What",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1815,6 +1987,7 @@ const KANJI_DATA = [
       "なんにん"
     ],
     "meaning": "Mấy người",
+    "meaningEn": "How many people",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1826,6 +1999,7 @@ const KANJI_DATA = [
       "なにじん"
     ],
     "meaning": "Người nước nào",
+    "meaningEn": "What nationality",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1837,6 +2011,7 @@ const KANJI_DATA = [
       "じぶん"
     ],
     "meaning": "Bản thân, chính mình",
+    "meaningEn": "Oneself",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1848,6 +2023,7 @@ const KANJI_DATA = [
       "じんせい"
     ],
     "meaning": "Cuộc đời, cuộc sống",
+    "meaningEn": "Human life",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -1859,6 +2035,7 @@ const KANJI_DATA = [
       "うえ"
     ],
     "meaning": "Bên trên",
+    "meaningEn": "Above, up",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -1870,6 +2047,7 @@ const KANJI_DATA = [
       "あがる"
     ],
     "meaning": "Đi lên, tăng lên",
+    "meaningEn": "Go up, rise",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -1881,6 +2059,7 @@ const KANJI_DATA = [
       "あげる"
     ],
     "meaning": "Đưa lên, tặng",
+    "meaningEn": "Raise, give",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -1892,6 +2071,7 @@ const KANJI_DATA = [
       "した"
     ],
     "meaning": "Bên dưới",
+    "meaningEn": "Below, down",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -1903,6 +2083,7 @@ const KANJI_DATA = [
       "さがる"
     ],
     "meaning": "Đi xuống, giảm xuống",
+    "meaningEn": "Go down, drop",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -1914,6 +2095,7 @@ const KANJI_DATA = [
       "さげる"
     ],
     "meaning": "Hạ xuống",
+    "meaningEn": "Lower, hang down",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -1925,6 +2107,7 @@ const KANJI_DATA = [
       "ひだり"
     ],
     "meaning": "Bên trái",
+    "meaningEn": "Left",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -1936,6 +2119,7 @@ const KANJI_DATA = [
       "ひだりがわ"
     ],
     "meaning": "Phía bên trái",
+    "meaningEn": "Left side",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -1947,6 +2131,7 @@ const KANJI_DATA = [
       "みぎ"
     ],
     "meaning": "Bên phải",
+    "meaningEn": "Right",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -1958,6 +2143,7 @@ const KANJI_DATA = [
       "みぎがわ"
     ],
     "meaning": "Phía bên phải",
+    "meaningEn": "Right side",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -1969,6 +2155,7 @@ const KANJI_DATA = [
       "さゆう"
     ],
     "meaning": "Trái phải",
+    "meaningEn": "Left and right",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -1980,6 +2167,7 @@ const KANJI_DATA = [
       "なか"
     ],
     "meaning": "Bên trong, ở giữa",
+    "meaningEn": "Inside, middle",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -1991,6 +2179,7 @@ const KANJI_DATA = [
       "いちにちじゅう"
     ],
     "meaning": "Suốt cả ngày",
+    "meaningEn": "All day long",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2002,6 +2191,7 @@ const KANJI_DATA = [
       "うち"
     ],
     "meaning": "Bên trong",
+    "meaningEn": "Inside, within",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2013,6 +2203,7 @@ const KANJI_DATA = [
       "あんない"
     ],
     "meaning": "Hướng dẫn",
+    "meaningEn": "Guidance, information",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2024,6 +2215,7 @@ const KANJI_DATA = [
       "そと"
     ],
     "meaning": "Bên ngoài",
+    "meaningEn": "Outside",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2035,6 +2227,7 @@ const KANJI_DATA = [
       "がいこく"
     ],
     "meaning": "Nước ngoài",
+    "meaningEn": "Foreign country",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2046,6 +2239,7 @@ const KANJI_DATA = [
       "がいこくじん"
     ],
     "meaning": "Người nước ngoài",
+    "meaningEn": "Foreigner",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2057,6 +2251,7 @@ const KANJI_DATA = [
       "ひがし"
     ],
     "meaning": "Phía Đông",
+    "meaningEn": "East",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2068,6 +2263,7 @@ const KANJI_DATA = [
       "ひがしぐち"
     ],
     "meaning": "Cửa Đông",
+    "meaningEn": "East exit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2079,6 +2275,7 @@ const KANJI_DATA = [
       "とうなんあじあ"
     ],
     "meaning": "Đông Nam Á",
+    "meaningEn": "Southeast Asia",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2090,6 +2287,7 @@ const KANJI_DATA = [
       "にし"
     ],
     "meaning": "Phía Tây",
+    "meaningEn": "West",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2101,6 +2299,7 @@ const KANJI_DATA = [
       "にしぐち"
     ],
     "meaning": "Cửa Tây",
+    "meaningEn": "West exit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2112,6 +2311,7 @@ const KANJI_DATA = [
       "かんさい"
     ],
     "meaning": "Vùng Kansai",
+    "meaningEn": "Kansai region",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2123,6 +2323,7 @@ const KANJI_DATA = [
       "みなみ"
     ],
     "meaning": "Phía Nam",
+    "meaningEn": "South",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2134,6 +2335,7 @@ const KANJI_DATA = [
       "みなみぐち"
     ],
     "meaning": "Cửa Nam",
+    "meaningEn": "South exit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2145,6 +2347,7 @@ const KANJI_DATA = [
       "きた"
     ],
     "meaning": "Phía Bắc",
+    "meaningEn": "North",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2156,6 +2359,7 @@ const KANJI_DATA = [
       "きたぐち"
     ],
     "meaning": "Cửa Bắc",
+    "meaningEn": "North exit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2167,6 +2371,7 @@ const KANJI_DATA = [
       "ほっかいどう"
     ],
     "meaning": "Hokkaido",
+    "meaningEn": "Hokkaido",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2178,6 +2383,7 @@ const KANJI_DATA = [
       "くち"
     ],
     "meaning": "Miệng, cửa ra vào",
+    "meaningEn": "Mouth, entrance",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2189,6 +2395,7 @@ const KANJI_DATA = [
       "じんこう"
     ],
     "meaning": "Dân số",
+    "meaningEn": "Population",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2200,6 +2407,7 @@ const KANJI_DATA = [
       "でる"
     ],
     "meaning": "Đi ra",
+    "meaningEn": "Go out, exit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2211,6 +2419,7 @@ const KANJI_DATA = [
       "だす"
     ],
     "meaning": "Đưa ra, gửi ra",
+    "meaningEn": "Take out, submit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2222,6 +2431,7 @@ const KANJI_DATA = [
       "でぐち"
     ],
     "meaning": "Lối ra",
+    "meaningEn": "Exit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2233,6 +2443,7 @@ const KANJI_DATA = [
       "はいる"
     ],
     "meaning": "Đi vào",
+    "meaningEn": "Enter, go in",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2244,6 +2455,7 @@ const KANJI_DATA = [
       "いれる"
     ],
     "meaning": "Cho vào, bỏ vào",
+    "meaningEn": "Put in, insert",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2255,6 +2467,7 @@ const KANJI_DATA = [
       "いりぐち"
     ],
     "meaning": "Lối vào",
+    "meaningEn": "Entrance",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -2266,6 +2479,7 @@ const KANJI_DATA = [
       "いく"
     ],
     "meaning": "Đi",
+    "meaningEn": "Go",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2277,6 +2491,7 @@ const KANJI_DATA = [
       "おこなう"
     ],
     "meaning": "Tiến hành, tổ chức",
+    "meaningEn": "Perform, carry out",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2288,6 +2503,7 @@ const KANJI_DATA = [
       "くる"
     ],
     "meaning": "Đến",
+    "meaningEn": "Come",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2299,6 +2515,7 @@ const KANJI_DATA = [
       "らいしゅう"
     ],
     "meaning": "Tuần sau",
+    "meaningEn": "Next week",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2310,6 +2527,7 @@ const KANJI_DATA = [
       "らいげつ"
     ],
     "meaning": "Tháng sau",
+    "meaningEn": "Next month",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2321,6 +2539,7 @@ const KANJI_DATA = [
       "らいねん"
     ],
     "meaning": "Năm sau",
+    "meaningEn": "Next year",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2332,6 +2551,7 @@ const KANJI_DATA = [
       "かえる"
     ],
     "meaning": "Trở về",
+    "meaningEn": "Return home",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2343,6 +2563,7 @@ const KANJI_DATA = [
       "きこく"
     ],
     "meaning": "Về nước",
+    "meaningEn": "Return to one's country",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2354,6 +2575,7 @@ const KANJI_DATA = [
       "やすむ"
     ],
     "meaning": "Nghỉ ngơi",
+    "meaningEn": "Rest, take a break",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2365,6 +2587,7 @@ const KANJI_DATA = [
       "やすみ"
     ],
     "meaning": "Ngày nghỉ",
+    "meaningEn": "Holiday, day off",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2376,6 +2599,7 @@ const KANJI_DATA = [
       "えき"
     ],
     "meaning": "Nhà ga",
+    "meaningEn": "Train station",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2387,6 +2611,7 @@ const KANJI_DATA = [
       "えきまえ"
     ],
     "meaning": "Trước nhà ga",
+    "meaningEn": "In front of the station",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2398,6 +2623,7 @@ const KANJI_DATA = [
       "えきいん"
     ],
     "meaning": "Nhân viên nhà ga",
+    "meaningEn": "Station staff",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2409,6 +2635,7 @@ const KANJI_DATA = [
       "くるま"
     ],
     "meaning": "Ô tô, xe hơi",
+    "meaningEn": "Car, automobile",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2420,6 +2647,7 @@ const KANJI_DATA = [
       "でんしゃ"
     ],
     "meaning": "Tàu điện",
+    "meaningEn": "Electric train",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2431,6 +2659,7 @@ const KANJI_DATA = [
       "でんき"
     ],
     "meaning": "Điện, đèn điện",
+    "meaningEn": "Electricity, light",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2442,6 +2671,7 @@ const KANJI_DATA = [
       "みち"
     ],
     "meaning": "Con đường",
+    "meaningEn": "Road, way",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2453,6 +2683,7 @@ const KANJI_DATA = [
       "どうろ"
     ],
     "meaning": "Đường giao thông",
+    "meaningEn": "Road, street",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2464,6 +2695,7 @@ const KANJI_DATA = [
       "さどう"
     ],
     "meaning": "Trà đạo",
+    "meaningEn": "Tea ceremony",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2475,6 +2707,7 @@ const KANJI_DATA = [
       "しょどう"
     ],
     "meaning": "Thư pháp",
+    "meaningEn": "Calligraphy",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2486,6 +2719,7 @@ const KANJI_DATA = [
       "とおる"
     ],
     "meaning": "Đi qua",
+    "meaningEn": "Pass through",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2497,6 +2731,7 @@ const KANJI_DATA = [
       "とおり"
     ],
     "meaning": "Con phố, đại lộ",
+    "meaningEn": "Street, avenue",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2508,6 +2743,7 @@ const KANJI_DATA = [
       "かよう"
     ],
     "meaning": "Đi lại thường xuyên",
+    "meaningEn": "Commute",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2519,6 +2755,7 @@ const KANJI_DATA = [
       "こうつう"
     ],
     "meaning": "Giao thông",
+    "meaningEn": "Traffic, transportation",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2530,6 +2767,7 @@ const KANJI_DATA = [
       "ふつう"
     ],
     "meaning": "Bình thường, tàu thường",
+    "meaningEn": "Normal, local train",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2541,6 +2779,7 @@ const KANJI_DATA = [
       "のる"
     ],
     "meaning": "Lên xe, đi phương tiện",
+    "meaningEn": "Ride, get on",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2552,6 +2791,7 @@ const KANJI_DATA = [
       "のりもの"
     ],
     "meaning": "Phương tiện giao thông",
+    "meaningEn": "Vehicle",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2563,6 +2803,7 @@ const KANJI_DATA = [
       "じょうば"
     ],
     "meaning": "Cưỡi ngựa",
+    "meaningEn": "Horseback riding",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2574,6 +2815,7 @@ const KANJI_DATA = [
       "ぎんこう"
     ],
     "meaning": "Ngân hàng",
+    "meaningEn": "Bank",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2585,6 +2827,7 @@ const KANJI_DATA = [
       "りょこう"
     ],
     "meaning": "Du lịch",
+    "meaningEn": "Travel, trip",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -2596,6 +2839,7 @@ const KANJI_DATA = [
       "まなぶ"
     ],
     "meaning": "Học hỏi",
+    "meaningEn": "Learn, study",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2607,6 +2851,7 @@ const KANJI_DATA = [
       "がっこう"
     ],
     "meaning": "Trường học",
+    "meaningEn": "School",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2618,6 +2863,7 @@ const KANJI_DATA = [
       "しょうがっこう"
     ],
     "meaning": "Trường tiểu học",
+    "meaningEn": "Elementary school",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2629,6 +2875,7 @@ const KANJI_DATA = [
       "ちゅうがっこう"
     ],
     "meaning": "Trường trung học cơ sở",
+    "meaningEn": "Junior high school",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2640,6 +2887,7 @@ const KANJI_DATA = [
       "こうこう"
     ],
     "meaning": "Trường trung học phổ thông",
+    "meaningEn": "High school",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2651,6 +2899,7 @@ const KANJI_DATA = [
       "だいがく"
     ],
     "meaning": "Trường đại học",
+    "meaningEn": "University",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2662,6 +2911,7 @@ const KANJI_DATA = [
       "がくせい"
     ],
     "meaning": "Học sinh, sinh viên",
+    "meaningEn": "Student",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2673,6 +2923,7 @@ const KANJI_DATA = [
       "だいがくせい"
     ],
     "meaning": "Sinh viên đại học",
+    "meaningEn": "University student",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2684,6 +2935,7 @@ const KANJI_DATA = [
       "こうこうせい"
     ],
     "meaning": "Học sinh cấp 3",
+    "meaningEn": "High school student",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2695,6 +2947,7 @@ const KANJI_DATA = [
       "せんせい"
     ],
     "meaning": "Giáo viên, bác sĩ",
+    "meaningEn": "Teacher, doctor",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2706,6 +2959,7 @@ const KANJI_DATA = [
       "うまれる"
     ],
     "meaning": "Được sinh ra",
+    "meaningEn": "Be born",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2717,6 +2971,7 @@ const KANJI_DATA = [
       "いきる"
     ],
     "meaning": "Sống",
+    "meaningEn": "Live, be alive",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2728,6 +2983,7 @@ const KANJI_DATA = [
       "うむ"
     ],
     "meaning": "Sinh nở",
+    "meaningEn": "Give birth",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2739,6 +2995,7 @@ const KANJI_DATA = [
       "たんじょうび"
     ],
     "meaning": "Sinh nhật",
+    "meaningEn": "Birthday",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2750,6 +3007,7 @@ const KANJI_DATA = [
       "ほん"
     ],
     "meaning": "Sách",
+    "meaningEn": "Book",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2761,6 +3019,7 @@ const KANJI_DATA = [
       "ほんや"
     ],
     "meaning": "Hiệu sách",
+    "meaningEn": "Bookstore",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2772,6 +3031,7 @@ const KANJI_DATA = [
       "にほん"
     ],
     "meaning": "Nhật Bản",
+    "meaningEn": "Japan",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2783,6 +3043,7 @@ const KANJI_DATA = [
       "ほんとう"
     ],
     "meaning": "Thật sự",
+    "meaningEn": "Truth, really",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2794,6 +3055,7 @@ const KANJI_DATA = [
       "かたる"
     ],
     "meaning": "Kể chuyện",
+    "meaningEn": "Tell, narrate",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2805,6 +3067,7 @@ const KANJI_DATA = [
       "にほんご"
     ],
     "meaning": "Tiếng Nhật",
+    "meaningEn": "Japanese language",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2816,6 +3079,7 @@ const KANJI_DATA = [
       "えいご"
     ],
     "meaning": "Tiếng Anh",
+    "meaningEn": "English language",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2827,6 +3091,7 @@ const KANJI_DATA = [
       "がいこくご"
     ],
     "meaning": "Ngoại ngữ",
+    "meaningEn": "Foreign language",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2838,6 +3103,7 @@ const KANJI_DATA = [
       "ぼこくご"
     ],
     "meaning": "Tiếng mẹ đẻ",
+    "meaningEn": "Native language",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2849,6 +3115,7 @@ const KANJI_DATA = [
       "ぶん"
     ],
     "meaning": "Câu văn",
+    "meaningEn": "Sentence, text",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2860,6 +3127,7 @@ const KANJI_DATA = [
       "ぶんしょう"
     ],
     "meaning": "Đoạn văn, bài văn",
+    "meaningEn": "Passage, essay",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2871,6 +3139,7 @@ const KANJI_DATA = [
       "さくぶん"
     ],
     "meaning": "Bài tập làm văn",
+    "meaningEn": "Composition, essay",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2882,6 +3151,7 @@ const KANJI_DATA = [
       "ぶんか"
     ],
     "meaning": "Văn hóa",
+    "meaningEn": "Culture",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2893,6 +3163,7 @@ const KANJI_DATA = [
       "よむ"
     ],
     "meaning": "Đọc",
+    "meaningEn": "Read",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2904,6 +3175,7 @@ const KANJI_DATA = [
       "どくしょ"
     ],
     "meaning": "Đọc sách",
+    "meaningEn": "Reading books",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2915,6 +3187,7 @@ const KANJI_DATA = [
       "みる"
     ],
     "meaning": "Nhìn, xem",
+    "meaningEn": "See, watch, look",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2926,6 +3199,7 @@ const KANJI_DATA = [
       "みせる"
     ],
     "meaning": "Cho xem",
+    "meaningEn": "Show",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2937,6 +3211,7 @@ const KANJI_DATA = [
       "みえる"
     ],
     "meaning": "Nhìn thấy",
+    "meaningEn": "Be visible",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2948,6 +3223,7 @@ const KANJI_DATA = [
       "きく"
     ],
     "meaning": "Nghe, hỏi",
+    "meaningEn": "Listen, ask",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2959,6 +3235,7 @@ const KANJI_DATA = [
       "きこえる"
     ],
     "meaning": "Nghe thấy",
+    "meaningEn": "Be audible",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2970,6 +3247,7 @@ const KANJI_DATA = [
       "しんぶん"
     ],
     "meaning": "Tờ báo",
+    "meaningEn": "Newspaper",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2981,6 +3259,7 @@ const KANJI_DATA = [
       "かく"
     ],
     "meaning": "Viết",
+    "meaningEn": "Write",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -2992,6 +3271,7 @@ const KANJI_DATA = [
       "じしょ"
     ],
     "meaning": "Từ điển",
+    "meaningEn": "Dictionary",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -3003,6 +3283,7 @@ const KANJI_DATA = [
       "いう"
     ],
     "meaning": "Nói",
+    "meaningEn": "Say",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -3014,6 +3295,7 @@ const KANJI_DATA = [
       "ことば"
     ],
     "meaning": "Từ ngữ, ngôn ngữ",
+    "meaningEn": "Word, language",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -3025,6 +3307,7 @@ const KANJI_DATA = [
       "はなす"
     ],
     "meaning": "Nói chuyện",
+    "meaningEn": "Speak, talk",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -3036,6 +3319,7 @@ const KANJI_DATA = [
       "はなし"
     ],
     "meaning": "Câu chuyện",
+    "meaningEn": "Story, talk",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -3047,6 +3331,7 @@ const KANJI_DATA = [
       "かいわ"
     ],
     "meaning": "Hội thoại",
+    "meaningEn": "Conversation",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -3058,6 +3343,7 @@ const KANJI_DATA = [
       "でんわ"
     ],
     "meaning": "Điện thoại",
+    "meaningEn": "Telephone",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -3069,6 +3355,7 @@ const KANJI_DATA = [
       "たべる"
     ],
     "meaning": "Ăn",
+    "meaningEn": "Eat",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3080,6 +3367,7 @@ const KANJI_DATA = [
       "たべもの"
     ],
     "meaning": "Đồ ăn",
+    "meaningEn": "Food",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3091,6 +3379,7 @@ const KANJI_DATA = [
       "しょくじ"
     ],
     "meaning": "Bữa ăn, việc ăn uống",
+    "meaningEn": "Meal",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3102,6 +3391,7 @@ const KANJI_DATA = [
       "のむ"
     ],
     "meaning": "Uống",
+    "meaningEn": "Drink",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3113,6 +3403,7 @@ const KANJI_DATA = [
       "のみもの"
     ],
     "meaning": "Đồ uống",
+    "meaningEn": "Beverage, drink",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3124,6 +3415,7 @@ const KANJI_DATA = [
       "さかな"
     ],
     "meaning": "Cá",
+    "meaningEn": "Fish",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3135,6 +3427,7 @@ const KANJI_DATA = [
       "なまざかな"
     ],
     "meaning": "Cá sống",
+    "meaningEn": "Raw fish",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3146,6 +3439,7 @@ const KANJI_DATA = [
       "やきざかな"
     ],
     "meaning": "Cá nướng",
+    "meaningEn": "Grilled fish",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3157,6 +3451,7 @@ const KANJI_DATA = [
       "さかなや"
     ],
     "meaning": "Tiệm cá",
+    "meaningEn": "Fish shop",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3168,6 +3463,7 @@ const KANJI_DATA = [
       "きんぎょ"
     ],
     "meaning": "Cá vàng",
+    "meaningEn": "Goldfish",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3179,6 +3475,7 @@ const KANJI_DATA = [
       "にく"
     ],
     "meaning": "Thịt",
+    "meaningEn": "Meat",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3190,6 +3487,7 @@ const KANJI_DATA = [
       "ぎゅうにく"
     ],
     "meaning": "Thịt bò",
+    "meaningEn": "Beef",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3201,6 +3499,7 @@ const KANJI_DATA = [
       "やきにく"
     ],
     "meaning": "Thịt nướng",
+    "meaningEn": "Grilled meat (yakiniku)",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3212,6 +3511,7 @@ const KANJI_DATA = [
       "たまご"
     ],
     "meaning": "Trứng",
+    "meaningEn": "Egg",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3223,6 +3523,7 @@ const KANJI_DATA = [
       "なまたまご"
     ],
     "meaning": "Trứng sống",
+    "meaningEn": "Raw egg",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3234,6 +3535,7 @@ const KANJI_DATA = [
       "なまビール"
     ],
     "meaning": "Bia tươi",
+    "meaningEn": "Draft beer",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3245,6 +3547,7 @@ const KANJI_DATA = [
       "おちゃ"
     ],
     "meaning": "Trà",
+    "meaningEn": "Green tea, tea",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3256,6 +3559,7 @@ const KANJI_DATA = [
       "こうちゃ"
     ],
     "meaning": "Hồng trà, trà đen",
+    "meaningEn": "Black tea",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3267,6 +3571,7 @@ const KANJI_DATA = [
       "かう"
     ],
     "meaning": "Mua",
+    "meaningEn": "Buy",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3278,6 +3583,7 @@ const KANJI_DATA = [
       "かいもの"
     ],
     "meaning": "Mua sắm",
+    "meaningEn": "Shopping",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3289,6 +3595,7 @@ const KANJI_DATA = [
       "みせ"
     ],
     "meaning": "Cửa hàng",
+    "meaningEn": "Shop, store",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3300,6 +3607,7 @@ const KANJI_DATA = [
       "てんいん"
     ],
     "meaning": "Nhân viên cửa hàng",
+    "meaningEn": "Store clerk",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3311,6 +3619,7 @@ const KANJI_DATA = [
       "たかい"
     ],
     "meaning": "Cao, đắt",
+    "meaningEn": "Tall, high, expensive",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3322,6 +3631,7 @@ const KANJI_DATA = [
       "やすい"
     ],
     "meaning": "Rẻ",
+    "meaningEn": "Cheap, inexpensive",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3333,6 +3643,7 @@ const KANJI_DATA = [
       "おおい"
     ],
     "meaning": "Nhiều",
+    "meaningEn": "Many, much",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3344,6 +3655,7 @@ const KANJI_DATA = [
       "たぶん"
     ],
     "meaning": "Có lẽ",
+    "meaningEn": "Probably, maybe",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3355,6 +3667,7 @@ const KANJI_DATA = [
       "たすう"
     ],
     "meaning": "Số đông",
+    "meaningEn": "Majority, large number",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3366,6 +3679,7 @@ const KANJI_DATA = [
       "すくない"
     ],
     "meaning": "Ít",
+    "meaningEn": "Few, little",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3377,6 +3691,7 @@ const KANJI_DATA = [
       "すこし"
     ],
     "meaning": "Một chút",
+    "meaningEn": "A little, slightly",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3388,6 +3703,7 @@ const KANJI_DATA = [
       "しょうねん"
     ],
     "meaning": "Thiếu niên",
+    "meaningEn": "Boy, youth",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3399,6 +3715,7 @@ const KANJI_DATA = [
       "あたらしい"
     ],
     "meaning": "Mới",
+    "meaningEn": "New",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3410,6 +3727,7 @@ const KANJI_DATA = [
       "ふるい"
     ],
     "meaning": "Cũ",
+    "meaningEn": "Old (objects)",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3421,6 +3739,7 @@ const KANJI_DATA = [
       "ちゅうこ"
     ],
     "meaning": "Đồ cũ, hàng đã qua sử dụng",
+    "meaningEn": "Secondhand, used",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3432,6 +3751,7 @@ const KANJI_DATA = [
       "おおきい"
     ],
     "meaning": "To, lớn",
+    "meaningEn": "Big, large",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3443,6 +3763,7 @@ const KANJI_DATA = [
       "ちいさい"
     ],
     "meaning": "Nhỏ, bé",
+    "meaningEn": "Small, little",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3454,6 +3775,7 @@ const KANJI_DATA = [
       "ながい"
     ],
     "meaning": "Dài",
+    "meaningEn": "Long",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3465,6 +3787,7 @@ const KANJI_DATA = [
       "こうちょう"
     ],
     "meaning": "Hiệu trưởng",
+    "meaningEn": "School principal",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3476,6 +3799,7 @@ const KANJI_DATA = [
       "しゃちょう"
     ],
     "meaning": "Giám đốc công ty",
+    "meaningEn": "Company president",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -3487,6 +3811,7 @@ const KANJI_DATA = [
       "やま"
     ],
     "meaning": "Núi",
+    "meaningEn": "Mountain",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3498,6 +3823,7 @@ const KANJI_DATA = [
       "ふじさん"
     ],
     "meaning": "Núi Phú Sĩ",
+    "meaningEn": "Mount Fuji",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3509,6 +3835,7 @@ const KANJI_DATA = [
       "かざん"
     ],
     "meaning": "Núi lửa",
+    "meaningEn": "Volcano",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3520,6 +3847,7 @@ const KANJI_DATA = [
       "かわ"
     ],
     "meaning": "Sông",
+    "meaningEn": "River",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3531,6 +3859,7 @@ const KANJI_DATA = [
       "おがわ"
     ],
     "meaning": "Suối nhỏ, sông nhỏ",
+    "meaningEn": "Stream, brook",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3542,6 +3871,7 @@ const KANJI_DATA = [
       "おおかわ"
     ],
     "meaning": "Sông lớn",
+    "meaningEn": "Big river",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3553,6 +3883,7 @@ const KANJI_DATA = [
       "かせん"
     ],
     "meaning": "Sông ngòi",
+    "meaningEn": "Rivers",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3564,6 +3895,7 @@ const KANJI_DATA = [
       "うみ"
     ],
     "meaning": "Biển",
+    "meaningEn": "Sea, ocean",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3575,6 +3907,7 @@ const KANJI_DATA = [
       "かいがん"
     ],
     "meaning": "Bờ biển",
+    "meaningEn": "Coast, seashore",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3586,6 +3919,7 @@ const KANJI_DATA = [
       "かいがい"
     ],
     "meaning": "Nước ngoài, hải ngoại",
+    "meaningEn": "Overseas, abroad",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3597,6 +3931,7 @@ const KANJI_DATA = [
       "はな"
     ],
     "meaning": "Hoa",
+    "meaningEn": "Flower",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3608,6 +3943,7 @@ const KANJI_DATA = [
       "はなみ"
     ],
     "meaning": "Ngắm hoa",
+    "meaningEn": "Flower viewing (hanami)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3619,6 +3955,7 @@ const KANJI_DATA = [
       "はなび"
     ],
     "meaning": "Pháo hoa",
+    "meaningEn": "Fireworks",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3630,6 +3967,7 @@ const KANJI_DATA = [
       "かびん"
     ],
     "meaning": "Bình hoa",
+    "meaningEn": "Flower vase",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3641,6 +3979,7 @@ const KANJI_DATA = [
       "てんき"
     ],
     "meaning": "Thời tiết",
+    "meaningEn": "Weather",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3652,6 +3991,7 @@ const KANJI_DATA = [
       "てんこう"
     ],
     "meaning": "Khí hậu",
+    "meaningEn": "Weather, climate",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3663,6 +4003,7 @@ const KANJI_DATA = [
       "げんき"
     ],
     "meaning": "Khỏe mạnh",
+    "meaningEn": "Healthy, energetic",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3674,6 +4015,7 @@ const KANJI_DATA = [
       "くうき"
     ],
     "meaning": "Không khí",
+    "meaningEn": "Air, atmosphere",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3685,6 +4027,7 @@ const KANJI_DATA = [
       "あめ"
     ],
     "meaning": "Mưa",
+    "meaningEn": "Rain",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3696,6 +4039,7 @@ const KANJI_DATA = [
       "おおあめ"
     ],
     "meaning": "Mưa to",
+    "meaningEn": "Heavy rain",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3707,6 +4051,7 @@ const KANJI_DATA = [
       "あまみず"
     ],
     "meaning": "Nước mưa",
+    "meaningEn": "Rainwater",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3718,6 +4063,7 @@ const KANJI_DATA = [
       "そら"
     ],
     "meaning": "Bầu trời",
+    "meaningEn": "Sky",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3729,6 +4075,7 @@ const KANJI_DATA = [
       "あおぞら"
     ],
     "meaning": "Bầu trời xanh",
+    "meaningEn": "Blue sky",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3740,6 +4087,7 @@ const KANJI_DATA = [
       "くうこう"
     ],
     "meaning": "Sân bay",
+    "meaningEn": "Airport",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3751,6 +4099,7 @@ const KANJI_DATA = [
       "からっぽ"
     ],
     "meaning": "Trống rỗng",
+    "meaningEn": "Empty",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3762,6 +4111,7 @@ const KANJI_DATA = [
       "て"
     ],
     "meaning": "Bàn tay",
+    "meaningEn": "Hand",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3773,6 +4123,7 @@ const KANJI_DATA = [
       "みぎて"
     ],
     "meaning": "Tay phải",
+    "meaningEn": "Right hand",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3784,6 +4135,7 @@ const KANJI_DATA = [
       "ひだりて"
     ],
     "meaning": "Tay trái",
+    "meaningEn": "Left hand",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3795,6 +4147,7 @@ const KANJI_DATA = [
       "じょうず"
     ],
     "meaning": "Giỏi, khéo",
+    "meaningEn": "Skillful, good at",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3806,6 +4159,7 @@ const KANJI_DATA = [
       "へた"
     ],
     "meaning": "Kém, vụng",
+    "meaningEn": "Unskillful, poor at",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3817,6 +4171,7 @@ const KANJI_DATA = [
       "あし"
     ],
     "meaning": "Chân",
+    "meaningEn": "Foot, leg",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3828,6 +4183,7 @@ const KANJI_DATA = [
       "たりる"
     ],
     "meaning": "Đủ",
+    "meaningEn": "Be enough, suffice",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3839,6 +4195,7 @@ const KANJI_DATA = [
       "め"
     ],
     "meaning": "Con mắt",
+    "meaningEn": "Eye",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3850,6 +4207,7 @@ const KANJI_DATA = [
       "もくてき"
     ],
     "meaning": "Mục đích",
+    "meaningEn": "Purpose, goal",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3861,6 +4219,7 @@ const KANJI_DATA = [
       "みみ"
     ],
     "meaning": "Cái tai",
+    "meaningEn": "Ear",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3872,6 +4231,7 @@ const KANJI_DATA = [
       "こころ"
     ],
     "meaning": "Trái tim, tấm lòng",
+    "meaningEn": "Heart, mind",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3883,6 +4243,7 @@ const KANJI_DATA = [
       "あんしん"
     ],
     "meaning": "Yên tâm",
+    "meaningEn": "Relief, peace of mind",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3894,6 +4255,7 @@ const KANJI_DATA = [
       "しんぱい"
     ],
     "meaning": "Lo lắng",
+    "meaningEn": "Worry, anxiety",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3905,6 +4267,7 @@ const KANJI_DATA = [
       "ちゅうしん"
     ],
     "meaning": "Trung tâm",
+    "meaningEn": "Center, core",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3916,6 +4279,7 @@ const KANJI_DATA = [
       "しろ"
     ],
     "meaning": "Màu trắng",
+    "meaningEn": "White (noun)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3927,6 +4291,7 @@ const KANJI_DATA = [
       "しろい"
     ],
     "meaning": "Trắng",
+    "meaningEn": "White (adj)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3938,6 +4303,7 @@ const KANJI_DATA = [
       "しろいろ"
     ],
     "meaning": "Màu trắng (danh từ)",
+    "meaningEn": "White color",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3949,6 +4315,7 @@ const KANJI_DATA = [
       "あか"
     ],
     "meaning": "Màu đỏ",
+    "meaningEn": "Red (noun)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3960,6 +4327,7 @@ const KANJI_DATA = [
       "あかい"
     ],
     "meaning": "Đỏ",
+    "meaningEn": "Red (adj)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3971,6 +4339,7 @@ const KANJI_DATA = [
       "あかちゃん"
     ],
     "meaning": "Em bé",
+    "meaningEn": "Baby, infant",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3982,6 +4351,7 @@ const KANJI_DATA = [
       "あかしんごう"
     ],
     "meaning": "Đèn đỏ giao thông",
+    "meaningEn": "Red traffic light",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -3993,6 +4363,7 @@ const KANJI_DATA = [
       "あお"
     ],
     "meaning": "Màu xanh lam",
+    "meaningEn": "Blue (noun)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -4004,6 +4375,7 @@ const KANJI_DATA = [
       "あおい"
     ],
     "meaning": "Xanh lam",
+    "meaningEn": "Blue (adj)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -4015,6 +4387,7 @@ const KANJI_DATA = [
       "あおいろ"
     ],
     "meaning": "Màu xanh lam (danh từ)",
+    "meaningEn": "Blue color",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -4026,6 +4399,7 @@ const KANJI_DATA = [
       "あおしんごう"
     ],
     "meaning": "Đèn xanh giao thông",
+    "meaningEn": "Green traffic light",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -4037,6 +4411,7 @@ const KANJI_DATA = [
       "くろ"
     ],
     "meaning": "Màu đen",
+    "meaningEn": "Black (noun)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -4048,6 +4423,7 @@ const KANJI_DATA = [
       "くろい"
     ],
     "meaning": "Đen",
+    "meaningEn": "Black (adj)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -4059,6 +4435,7 @@ const KANJI_DATA = [
       "くろいろ"
     ],
     "meaning": "Màu đen (danh từ)",
+    "meaningEn": "Black color",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -4070,6 +4447,7 @@ const KANJI_DATA = [
       "こくばん"
     ],
     "meaning": "Bảng đen",
+    "meaningEn": "Blackboard",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -4081,6 +4459,7 @@ const KANJI_DATA = [
       "くろねこ"
     ],
     "meaning": "Mèo đen",
+    "meaningEn": "Black cat",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -4092,6 +4471,7 @@ const KANJI_DATA = [
       "あに"
     ],
     "meaning": "Anh trai (của mình)",
+    "meaningEn": "Older brother (humble)",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4103,6 +4483,7 @@ const KANJI_DATA = [
       "おにいさん"
     ],
     "meaning": "Anh trai",
+    "meaningEn": "Older brother",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4114,6 +4495,7 @@ const KANJI_DATA = [
       "きょうだい"
     ],
     "meaning": "Anh chị em",
+    "meaningEn": "Siblings",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4125,6 +4507,7 @@ const KANJI_DATA = [
       "あね"
     ],
     "meaning": "Chị gái (của mình)",
+    "meaningEn": "Older sister (humble)",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4136,6 +4519,7 @@ const KANJI_DATA = [
       "おねえさん"
     ],
     "meaning": "Chị gái",
+    "meaningEn": "Older sister",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4147,6 +4531,7 @@ const KANJI_DATA = [
       "しまい"
     ],
     "meaning": "Chị em gái",
+    "meaningEn": "Sisters",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4158,6 +4543,7 @@ const KANJI_DATA = [
       "おとうと"
     ],
     "meaning": "Em trai",
+    "meaningEn": "Younger brother",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4169,6 +4555,7 @@ const KANJI_DATA = [
       "いもうと"
     ],
     "meaning": "Em gái",
+    "meaningEn": "Younger sister",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4181,6 +4568,7 @@ const KANJI_DATA = [
       "うち"
     ],
     "meaning": "Nhà, gia đình",
+    "meaningEn": "House, home",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4192,6 +4580,7 @@ const KANJI_DATA = [
       "かぞく"
     ],
     "meaning": "Gia đình",
+    "meaningEn": "Family",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4203,6 +4592,7 @@ const KANJI_DATA = [
       "おや"
     ],
     "meaning": "Cha mẹ",
+    "meaningEn": "Parent",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4214,6 +4604,7 @@ const KANJI_DATA = [
       "りょうしん"
     ],
     "meaning": "Bố mẹ, song thân",
+    "meaningEn": "Both parents",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4225,6 +4616,7 @@ const KANJI_DATA = [
       "しんせつ"
     ],
     "meaning": "Thân thiện, tốt bụng",
+    "meaningEn": "Kind, friendly",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4236,6 +4628,7 @@ const KANJI_DATA = [
       "しんゆう"
     ],
     "meaning": "Bạn thân",
+    "meaningEn": "Close friend",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4247,6 +4640,7 @@ const KANJI_DATA = [
       "すむ"
     ],
     "meaning": "Sinh sống, cư trú",
+    "meaningEn": "Live, reside",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4258,6 +4652,7 @@ const KANJI_DATA = [
       "じゅうしょ"
     ],
     "meaning": "Địa chỉ",
+    "meaningEn": "Address",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4269,6 +4664,7 @@ const KANJI_DATA = [
       "しごと"
     ],
     "meaning": "Công việc",
+    "meaningEn": "Work, job",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4280,6 +4676,7 @@ const KANJI_DATA = [
       "しかた"
     ],
     "meaning": "Cách làm, phương pháp",
+    "meaningEn": "Way, method",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4291,6 +4688,7 @@ const KANJI_DATA = [
       "はたらく"
     ],
     "meaning": "Làm việc, lao động",
+    "meaningEn": "Work, labor",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4302,6 +4700,7 @@ const KANJI_DATA = [
       "かいしゃ"
     ],
     "meaning": "Công ty",
+    "meaningEn": "Company",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4313,6 +4712,7 @@ const KANJI_DATA = [
       "しゃいん"
     ],
     "meaning": "Nhân viên công ty",
+    "meaningEn": "Company employee",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4324,6 +4724,7 @@ const KANJI_DATA = [
       "かいしゃいん"
     ],
     "meaning": "Nhân viên văn phòng",
+    "meaningEn": "Office worker",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4335,6 +4736,7 @@ const KANJI_DATA = [
       "しゃかい"
     ],
     "meaning": "Xã hội",
+    "meaningEn": "Society",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4346,6 +4748,7 @@ const KANJI_DATA = [
       "ぜんいん"
     ],
     "meaning": "Toàn thể nhân viên / mọi người",
+    "meaningEn": "Everyone, all members",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4357,6 +4760,7 @@ const KANJI_DATA = [
       "おっと"
     ],
     "meaning": "Chồng",
+    "meaningEn": "Husband",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4368,6 +4772,7 @@ const KANJI_DATA = [
       "だいじょうぶ"
     ],
     "meaning": "Không sao, ổn",
+    "meaningEn": "All right, okay",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4379,6 +4784,7 @@ const KANJI_DATA = [
       "つま"
     ],
     "meaning": "Vợ",
+    "meaningEn": "Wife",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4390,6 +4796,7 @@ const KANJI_DATA = [
       "ふさい"
     ],
     "meaning": "Vợ chồng",
+    "meaningEn": "Husband and wife (formal)",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4401,6 +4808,7 @@ const KANJI_DATA = [
       "ふうふ"
     ],
     "meaning": "Hai vợ chồng",
+    "meaningEn": "Married couple",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4412,6 +4820,7 @@ const KANJI_DATA = [
       "むすぶ"
     ],
     "meaning": "Buộc, nối, kết lại",
+    "meaningEn": "Tie, bind, connect",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4423,6 +4832,7 @@ const KANJI_DATA = [
       "けっこん"
     ],
     "meaning": "Kết hôn",
+    "meaningEn": "Marriage",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4434,6 +4844,7 @@ const KANJI_DATA = [
       "けっか"
     ],
     "meaning": "Kết quả",
+    "meaningEn": "Result, outcome",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4445,6 +4856,7 @@ const KANJI_DATA = [
       "さい"
     ],
     "meaning": "Tuổi",
+    "meaningEn": "Years of age",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4456,6 +4868,7 @@ const KANJI_DATA = [
       "はたち"
     ],
     "meaning": "20 tuổi",
+    "meaningEn": "20 years old",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4467,6 +4880,7 @@ const KANJI_DATA = [
       "せかい"
     ],
     "meaning": "Thế giới",
+    "meaningEn": "World",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4478,6 +4892,7 @@ const KANJI_DATA = [
       "せわ"
     ],
     "meaning": "Sự chăm sóc, giúp đỡ",
+    "meaningEn": "Care, help",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4489,6 +4904,7 @@ const KANJI_DATA = [
       "かれ"
     ],
     "meaning": "Anh ấy, bạn trai",
+    "meaningEn": "He, boyfriend",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4500,6 +4916,7 @@ const KANJI_DATA = [
       "かのじょ"
     ],
     "meaning": "Cô ấy, bạn gái",
+    "meaningEn": "She, girlfriend",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4511,6 +4928,7 @@ const KANJI_DATA = [
       "くに"
     ],
     "meaning": "Đất nước, quốc gia",
+    "meaningEn": "Country, nation",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4522,6 +4940,7 @@ const KANJI_DATA = [
       "ちゅうごく"
     ],
     "meaning": "Trung Quốc",
+    "meaningEn": "China",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4533,6 +4952,7 @@ const KANJI_DATA = [
       "かんこく"
     ],
     "meaning": "Hàn Quốc",
+    "meaningEn": "South Korea",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4544,6 +4964,7 @@ const KANJI_DATA = [
       "べいこく"
     ],
     "meaning": "Nước Mỹ",
+    "meaningEn": "United States",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4555,6 +4976,7 @@ const KANJI_DATA = [
       "えいこく"
     ],
     "meaning": "Nước Anh",
+    "meaningEn": "United Kingdom",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4566,6 +4988,7 @@ const KANJI_DATA = [
       "こくさい"
     ],
     "meaning": "Quốc tế",
+    "meaningEn": "International",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4577,6 +5000,7 @@ const KANJI_DATA = [
       "えいゆう"
     ],
     "meaning": "Anh hùng",
+    "meaningEn": "Hero",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4588,6 +5012,7 @@ const KANJI_DATA = [
       "しゅふ"
     ],
     "meaning": "Nội trợ",
+    "meaningEn": "Housewife",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4599,6 +5024,7 @@ const KANJI_DATA = [
       "しゅじんこう"
     ],
     "meaning": "Nhân vật chính",
+    "meaningEn": "Main character, protagonist",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4610,6 +5036,7 @@ const KANJI_DATA = [
       "せんぱい"
     ],
     "meaning": "Tiền bối",
+    "meaningEn": "Senior (senpai)",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4621,6 +5048,7 @@ const KANJI_DATA = [
       "こうはい"
     ],
     "meaning": "Hậu bối",
+    "meaningEn": "Junior (kohai)",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4632,6 +5060,7 @@ const KANJI_DATA = [
       "かちょう"
     ],
     "meaning": "Trưởng phòng ban / tổ trưởng",
+    "meaningEn": "Section manager",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4643,6 +5072,7 @@ const KANJI_DATA = [
       "ざんぎょう"
     ],
     "meaning": "Làm thêm giờ, tăng ca",
+    "meaningEn": "Overtime work",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4654,6 +5084,7 @@ const KANJI_DATA = [
       "しゅっちょう"
     ],
     "meaning": "Đi công tác",
+    "meaningEn": "Business trip",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4665,6 +5096,7 @@ const KANJI_DATA = [
       "しゅうしょく"
     ],
     "meaning": "Xin việc, đi làm",
+    "meaningEn": "Finding employment",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4676,6 +5108,7 @@ const KANJI_DATA = [
       "ひっこし"
     ],
     "meaning": "Chuyển nhà",
+    "meaningEn": "Moving house",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4687,6 +5120,7 @@ const KANJI_DATA = [
       "あいさつ"
     ],
     "meaning": "Chào hỏi",
+    "meaningEn": "Greeting",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4698,6 +5132,7 @@ const KANJI_DATA = [
       "そうだん"
     ],
     "meaning": "Trao đổi, bàn bạc, tư vấn",
+    "meaningEn": "Consultation, discussion",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4709,6 +5144,7 @@ const KANJI_DATA = [
       "れんらく"
     ],
     "meaning": "Liên lạc",
+    "meaningEn": "Contact, notification",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4720,6 +5156,7 @@ const KANJI_DATA = [
       "しょうかい"
     ],
     "meaning": "Giới thiệu",
+    "meaningEn": "Introduction",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4731,6 +5168,7 @@ const KANJI_DATA = [
       "けっこんしき"
     ],
     "meaning": "Lễ cưới",
+    "meaningEn": "Wedding ceremony",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -4742,6 +5180,7 @@ const KANJI_DATA = [
       "あさ"
     ],
     "meaning": "Buổi sáng",
+    "meaningEn": "Morning",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4753,6 +5192,7 @@ const KANJI_DATA = [
       "けさ"
     ],
     "meaning": "Sáng nay",
+    "meaningEn": "This morning",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4764,6 +5204,7 @@ const KANJI_DATA = [
       "まいあさ"
     ],
     "meaning": "Mỗi sáng",
+    "meaningEn": "Every morning",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4775,6 +5216,7 @@ const KANJI_DATA = [
       "ひる"
     ],
     "meaning": "Buổi trưa, ban ngày",
+    "meaningEn": "Noon, daytime",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4786,6 +5228,7 @@ const KANJI_DATA = [
       "ひるやすみ"
     ],
     "meaning": "Giờ nghỉ trưa",
+    "meaningEn": "Lunch break",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4797,6 +5240,7 @@ const KANJI_DATA = [
       "ひるね"
     ],
     "meaning": "Ngủ trưa",
+    "meaningEn": "Afternoon nap",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4808,6 +5252,7 @@ const KANJI_DATA = [
       "よる"
     ],
     "meaning": "Buổi tối, ban đêm",
+    "meaningEn": "Night, evening",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4819,6 +5264,7 @@ const KANJI_DATA = [
       "こんや"
     ],
     "meaning": "Tối nay",
+    "meaningEn": "Tonight",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4830,6 +5276,7 @@ const KANJI_DATA = [
       "やけい"
     ],
     "meaning": "Cảnh đêm",
+    "meaningEn": "Night view",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4841,6 +5288,7 @@ const KANJI_DATA = [
       "やきん"
     ],
     "meaning": "Làm ca đêm",
+    "meaningEn": "Night shift",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4852,6 +5300,7 @@ const KANJI_DATA = [
       "ばん"
     ],
     "meaning": "Buổi tối",
+    "meaningEn": "Evening, night",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4863,6 +5312,7 @@ const KANJI_DATA = [
       "こんばん"
     ],
     "meaning": "Tối nay",
+    "meaningEn": "This evening",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4874,6 +5324,7 @@ const KANJI_DATA = [
       "まいばん"
     ],
     "meaning": "Mỗi tối",
+    "meaningEn": "Every evening",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4885,6 +5336,7 @@ const KANJI_DATA = [
       "きのう"
     ],
     "meaning": "Hôm qua",
+    "meaningEn": "Yesterday",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4896,6 +5348,7 @@ const KANJI_DATA = [
       "さくねん"
     ],
     "meaning": "Năm ngoái (trang trọng)",
+    "meaningEn": "Last year (formal)",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4907,6 +5360,7 @@ const KANJI_DATA = [
       "きょねん"
     ],
     "meaning": "Năm ngoái",
+    "meaningEn": "Last year",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4918,6 +5372,7 @@ const KANJI_DATA = [
       "かこ"
     ],
     "meaning": "Quá khứ",
+    "meaningEn": "The past",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4929,6 +5384,7 @@ const KANJI_DATA = [
       "はる"
     ],
     "meaning": "Mùa xuân",
+    "meaningEn": "Spring",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4940,6 +5396,7 @@ const KANJI_DATA = [
       "はるやすみ"
     ],
     "meaning": "Kỳ nghỉ xuân",
+    "meaningEn": "Spring break",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4951,6 +5408,7 @@ const KANJI_DATA = [
       "せいしゅん"
     ],
     "meaning": "Tuổi thanh xuân",
+    "meaningEn": "Youth, springtime of life",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4962,6 +5420,7 @@ const KANJI_DATA = [
       "なつ"
     ],
     "meaning": "Mùa hè",
+    "meaningEn": "Summer",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4973,6 +5432,7 @@ const KANJI_DATA = [
       "なつやすみ"
     ],
     "meaning": "Kỳ nghỉ hè",
+    "meaningEn": "Summer vacation",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4984,6 +5444,7 @@ const KANJI_DATA = [
       "しょか"
     ],
     "meaning": "Đầu hè",
+    "meaningEn": "Early summer",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -4995,6 +5456,7 @@ const KANJI_DATA = [
       "あき"
     ],
     "meaning": "Mùa thu",
+    "meaningEn": "Autumn, fall",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5006,6 +5468,7 @@ const KANJI_DATA = [
       "あきかぜ"
     ],
     "meaning": "Gió thu",
+    "meaningEn": "Autumn breeze",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5017,6 +5480,7 @@ const KANJI_DATA = [
       "しゅうぶん"
     ],
     "meaning": "Thu phân",
+    "meaningEn": "Autumnal equinox",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5028,6 +5492,7 @@ const KANJI_DATA = [
       "ふゆ"
     ],
     "meaning": "Mùa đông",
+    "meaningEn": "Winter",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5039,6 +5504,7 @@ const KANJI_DATA = [
       "ふゆやすみ"
     ],
     "meaning": "Kỳ nghỉ đông",
+    "meaningEn": "Winter vacation",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5050,6 +5516,7 @@ const KANJI_DATA = [
       "とうじ"
     ],
     "meaning": "Đông chí",
+    "meaningEn": "Winter solstice",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5061,6 +5528,7 @@ const KANJI_DATA = [
       "しき"
     ],
     "meaning": "Bốn mùa",
+    "meaningEn": "Four seasons",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5072,6 +5540,7 @@ const KANJI_DATA = [
       "きせつ"
     ],
     "meaning": "Mùa, thời tiết theo mùa",
+    "meaningEn": "Season",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5083,6 +5552,7 @@ const KANJI_DATA = [
       "はれ"
     ],
     "meaning": "Trời nắng, trời quang",
+    "meaningEn": "Sunny, clear weather",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5094,6 +5564,7 @@ const KANJI_DATA = [
       "はれる"
     ],
     "meaning": "Hửng nắng, quang đãng",
+    "meaningEn": "Clear up (weather)",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5105,6 +5576,7 @@ const KANJI_DATA = [
       "せいてん"
     ],
     "meaning": "Trời quang mây tạnh",
+    "meaningEn": "Clear sky, fine weather",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5116,6 +5588,7 @@ const KANJI_DATA = [
       "くも"
     ],
     "meaning": "Mây",
+    "meaningEn": "Cloud",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5127,6 +5600,7 @@ const KANJI_DATA = [
       "あまぐも"
     ],
     "meaning": "Mây mưa",
+    "meaningEn": "Rain cloud",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5138,6 +5612,7 @@ const KANJI_DATA = [
       "うんかい"
     ],
     "meaning": "Biển mây",
+    "meaningEn": "Sea of clouds",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5149,6 +5624,7 @@ const KANJI_DATA = [
       "くもり"
     ],
     "meaning": "Trời có mây, âm u",
+    "meaningEn": "Cloudy weather",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5160,6 +5636,7 @@ const KANJI_DATA = [
       "かぜ"
     ],
     "meaning": "Gió",
+    "meaningEn": "Wind",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5171,6 +5648,7 @@ const KANJI_DATA = [
       "たいふう"
     ],
     "meaning": "Bão",
+    "meaningEn": "Typhoon",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5182,6 +5660,7 @@ const KANJI_DATA = [
       "つゆ"
     ],
     "meaning": "Mùa mưa",
+    "meaningEn": "Rainy season",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5193,6 +5672,7 @@ const KANJI_DATA = [
       "ゆき"
     ],
     "meaning": "Tuyết",
+    "meaningEn": "Snow",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5204,6 +5684,7 @@ const KANJI_DATA = [
       "おおゆき"
     ],
     "meaning": "Tuyết rơi dày",
+    "meaningEn": "Heavy snow",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5215,6 +5696,7 @@ const KANJI_DATA = [
       "あつい"
     ],
     "meaning": "Nóng (thời tiết)",
+    "meaningEn": "Hot (weather)",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5226,6 +5708,7 @@ const KANJI_DATA = [
       "さむい"
     ],
     "meaning": "Lạnh (thời tiết)",
+    "meaningEn": "Cold (weather)",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5237,6 +5720,7 @@ const KANJI_DATA = [
       "あたたかい"
     ],
     "meaning": "Ấm áp",
+    "meaningEn": "Warm",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5248,6 +5732,7 @@ const KANJI_DATA = [
       "だんぼう"
     ],
     "meaning": "Máy sưởi, hệ thống sưởi",
+    "meaningEn": "Heater, heating",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5259,6 +5744,7 @@ const KANJI_DATA = [
       "すずしい"
     ],
     "meaning": "Mát mẻ",
+    "meaningEn": "Cool, refreshing",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5270,6 +5756,7 @@ const KANJI_DATA = [
       "つめたい"
     ],
     "meaning": "Lạnh (đồ vật, chạm vào)",
+    "meaningEn": "Cold (to touch)",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5281,6 +5768,7 @@ const KANJI_DATA = [
       "れいぼう"
     ],
     "meaning": "Điều hòa làm mát",
+    "meaningEn": "Air conditioning",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5292,6 +5780,7 @@ const KANJI_DATA = [
       "れいぞうこ"
     ],
     "meaning": "Tủ lạnh",
+    "meaningEn": "Refrigerator",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5303,6 +5792,7 @@ const KANJI_DATA = [
       "あかるい"
     ],
     "meaning": "Sáng sủa, tươi sáng",
+    "meaningEn": "Bright, cheerful",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5315,6 +5805,7 @@ const KANJI_DATA = [
       "あす"
     ],
     "meaning": "Ngày mai",
+    "meaningEn": "Tomorrow",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5326,6 +5817,7 @@ const KANJI_DATA = [
       "くらい"
     ],
     "meaning": "Tối tăm",
+    "meaningEn": "Dark",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -5337,6 +5829,7 @@ const KANJI_DATA = [
       "りょうり"
     ],
     "meaning": "Món ăn, nấu ăn",
+    "meaningEn": "Cooking, dish",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5348,6 +5841,7 @@ const KANJI_DATA = [
       "ざいりょう"
     ],
     "meaning": "Nguyên liệu",
+    "meaningEn": "Ingredient, material",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5359,6 +5853,7 @@ const KANJI_DATA = [
       "りょうきん"
     ],
     "meaning": "Phí, cước phí",
+    "meaningEn": "Fee, charge",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5370,6 +5865,7 @@ const KANJI_DATA = [
       "ごはん"
     ],
     "meaning": "Cơm, bữa ăn",
+    "meaningEn": "Cooked rice, meal",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5381,6 +5877,7 @@ const KANJI_DATA = [
       "あさごはん"
     ],
     "meaning": "Bữa sáng",
+    "meaningEn": "Breakfast",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5392,6 +5889,7 @@ const KANJI_DATA = [
       "ひるごはん"
     ],
     "meaning": "Bữa trưa",
+    "meaningEn": "Lunch",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5403,6 +5901,7 @@ const KANJI_DATA = [
       "ばんごはん"
     ],
     "meaning": "Bữa tối",
+    "meaningEn": "Dinner",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5414,6 +5913,7 @@ const KANJI_DATA = [
       "ちょうしょく"
     ],
     "meaning": "Bữa sáng (trang trọng)",
+    "meaningEn": "Breakfast (formal)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5425,6 +5925,7 @@ const KANJI_DATA = [
       "ちゅうしょく"
     ],
     "meaning": "Bữa trưa (trang trọng)",
+    "meaningEn": "Lunch (formal)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5436,6 +5937,7 @@ const KANJI_DATA = [
       "ゆうしょく"
     ],
     "meaning": "Bữa tối (trang trọng)",
+    "meaningEn": "Dinner (formal)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5447,6 +5949,7 @@ const KANJI_DATA = [
       "やしょく"
     ],
     "meaning": "Bữa ăn khuya",
+    "meaningEn": "Midnight snack",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5458,6 +5961,7 @@ const KANJI_DATA = [
       "がいしょく"
     ],
     "meaning": "Ăn ngoài hàng",
+    "meaningEn": "Eating out",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5469,6 +5973,7 @@ const KANJI_DATA = [
       "やさい"
     ],
     "meaning": "Rau củ",
+    "meaningEn": "Vegetables",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5480,6 +5985,7 @@ const KANJI_DATA = [
       "なまやさい"
     ],
     "meaning": "Rau sống",
+    "meaningEn": "Raw vegetables",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5491,6 +5997,7 @@ const KANJI_DATA = [
       "くだもの"
     ],
     "meaning": "Trái cây, hoa quả",
+    "meaningEn": "Fruit",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5502,6 +6009,7 @@ const KANJI_DATA = [
       "うし"
     ],
     "meaning": "Con bò",
+    "meaningEn": "Cow",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5513,6 +6021,7 @@ const KANJI_DATA = [
       "ぎゅうにゅう"
     ],
     "meaning": "Sữa bò",
+    "meaningEn": "Milk",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5524,6 +6033,7 @@ const KANJI_DATA = [
       "ぶた"
     ],
     "meaning": "Con lợn (heo)",
+    "meaningEn": "Pig",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5535,6 +6045,7 @@ const KANJI_DATA = [
       "ぶたにく"
     ],
     "meaning": "Thịt lợn",
+    "meaningEn": "Pork",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5546,6 +6057,7 @@ const KANJI_DATA = [
       "とり"
     ],
     "meaning": "Con chim, gà",
+    "meaningEn": "Bird, chicken",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5557,6 +6069,7 @@ const KANJI_DATA = [
       "とりにく"
     ],
     "meaning": "Thịt gà",
+    "meaningEn": "Chicken meat",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5568,6 +6081,7 @@ const KANJI_DATA = [
       "やきとり"
     ],
     "meaning": "Thịt gà nướng xiên",
+    "meaningEn": "Grilled chicken skewers (yakitori)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5579,6 +6093,7 @@ const KANJI_DATA = [
       "やく"
     ],
     "meaning": "Nướng, rán, đốt",
+    "meaningEn": "Grill, bake, roast",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5590,6 +6105,7 @@ const KANJI_DATA = [
       "はるまき"
     ],
     "meaning": "Chả giò, nem rán",
+    "meaningEn": "Spring roll",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5601,6 +6117,7 @@ const KANJI_DATA = [
       "つくる"
     ],
     "meaning": "Làm, nấu, chế tạo",
+    "meaningEn": "Make, cook, create",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5612,6 +6129,7 @@ const KANJI_DATA = [
       "きる"
     ],
     "meaning": "Cắt",
+    "meaningEn": "Cut",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5623,6 +6141,7 @@ const KANJI_DATA = [
       "きって"
     ],
     "meaning": "Tem thư",
+    "meaningEn": "Postage stamp",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5634,6 +6153,7 @@ const KANJI_DATA = [
       "きっぷ"
     ],
     "meaning": "Vé (tàu, xe)",
+    "meaningEn": "Ticket",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5645,6 +6165,7 @@ const KANJI_DATA = [
       "たいせつ"
     ],
     "meaning": "Quan trọng, quý giá",
+    "meaningEn": "Important, precious",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5656,6 +6177,7 @@ const KANJI_DATA = [
       "あまい"
     ],
     "meaning": "Ngọt",
+    "meaningEn": "Sweet",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5667,6 +6189,7 @@ const KANJI_DATA = [
       "からい"
     ],
     "meaning": "Cay",
+    "meaningEn": "Spicy, hot",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5678,6 +6201,7 @@ const KANJI_DATA = [
       "にがい"
     ],
     "meaning": "Đắng",
+    "meaningEn": "Bitter",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5689,6 +6213,7 @@ const KANJI_DATA = [
       "にがて"
     ],
     "meaning": "Kém, không giỏi, ngại",
+    "meaningEn": "Weak at, dislike",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5700,6 +6225,7 @@ const KANJI_DATA = [
       "ちゅうもん"
     ],
     "meaning": "Gọi món, đặt hàng",
+    "meaningEn": "Order (food, goods)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5711,6 +6237,7 @@ const KANJI_DATA = [
       "ちゅうい"
     ],
     "meaning": "Chú ý, cẩn thận",
+    "meaningEn": "Attention, caution",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5722,6 +6249,7 @@ const KANJI_DATA = [
       "しょくどう"
     ],
     "meaning": "Nhà ăn, căng tin",
+    "meaningEn": "Cafeteria, dining hall",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5733,6 +6261,7 @@ const KANJI_DATA = [
       "きっさてん"
     ],
     "meaning": "Quán cà phê, giải khát",
+    "meaningEn": "Coffee shop, cafe",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5744,6 +6273,7 @@ const KANJI_DATA = [
       "さけ"
     ],
     "meaning": "Rượu",
+    "meaningEn": "Alcohol, sake",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5755,6 +6285,7 @@ const KANJI_DATA = [
       "おさけ"
     ],
     "meaning": "Rượu (lịch sự)",
+    "meaningEn": "Alcohol (polite)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5766,6 +6297,7 @@ const KANJI_DATA = [
       "にほんしゅ"
     ],
     "meaning": "Rượu sake Nhật",
+    "meaningEn": "Japanese sake",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5777,6 +6309,7 @@ const KANJI_DATA = [
       "あじ"
     ],
     "meaning": "Mùi vị",
+    "meaningEn": "Taste, flavor",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5788,6 +6321,7 @@ const KANJI_DATA = [
       "みそ"
     ],
     "meaning": "Tương miso",
+    "meaningEn": "Miso paste",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5799,6 +6333,7 @@ const KANJI_DATA = [
       "わしょく"
     ],
     "meaning": "Ẩm thực Nhật Bản",
+    "meaningEn": "Japanese cuisine",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5810,6 +6345,7 @@ const KANJI_DATA = [
       "わふう"
     ],
     "meaning": "Phong cách Nhật",
+    "meaningEn": "Japanese style",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5821,6 +6357,7 @@ const KANJI_DATA = [
       "ようしょく"
     ],
     "meaning": "Ẩm thực phương Tây",
+    "meaningEn": "Western cuisine",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5832,6 +6369,7 @@ const KANJI_DATA = [
       "もの"
     ],
     "meaning": "Đồ vật, thứ",
+    "meaningEn": "Thing, object",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5843,6 +6381,7 @@ const KANJI_DATA = [
       "こうぶつ"
     ],
     "meaning": "Món ăn yêu thích",
+    "meaningEn": "Favorite food",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5854,6 +6393,7 @@ const KANJI_DATA = [
       "べんとう"
     ],
     "meaning": "Cơm hộp bento",
+    "meaningEn": "Boxed lunch (bento)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5865,6 +6405,7 @@ const KANJI_DATA = [
       "やおや"
     ],
     "meaning": "Cửa hàng rau quả",
+    "meaningEn": "Greengrocer",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5876,6 +6417,7 @@ const KANJI_DATA = [
       "わかす"
     ],
     "meaning": "Đun sôi",
+    "meaningEn": "Boil (water)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5887,6 +6429,7 @@ const KANJI_DATA = [
       "にる"
     ],
     "meaning": "Ninh, hầm, kho",
+    "meaningEn": "Simmer, stew",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5898,6 +6441,7 @@ const KANJI_DATA = [
       "あげる"
     ],
     "meaning": "Chiên ngập dầu, rán",
+    "meaningEn": "Deep-fry",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5909,6 +6453,7 @@ const KANJI_DATA = [
       "いためる"
     ],
     "meaning": "Xào",
+    "meaningEn": "Stir-fry",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5920,6 +6465,7 @@ const KANJI_DATA = [
       "まぜる"
     ],
     "meaning": "Trộn",
+    "meaningEn": "Mix",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5931,6 +6477,7 @@ const KANJI_DATA = [
       "ひやす"
     ],
     "meaning": "Làm lạnh, ướp lạnh",
+    "meaningEn": "Chill, cool down",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5942,6 +6489,7 @@ const KANJI_DATA = [
       "あたためる"
     ],
     "meaning": "Hâm nóng",
+    "meaningEn": "Warm up, heat up",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5953,6 +6501,7 @@ const KANJI_DATA = [
       "しお"
     ],
     "meaning": "Muối",
+    "meaningEn": "Salt",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5964,6 +6513,7 @@ const KANJI_DATA = [
       "さとう"
     ],
     "meaning": "Đường",
+    "meaningEn": "Sugar",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5975,6 +6525,7 @@ const KANJI_DATA = [
       "しょうゆ"
     ],
     "meaning": "Nước tương, xì dầu",
+    "meaningEn": "Soy sauce",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5986,6 +6537,7 @@ const KANJI_DATA = [
       "あぶら"
     ],
     "meaning": "Dầu ăn",
+    "meaningEn": "Cooking oil",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -5997,6 +6549,7 @@ const KANJI_DATA = [
       "こめ"
     ],
     "meaning": "Gạo",
+    "meaningEn": "Uncooked rice",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -6008,6 +6561,7 @@ const KANJI_DATA = [
       "さら"
     ],
     "meaning": "Cái đĩa",
+    "meaningEn": "Plate, dish",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -6019,6 +6573,7 @@ const KANJI_DATA = [
       "すき"
     ],
     "meaning": "Thích",
+    "meaningEn": "Like, fond of",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6030,6 +6585,7 @@ const KANJI_DATA = [
       "だいすき"
     ],
     "meaning": "Rất thích",
+    "meaningEn": "Love, like very much",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6041,6 +6597,7 @@ const KANJI_DATA = [
       "このむ"
     ],
     "meaning": "Ưa thích, yêu chuộng",
+    "meaningEn": "Prefer, be fond of",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6052,6 +6609,7 @@ const KANJI_DATA = [
       "こうい"
     ],
     "meaning": "Thiện ý, lòng tốt",
+    "meaningEn": "Goodwill, kindness",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6063,6 +6621,7 @@ const KANJI_DATA = [
       "しゅみ"
     ],
     "meaning": "Sở thích",
+    "meaningEn": "Hobby, pastime",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6074,6 +6633,7 @@ const KANJI_DATA = [
       "うつす"
     ],
     "meaning": "Chụp ảnh, sao chép",
+    "meaningEn": "Photograph, copy",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6085,6 +6645,7 @@ const KANJI_DATA = [
       "しゃしん"
     ],
     "meaning": "Bức ảnh",
+    "meaningEn": "Photograph",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6096,6 +6657,7 @@ const KANJI_DATA = [
       "しゃしんか"
     ],
     "meaning": "Nhiếp ảnh gia",
+    "meaningEn": "Photographer",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6107,6 +6669,7 @@ const KANJI_DATA = [
       "ま"
     ],
     "meaning": "Thật, chính giữa",
+    "meaningEn": "True, exact center",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6118,6 +6681,7 @@ const KANJI_DATA = [
       "まんなか"
     ],
     "meaning": "Chính giữa",
+    "meaningEn": "Right in the middle",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6129,6 +6693,7 @@ const KANJI_DATA = [
       "えいが"
     ],
     "meaning": "Phim điện ảnh",
+    "meaningEn": "Movie, film",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6140,6 +6705,7 @@ const KANJI_DATA = [
       "えいがかん"
     ],
     "meaning": "Rạp chiếu phim",
+    "meaningEn": "Movie theater",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6151,6 +6717,7 @@ const KANJI_DATA = [
       "まんが"
     ],
     "meaning": "Truyện tranh manga",
+    "meaningEn": "Manga, comic",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6162,6 +6729,7 @@ const KANJI_DATA = [
       "がか"
     ],
     "meaning": "Họa sĩ",
+    "meaningEn": "Painter, artist",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6173,6 +6741,7 @@ const KANJI_DATA = [
       "え"
     ],
     "meaning": "Tranh vẽ",
+    "meaningEn": "Picture, painting",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6184,6 +6753,7 @@ const KANJI_DATA = [
       "えほん"
     ],
     "meaning": "Sách tranh",
+    "meaningEn": "Picture book",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6195,6 +6765,7 @@ const KANJI_DATA = [
       "うた"
     ],
     "meaning": "Bài hát",
+    "meaningEn": "Song",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6206,6 +6777,7 @@ const KANJI_DATA = [
       "うたう"
     ],
     "meaning": "Hát",
+    "meaningEn": "Sing",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6217,6 +6789,7 @@ const KANJI_DATA = [
       "かしゅ"
     ],
     "meaning": "Ca sĩ",
+    "meaningEn": "Singer",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6228,6 +6801,7 @@ const KANJI_DATA = [
       "えんそう"
     ],
     "meaning": "Biểu diễn nhạc cụ",
+    "meaningEn": "Musical performance",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6239,6 +6813,7 @@ const KANJI_DATA = [
       "はこぶ"
     ],
     "meaning": "Vận chuyển, mang vác",
+    "meaningEn": "Carry, transport",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6250,6 +6825,7 @@ const KANJI_DATA = [
       "うんどう"
     ],
     "meaning": "Vận động, thể thao",
+    "meaningEn": "Exercise, sports",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6261,6 +6837,7 @@ const KANJI_DATA = [
       "うごく"
     ],
     "meaning": "Di chuyển, hoạt động",
+    "meaningEn": "Move",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6272,6 +6849,7 @@ const KANJI_DATA = [
       "どうぶつ"
     ],
     "meaning": "Động vật",
+    "meaningEn": "Animal",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6283,6 +6861,7 @@ const KANJI_DATA = [
       "どうぶつえん"
     ],
     "meaning": "Sở thú",
+    "meaningEn": "Zoo",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6294,6 +6873,7 @@ const KANJI_DATA = [
       "じどう"
     ],
     "meaning": "Tự động",
+    "meaningEn": "Automatic",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6305,6 +6885,7 @@ const KANJI_DATA = [
       "はしる"
     ],
     "meaning": "Chạy",
+    "meaningEn": "Run",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6316,6 +6897,7 @@ const KANJI_DATA = [
       "およぐ"
     ],
     "meaning": "Bơi",
+    "meaningEn": "Swim",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6327,6 +6909,7 @@ const KANJI_DATA = [
       "すいえい"
     ],
     "meaning": "Môn bơi lội",
+    "meaningEn": "Swimming",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6338,6 +6921,7 @@ const KANJI_DATA = [
       "やきゅう"
     ],
     "meaning": "Bóng chày",
+    "meaningEn": "Baseball",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6349,6 +6933,7 @@ const KANJI_DATA = [
       "あそぶ"
     ],
     "meaning": "Chơi, vui chơi",
+    "meaningEn": "Play, hang out",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6360,6 +6945,7 @@ const KANJI_DATA = [
       "ならう"
     ],
     "meaning": "Học (từ ai đó)",
+    "meaningEn": "Learn (from someone)",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6371,6 +6957,7 @@ const KANJI_DATA = [
       "がくしゅう"
     ],
     "meaning": "Học tập",
+    "meaningEn": "Learning, study",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6382,6 +6969,7 @@ const KANJI_DATA = [
       "ふくしゅう"
     ],
     "meaning": "Ôn tập",
+    "meaningEn": "Review, revision",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6393,6 +6981,7 @@ const KANJI_DATA = [
       "よしゅう"
     ],
     "meaning": "Chuẩn bị bài trước",
+    "meaningEn": "Lesson preparation",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6404,6 +6993,7 @@ const KANJI_DATA = [
       "れんしゅう"
     ],
     "meaning": "Luyện tập",
+    "meaningEn": "Practice, training",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6415,6 +7005,7 @@ const KANJI_DATA = [
       "ためす"
     ],
     "meaning": "Thử, thử nghiệm",
+    "meaningEn": "Try, test",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6426,6 +7017,7 @@ const KANJI_DATA = [
       "しあい"
     ],
     "meaning": "Trận đấu",
+    "meaningEn": "Match, game",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6437,6 +7029,7 @@ const KANJI_DATA = [
       "あう"
     ],
     "meaning": "Hợp, vừa vặn, khớp",
+    "meaningEn": "Fit, match, suit",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6448,6 +7041,7 @@ const KANJI_DATA = [
       "まにあう"
     ],
     "meaning": "Kịp giờ",
+    "meaningEn": "Be in time",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6459,6 +7053,7 @@ const KANJI_DATA = [
       "つごう"
     ],
     "meaning": "Sự thuận tiện, hoàn cảnh",
+    "meaningEn": "Convenience, circumstances",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6470,6 +7065,7 @@ const KANJI_DATA = [
       "かつ"
     ],
     "meaning": "Thắng",
+    "meaningEn": "Win",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6481,6 +7077,7 @@ const KANJI_DATA = [
       "しょうぶ"
     ],
     "meaning": "Thắng thua, trận đấu",
+    "meaningEn": "Victory or defeat, match",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6492,6 +7089,7 @@ const KANJI_DATA = [
       "まける"
     ],
     "meaning": "Thua",
+    "meaningEn": "Lose",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6503,6 +7101,7 @@ const KANJI_DATA = [
       "おと"
     ],
     "meaning": "Âm thanh, tiếng động",
+    "meaningEn": "Sound, noise",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6514,6 +7113,7 @@ const KANJI_DATA = [
       "おんがく"
     ],
     "meaning": "Âm nhạc",
+    "meaningEn": "Music",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6525,6 +7125,7 @@ const KANJI_DATA = [
       "がっき"
     ],
     "meaning": "Nhạc cụ",
+    "meaningEn": "Musical instrument",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6536,6 +7137,7 @@ const KANJI_DATA = [
       "たのしい"
     ],
     "meaning": "Vui vẻ",
+    "meaningEn": "Fun, enjoyable",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6547,6 +7149,7 @@ const KANJI_DATA = [
       "たのしむ"
     ],
     "meaning": "Tận hưởng",
+    "meaningEn": "Enjoy",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6558,6 +7161,7 @@ const KANJI_DATA = [
       "らく"
     ],
     "meaning": "Thoải mái, nhàn hạ",
+    "meaningEn": "Comfortable, easy",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6569,6 +7173,7 @@ const KANJI_DATA = [
       "たび"
     ],
     "meaning": "Chuyến đi, du lịch",
+    "meaningEn": "Trip, journey",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6580,6 +7185,7 @@ const KANJI_DATA = [
       "りょかん"
     ],
     "meaning": "Lữ quán kiểu Nhật",
+    "meaningEn": "Japanese-style inn (ryokan)",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6591,6 +7197,7 @@ const KANJI_DATA = [
       "さんか"
     ],
     "meaning": "Tham gia",
+    "meaningEn": "Participate",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6602,6 +7209,7 @@ const KANJI_DATA = [
       "おうえん"
     ],
     "meaning": "Cổ vũ, ủng hộ",
+    "meaningEn": "Cheer, support",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6613,6 +7221,7 @@ const KANJI_DATA = [
       "けんがく"
     ],
     "meaning": "Tham quan học tập",
+    "meaningEn": "Field trip, study visit",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6624,6 +7233,7 @@ const KANJI_DATA = [
       "びじゅつ"
     ],
     "meaning": "Mỹ thuật",
+    "meaningEn": "Fine arts",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6635,6 +7245,7 @@ const KANJI_DATA = [
       "げいじゅつ"
     ],
     "meaning": "Nghệ thuật",
+    "meaningEn": "Art",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6646,6 +7257,7 @@ const KANJI_DATA = [
       "ぎじゅつ"
     ],
     "meaning": "Kỹ thuật",
+    "meaningEn": "Technology, technique",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6657,6 +7269,7 @@ const KANJI_DATA = [
       "にんぎょうげき"
     ],
     "meaning": "Múa rối",
+    "meaningEn": "Puppet show",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -6668,6 +7281,7 @@ const KANJI_DATA = [
       "まち"
     ],
     "meaning": "Thị trấn, khu phố",
+    "meaningEn": "Town, neighborhood",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6679,6 +7293,7 @@ const KANJI_DATA = [
       "ひろい"
     ],
     "meaning": "Rộng",
+    "meaningEn": "Wide, spacious",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6690,6 +7305,7 @@ const KANJI_DATA = [
       "ひろば"
     ],
     "meaning": "Quảng trường",
+    "meaningEn": "Public square, plaza",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6701,6 +7317,7 @@ const KANJI_DATA = [
       "こうこく"
     ],
     "meaning": "Quảng cáo",
+    "meaningEn": "Advertisement",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6712,6 +7329,7 @@ const KANJI_DATA = [
       "ば"
     ],
     "meaning": "Nơi, chỗ, hiện trường",
+    "meaningEn": "Place, spot, scene",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6723,6 +7341,7 @@ const KANJI_DATA = [
       "ばしょ"
     ],
     "meaning": "Địa điểm",
+    "meaningEn": "Place, location",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6734,6 +7353,7 @@ const KANJI_DATA = [
       "こうじょう"
     ],
     "meaning": "Nhà máy, công xưởng",
+    "meaningEn": "Factory, plant",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6745,6 +7365,7 @@ const KANJI_DATA = [
       "ちゅうしゃじょう"
     ],
     "meaning": "Bãi đỗ xe",
+    "meaningEn": "Parking lot",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6756,6 +7377,7 @@ const KANJI_DATA = [
       "ところ"
     ],
     "meaning": "Nơi chốn, chỗ",
+    "meaningEn": "Place, spot",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6767,6 +7389,7 @@ const KANJI_DATA = [
       "だいどころ"
     ],
     "meaning": "Nhà bếp",
+    "meaningEn": "Kitchen",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6778,6 +7401,7 @@ const KANJI_DATA = [
       "ちかい"
     ],
     "meaning": "Gần",
+    "meaningEn": "Near, close",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6789,6 +7413,7 @@ const KANJI_DATA = [
       "きんじょ"
     ],
     "meaning": "Hàng xóm, vùng lân cận",
+    "meaningEn": "Neighborhood",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6800,6 +7425,7 @@ const KANJI_DATA = [
       "さいきん"
     ],
     "meaning": "Gần đây",
+    "meaningEn": "Recently, lately",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6811,6 +7437,7 @@ const KANJI_DATA = [
       "とおい"
     ],
     "meaning": "Xa",
+    "meaningEn": "Far, distant",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6822,6 +7449,7 @@ const KANJI_DATA = [
       "えんりょ"
     ],
     "meaning": "Khách sáo, ngại ngùng",
+    "meaningEn": "Reserve, hesitation",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6833,6 +7461,7 @@ const KANJI_DATA = [
       "よこ"
     ],
     "meaning": "Bên cạnh, chiều ngang",
+    "meaningEn": "Beside, horizontal",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6844,6 +7473,7 @@ const KANJI_DATA = [
       "かど"
     ],
     "meaning": "Góc phố, góc cạnh",
+    "meaningEn": "Street corner, angle",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6856,6 +7486,7 @@ const KANJI_DATA = [
       "あたり"
     ],
     "meaning": "Vùng lân cận, khu vực",
+    "meaningEn": "Vicinity, around",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6867,6 +7498,7 @@ const KANJI_DATA = [
       "しま"
     ],
     "meaning": "Hòn đảo",
+    "meaningEn": "Island",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6878,6 +7510,7 @@ const KANJI_DATA = [
       "はし"
     ],
     "meaning": "Cây cầu",
+    "meaningEn": "Bridge",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6889,6 +7522,7 @@ const KANJI_DATA = [
       "わたる"
     ],
     "meaning": "Băng qua (đường, cầu)",
+    "meaningEn": "Cross (a road, bridge)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6900,6 +7534,7 @@ const KANJI_DATA = [
       "わたす"
     ],
     "meaning": "Trao tay, đưa cho",
+    "meaningEn": "Hand over, pass",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6911,6 +7546,7 @@ const KANJI_DATA = [
       "まがる"
     ],
     "meaning": "Rẽ, quẹo, cong",
+    "meaningEn": "Turn, bend",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6922,6 +7558,7 @@ const KANJI_DATA = [
       "きょく"
     ],
     "meaning": "Bản nhạc, ca khúc",
+    "meaningEn": "Song, musical piece",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6933,6 +7570,7 @@ const KANJI_DATA = [
       "とまる"
     ],
     "meaning": "Dừng lại (tự động từ)",
+    "meaningEn": "Stop (intransitive)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6944,6 +7582,7 @@ const KANJI_DATA = [
       "とめる"
     ],
     "meaning": "Làm dừng lại, đỗ xe",
+    "meaningEn": "Stop, park (transitive)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6955,6 +7594,7 @@ const KANJI_DATA = [
       "ちゅうし"
     ],
     "meaning": "Hủy bỏ, đình chỉ",
+    "meaningEn": "Cancellation, suspension",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6966,6 +7606,7 @@ const KANJI_DATA = [
       "あるく"
     ],
     "meaning": "Đi bộ",
+    "meaningEn": "Walk",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6977,6 +7618,7 @@ const KANJI_DATA = [
       "さんぽ"
     ],
     "meaning": "Đi dạo",
+    "meaningEn": "Stroll, take a walk",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6988,6 +7630,7 @@ const KANJI_DATA = [
       "じてんしゃ"
     ],
     "meaning": "Xe đạp",
+    "meaningEn": "Bicycle",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -6999,6 +7642,7 @@ const KANJI_DATA = [
       "うんてん"
     ],
     "meaning": "Lái xe",
+    "meaningEn": "Driving",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7010,6 +7654,7 @@ const KANJI_DATA = [
       "うんてんしゅ"
     ],
     "meaning": "Tài xế",
+    "meaningEn": "Driver",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7021,6 +7666,7 @@ const KANJI_DATA = [
       "おりる"
     ],
     "meaning": "Xuống xe, bước xuống",
+    "meaningEn": "Get off (a vehicle)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7032,6 +7678,7 @@ const KANJI_DATA = [
       "ふる"
     ],
     "meaning": "Rơi (mưa, tuyết)",
+    "meaningEn": "Fall (rain, snow)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7043,6 +7690,7 @@ const KANJI_DATA = [
       "しゅっぱつ"
     ],
     "meaning": "Xuất phát",
+    "meaningEn": "Departure",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7054,6 +7702,7 @@ const KANJI_DATA = [
       "はっぴょう"
     ],
     "meaning": "Phát biểu, công bố",
+    "meaningEn": "Announcement, presentation",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7065,6 +7714,7 @@ const KANJI_DATA = [
       "つく"
     ],
     "meaning": "Đến nơi",
+    "meaningEn": "Arrive",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7076,6 +7726,7 @@ const KANJI_DATA = [
       "きる"
     ],
     "meaning": "Mặc (áo)",
+    "meaningEn": "Wear (clothes)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7087,6 +7738,7 @@ const KANJI_DATA = [
       "とうちゃく"
     ],
     "meaning": "Sự đến nơi",
+    "meaningEn": "Arrival",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7098,6 +7750,7 @@ const KANJI_DATA = [
       "とぶ"
     ],
     "meaning": "Bay",
+    "meaningEn": "Fly",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7109,6 +7762,7 @@ const KANJI_DATA = [
       "ひこうき"
     ],
     "meaning": "Máy bay",
+    "meaningEn": "Airplane",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7120,6 +7774,7 @@ const KANJI_DATA = [
       "きかい"
     ],
     "meaning": "Cơ hội",
+    "meaningEn": "Opportunity, chance",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7131,6 +7786,7 @@ const KANJI_DATA = [
       "ふね"
     ],
     "meaning": "Con tàu, thuyền",
+    "meaningEn": "Ship, boat",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7142,6 +7798,7 @@ const KANJI_DATA = [
       "みなと"
     ],
     "meaning": "Bến cảng",
+    "meaningEn": "Port, harbor",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7153,6 +7810,7 @@ const KANJI_DATA = [
       "やど"
     ],
     "meaning": "Nhà trọ, nơi lưu trú",
+    "meaningEn": "Inn, lodging",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7164,6 +7822,7 @@ const KANJI_DATA = [
       "としょかん"
     ],
     "meaning": "Thư viện",
+    "meaningEn": "Library",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7175,6 +7834,7 @@ const KANJI_DATA = [
       "びじゅつかん"
     ],
     "meaning": "Bảo tàng mỹ thuật",
+    "meaningEn": "Art museum",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7186,6 +7846,7 @@ const KANJI_DATA = [
       "たいいくかん"
     ],
     "meaning": "Nhà thi đấu thể thao",
+    "meaningEn": "Gymnasium",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7197,6 +7858,7 @@ const KANJI_DATA = [
       "よやく"
     ],
     "meaning": "Đặt trước",
+    "meaningEn": "Reservation",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7208,6 +7870,7 @@ const KANJI_DATA = [
       "よてい"
     ],
     "meaning": "Dự định, lịch trình",
+    "meaningEn": "Plan, schedule",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7219,6 +7882,7 @@ const KANJI_DATA = [
       "やくそく"
     ],
     "meaning": "Lời hứa, cuộc hẹn",
+    "meaningEn": "Promise, appointment",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7230,6 +7894,7 @@ const KANJI_DATA = [
       "ちず"
     ],
     "meaning": "Bản đồ",
+    "meaningEn": "Map",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7241,6 +7906,7 @@ const KANJI_DATA = [
       "ちかてつ"
     ],
     "meaning": "Tàu điện ngầm",
+    "meaningEn": "Subway",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7252,6 +7918,7 @@ const KANJI_DATA = [
       "ちり"
     ],
     "meaning": "Địa lý",
+    "meaningEn": "Geography",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7263,6 +7930,7 @@ const KANJI_DATA = [
       "じしん"
     ],
     "meaning": "Động đất",
+    "meaningEn": "Earthquake",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7274,6 +7942,7 @@ const KANJI_DATA = [
       "こうえん"
     ],
     "meaning": "Công viên",
+    "meaningEn": "Park",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7285,6 +7954,7 @@ const KANJI_DATA = [
       "けん"
     ],
     "meaning": "Tỉnh",
+    "meaningEn": "Prefecture",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7296,6 +7966,7 @@ const KANJI_DATA = [
       "し"
     ],
     "meaning": "Thành phố",
+    "meaningEn": "City",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7307,6 +7978,7 @@ const KANJI_DATA = [
       "しみん"
     ],
     "meaning": "Người dân thành phố",
+    "meaningEn": "Citizen",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7318,6 +7990,7 @@ const KANJI_DATA = [
       "むら"
     ],
     "meaning": "Ngôi làng",
+    "meaningEn": "Village",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7329,6 +8002,7 @@ const KANJI_DATA = [
       "いなか"
     ],
     "meaning": "Nông thôn, quê",
+    "meaningEn": "Countryside, hometown",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7340,6 +8014,7 @@ const KANJI_DATA = [
       "とうきょう"
     ],
     "meaning": "Tokyo",
+    "meaningEn": "Tokyo",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7351,6 +8026,7 @@ const KANJI_DATA = [
       "きょうと"
     ],
     "meaning": "Kyoto",
+    "meaningEn": "Kyoto",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7362,6 +8038,7 @@ const KANJI_DATA = [
       "しゅと"
     ],
     "meaning": "Thủ đô",
+    "meaningEn": "Capital city",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7373,6 +8050,7 @@ const KANJI_DATA = [
       "ぎん"
     ],
     "meaning": "Bạc",
+    "meaningEn": "Silver",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7384,6 +8062,7 @@ const KANJI_DATA = [
       "おみやげ"
     ],
     "meaning": "Quà lưu niệm",
+    "meaningEn": "Souvenir",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7395,6 +8074,7 @@ const KANJI_DATA = [
       "こうつうひ"
     ],
     "meaning": "Chi phí đi lại",
+    "meaningEn": "Transportation fee",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7406,6 +8086,7 @@ const KANJI_DATA = [
       "のりかえ"
     ],
     "meaning": "Chuyển tuyến tàu/xe",
+    "meaningEn": "Transfer (trains/buses)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7417,6 +8098,7 @@ const KANJI_DATA = [
       "こうそくどうろ"
     ],
     "meaning": "Đường cao tốc",
+    "meaningEn": "Expressway, highway",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7428,6 +8110,7 @@ const KANJI_DATA = [
       "こうさてん"
     ],
     "meaning": "Ngã tư, giao lộ",
+    "meaningEn": "Intersection",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7439,6 +8122,7 @@ const KANJI_DATA = [
       "おうだんほどう"
     ],
     "meaning": "Vạch qua đường cho người đi bộ",
+    "meaningEn": "Crosswalk",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7450,6 +8134,7 @@ const KANJI_DATA = [
       "けいさつ"
     ],
     "meaning": "Cảnh sát",
+    "meaningEn": "Police",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7461,6 +8146,7 @@ const KANJI_DATA = [
       "こうばん"
     ],
     "meaning": "Đồn cảnh sát nhỏ",
+    "meaningEn": "Police box (koban)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7472,6 +8158,7 @@ const KANJI_DATA = [
       "しやくしょ"
     ],
     "meaning": "Ủy ban nhân dân thành phố",
+    "meaningEn": "City hall",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7483,6 +8170,7 @@ const KANJI_DATA = [
       "はくぶつかん"
     ],
     "meaning": "Bảo tàng",
+    "meaningEn": "Museum",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7494,6 +8182,7 @@ const KANJI_DATA = [
       "すいぞくかん"
     ],
     "meaning": "Thủy cung",
+    "meaningEn": "Aquarium",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7505,6 +8194,7 @@ const KANJI_DATA = [
       "にゅうじょうりょう"
     ],
     "meaning": "Vé vào cổng",
+    "meaningEn": "Admission fee",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7516,6 +8206,7 @@ const KANJI_DATA = [
       "しゅっぱつじかん"
     ],
     "meaning": "Giờ khởi hành",
+    "meaningEn": "Departure time",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7527,6 +8218,7 @@ const KANJI_DATA = [
       "とうちゃくじかん"
     ],
     "meaning": "Giờ đến nơi",
+    "meaningEn": "Arrival time",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7538,6 +8230,7 @@ const KANJI_DATA = [
       "せかいいさん"
     ],
     "meaning": "Di sản thế giới",
+    "meaningEn": "World Heritage",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -7549,6 +8242,7 @@ const KANJI_DATA = [
       "からだ"
     ],
     "meaning": "Cơ thể",
+    "meaningEn": "Body",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7560,6 +8254,7 @@ const KANJI_DATA = [
       "たいいく"
     ],
     "meaning": "Thể dục",
+    "meaningEn": "Physical education",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7571,6 +8266,7 @@ const KANJI_DATA = [
       "たいちょう"
     ],
     "meaning": "Tình trạng sức khỏe",
+    "meaningEn": "Physical condition",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7582,6 +8278,7 @@ const KANJI_DATA = [
       "たいじゅう"
     ],
     "meaning": "Cân nặng",
+    "meaningEn": "Body weight",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7593,6 +8290,7 @@ const KANJI_DATA = [
       "あたま"
     ],
     "meaning": "Cái đầu",
+    "meaningEn": "Head",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7604,6 +8302,7 @@ const KANJI_DATA = [
       "ずつう"
     ],
     "meaning": "Đau đầu",
+    "meaningEn": "Headache",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7615,6 +8314,7 @@ const KANJI_DATA = [
       "かお"
     ],
     "meaning": "Khuôn mặt",
+    "meaningEn": "Face",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7626,6 +8326,7 @@ const KANJI_DATA = [
       "くび"
     ],
     "meaning": "Cái cổ",
+    "meaningEn": "Neck",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7637,6 +8338,7 @@ const KANJI_DATA = [
       "こえ"
     ],
     "meaning": "Giọng nói",
+    "meaningEn": "Voice",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7648,6 +8350,7 @@ const KANJI_DATA = [
       "びょうき"
     ],
     "meaning": "Bệnh tật, ốm",
+    "meaningEn": "Illness, sickness",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7659,6 +8362,7 @@ const KANJI_DATA = [
       "びょういん"
     ],
     "meaning": "Bệnh viện",
+    "meaningEn": "Hospital",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7670,6 +8374,7 @@ const KANJI_DATA = [
       "にゅういん"
     ],
     "meaning": "Nhập viện",
+    "meaningEn": "Hospitalization",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7681,6 +8386,7 @@ const KANJI_DATA = [
       "たいいん"
     ],
     "meaning": "Xuất viện",
+    "meaningEn": "Hospital discharge",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7692,6 +8398,7 @@ const KANJI_DATA = [
       "だいがくいん"
     ],
     "meaning": "Cao học, sau đại học",
+    "meaningEn": "Graduate school",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7703,6 +8410,7 @@ const KANJI_DATA = [
       "いしゃ"
     ],
     "meaning": "Bác sĩ",
+    "meaningEn": "Doctor",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7714,6 +8422,7 @@ const KANJI_DATA = [
       "はいしゃ"
     ],
     "meaning": "Nha sĩ",
+    "meaningEn": "Dentist",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7725,6 +8434,7 @@ const KANJI_DATA = [
       "いがく"
     ],
     "meaning": "Y học",
+    "meaningEn": "Medicine (medical science)",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7736,6 +8446,7 @@ const KANJI_DATA = [
       "わかもの"
     ],
     "meaning": "Người trẻ tuổi",
+    "meaningEn": "Young person",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7747,6 +8458,7 @@ const KANJI_DATA = [
       "さくしゃ"
     ],
     "meaning": "Tác giả",
+    "meaningEn": "Author, creator",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7758,6 +8470,7 @@ const KANJI_DATA = [
       "いたい"
     ],
     "meaning": "Đau",
+    "meaningEn": "Painful, sore",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7769,6 +8482,7 @@ const KANJI_DATA = [
       "ねつ"
     ],
     "meaning": "Sốt, nhiệt",
+    "meaningEn": "Fever, heat",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7780,6 +8494,7 @@ const KANJI_DATA = [
       "ねっしん"
     ],
     "meaning": "Nhiệt tình, chăm chỉ",
+    "meaningEn": "Enthusiastic, earnest",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7791,6 +8506,7 @@ const KANJI_DATA = [
       "かぜ"
     ],
     "meaning": "Cảm lạnh",
+    "meaningEn": "Cold (illness)",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7802,6 +8518,7 @@ const KANJI_DATA = [
       "くすり"
     ],
     "meaning": "Thuốc",
+    "meaningEn": "Medicine (drug)",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7813,6 +8530,7 @@ const KANJI_DATA = [
       "やっきょく"
     ],
     "meaning": "Hiệu thuốc",
+    "meaningEn": "Pharmacy",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7824,6 +8542,7 @@ const KANJI_DATA = [
       "ねる"
     ],
     "meaning": "Ngủ",
+    "meaningEn": "Sleep, go to bed",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7835,6 +8554,7 @@ const KANJI_DATA = [
       "ねぼう"
     ],
     "meaning": "Ngủ quên",
+    "meaningEn": "Oversleep",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7846,6 +8566,7 @@ const KANJI_DATA = [
       "おきる"
     ],
     "meaning": "Thức dậy, xảy ra",
+    "meaningEn": "Wake up, happen",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7857,6 +8578,7 @@ const KANJI_DATA = [
       "おこす"
     ],
     "meaning": "Đánh thức",
+    "meaningEn": "Wake someone up",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7868,6 +8590,7 @@ const KANJI_DATA = [
       "はやおき"
     ],
     "meaning": "Dậy sớm",
+    "meaningEn": "Waking up early",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7879,6 +8602,7 @@ const KANJI_DATA = [
       "つかれる"
     ],
     "meaning": "Mệt mỏi",
+    "meaningEn": "Get tired",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7890,6 +8614,7 @@ const KANJI_DATA = [
       "じもと"
     ],
     "meaning": "Địa phương, quê nhà",
+    "meaningEn": "Local area, hometown",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7901,6 +8626,7 @@ const KANJI_DATA = [
       "しぬ"
     ],
     "meaning": "Chết",
+    "meaningEn": "Die",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7912,6 +8638,7 @@ const KANJI_DATA = [
       "は"
     ],
     "meaning": "Răng",
+    "meaningEn": "Tooth, teeth",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7923,6 +8650,7 @@ const KANJI_DATA = [
       "おなか"
     ],
     "meaning": "Bụng",
+    "meaningEn": "Stomach, belly",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7934,6 +8662,7 @@ const KANJI_DATA = [
       "せ"
     ],
     "meaning": "Lưng, chiều cao",
+    "meaningEn": "Back, height",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7945,6 +8674,7 @@ const KANJI_DATA = [
       "しんさつ"
     ],
     "meaning": "Khám bệnh",
+    "meaningEn": "Medical examination",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7956,6 +8686,7 @@ const KANJI_DATA = [
       "ちゅうしゃ"
     ],
     "meaning": "Tiêm thuốc",
+    "meaningEn": "Injection",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7967,6 +8698,7 @@ const KANJI_DATA = [
       "しゅじゅつ"
     ],
     "meaning": "Phẫu thuật",
+    "meaningEn": "Surgery",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7978,6 +8710,7 @@ const KANJI_DATA = [
       "おみまい"
     ],
     "meaning": "Thăm người ốm",
+    "meaningEn": "Visiting a sick person",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -7989,6 +8722,7 @@ const KANJI_DATA = [
       "けが"
     ],
     "meaning": "Vết thương, bị thương",
+    "meaningEn": "Injury, wound",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -8000,6 +8734,7 @@ const KANJI_DATA = [
       "ち"
     ],
     "meaning": "Máu",
+    "meaningEn": "Blood",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -8011,6 +8746,7 @@ const KANJI_DATA = [
       "ほね"
     ],
     "meaning": "Xương",
+    "meaningEn": "Bone",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -8022,6 +8758,7 @@ const KANJI_DATA = [
       "ゆび"
     ],
     "meaning": "Ngón tay",
+    "meaningEn": "Finger, toe",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -8033,6 +8770,7 @@ const KANJI_DATA = [
       "かた"
     ],
     "meaning": "Vai",
+    "meaningEn": "Shoulder",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -8044,6 +8782,7 @@ const KANJI_DATA = [
       "こし"
     ],
     "meaning": "Hông, thắt lưng",
+    "meaningEn": "Waist, lower back",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -8055,6 +8794,7 @@ const KANJI_DATA = [
       "けんこう"
     ],
     "meaning": "Sức khỏe",
+    "meaningEn": "Health",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -8066,6 +8806,7 @@ const KANJI_DATA = [
       "べんきょう"
     ],
     "meaning": "Học tập",
+    "meaningEn": "Study",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8077,6 +8818,7 @@ const KANJI_DATA = [
       "かがく"
     ],
     "meaning": "Hóa học",
+    "meaningEn": "Chemistry",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8088,6 +8830,7 @@ const KANJI_DATA = [
       "かがく"
     ],
     "meaning": "Khoa học",
+    "meaningEn": "Science",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8099,6 +8842,7 @@ const KANJI_DATA = [
       "りゅうがく"
     ],
     "meaning": "Du học",
+    "meaningEn": "Study abroad",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8110,6 +8854,7 @@ const KANJI_DATA = [
       "りゅうがくせい"
     ],
     "meaning": "Du học sinh",
+    "meaningEn": "International student",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8121,6 +8866,7 @@ const KANJI_DATA = [
       "たつじん"
     ],
     "meaning": "Cao thủ, người thành thạo",
+    "meaningEn": "Master, expert",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8132,6 +8878,7 @@ const KANJI_DATA = [
       "おしえる"
     ],
     "meaning": "Dạy, chỉ bảo",
+    "meaningEn": "Teach, tell",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8143,6 +8890,7 @@ const KANJI_DATA = [
       "きょうしつ"
     ],
     "meaning": "Phòng học",
+    "meaningEn": "Classroom",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8154,6 +8902,7 @@ const KANJI_DATA = [
       "きょうかしょ"
     ],
     "meaning": "Sách giáo khoa",
+    "meaningEn": "Textbook",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8165,6 +8914,7 @@ const KANJI_DATA = [
       "かいぎしつ"
     ],
     "meaning": "Phòng họp",
+    "meaningEn": "Meeting room",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8176,6 +8926,7 @@ const KANJI_DATA = [
       "もんだい"
     ],
     "meaning": "Vấn đề, câu hỏi đề thi",
+    "meaningEn": "Problem, exam question",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8187,6 +8938,7 @@ const KANJI_DATA = [
       "しゅくだい"
     ],
     "meaning": "Bài tập về nhà",
+    "meaningEn": "Homework",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8198,6 +8950,7 @@ const KANJI_DATA = [
       "わだい"
     ],
     "meaning": "Chủ đề nói chuyện",
+    "meaningEn": "Topic of conversation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8209,6 +8962,7 @@ const KANJI_DATA = [
       "しつもん"
     ],
     "meaning": "Câu hỏi, thắc mắc",
+    "meaningEn": "Question",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8220,6 +8974,7 @@ const KANJI_DATA = [
       "こたえる"
     ],
     "meaning": "Trả lời",
+    "meaningEn": "Answer (verb)",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8231,6 +8986,7 @@ const KANJI_DATA = [
       "こたえ"
     ],
     "meaning": "Câu trả lời, đáp án",
+    "meaningEn": "Answer (noun)",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8242,6 +8998,7 @@ const KANJI_DATA = [
       "しけん"
     ],
     "meaning": "Kỳ thi",
+    "meaningEn": "Exam, test",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8253,6 +9010,7 @@ const KANJI_DATA = [
       "けいけん"
     ],
     "meaning": "Kinh nghiệm",
+    "meaningEn": "Experience",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8264,6 +9022,7 @@ const KANJI_DATA = [
       "かんじ"
     ],
     "meaning": "Chữ Hán (Kanji)",
+    "meaningEn": "Kanji",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8275,6 +9034,7 @@ const KANJI_DATA = [
       "もじ"
     ],
     "meaning": "Chữ viết, ký tự",
+    "meaningEn": "Character, letter",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8286,6 +9046,7 @@ const KANJI_DATA = [
       "じ"
     ],
     "meaning": "Chữ cái, nét chữ",
+    "meaningEn": "Letter, character",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8297,6 +9058,7 @@ const KANJI_DATA = [
       "いみ"
     ],
     "meaning": "Ý nghĩa",
+    "meaningEn": "Meaning",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8308,6 +9070,7 @@ const KANJI_DATA = [
       "いけん"
     ],
     "meaning": "Ý kiến",
+    "meaningEn": "Opinion",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8319,6 +9082,7 @@ const KANJI_DATA = [
       "しる"
     ],
     "meaning": "Biết",
+    "meaningEn": "Know",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8330,6 +9094,7 @@ const KANJI_DATA = [
       "おしらせ"
     ],
     "meaning": "Thông báo",
+    "meaningEn": "Notice, announcement",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8341,6 +9106,7 @@ const KANJI_DATA = [
       "おもう"
     ],
     "meaning": "Nghĩ, cảm thấy",
+    "meaningEn": "Think, feel",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8352,6 +9118,7 @@ const KANJI_DATA = [
       "おもいだす"
     ],
     "meaning": "Nhớ lại",
+    "meaningEn": "Recall, remember",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8363,6 +9130,7 @@ const KANJI_DATA = [
       "かんがえる"
     ],
     "meaning": "Suy nghĩ, cân nhắc",
+    "meaningEn": "Think, consider",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8374,6 +9142,7 @@ const KANJI_DATA = [
       "かんがえ"
     ],
     "meaning": "Suy nghĩ, ý tưởng",
+    "meaningEn": "Thought, idea",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8385,6 +9154,7 @@ const KANJI_DATA = [
       "おぼえる"
     ],
     "meaning": "Ghi nhớ, học thuộc",
+    "meaningEn": "Memorize, remember",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8396,6 +9166,7 @@ const KANJI_DATA = [
       "わすれる"
     ],
     "meaning": "Quên",
+    "meaningEn": "Forget",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8407,6 +9178,7 @@ const KANJI_DATA = [
       "わすれもの"
     ],
     "meaning": "Đồ để quên",
+    "meaningEn": "Lost item, forgotten thing",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8418,6 +9190,7 @@ const KANJI_DATA = [
       "せつめい"
     ],
     "meaning": "Giải thích",
+    "meaningEn": "Explanation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8429,6 +9202,7 @@ const KANJI_DATA = [
       "しょうせつ"
     ],
     "meaning": "Tiểu thuyết",
+    "meaningEn": "Novel",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8440,6 +9214,7 @@ const KANJI_DATA = [
       "けんきゅう"
     ],
     "meaning": "Nghiên cứu",
+    "meaningEn": "Research",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8451,6 +9226,7 @@ const KANJI_DATA = [
       "けんきゅうしつ"
     ],
     "meaning": "Phòng nghiên cứu",
+    "meaningEn": "Research lab",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8462,6 +9238,7 @@ const KANJI_DATA = [
       "そつぎょう"
     ],
     "meaning": "Tốt nghiệp",
+    "meaningEn": "Graduation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8473,6 +9250,7 @@ const KANJI_DATA = [
       "じゅぎょう"
     ],
     "meaning": "Giờ học, tiết học",
+    "meaningEn": "Class, lesson",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8484,6 +9262,7 @@ const KANJI_DATA = [
       "さんぎょう"
     ],
     "meaning": "Ngành công nghiệp",
+    "meaningEn": "Industry",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8495,6 +9274,7 @@ const KANJI_DATA = [
       "とけい"
     ],
     "meaning": "Đồng hồ",
+    "meaningEn": "Clock, watch",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8506,6 +9286,7 @@ const KANJI_DATA = [
       "けいかく"
     ],
     "meaning": "Kế hoạch",
+    "meaningEn": "Plan",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8517,6 +9298,7 @@ const KANJI_DATA = [
       "けいさん"
     ],
     "meaning": "Tính toán",
+    "meaningEn": "Calculation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8528,6 +9310,7 @@ const KANJI_DATA = [
       "にっき"
     ],
     "meaning": "Nhật ký",
+    "meaningEn": "Diary",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8539,6 +9322,7 @@ const KANJI_DATA = [
       "きじ"
     ],
     "meaning": "Bài báo",
+    "meaningEn": "News article",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8550,6 +9334,7 @@ const KANJI_DATA = [
       "きにゅう"
     ],
     "meaning": "Điền vào (đơn, giấy tờ)",
+    "meaningEn": "Fill in (a form)",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8561,6 +9346,7 @@ const KANJI_DATA = [
       "うけつけ"
     ],
     "meaning": "Quầy lễ tân, tiếp nhận",
+    "meaningEn": "Reception desk",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8572,6 +9358,7 @@ const KANJI_DATA = [
       "うける"
     ],
     "meaning": "Tham dự (kỳ thi), nhận",
+    "meaningEn": "Take (an exam), receive",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8583,6 +9370,7 @@ const KANJI_DATA = [
       "にゅうがく"
     ],
     "meaning": "Nhập học",
+    "meaningEn": "School entrance",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8594,6 +9382,7 @@ const KANJI_DATA = [
       "にゅうがくしき"
     ],
     "meaning": "Lễ khai giảng, nhập học",
+    "meaningEn": "Entrance ceremony",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8605,6 +9394,7 @@ const KANJI_DATA = [
       "そつぎょうしき"
     ],
     "meaning": "Lễ tốt nghiệp",
+    "meaningEn": "Graduation ceremony",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8616,6 +9406,7 @@ const KANJI_DATA = [
       "ごうかく"
     ],
     "meaning": "Đỗ (kỳ thi)",
+    "meaningEn": "Pass (an exam)",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8627,6 +9418,7 @@ const KANJI_DATA = [
       "ふごうかく"
     ],
     "meaning": "Trượt (kỳ thi)",
+    "meaningEn": "Fail (an exam)",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8638,6 +9430,7 @@ const KANJI_DATA = [
       "せいせき"
     ],
     "meaning": "Thành tích, điểm số",
+    "meaningEn": "Grades, results",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8649,6 +9442,7 @@ const KANJI_DATA = [
       "てんすう"
     ],
     "meaning": "Điểm số",
+    "meaningEn": "Score, points",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8660,6 +9454,7 @@ const KANJI_DATA = [
       "ほんやく"
     ],
     "meaning": "Biên dịch",
+    "meaningEn": "Written translation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8671,6 +9466,7 @@ const KANJI_DATA = [
       "つうやく"
     ],
     "meaning": "Phiên dịch",
+    "meaningEn": "Interpreting",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8682,6 +9478,7 @@ const KANJI_DATA = [
       "せんもん"
     ],
     "meaning": "Chuyên môn, chuyên ngành",
+    "meaningEn": "Specialty, major",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8693,6 +9490,7 @@ const KANJI_DATA = [
       "きょういく"
     ],
     "meaning": "Giáo dục",
+    "meaningEn": "Education",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8704,6 +9502,7 @@ const KANJI_DATA = [
       "かくにん"
     ],
     "meaning": "Xác nhận",
+    "meaningEn": "Confirmation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8715,6 +9514,7 @@ const KANJI_DATA = [
       "じゅんび"
     ],
     "meaning": "Chuẩn bị",
+    "meaningEn": "Preparation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8726,6 +9526,7 @@ const KANJI_DATA = [
       "もうしこむ"
     ],
     "meaning": "Đăng ký",
+    "meaningEn": "Apply, sign up",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -8737,6 +9538,7 @@ const KANJI_DATA = [
       "うる"
     ],
     "meaning": "Bán",
+    "meaningEn": "Sell",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8748,6 +9550,7 @@ const KANJI_DATA = [
       "うりば"
     ],
     "meaning": "Quầy bán hàng",
+    "meaningEn": "Sales counter, section",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8759,6 +9562,7 @@ const KANJI_DATA = [
       "じどうはんばいき"
     ],
     "meaning": "Máy bán hàng tự động",
+    "meaningEn": "Vending machine",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8770,6 +9574,7 @@ const KANJI_DATA = [
       "はらう"
     ],
     "meaning": "Trả tiền, thanh toán",
+    "meaningEn": "Pay",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8781,6 +9586,7 @@ const KANJI_DATA = [
       "かす"
     ],
     "meaning": "Cho mượn",
+    "meaningEn": "Lend",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8792,6 +9598,7 @@ const KANJI_DATA = [
       "かりる"
     ],
     "meaning": "Đi mượn",
+    "meaningEn": "Borrow",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8803,6 +9610,7 @@ const KANJI_DATA = [
       "かえす"
     ],
     "meaning": "Trả lại",
+    "meaningEn": "Return (something)",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8814,6 +9622,7 @@ const KANJI_DATA = [
       "へんじ"
     ],
     "meaning": "Hồi âm, trả lời",
+    "meaningEn": "Reply, response",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8825,6 +9634,7 @@ const KANJI_DATA = [
       "おくる"
     ],
     "meaning": "Gửi đi, tiễn",
+    "meaningEn": "Send, see off",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8836,6 +9646,7 @@ const KANJI_DATA = [
       "ほうそう"
     ],
     "meaning": "Phát sóng",
+    "meaningEn": "Broadcast",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8847,6 +9658,7 @@ const KANJI_DATA = [
       "とどく"
     ],
     "meaning": "Được gửi tới, đến nơi",
+    "meaningEn": "Arrive, be delivered",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8858,6 +9670,7 @@ const KANJI_DATA = [
       "とどける"
     ],
     "meaning": "Giao hàng, gửi tới",
+    "meaningEn": "Deliver, send",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8869,6 +9682,7 @@ const KANJI_DATA = [
       "しなもの"
     ],
     "meaning": "Hàng hóa, đồ đạc",
+    "meaningEn": "Goods, articles",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8880,6 +9694,7 @@ const KANJI_DATA = [
       "しょうひん"
     ],
     "meaning": "Sản phẩm",
+    "meaningEn": "Product, merchandise",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8891,6 +9706,7 @@ const KANJI_DATA = [
       "ふく"
     ],
     "meaning": "Quần áo, trang phục",
+    "meaningEn": "Clothes",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8902,6 +9718,7 @@ const KANJI_DATA = [
       "ようふく"
     ],
     "meaning": "Âu phục, quần áo kiểu Tây",
+    "meaningEn": "Western clothes",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8913,6 +9730,7 @@ const KANJI_DATA = [
       "わふく"
     ],
     "meaning": "Trang phục truyền thống Nhật",
+    "meaningEn": "Japanese traditional clothes",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8924,6 +9742,7 @@ const KANJI_DATA = [
       "かみ"
     ],
     "meaning": "Giấy",
+    "meaningEn": "Paper",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8935,6 +9754,7 @@ const KANJI_DATA = [
       "てがみ"
     ],
     "meaning": "Bức thư",
+    "meaningEn": "Letter",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8946,6 +9766,7 @@ const KANJI_DATA = [
       "はこ"
     ],
     "meaning": "Cái hộp",
+    "meaningEn": "Box",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8957,6 +9778,7 @@ const KANJI_DATA = [
       "ふくろ"
     ],
     "meaning": "Cái túi",
+    "meaningEn": "Bag",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8968,6 +9790,7 @@ const KANJI_DATA = [
       "てぶくろ"
     ],
     "meaning": "Găng tay",
+    "meaningEn": "Gloves",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8979,6 +9802,7 @@ const KANJI_DATA = [
       "いろ"
     ],
     "meaning": "Màu sắc",
+    "meaningEn": "Color",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -8990,6 +9814,7 @@ const KANJI_DATA = [
       "いろいろ"
     ],
     "meaning": "Đủ loại, nhiều thứ",
+    "meaningEn": "Various",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9001,6 +9826,7 @@ const KANJI_DATA = [
       "けしき"
     ],
     "meaning": "Phong cảnh",
+    "meaningEn": "Scenery, landscape",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9012,6 +9838,7 @@ const KANJI_DATA = [
       "かたち"
     ],
     "meaning": "Hình dạng",
+    "meaningEn": "Shape, form",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9023,6 +9850,7 @@ const KANJI_DATA = [
       "にんぎょう"
     ],
     "meaning": "Búp bê",
+    "meaningEn": "Doll",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9034,6 +9862,7 @@ const KANJI_DATA = [
       "おもい"
     ],
     "meaning": "Nặng",
+    "meaningEn": "Heavy",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9045,6 +9874,7 @@ const KANJI_DATA = [
       "じゅうよう"
     ],
     "meaning": "Quan trọng",
+    "meaningEn": "Important",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9056,6 +9886,7 @@ const KANJI_DATA = [
       "かるい"
     ],
     "meaning": "Nhẹ",
+    "meaningEn": "Light (weight)",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9067,6 +9898,7 @@ const KANJI_DATA = [
       "みじかい"
     ],
     "meaning": "Ngắn",
+    "meaningEn": "Short",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9078,6 +9910,7 @@ const KANJI_DATA = [
       "たんしょ"
     ],
     "meaning": "Nhược điểm",
+    "meaningEn": "Weak point, flaw",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9089,6 +9922,7 @@ const KANJI_DATA = [
       "ちょうしょ"
     ],
     "meaning": "Ưu điểm",
+    "meaningEn": "Strong point, merit",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9100,6 +9934,7 @@ const KANJI_DATA = [
       "ふとい"
     ],
     "meaning": "To, dày, mập",
+    "meaningEn": "Thick, fat",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9111,6 +9946,7 @@ const KANJI_DATA = [
       "ふとる"
     ],
     "meaning": "Tăng cân, béo lên",
+    "meaningEn": "Gain weight",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9122,6 +9958,7 @@ const KANJI_DATA = [
       "ほそい"
     ],
     "meaning": "Mảnh, gầy, hẹp",
+    "meaningEn": "Thin, slender",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9133,6 +9970,7 @@ const KANJI_DATA = [
       "こまかい"
     ],
     "meaning": "Chi tiết, nhỏ lẻ",
+    "meaningEn": "Detailed, fine",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9144,6 +9982,7 @@ const KANJI_DATA = [
       "とくべつ"
     ],
     "meaning": "Đặc biệt",
+    "meaningEn": "Special",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9155,6 +9994,7 @@ const KANJI_DATA = [
       "とくに"
     ],
     "meaning": "Đặc biệt là",
+    "meaningEn": "Especially",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9166,6 +10006,7 @@ const KANJI_DATA = [
       "わかれる"
     ],
     "meaning": "Chia tay, tạm biệt",
+    "meaningEn": "Part ways, separate",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9177,6 +10018,7 @@ const KANJI_DATA = [
       "べつに"
     ],
     "meaning": "Không có gì đặc biệt",
+    "meaningEn": "Not particularly",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9188,6 +10030,7 @@ const KANJI_DATA = [
       "べんり"
     ],
     "meaning": "Tiện lợi",
+    "meaningEn": "Convenient",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9199,6 +10042,7 @@ const KANJI_DATA = [
       "ふべん"
     ],
     "meaning": "Bất tiện",
+    "meaningEn": "Inconvenient",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9210,6 +10054,7 @@ const KANJI_DATA = [
       "ゆうびんきょく"
     ],
     "meaning": "Bưu điện",
+    "meaningEn": "Post office",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9221,6 +10066,7 @@ const KANJI_DATA = [
       "りよう"
     ],
     "meaning": "Sử dụng, tận dụng",
+    "meaningEn": "Use, utilization",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9232,6 +10078,7 @@ const KANJI_DATA = [
       "はやい"
     ],
     "meaning": "Sớm",
+    "meaningEn": "Early",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9243,6 +10090,7 @@ const KANJI_DATA = [
       "はやい"
     ],
     "meaning": "Nhanh",
+    "meaningEn": "Fast, quick",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9254,6 +10102,7 @@ const KANJI_DATA = [
       "こうそく"
     ],
     "meaning": "Tốc độ cao, cao tốc",
+    "meaningEn": "High speed, express",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9265,6 +10114,7 @@ const KANJI_DATA = [
       "おそい"
     ],
     "meaning": "Chậm, muộn",
+    "meaningEn": "Slow, late",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9276,6 +10126,7 @@ const KANJI_DATA = [
       "おくれる"
     ],
     "meaning": "Bị muộn, trễ",
+    "meaningEn": "Be late",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9287,6 +10138,7 @@ const KANJI_DATA = [
       "むずかしい"
     ],
     "meaning": "Khó",
+    "meaningEn": "Difficult, hard",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9298,6 +10150,7 @@ const KANJI_DATA = [
       "やさしい"
     ],
     "meaning": "Dễ",
+    "meaningEn": "Easy, simple",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9309,6 +10162,7 @@ const KANJI_DATA = [
       "ただしい"
     ],
     "meaning": "Đúng, chính xác",
+    "meaningEn": "Correct, right",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9320,6 +10174,7 @@ const KANJI_DATA = [
       "おしょうがつ"
     ],
     "meaning": "Tết Dương lịch",
+    "meaningEn": "New Year",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9331,6 +10186,7 @@ const KANJI_DATA = [
       "おなじ"
     ],
     "meaning": "Giống nhau",
+    "meaningEn": "Same",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9342,6 +10198,7 @@ const KANJI_DATA = [
       "ちがう"
     ],
     "meaning": "Khác nhau, sai",
+    "meaningEn": "Different, wrong",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9353,6 +10210,7 @@ const KANJI_DATA = [
       "まちがい"
     ],
     "meaning": "Lỗi sai, sự nhầm lẫn",
+    "meaningEn": "Mistake, error",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9365,6 +10223,7 @@ const KANJI_DATA = [
       "いい"
     ],
     "meaning": "Tốt",
+    "meaningEn": "Good",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9376,6 +10235,7 @@ const KANJI_DATA = [
       "わるい"
     ],
     "meaning": "Xấu, tệ",
+    "meaningEn": "Bad",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9387,6 +10247,7 @@ const KANJI_DATA = [
       "つよい"
     ],
     "meaning": "Mạnh, khỏe",
+    "meaningEn": "Strong",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9398,6 +10259,7 @@ const KANJI_DATA = [
       "よわい"
     ],
     "meaning": "Yếu",
+    "meaningEn": "Weak",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9409,6 +10271,7 @@ const KANJI_DATA = [
       "わかい"
     ],
     "meaning": "Trẻ",
+    "meaningEn": "Young",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9420,6 +10283,7 @@ const KANJI_DATA = [
       "ねだん"
     ],
     "meaning": "Giá cả",
+    "meaningEn": "Price",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9431,6 +10295,7 @@ const KANJI_DATA = [
       "さいふ"
     ],
     "meaning": "Ví tiền",
+    "meaningEn": "Wallet",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9442,6 +10307,7 @@ const KANJI_DATA = [
       "くつ"
     ],
     "meaning": "Giày",
+    "meaningEn": "Shoes",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9453,6 +10319,7 @@ const KANJI_DATA = [
       "かさ"
     ],
     "meaning": "Cái ô (dù)",
+    "meaningEn": "Umbrella",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9464,6 +10331,7 @@ const KANJI_DATA = [
       "めがね"
     ],
     "meaning": "Kính mắt",
+    "meaningEn": "Eyeglasses",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9475,6 +10343,7 @@ const KANJI_DATA = [
       "わりびき"
     ],
     "meaning": "Giảm giá, chiết khấu",
+    "meaningEn": "Discount",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9486,6 +10355,7 @@ const KANJI_DATA = [
       "はんがく"
     ],
     "meaning": "Giảm nửa giá",
+    "meaningEn": "Half price",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9497,6 +10367,7 @@ const KANJI_DATA = [
       "げんきん"
     ],
     "meaning": "Tiền mặt",
+    "meaningEn": "Cash",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9508,6 +10379,7 @@ const KANJI_DATA = [
       "りょうしゅうしょ"
     ],
     "meaning": "Hóa đơn, biên lai",
+    "meaningEn": "Receipt",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9519,6 +10391,7 @@ const KANJI_DATA = [
       "あずける"
     ],
     "meaning": "Gửi giữ (hành lý, tiền)",
+    "meaningEn": "Deposit, leave in care",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9530,6 +10403,7 @@ const KANJI_DATA = [
       "しゅうり"
     ],
     "meaning": "Sửa chữa",
+    "meaningEn": "Repair",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9541,6 +10415,7 @@ const KANJI_DATA = [
       "こしょう"
     ],
     "meaning": "Hỏng hóc (máy móc)",
+    "meaningEn": "Breakdown, malfunction",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9552,6 +10427,7 @@ const KANJI_DATA = [
       "せつめいしょ"
     ],
     "meaning": "Sách hướng dẫn sử dụng",
+    "meaningEn": "Instruction manual",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9563,6 +10439,7 @@ const KANJI_DATA = [
       "かぐ"
     ],
     "meaning": "Đồ nội thất",
+    "meaningEn": "Furniture",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9574,6 +10451,7 @@ const KANJI_DATA = [
       "どうぐ"
     ],
     "meaning": "Dụng cụ",
+    "meaningEn": "Tool",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9585,6 +10463,7 @@ const KANJI_DATA = [
       "かぎ"
     ],
     "meaning": "Chìa khóa",
+    "meaningEn": "Key",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9596,6 +10475,7 @@ const KANJI_DATA = [
       "まど"
     ],
     "meaning": "Cửa sổ",
+    "meaningEn": "Window",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9607,6 +10487,7 @@ const KANJI_DATA = [
       "かがみ"
     ],
     "meaning": "Cái gương",
+    "meaningEn": "Mirror",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9618,6 +10499,7 @@ const KANJI_DATA = [
       "ふとん"
     ],
     "meaning": "Chăn đệm kiểu Nhật",
+    "meaningEn": "Futon (Japanese bedding)",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -9629,6 +10511,7 @@ const KANJI_DATA = [
       "まつり"
     ],
     "meaning": "Lễ hội",
+    "meaningEn": "Festival",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9640,6 +10523,7 @@ const KANJI_DATA = [
       "おまつり"
     ],
     "meaning": "Lễ hội (lịch sự)",
+    "meaningEn": "Festival (polite)",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9651,6 +10535,7 @@ const KANJI_DATA = [
       "ぶんかさい"
     ],
     "meaning": "Lễ hội văn hóa",
+    "meaningEn": "Cultural festival",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9662,6 +10547,7 @@ const KANJI_DATA = [
       "いわう"
     ],
     "meaning": "Chúc mừng, ăn mừng",
+    "meaningEn": "Celebrate",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9673,6 +10559,7 @@ const KANJI_DATA = [
       "おいわい"
     ],
     "meaning": "Lời chúc / quà mừng",
+    "meaningEn": "Celebration, gift",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9684,6 +10571,7 @@ const KANJI_DATA = [
       "しゅくじつ"
     ],
     "meaning": "Ngày lễ quốc gia",
+    "meaningEn": "National holiday",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9695,6 +10583,7 @@ const KANJI_DATA = [
       "おれい"
     ],
     "meaning": "Lời cảm ơn, quà cảm ơn",
+    "meaningEn": "Gratitude, thank-you gift",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9706,6 +10595,7 @@ const KANJI_DATA = [
       "しつれい"
     ],
     "meaning": "Thất lễ, xin phép",
+    "meaningEn": "Rudeness, excuse me",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9717,6 +10607,7 @@ const KANJI_DATA = [
       "れきし"
     ],
     "meaning": "Lịch sử",
+    "meaningEn": "History",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9728,6 +10619,7 @@ const KANJI_DATA = [
       "むかし"
     ],
     "meaning": "Ngày xưa",
+    "meaningEn": "Olden days, long ago",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9739,6 +10631,7 @@ const KANJI_DATA = [
       "むかしばなし"
     ],
     "meaning": "Chuyện cổ tích",
+    "meaningEn": "Folktale, old story",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9750,6 +10643,7 @@ const KANJI_DATA = [
       "じだい"
     ],
     "meaning": "Thời đại",
+    "meaningEn": "Era, period",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9761,6 +10655,7 @@ const KANJI_DATA = [
       "しょくじだい"
     ],
     "meaning": "Tiền ăn",
+    "meaningEn": "Meal expense",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9772,6 +10667,7 @@ const KANJI_DATA = [
       "たてる"
     ],
     "meaning": "Xây dựng",
+    "meaningEn": "Build, construct",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9783,6 +10679,7 @@ const KANJI_DATA = [
       "たてもの"
     ],
     "meaning": "Tòa nhà, công trình",
+    "meaningEn": "Building",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9794,6 +10691,7 @@ const KANJI_DATA = [
       "てら"
     ],
     "meaning": "Chùa",
+    "meaningEn": "Temple",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9805,6 +10703,7 @@ const KANJI_DATA = [
       "おてら"
     ],
     "meaning": "Ngôi chùa",
+    "meaningEn": "Buddhist temple",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9816,6 +10715,7 @@ const KANJI_DATA = [
       "かみ"
     ],
     "meaning": "Thần linh",
+    "meaningEn": "God, spirit",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9827,6 +10727,7 @@ const KANJI_DATA = [
       "かみさま"
     ],
     "meaning": "Thần linh, Chúa trời",
+    "meaningEn": "God (polite)",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9838,6 +10739,7 @@ const KANJI_DATA = [
       "じんじゃ"
     ],
     "meaning": "Đền thờ Thần đạo",
+    "meaningEn": "Shinto shrine",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9849,6 +10751,7 @@ const KANJI_DATA = [
       "もり"
     ],
     "meaning": "Rừng rậm",
+    "meaningEn": "Dense forest",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9860,6 +10763,7 @@ const KANJI_DATA = [
       "しんりん"
     ],
     "meaning": "Rừng cây, lâm nghiệp",
+    "meaningEn": "Forest, woods",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9871,6 +10775,7 @@ const KANJI_DATA = [
       "はやし"
     ],
     "meaning": "Rừng thưa",
+    "meaningEn": "Woods, grove",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9882,6 +10787,7 @@ const KANJI_DATA = [
       "いけ"
     ],
     "meaning": "Cái ao",
+    "meaningEn": "Pond",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9893,6 +10799,7 @@ const KANJI_DATA = [
       "でんち"
     ],
     "meaning": "Pin",
+    "meaningEn": "Battery",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9904,6 +10811,7 @@ const KANJI_DATA = [
       "ひかり"
     ],
     "meaning": "Ánh sáng",
+    "meaningEn": "Light",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9915,6 +10823,7 @@ const KANJI_DATA = [
       "ひかる"
     ],
     "meaning": "Tỏa sáng, lấp lánh",
+    "meaningEn": "Shine, glitter",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9926,6 +10835,7 @@ const KANJI_DATA = [
       "かんこう"
     ],
     "meaning": "Tham quan, du lịch",
+    "meaningEn": "Sightseeing, tourism",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9937,6 +10847,7 @@ const KANJI_DATA = [
       "しぜん"
     ],
     "meaning": "Tự nhiên, thiên nhiên",
+    "meaningEn": "Nature, natural",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9948,6 +10859,7 @@ const KANJI_DATA = [
       "ぜんぜん"
     ],
     "meaning": "Hoàn toàn không",
+    "meaningEn": "Not at all, completely",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9959,6 +10871,7 @@ const KANJI_DATA = [
       "かんきょう"
     ],
     "meaning": "Môi trường",
+    "meaningEn": "Environment",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9970,6 +10883,7 @@ const KANJI_DATA = [
       "ほし"
     ],
     "meaning": "Ngôi sao",
+    "meaningEn": "Star",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9981,6 +10895,7 @@ const KANJI_DATA = [
       "くさ"
     ],
     "meaning": "Cỏ",
+    "meaningEn": "Grass",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -9992,6 +10907,7 @@ const KANJI_DATA = [
       "は"
     ],
     "meaning": "Chiếc lá",
+    "meaningEn": "Leaf",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10003,6 +10919,7 @@ const KANJI_DATA = [
       "いし"
     ],
     "meaning": "Hòn đá",
+    "meaningEn": "Stone, rock",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10014,6 +10931,7 @@ const KANJI_DATA = [
       "いぬ"
     ],
     "meaning": "Con chó",
+    "meaningEn": "Dog",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10025,6 +10943,7 @@ const KANJI_DATA = [
       "ねこ"
     ],
     "meaning": "Con mèo",
+    "meaningEn": "Cat",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10036,6 +10955,7 @@ const KANJI_DATA = [
       "うま"
     ],
     "meaning": "Con ngựa",
+    "meaningEn": "Horse",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10047,6 +10967,7 @@ const KANJI_DATA = [
       "むし"
     ],
     "meaning": "Côn trùng, sâu bọ",
+    "meaningEn": "Insect, bug",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10058,6 +10979,7 @@ const KANJI_DATA = [
       "さく"
     ],
     "meaning": "Nở (hoa)",
+    "meaningEn": "Bloom (flowers)",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10069,6 +10991,7 @@ const KANJI_DATA = [
       "かれる"
     ],
     "meaning": "Héo úa, khô héo",
+    "meaningEn": "Wither, dry up",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10081,6 +11004,7 @@ const KANJI_DATA = [
       "もみじ"
     ],
     "meaning": "Lá đỏ mùa thu",
+    "meaningEn": "Autumn foliage",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10092,6 +11016,7 @@ const KANJI_DATA = [
       "さくら"
     ],
     "meaning": "Hoa anh đào",
+    "meaningEn": "Cherry blossom",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10103,6 +11028,7 @@ const KANJI_DATA = [
       "たけ"
     ],
     "meaning": "Cây tre",
+    "meaningEn": "Bamboo",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10114,6 +11040,7 @@ const KANJI_DATA = [
       "でんとう"
     ],
     "meaning": "Truyền thống",
+    "meaningEn": "Tradition",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10125,6 +11052,7 @@ const KANJI_DATA = [
       "しゅうかん"
     ],
     "meaning": "Tập quán, thói quen",
+    "meaningEn": "Custom, habit",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10136,6 +11064,7 @@ const KANJI_DATA = [
       "せんそう"
     ],
     "meaning": "Chiến tranh",
+    "meaningEn": "War",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10147,6 +11076,7 @@ const KANJI_DATA = [
       "せいじ"
     ],
     "meaning": "Chính trị",
+    "meaningEn": "Politics",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10158,6 +11088,7 @@ const KANJI_DATA = [
       "けいざい"
     ],
     "meaning": "Kinh tế",
+    "meaningEn": "Economy",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10169,6 +11100,7 @@ const KANJI_DATA = [
       "ほうりつ"
     ],
     "meaning": "Pháp luật",
+    "meaningEn": "Law",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -10180,6 +11112,7 @@ const KANJI_DATA = [
       "こと"
     ],
     "meaning": "Việc, chuyện",
+    "meaningEn": "Thing, matter",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10191,6 +11124,7 @@ const KANJI_DATA = [
       "だいじ"
     ],
     "meaning": "Quan trọng",
+    "meaningEn": "Important, serious",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10202,6 +11136,7 @@ const KANJI_DATA = [
       "ようじ"
     ],
     "meaning": "Việc bận, việc cần làm",
+    "meaningEn": "Errand, business",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10213,6 +11148,7 @@ const KANJI_DATA = [
       "じこ"
     ],
     "meaning": "Tai nạn",
+    "meaningEn": "Accident",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10224,6 +11160,7 @@ const KANJI_DATA = [
       "かじ"
     ],
     "meaning": "Hỏa hoạn",
+    "meaningEn": "Fire (disaster)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10235,6 +11172,7 @@ const KANJI_DATA = [
       "あう"
     ],
     "meaning": "Gặp gỡ",
+    "meaningEn": "Meet",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10246,6 +11184,7 @@ const KANJI_DATA = [
       "かいぎ"
     ],
     "meaning": "Cuộc họp",
+    "meaningEn": "Meeting, conference",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10257,6 +11196,7 @@ const KANJI_DATA = [
       "かいじょう"
     ],
     "meaning": "Hội trường, địa điểm tổ chức",
+    "meaningEn": "Venue, assembly hall",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10268,6 +11208,7 @@ const KANJI_DATA = [
       "はじまる"
     ],
     "meaning": "Bắt đầu (tự động từ)",
+    "meaningEn": "Begin (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10279,6 +11220,7 @@ const KANJI_DATA = [
       "はじめる"
     ],
     "meaning": "Bắt đầu (tha động từ)",
+    "meaningEn": "Start, begin (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10290,6 +11232,7 @@ const KANJI_DATA = [
       "おわる"
     ],
     "meaning": "Kết thúc",
+    "meaningEn": "End, finish",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10301,6 +11244,7 @@ const KANJI_DATA = [
       "あける"
     ],
     "meaning": "Mở (tha động từ)",
+    "meaningEn": "Open (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10313,6 +11257,7 @@ const KANJI_DATA = [
       "ひらく"
     ],
     "meaning": "Mở ra, tổ chức",
+    "meaningEn": "Open (intransitive), hold (an event)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10324,6 +11269,7 @@ const KANJI_DATA = [
       "しめる"
     ],
     "meaning": "Đóng (tha động từ)",
+    "meaningEn": "Close (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10335,6 +11281,7 @@ const KANJI_DATA = [
       "しまる"
     ],
     "meaning": "Đóng lại (tự động từ)",
+    "meaningEn": "Close (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10346,6 +11293,7 @@ const KANJI_DATA = [
       "たつ"
     ],
     "meaning": "Đứng",
+    "meaningEn": "Stand",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10357,6 +11305,7 @@ const KANJI_DATA = [
       "やくにたつ"
     ],
     "meaning": "Có ích",
+    "meaningEn": "Be useful, helpful",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10368,6 +11317,7 @@ const KANJI_DATA = [
       "すわる"
     ],
     "meaning": "Ngồi",
+    "meaningEn": "Sit",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10379,6 +11329,7 @@ const KANJI_DATA = [
       "まつ"
     ],
     "meaning": "Chờ đợi",
+    "meaningEn": "Wait",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10390,6 +11341,7 @@ const KANJI_DATA = [
       "しょうたい"
     ],
     "meaning": "Mời, lời mời",
+    "meaningEn": "Invitation",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10401,6 +11353,7 @@ const KANJI_DATA = [
       "もつ"
     ],
     "meaning": "Cầm, mang, sở hữu",
+    "meaningEn": "Hold, carry, have",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10412,6 +11365,7 @@ const KANJI_DATA = [
       "きもち"
     ],
     "meaning": "Cảm giác, tâm trạng",
+    "meaningEn": "Feeling, mood",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10423,6 +11377,7 @@ const KANJI_DATA = [
       "つかう"
     ],
     "meaning": "Sử dụng",
+    "meaningEn": "Use",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10434,6 +11389,7 @@ const KANJI_DATA = [
       "たいしかん"
     ],
     "meaning": "Đại sứ quán",
+    "meaningEn": "Embassy",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10445,6 +11401,7 @@ const KANJI_DATA = [
       "つたえる"
     ],
     "meaning": "Truyền đạt, nhắn lại",
+    "meaningEn": "Convey, pass on a message",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10456,6 +11413,7 @@ const KANJI_DATA = [
       "てつだう"
     ],
     "meaning": "Giúp đỡ",
+    "meaningEn": "Help, assist",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10467,6 +11425,7 @@ const KANJI_DATA = [
       "たすける"
     ],
     "meaning": "Cứu giúp, trợ giúp",
+    "meaningEn": "Save, rescue, help",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10478,6 +11437,7 @@ const KANJI_DATA = [
       "あらう"
     ],
     "meaning": "Rửa, giặt",
+    "meaningEn": "Wash",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10489,6 +11449,7 @@ const KANJI_DATA = [
       "せんたく"
     ],
     "meaning": "Giặt giũ",
+    "meaningEn": "Laundry",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10500,6 +11461,7 @@ const KANJI_DATA = [
       "そうじ"
     ],
     "meaning": "Dọn dẹp, quét dọn",
+    "meaningEn": "Cleaning",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10511,6 +11473,7 @@ const KANJI_DATA = [
       "あつまる"
     ],
     "meaning": "Tập trung, tụ họp",
+    "meaningEn": "Gather (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10522,6 +11485,7 @@ const KANJI_DATA = [
       "あつめる"
     ],
     "meaning": "Sưu tầm, thu thập",
+    "meaningEn": "Collect, gather (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10533,6 +11497,7 @@ const KANJI_DATA = [
       "きまる"
     ],
     "meaning": "Được quyết định",
+    "meaningEn": "Be decided",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10544,6 +11509,7 @@ const KANJI_DATA = [
       "きめる"
     ],
     "meaning": "Quyết định",
+    "meaningEn": "Decide",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10555,6 +11521,7 @@ const KANJI_DATA = [
       "かわる"
     ],
     "meaning": "Thay đổi (tự động từ)",
+    "meaningEn": "Change (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10566,6 +11533,7 @@ const KANJI_DATA = [
       "かえる"
     ],
     "meaning": "Thay đổi (tha động từ)",
+    "meaningEn": "Change (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10577,6 +11545,7 @@ const KANJI_DATA = [
       "たいへん"
     ],
     "meaning": "Vất vả, rất, nghiêm trọng",
+    "meaningEn": "Very, tough, serious",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10588,6 +11557,7 @@ const KANJI_DATA = [
       "へん"
     ],
     "meaning": "Kỳ lạ, bất thường",
+    "meaningEn": "Strange, weird",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10599,6 +11569,7 @@ const KANJI_DATA = [
       "なおす"
     ],
     "meaning": "Sửa chữa",
+    "meaningEn": "Fix, repair",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10610,6 +11581,7 @@ const KANJI_DATA = [
       "なおる"
     ],
     "meaning": "Khỏi bệnh",
+    "meaningEn": "Recover, get well",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10621,6 +11593,7 @@ const KANJI_DATA = [
       "ちょくせつ"
     ],
     "meaning": "Trực tiếp",
+    "meaningEn": "Directly",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10632,6 +11605,7 @@ const KANJI_DATA = [
       "つづく"
     ],
     "meaning": "Tiếp tục (tự động từ)",
+    "meaningEn": "Continue (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10643,6 +11617,7 @@ const KANJI_DATA = [
       "つづける"
     ],
     "meaning": "Tiếp tục (tha động từ)",
+    "meaningEn": "Continue (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10654,6 +11629,7 @@ const KANJI_DATA = [
       "えらぶ"
     ],
     "meaning": "Lựa chọn",
+    "meaningEn": "Choose, select",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10665,6 +11641,7 @@ const KANJI_DATA = [
       "せんしゅ"
     ],
     "meaning": "Vận động viên, tuyển thủ",
+    "meaningEn": "Athlete, player",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10676,6 +11653,7 @@ const KANJI_DATA = [
       "さがす"
     ],
     "meaning": "Tìm kiếm",
+    "meaningEn": "Search, look for",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10687,6 +11665,7 @@ const KANJI_DATA = [
       "しらべる"
     ],
     "meaning": "Tra cứu, điều tra",
+    "meaningEn": "Look up, investigate",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10698,6 +11677,7 @@ const KANJI_DATA = [
       "ちょうし"
     ],
     "meaning": "Tình trạng, phong độ",
+    "meaningEn": "Condition, shape",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10709,6 +11689,7 @@ const KANJI_DATA = [
       "おく"
     ],
     "meaning": "Đặt, để",
+    "meaningEn": "Put, place",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10720,6 +11701,7 @@ const KANJI_DATA = [
       "おす"
     ],
     "meaning": "Ấn, đẩy",
+    "meaningEn": "Push, press",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10731,6 +11713,7 @@ const KANJI_DATA = [
       "ひく"
     ],
     "meaning": "Kéo, tra từ điển",
+    "meaningEn": "Pull, look up (in dictionary)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10742,6 +11725,7 @@ const KANJI_DATA = [
       "よぶ"
     ],
     "meaning": "Gọi",
+    "meaningEn": "Call",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10753,6 +11737,7 @@ const KANJI_DATA = [
       "とる"
     ],
     "meaning": "Lấy, chụp",
+    "meaningEn": "Take, get",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10764,6 +11749,7 @@ const KANJI_DATA = [
       "とる"
     ],
     "meaning": "Chụp ảnh, quay phim",
+    "meaningEn": "Take (a photo), shoot (video)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10775,6 +11761,7 @@ const KANJI_DATA = [
       "くらべる"
     ],
     "meaning": "So sánh",
+    "meaningEn": "Compare",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10786,6 +11773,7 @@ const KANJI_DATA = [
       "けす"
     ],
     "meaning": "Tắt, xóa",
+    "meaningEn": "Turn off, erase",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10797,6 +11785,7 @@ const KANJI_DATA = [
       "きえる"
     ],
     "meaning": "Tắt, biến mất",
+    "meaningEn": "Go out, disappear",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10808,6 +11797,7 @@ const KANJI_DATA = [
       "こわれる"
     ],
     "meaning": "Bị hỏng, vỡ",
+    "meaningEn": "Break (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10819,6 +11809,7 @@ const KANJI_DATA = [
       "こわす"
     ],
     "meaning": "Làm hỏng, phá vỡ",
+    "meaningEn": "Break (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10830,6 +11821,7 @@ const KANJI_DATA = [
       "おとす"
     ],
     "meaning": "Làm rơi",
+    "meaningEn": "Drop",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10841,6 +11833,7 @@ const KANJI_DATA = [
       "おちる"
     ],
     "meaning": "Rơi xuống, thi trượt",
+    "meaningEn": "Fall, fail (an exam)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10852,6 +11845,7 @@ const KANJI_DATA = [
       "ならぶ"
     ],
     "meaning": "Xếp hàng",
+    "meaningEn": "Line up (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10863,6 +11857,7 @@ const KANJI_DATA = [
       "ならべる"
     ],
     "meaning": "Sắp xếp, bày biện",
+    "meaningEn": "Arrange, line up (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10874,6 +11869,7 @@ const KANJI_DATA = [
       "かざる"
     ],
     "meaning": "Trang trí",
+    "meaningEn": "Decorate",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10885,6 +11881,7 @@ const KANJI_DATA = [
       "つつむ"
     ],
     "meaning": "Gói, bọc",
+    "meaningEn": "Wrap, pack",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10896,6 +11893,7 @@ const KANJI_DATA = [
       "おる"
     ],
     "meaning": "Gấp, bẻ gãy",
+    "meaningEn": "Fold, break",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10907,6 +11905,7 @@ const KANJI_DATA = [
       "かたづける"
     ],
     "meaning": "Dọn dẹp, thu gọn",
+    "meaningEn": "Tidy up, put away",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10918,6 +11917,7 @@ const KANJI_DATA = [
       "すてる"
     ],
     "meaning": "Vứt bỏ",
+    "meaningEn": "Throw away",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10929,6 +11929,7 @@ const KANJI_DATA = [
       "ひろう"
     ],
     "meaning": "Nhặt lên",
+    "meaningEn": "Pick up",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10940,6 +11941,7 @@ const KANJI_DATA = [
       "まもる"
     ],
     "meaning": "Bảo vệ, tuân thủ",
+    "meaningEn": "Protect, obey",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10951,6 +11953,7 @@ const KANJI_DATA = [
       "たのむ"
     ],
     "meaning": "Nhờ vả, gọi món",
+    "meaningEn": "Request, ask a favor",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10962,6 +11965,7 @@ const KANJI_DATA = [
       "さそう"
     ],
     "meaning": "Rủ rê, mời",
+    "meaningEn": "Invite, ask out",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10973,6 +11977,7 @@ const KANJI_DATA = [
       "ことわる"
     ],
     "meaning": "Từ chối",
+    "meaningEn": "Refuse, decline",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10984,6 +11989,7 @@ const KANJI_DATA = [
       "あやまる"
     ],
     "meaning": "Xin lỗi",
+    "meaningEn": "Apologize",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -10995,6 +12001,7 @@ const KANJI_DATA = [
       "ほめる"
     ],
     "meaning": "Khen ngợi",
+    "meaningEn": "Praise",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11006,6 +12013,7 @@ const KANJI_DATA = [
       "しかる"
     ],
     "meaning": "Mắng, trách phạt",
+    "meaningEn": "Scold",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11017,6 +12025,7 @@ const KANJI_DATA = [
       "にげる"
     ],
     "meaning": "Chạy trốn",
+    "meaningEn": "Run away, escape",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11028,6 +12037,7 @@ const KANJI_DATA = [
       "さわぐ"
     ],
     "meaning": "Làm ồn, náo loạn",
+    "meaningEn": "Make noise",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11039,6 +12049,7 @@ const KANJI_DATA = [
       "なれる"
     ],
     "meaning": "Làm quen, quen thuộc",
+    "meaningEn": "Get used to",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11050,6 +12061,7 @@ const KANJI_DATA = [
       "そだてる"
     ],
     "meaning": "Nuôi dưỡng, trồng trọt",
+    "meaningEn": "Raise, grow",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11061,6 +12073,7 @@ const KANJI_DATA = [
       "ふえる"
     ],
     "meaning": "Tăng lên",
+    "meaningEn": "Increase",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11072,6 +12085,7 @@ const KANJI_DATA = [
       "へる"
     ],
     "meaning": "Giảm xuống",
+    "meaningEn": "Decrease",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11083,6 +12097,7 @@ const KANJI_DATA = [
       "なる"
     ],
     "meaning": "Kêu, reo (chuông)",
+    "meaningEn": "Ring, sound",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11094,6 +12109,7 @@ const KANJI_DATA = [
       "ぬれる"
     ],
     "meaning": "Bị ướt",
+    "meaningEn": "Get wet",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11105,6 +12121,7 @@ const KANJI_DATA = [
       "かわく"
     ],
     "meaning": "Khô",
+    "meaningEn": "Dry (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11116,6 +12133,7 @@ const KANJI_DATA = [
       "われる"
     ],
     "meaning": "Bị vỡ",
+    "meaningEn": "Break, crack (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11127,6 +12145,7 @@ const KANJI_DATA = [
       "おれる"
     ],
     "meaning": "Bị gãy",
+    "meaningEn": "Break, snap (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11138,6 +12157,7 @@ const KANJI_DATA = [
       "よごれる"
     ],
     "meaning": "Bị bẩn",
+    "meaningEn": "Get dirty",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -11149,6 +12169,7 @@ const KANJI_DATA = [
       "わらう"
     ],
     "meaning": "Cười",
+    "meaningEn": "Laugh, smile",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11160,6 +12181,7 @@ const KANJI_DATA = [
       "なく"
     ],
     "meaning": "Khóc",
+    "meaningEn": "Cry",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11171,6 +12193,7 @@ const KANJI_DATA = [
       "おこる"
     ],
     "meaning": "Tức giận",
+    "meaningEn": "Get angry",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11182,6 +12205,7 @@ const KANJI_DATA = [
       "よろこぶ"
     ],
     "meaning": "Vui mừng",
+    "meaningEn": "Be glad, rejoice",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11193,6 +12217,7 @@ const KANJI_DATA = [
       "かなしい"
     ],
     "meaning": "Buồn bã",
+    "meaningEn": "Sad",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11204,6 +12229,7 @@ const KANJI_DATA = [
       "うれしい"
     ],
     "meaning": "Vui sướng",
+    "meaningEn": "Happy, glad",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11215,6 +12241,7 @@ const KANJI_DATA = [
       "さびしい"
     ],
     "meaning": "Cô đơn, buồn tẻ",
+    "meaningEn": "Lonely",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11226,6 +12253,7 @@ const KANJI_DATA = [
       "こわい"
     ],
     "meaning": "Sợ hãi",
+    "meaningEn": "Scary, afraid",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11237,6 +12265,7 @@ const KANJI_DATA = [
       "おどろく"
     ],
     "meaning": "Ngạc nhiên",
+    "meaningEn": "Be surprised",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11248,6 +12277,7 @@ const KANJI_DATA = [
       "いそがしい"
     ],
     "meaning": "Bận rộn",
+    "meaningEn": "Busy",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11259,6 +12289,7 @@ const KANJI_DATA = [
       "ひま"
     ],
     "meaning": "Rảnh rỗi",
+    "meaningEn": "Free time, not busy",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11270,6 +12301,7 @@ const KANJI_DATA = [
       "あぶない"
     ],
     "meaning": "Nguy hiểm",
+    "meaningEn": "Dangerous",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11281,6 +12313,7 @@ const KANJI_DATA = [
       "きけん"
     ],
     "meaning": "Sự nguy hiểm",
+    "meaningEn": "Danger",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11292,6 +12325,7 @@ const KANJI_DATA = [
       "あんぜん"
     ],
     "meaning": "An toàn",
+    "meaningEn": "Safety, safe",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11303,6 +12337,7 @@ const KANJI_DATA = [
       "ほけん"
     ],
     "meaning": "Bảo hiểm",
+    "meaningEn": "Insurance",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11314,6 +12349,7 @@ const KANJI_DATA = [
       "かならず"
     ],
     "meaning": "Nhất định, chắc chắn",
+    "meaningEn": "Surely, without fail",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11325,6 +12361,7 @@ const KANJI_DATA = [
       "ひつよう"
     ],
     "meaning": "Cần thiết",
+    "meaningEn": "Necessary",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11336,6 +12373,7 @@ const KANJI_DATA = [
       "いる"
     ],
     "meaning": "Cần",
+    "meaningEn": "Need",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11347,6 +12385,7 @@ const KANJI_DATA = [
       "ふあん"
     ],
     "meaning": "Bất an, lo âu",
+    "meaningEn": "Uneasy, anxious",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11358,6 +12397,7 @@ const KANJI_DATA = [
       "むり"
     ],
     "meaning": "Vô lý, quá sức",
+    "meaningEn": "Impossible, unreasonable",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11369,6 +12409,7 @@ const KANJI_DATA = [
       "むりょう"
     ],
     "meaning": "Miễn phí",
+    "meaningEn": "Free of charge",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11380,6 +12421,7 @@ const KANJI_DATA = [
       "ゆうめい"
     ],
     "meaning": "Nổi tiếng",
+    "meaningEn": "Famous",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11391,6 +12433,7 @@ const KANJI_DATA = [
       "ぜんぶ"
     ],
     "meaning": "Toàn bộ, tất cả",
+    "meaningEn": "All, entire",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11402,6 +12445,7 @@ const KANJI_DATA = [
       "へや"
     ],
     "meaning": "Căn phòng",
+    "meaningEn": "Room",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11413,6 +12457,7 @@ const KANJI_DATA = [
       "ぶちょう"
     ],
     "meaning": "Trưởng phòng",
+    "meaningEn": "Department manager",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11424,6 +12469,7 @@ const KANJI_DATA = [
       "こんど"
     ],
     "meaning": "Lần này, lần tới",
+    "meaningEn": "This time, next time",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11435,6 +12481,7 @@ const KANJI_DATA = [
       "いちど"
     ],
     "meaning": "Một lần",
+    "meaningEn": "Once, one time",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11446,6 +12493,7 @@ const KANJI_DATA = [
       "おんど"
     ],
     "meaning": "Nhiệt độ",
+    "meaningEn": "Temperature",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11457,6 +12505,7 @@ const KANJI_DATA = [
       "いっかい"
     ],
     "meaning": "Một lần",
+    "meaningEn": "One time",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11468,6 +12517,7 @@ const KANJI_DATA = [
       "こんかい"
     ],
     "meaning": "Lần này",
+    "meaningEn": "This time",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11479,6 +12529,7 @@ const KANJI_DATA = [
       "じかい"
     ],
     "meaning": "Lần tới",
+    "meaningEn": "Next time",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11490,6 +12541,7 @@ const KANJI_DATA = [
       "つぎ"
     ],
     "meaning": "Tiếp theo",
+    "meaningEn": "Next",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11501,6 +12553,7 @@ const KANJI_DATA = [
       "いちばん"
     ],
     "meaning": "Nhất, số một",
+    "meaningEn": "Number one, best",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11512,6 +12565,7 @@ const KANJI_DATA = [
       "ばんごう"
     ],
     "meaning": "Số hiệu, con số",
+    "meaningEn": "Number",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11523,6 +12577,7 @@ const KANJI_DATA = [
       "でんわばんごう"
     ],
     "meaning": "Số điện thoại",
+    "meaningEn": "Phone number",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11534,6 +12589,7 @@ const KANJI_DATA = [
       "ばんぐみ"
     ],
     "meaning": "Chương trình truyền hình",
+    "meaningEn": "TV program",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11545,6 +12601,7 @@ const KANJI_DATA = [
       "しんごう"
     ],
     "meaning": "Đèn tín hiệu giao thông",
+    "meaningEn": "Traffic light",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11556,6 +12613,7 @@ const KANJI_DATA = [
       "かた"
     ],
     "meaning": "Vị (người), cách thức",
+    "meaningEn": "Person (polite), way, method",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11567,6 +12625,7 @@ const KANJI_DATA = [
       "ゆうがた"
     ],
     "meaning": "Chiều tối",
+    "meaningEn": "Evening, dusk",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11578,6 +12637,7 @@ const KANJI_DATA = [
       "ほうほう"
     ],
     "meaning": "Phương pháp",
+    "meaningEn": "Method, way",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11589,6 +12649,7 @@ const KANJI_DATA = [
       "いじょう"
     ],
     "meaning": "Trở lên, trên",
+    "meaningEn": "Or more, above",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11600,6 +12661,7 @@ const KANJI_DATA = [
       "いか"
     ],
     "meaning": "Trở xuống, dưới",
+    "meaningEn": "Or less, below",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11611,6 +12673,7 @@ const KANJI_DATA = [
       "いない"
     ],
     "meaning": "Trong vòng, không quá",
+    "meaningEn": "Within, less than",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11622,6 +12685,7 @@ const KANJI_DATA = [
       "ようい"
     ],
     "meaning": "Chuẩn bị",
+    "meaningEn": "Preparation",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11633,6 +12697,7 @@ const KANJI_DATA = [
       "しょうらい"
     ],
     "meaning": "Tương lai",
+    "meaningEn": "Future",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11644,6 +12709,7 @@ const KANJI_DATA = [
       "ゆめ"
     ],
     "meaning": "Giấc mơ, ước mơ",
+    "meaningEn": "Dream",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11655,6 +12721,7 @@ const KANJI_DATA = [
       "きぼう"
     ],
     "meaning": "Hy vọng, nguyện vọng",
+    "meaningEn": "Hope, wish",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11666,6 +12733,7 @@ const KANJI_DATA = [
       "じゆう"
     ],
     "meaning": "Tự do",
+    "meaningEn": "Freedom",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11677,6 +12745,7 @@ const KANJI_DATA = [
       "りゆう"
     ],
     "meaning": "Lý do",
+    "meaningEn": "Reason",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11688,6 +12757,7 @@ const KANJI_DATA = [
       "へいわ"
     ],
     "meaning": "Hòa bình",
+    "meaningEn": "Peace",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11699,6 +12769,7 @@ const KANJI_DATA = [
       "かんたん"
     ],
     "meaning": "Đơn giản",
+    "meaningEn": "Simple, easy",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11710,6 +12781,7 @@ const KANJI_DATA = [
       "ふくざつ"
     ],
     "meaning": "Phức tạp",
+    "meaningEn": "Complex, complicated",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11721,6 +12793,7 @@ const KANJI_DATA = [
       "ていねい"
     ],
     "meaning": "Lịch sự, cẩn thận",
+    "meaningEn": "Polite, careful",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11732,6 +12805,7 @@ const KANJI_DATA = [
       "しずか"
     ],
     "meaning": "Yên tĩnh",
+    "meaningEn": "Quiet",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11743,6 +12817,7 @@ const KANJI_DATA = [
       "にぎやか"
     ],
     "meaning": "Náo nhiệt, đông vui",
+    "meaningEn": "Lively, bustling",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11754,6 +12829,7 @@ const KANJI_DATA = [
       "はずかしい"
     ],
     "meaning": "Xấu hổ, ngại ngùng",
+    "meaningEn": "Embarrassed, shy",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11765,6 +12841,7 @@ const KANJI_DATA = [
       "うらやましい"
     ],
     "meaning": "Ghen tị, ngưỡng mộ",
+    "meaningEn": "Envious, jealous",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11776,6 +12853,7 @@ const KANJI_DATA = [
       "すばらしい"
     ],
     "meaning": "Tuyệt vời",
+    "meaningEn": "Wonderful, splendid",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11787,6 +12865,7 @@ const KANJI_DATA = [
       "めずらしい"
     ],
     "meaning": "Hiếm có, lạ",
+    "meaningEn": "Rare, unusual",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11798,6 +12877,7 @@ const KANJI_DATA = [
       "きびしい"
     ],
     "meaning": "Nghiêm khắc, khắc nghiệt",
+    "meaningEn": "Strict, severe",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11809,6 +12889,7 @@ const KANJI_DATA = [
       "やさしい"
     ],
     "meaning": "Hiền lành, tốt bụng",
+    "meaningEn": "Kind, gentle",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11820,6 +12901,7 @@ const KANJI_DATA = [
       "まじめ"
     ],
     "meaning": "Chăm chỉ, nghiêm túc",
+    "meaningEn": "Serious, earnest",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11831,6 +12913,7 @@ const KANJI_DATA = [
       "てきとう"
     ],
     "meaning": "Phù hợp, qua loa",
+    "meaningEn": "Suitable, appropriate",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11842,6 +12925,7 @@ const KANJI_DATA = [
       "ざんねん"
     ],
     "meaning": "Đáng tiếc",
+    "meaningEn": "Regrettable, unfortunate",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11853,6 +12937,7 @@ const KANJI_DATA = [
       "きそく"
     ],
     "meaning": "Quy tắc, nội quy",
+    "meaningEn": "Rule, regulation",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11864,6 +12949,7 @@ const KANJI_DATA = [
       "きんし"
     ],
     "meaning": "Cấm",
+    "meaningEn": "Prohibition, ban",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11875,6 +12961,7 @@ const KANJI_DATA = [
       "ひじょうぐち"
     ],
     "meaning": "Lối thoát hiểm",
+    "meaningEn": "Emergency exit",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11886,6 +12973,7 @@ const KANJI_DATA = [
       "けいさつしょ"
     ],
     "meaning": "Sở cảnh sát",
+    "meaningEn": "Police station",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11897,6 +12985,7 @@ const KANJI_DATA = [
       "しょうぼうしょ"
     ],
     "meaning": "Trạm cứu hỏa",
+    "meaningEn": "Fire station",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -11908,6 +12997,7 @@ const KANJI_DATA = [
       "きゅうきゅうしゃ"
     ],
     "meaning": "Xe cứu thương",
+    "meaningEn": "Ambulance",
     "topicId": "n4_11",
     "level": "N4"
   }
@@ -11918,10 +13008,12 @@ const RADICALS_DATA = [
     "id": 1001,
     "kanji": "一",
     "displayReading": "Bộ Nhất",
+    "displayReadingEn": "Radical 1 · One",
     "readings": [
       "Nhất"
     ],
     "meaning": "Một, số một",
+    "meaningEn": "One, number one",
     "examples": "一, 七, 三, 上, 下",
     "topicId": "rad_1_stroke",
     "level": "RADICALS",
@@ -11931,10 +13023,12 @@ const RADICALS_DATA = [
     "id": 1002,
     "kanji": "丨",
     "displayReading": "Bộ Cổn",
+    "displayReadingEn": "Radical 2 · Line",
     "readings": [
       "Cổn"
     ],
     "meaning": "Nét sổ thẳng",
+    "meaningEn": "Vertical stroke",
     "examples": "中, 串, 豊",
     "topicId": "rad_1_stroke",
     "level": "RADICALS",
@@ -11944,10 +13038,12 @@ const RADICALS_DATA = [
     "id": 1003,
     "kanji": "丶",
     "displayReading": "Bộ Chủ",
+    "displayReadingEn": "Radical 3 · Dot",
     "readings": [
       "Chủ"
     ],
     "meaning": "Điểm, chấm",
+    "meaningEn": "Dot, point",
     "examples": "主, 丸, 丹",
     "topicId": "rad_1_stroke",
     "level": "RADICALS",
@@ -11957,10 +13053,12 @@ const RADICALS_DATA = [
     "id": 1004,
     "kanji": "丿",
     "displayReading": "Bộ Phiệt",
+    "displayReadingEn": "Radical 4 · Slash",
     "readings": [
       "Phiệt"
     ],
     "meaning": "Nét phẩy",
+    "meaningEn": "Diagonal slash stroke",
     "examples": "久, 之, 乗",
     "topicId": "rad_1_stroke",
     "level": "RADICALS",
@@ -11970,10 +13068,12 @@ const RADICALS_DATA = [
     "id": 1005,
     "kanji": "乙 (乚, ⺄)",
     "displayReading": "Bộ Ất",
+    "displayReadingEn": "Radical 5 · Second",
     "readings": [
       "Ất"
     ],
     "meaning": "Vị trí thứ 2 trong Thiên Can, uốn cong",
+    "meaningEn": "Second Heavenly Stem, bent line",
     "examples": "九, 乱, 乳",
     "topicId": "rad_1_stroke",
     "level": "RADICALS",
@@ -11983,10 +13083,12 @@ const RADICALS_DATA = [
     "id": 1006,
     "kanji": "亅",
     "displayReading": "Bộ Quyết",
+    "displayReadingEn": "Radical 6 · Hook",
     "readings": [
       "Quyết"
     ],
     "meaning": "Nét sổ có móc",
+    "meaningEn": "Hooked vertical stroke",
     "examples": "了, 予, 事",
     "topicId": "rad_1_stroke",
     "level": "RADICALS",
@@ -11996,10 +13098,12 @@ const RADICALS_DATA = [
     "id": 1007,
     "kanji": "二",
     "displayReading": "Bộ Nhị",
+    "displayReadingEn": "Radical 7 · Two",
     "readings": [
       "Nhị"
     ],
     "meaning": "Số hai",
+    "meaningEn": "Number two",
     "examples": "二, 五, 井, 亜",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12009,10 +13113,12 @@ const RADICALS_DATA = [
     "id": 1008,
     "kanji": "亠",
     "displayReading": "Bộ Đầu",
+    "displayReadingEn": "Radical 8 · Lid",
     "readings": [
       "Đầu"
     ],
     "meaning": "Nắp đậy, phần đầu (không có nghĩa độc lập)",
+    "meaningEn": "Lid, cover, head",
     "examples": "亡, 交, 京, 高",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12022,10 +13128,12 @@ const RADICALS_DATA = [
     "id": 1009,
     "kanji": "人 (亻, 𠆢)",
     "displayReading": "Bộ Nhân",
+    "displayReadingEn": "Radical 9 · Person",
     "readings": [
       "Nhân"
     ],
     "meaning": "Người",
+    "meaningEn": "Person, human",
     "examples": "人, 休, 体, 働, 今",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12035,10 +13143,12 @@ const RADICALS_DATA = [
     "id": 1010,
     "kanji": "儿",
     "displayReading": "Bộ Nhân (nhi)",
+    "displayReadingEn": "Radical 10 · Legs",
     "readings": [
       "Nhân (nhi)"
     ],
     "meaning": "Người đi, đôi chân",
+    "meaningEn": "Walking person, human legs",
     "examples": "元, 兄, 光, 先",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12048,10 +13158,12 @@ const RADICALS_DATA = [
     "id": 1011,
     "kanji": "入",
     "displayReading": "Bộ Nhập",
+    "displayReadingEn": "Radical 11 · Enter",
     "readings": [
       "Nhập"
     ],
     "meaning": "Đi vào",
+    "meaningEn": "Enter, go in",
     "examples": "入, 全, 両",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12061,10 +13173,12 @@ const RADICALS_DATA = [
     "id": 1012,
     "kanji": "八 (丷)",
     "displayReading": "Bộ Bát",
+    "displayReadingEn": "Radical 12 · Eight",
     "readings": [
       "Bát"
     ],
     "meaning": "Số tám, chia tách",
+    "meaningEn": "Number eight, divide",
     "examples": "八, 六, 公, 共",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12074,10 +13188,12 @@ const RADICALS_DATA = [
     "id": 1013,
     "kanji": "冂",
     "displayReading": "Bộ Quynh",
+    "displayReadingEn": "Radical 13 · Down box",
     "readings": [
       "Quynh"
     ],
     "meaning": "Vùng biên giới, khoảng trống bao quanh",
+    "meaningEn": "Wide border, open enclosure",
     "examples": "内, 円, 再, 冊",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12087,10 +13203,12 @@ const RADICALS_DATA = [
     "id": 1014,
     "kanji": "冖",
     "displayReading": "Bộ Mịch",
+    "displayReadingEn": "Radical 14 · Cover",
     "readings": [
       "Mịch"
     ],
     "meaning": "Trùm khăn lên, che đậy",
+    "meaningEn": "Cover over, cloth cover",
     "examples": "写, 冠, 軍",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12100,10 +13218,12 @@ const RADICALS_DATA = [
     "id": 1015,
     "kanji": "冫",
     "displayReading": "Bộ Băng",
+    "displayReadingEn": "Radical 15 · Ice",
     "readings": [
       "Băng"
     ],
     "meaning": "Nước đá, lạnh giá",
+    "meaningEn": "Ice, cold",
     "examples": "氷, 冷, 冬, 凍",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12113,10 +13233,12 @@ const RADICALS_DATA = [
     "id": 1016,
     "kanji": "几",
     "displayReading": "Bộ Kỷ",
+    "displayReadingEn": "Radical 16 · Table",
     "readings": [
       "Kỷ"
     ],
     "meaning": "Cái bàn nhỏ, ghế tựa",
+    "meaningEn": "Small table, bench",
     "examples": "机, 凡, 風",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12126,10 +13248,12 @@ const RADICALS_DATA = [
     "id": 1017,
     "kanji": "凵",
     "displayReading": "Bộ Khảm",
+    "displayReadingEn": "Radical 17 · Open box",
     "readings": [
       "Khảm"
     ],
     "meaning": "Há miệng, hố sâu",
+    "meaningEn": "Open mouth, receptacle, pit",
     "examples": "出, 凶, 凸, 凹",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12139,10 +13263,12 @@ const RADICALS_DATA = [
     "id": 1018,
     "kanji": "刀 (刂)",
     "displayReading": "Bộ Đao",
+    "displayReadingEn": "Radical 18 · Knife",
     "readings": [
       "Đao"
     ],
     "meaning": "Con dao, cắt gọt",
+    "meaningEn": "Knife, blade, cut",
     "examples": "刀, 切, 分, 利, 別",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12152,10 +13278,12 @@ const RADICALS_DATA = [
     "id": 1019,
     "kanji": "力",
     "displayReading": "Bộ Lực",
+    "displayReadingEn": "Radical 19 · Power",
     "readings": [
       "Lực"
     ],
     "meaning": "Sức mạnh",
+    "meaningEn": "Power, strength",
     "examples": "力, 動, 働, 勉, 助",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12165,10 +13293,12 @@ const RADICALS_DATA = [
     "id": 1020,
     "kanji": "勹",
     "displayReading": "Bộ Bao",
+    "displayReadingEn": "Radical 20 · Wrap",
     "readings": [
       "Bao"
     ],
     "meaning": "Bao bọc, ôm ấp",
+    "meaningEn": "Wrap, embrace",
     "examples": "包, 句, 匂",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12178,10 +13308,12 @@ const RADICALS_DATA = [
     "id": 1021,
     "kanji": "匕",
     "displayReading": "Bộ Chủy",
+    "displayReadingEn": "Radical 21 · Spoon",
     "readings": [
       "Chủy"
     ],
     "meaning": "Cái thìa, muỗng",
+    "meaningEn": "Spoon, ladle",
     "examples": "化, 北, 匙",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12191,10 +13323,12 @@ const RADICALS_DATA = [
     "id": 1022,
     "kanji": "匚",
     "displayReading": "Bộ Phương",
+    "displayReadingEn": "Radical 22 · Right open box",
     "readings": [
       "Phương"
     ],
     "meaning": "Cái hộp, tủ đựng",
+    "meaningEn": "Box, cabinet, chest",
     "examples": "匠, 匹, 区",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12204,10 +13338,12 @@ const RADICALS_DATA = [
     "id": 1023,
     "kanji": "匸",
     "displayReading": "Bộ Hệ",
+    "displayReadingEn": "Radical 23 · Hiding enclosure",
     "readings": [
       "Hệ"
     ],
     "meaning": "Che giấu, đậy lại",
+    "meaningEn": "Hide, conceal, cover",
     "examples": "区, 医, 匿",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12217,10 +13353,12 @@ const RADICALS_DATA = [
     "id": 1024,
     "kanji": "十",
     "displayReading": "Bộ Thập",
+    "displayReadingEn": "Radical 24 · Ten",
     "readings": [
       "Thập"
     ],
     "meaning": "Số mười, đầy đủ",
+    "meaningEn": "Number ten, complete",
     "examples": "十, 千, 午, 半, 南",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12230,10 +13368,12 @@ const RADICALS_DATA = [
     "id": 1025,
     "kanji": "卜",
     "displayReading": "Bộ Bốc",
+    "displayReadingEn": "Radical 25 · Divination",
     "readings": [
       "Bốc"
     ],
     "meaning": "Xem bói",
+    "meaningEn": "Divination, fortune-telling",
     "examples": "占, 卦, 外",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12243,10 +13383,12 @@ const RADICALS_DATA = [
     "id": 1026,
     "kanji": "卩 (㔾)",
     "displayReading": "Bộ Tiết",
+    "displayReadingEn": "Radical 26 · Seal",
     "readings": [
       "Tiết"
     ],
     "meaning": "Đốt tre, con dấu",
+    "meaningEn": "Bamboo joint, official seal",
     "examples": "印, 危, 即, 卵",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12256,10 +13398,12 @@ const RADICALS_DATA = [
     "id": 1027,
     "kanji": "厂",
     "displayReading": "Bộ Hán",
+    "displayReadingEn": "Radical 27 · Cliff",
     "readings": [
       "Hán"
     ],
     "meaning": "Sườn núi, vách đá",
+    "meaningEn": "Cliff, mountain slope",
     "examples": "原, 厚, 圧, 歴",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12269,10 +13413,12 @@ const RADICALS_DATA = [
     "id": 1028,
     "kanji": "厶",
     "displayReading": "Bộ Khư (Tư)",
+    "displayReadingEn": "Radical 28 · Private",
     "readings": [
       "Khư (Tư)"
     ],
     "meaning": "Riêng tư",
+    "meaningEn": "Private, personal",
     "examples": "去, 参, 私",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12282,10 +13428,12 @@ const RADICALS_DATA = [
     "id": 1029,
     "kanji": "又",
     "displayReading": "Bộ Hựu",
+    "displayReadingEn": "Radical 29 · Again",
     "readings": [
       "Hựu"
     ],
     "meaning": "Lại nữa, bàn tay phải",
+    "meaningEn": "Again, right hand",
     "examples": "又, 友, 反, 取, 受",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -12295,10 +13443,12 @@ const RADICALS_DATA = [
     "id": 1030,
     "kanji": "口",
     "displayReading": "Bộ Khẩu",
+    "displayReadingEn": "Radical 30 · Mouth",
     "readings": [
       "Khẩu"
     ],
     "meaning": "Cái miệng, ăn nói",
+    "meaningEn": "Mouth, speech, eating",
     "examples": "口, 古, 味, 呼, 問",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12308,10 +13458,12 @@ const RADICALS_DATA = [
     "id": 1031,
     "kanji": "囗",
     "displayReading": "Bộ Vi",
+    "displayReadingEn": "Radical 31 · Enclosure",
     "readings": [
       "Vi"
     ],
     "meaning": "Vây quanh, biên giới",
+    "meaningEn": "Enclosure, border, surround",
     "examples": "国, 四, 回, 園, 図",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12321,10 +13473,12 @@ const RADICALS_DATA = [
     "id": 1032,
     "kanji": "土",
     "displayReading": "Bộ Thổ",
+    "displayReadingEn": "Radical 32 · Earth",
     "readings": [
       "Thổ"
     ],
     "meaning": "Đất đai",
+    "meaningEn": "Earth, soil, land",
     "examples": "土, 地, 場, 坂, 城",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12334,10 +13488,12 @@ const RADICALS_DATA = [
     "id": 1033,
     "kanji": "士",
     "displayReading": "Bộ Sĩ",
+    "displayReadingEn": "Radical 33 · Scholar",
     "readings": [
       "Sĩ"
     ],
     "meaning": "Kẻ sĩ, học giả, chiến binh",
+    "meaningEn": "Scholar, gentleman, warrior",
     "examples": "士, 売, 声, 壮",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12347,10 +13503,12 @@ const RADICALS_DATA = [
     "id": 1034,
     "kanji": "夂",
     "displayReading": "Bộ Trĩ",
+    "displayReadingEn": "Radical 34 · Go",
     "readings": [
       "Trĩ"
     ],
     "meaning": "Bước chậm theo sau",
+    "meaningEn": "Walk slowly behind",
     "examples": "冬, 各, 条",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12360,10 +13518,12 @@ const RADICALS_DATA = [
     "id": 1035,
     "kanji": "夊",
     "displayReading": "Bộ Tuy",
+    "displayReadingEn": "Radical 35 · Go slowly",
     "readings": [
       "Tuy"
     ],
     "meaning": "Đi chậm chạp",
+    "meaningEn": "Walk slowly",
     "examples": "夏, 復, 変",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12373,10 +13533,12 @@ const RADICALS_DATA = [
     "id": 1036,
     "kanji": "夕",
     "displayReading": "Bộ Tịch",
+    "displayReadingEn": "Radical 36 · Evening",
     "readings": [
       "Tịch"
     ],
     "meaning": "Đêm tối, buổi chiều",
+    "meaningEn": "Evening, night",
     "examples": "夕, 外, 多, 夜, 夢",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12386,10 +13548,12 @@ const RADICALS_DATA = [
     "id": 1037,
     "kanji": "大",
     "displayReading": "Bộ Đại",
+    "displayReadingEn": "Radical 37 · Big",
     "readings": [
       "Đại"
     ],
     "meaning": "To lớn",
+    "meaningEn": "Big, large, great",
     "examples": "大, 天, 太, 夫, 奇",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12399,10 +13563,12 @@ const RADICALS_DATA = [
     "id": 1038,
     "kanji": "女",
     "displayReading": "Bộ Nữ",
+    "displayReadingEn": "Radical 38 · Woman",
     "readings": [
       "Nữ"
     ],
     "meaning": "Phụ nữ, con gái",
+    "meaningEn": "Woman, female",
     "examples": "女, 好, 姉, 妹, 始",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12412,10 +13578,12 @@ const RADICALS_DATA = [
     "id": 1039,
     "kanji": "子",
     "displayReading": "Bộ Tử",
+    "displayReadingEn": "Radical 39 · Child",
     "readings": [
       "Tử"
     ],
     "meaning": "Con cái, trẻ em",
+    "meaningEn": "Child, offspring",
     "examples": "子, 学, 字, 孫, 季",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12425,10 +13593,12 @@ const RADICALS_DATA = [
     "id": 1040,
     "kanji": "宀",
     "displayReading": "Bộ Miên",
+    "displayReadingEn": "Radical 40 · Roof",
     "readings": [
       "Miên"
     ],
     "meaning": "Mái nhà, che chở",
+    "meaningEn": "Roof, shelter",
     "examples": "家, 安, 室, 宿, 守",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12438,10 +13608,12 @@ const RADICALS_DATA = [
     "id": 1041,
     "kanji": "寸",
     "displayReading": "Bộ Thốn",
+    "displayReadingEn": "Radical 41 · Inch",
     "readings": [
       "Thốn"
     ],
     "meaning": "Đơn vị đo (tấc), quy tắc",
+    "meaningEn": "Inch (unit), rule, measure",
     "examples": "寸, 寺, 対, 専, 導",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12451,10 +13623,12 @@ const RADICALS_DATA = [
     "id": 1042,
     "kanji": "小 (⺌, ⺍)",
     "displayReading": "Bộ Tiểu",
+    "displayReadingEn": "Radical 42 · Small",
     "readings": [
       "Tiểu"
     ],
     "meaning": "Nhỏ bé",
+    "meaningEn": "Small, little",
     "examples": "小, 少, 尚, 当",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12464,10 +13638,12 @@ const RADICALS_DATA = [
     "id": 1043,
     "kanji": "尢 (尣)",
     "displayReading": "Bộ Uông",
+    "displayReadingEn": "Radical 43 · Lame",
     "readings": [
       "Uông"
     ],
     "meaning": "Yếu đuối, chân khập khiễng",
+    "meaningEn": "Weak, lame leg",
     "examples": "就, 尤",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12477,10 +13653,12 @@ const RADICALS_DATA = [
     "id": 1044,
     "kanji": "尸",
     "displayReading": "Bộ Thi",
+    "displayReadingEn": "Radical 44 · Corpse",
     "readings": [
       "Thi"
     ],
     "meaning": "Thây ma, cơ thể nằm",
+    "meaningEn": "Corpse, reclining body",
     "examples": "局, 屋, 届, 居, 層",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12490,10 +13668,12 @@ const RADICALS_DATA = [
     "id": 1045,
     "kanji": "屮",
     "displayReading": "Bộ Triệt",
+    "displayReadingEn": "Radical 45 · Sprout",
     "readings": [
       "Triệt"
     ],
     "meaning": "Mầm non mới nhú",
+    "meaningEn": "Young sprout, shoot",
     "examples": "屯, 逆",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12503,10 +13683,12 @@ const RADICALS_DATA = [
     "id": 1046,
     "kanji": "山",
     "displayReading": "Bộ Sơn",
+    "displayReadingEn": "Radical 46 · Mountain",
     "readings": [
       "Sơn"
     ],
     "meaning": "Ngọn núi",
+    "meaningEn": "Mountain",
     "examples": "山, 岩, 島, 峠, 岸",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12516,10 +13698,12 @@ const RADICALS_DATA = [
     "id": 1047,
     "kanji": "巛 (川)",
     "displayReading": "Bộ Xuyên",
+    "displayReadingEn": "Radical 47 · River",
     "readings": [
       "Xuyên"
     ],
     "meaning": "Sông ngòi, dòng chảy",
+    "meaningEn": "River, stream, flow",
     "examples": "川, 州, 巡, 巣",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12529,10 +13713,12 @@ const RADICALS_DATA = [
     "id": 1048,
     "kanji": "工",
     "displayReading": "Bộ Công",
+    "displayReadingEn": "Radical 48 · Work",
     "readings": [
       "Công"
     ],
     "meaning": "Người thợ, công việc",
+    "meaningEn": "Work, craft, artisan",
     "examples": "工, 左, 差, 巧",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12542,10 +13728,12 @@ const RADICALS_DATA = [
     "id": 1049,
     "kanji": "己 (已, 巳)",
     "displayReading": "Bộ Kỷ",
+    "displayReadingEn": "Radical 49 · Oneself",
     "readings": [
       "Kỷ"
     ],
     "meaning": "Bản thân mình",
+    "meaningEn": "Oneself, self",
     "examples": "己, 巻, 改, 配",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12555,10 +13743,12 @@ const RADICALS_DATA = [
     "id": 1050,
     "kanji": "巾",
     "displayReading": "Bộ Cân",
+    "displayReadingEn": "Radical 50 · Turban",
     "readings": [
       "Cân"
     ],
     "meaning": "Cái khăn, vải vóc",
+    "meaningEn": "Cloth, towel, scarf",
     "examples": "市, 布, 席, 帯, 帰",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12568,10 +13758,12 @@ const RADICALS_DATA = [
     "id": 1051,
     "kanji": "干",
     "displayReading": "Bộ Can",
+    "displayReadingEn": "Radical 51 · Dry",
     "readings": [
       "Can"
     ],
     "meaning": "Khô ráo, can thiệp, cái khiên",
+    "meaningEn": "Dry, interfere, shield",
     "examples": "干, 平, 年, 幸, 幹",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12581,10 +13773,12 @@ const RADICALS_DATA = [
     "id": 1052,
     "kanji": "幺",
     "displayReading": "Bộ Yêu",
+    "displayReadingEn": "Radical 52 · Short thread",
     "readings": [
       "Yêu"
     ],
     "meaning": "Nhỏ nhắn, sợi tơ nhỏ",
+    "meaningEn": "Tiny, fine silk thread",
     "examples": "幼, 幾, 幻, 幽",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12594,10 +13788,12 @@ const RADICALS_DATA = [
     "id": 1053,
     "kanji": "广",
     "displayReading": "Bộ Nghiễm",
+    "displayReadingEn": "Radical 53 · Dotted cliff",
     "readings": [
       "Nghiễm"
     ],
     "meaning": "Mái nhà, tòa nhà",
+    "meaningEn": "Slanted roof, building",
     "examples": "広, 店, 度, 庫, 庭",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12607,10 +13803,12 @@ const RADICALS_DATA = [
     "id": 1054,
     "kanji": "廴",
     "displayReading": "Bộ Dẫn",
+    "displayReadingEn": "Radical 54 · Long stride",
     "readings": [
       "Dẫn"
     ],
     "meaning": "Bước dài",
+    "meaningEn": "Long stride, move forward",
     "examples": "建, 延, 廷",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12620,10 +13818,12 @@ const RADICALS_DATA = [
     "id": 1055,
     "kanji": "廾",
     "displayReading": "Bộ Củng",
+    "displayReadingEn": "Radical 55 · Arch",
     "readings": [
       "Củng"
     ],
     "meaning": "Chắp hai tay",
+    "meaningEn": "Joined hands",
     "examples": "弁, 弄, 弊",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12633,10 +13833,12 @@ const RADICALS_DATA = [
     "id": 1056,
     "kanji": "弋",
     "displayReading": "Bộ Dặc",
+    "displayReadingEn": "Radical 56 · Shoot",
     "readings": [
       "Dặc"
     ],
     "meaning": "Bắn tên, cái cọc",
+    "meaningEn": "Shoot arrow, stake",
     "examples": "式, 弐, 鳶",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12646,10 +13848,12 @@ const RADICALS_DATA = [
     "id": 1057,
     "kanji": "弓",
     "displayReading": "Bộ Cung",
+    "displayReadingEn": "Radical 57 · Bow",
     "readings": [
       "Cung"
     ],
     "meaning": "Cái cung tên",
+    "meaningEn": "Bow (weapon)",
     "examples": "弓, 引, 強, 弱, 張",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12659,10 +13863,12 @@ const RADICALS_DATA = [
     "id": 1058,
     "kanji": "彐 (彑)",
     "displayReading": "Bộ Kệ",
+    "displayReadingEn": "Radical 58 · Snout",
     "readings": [
       "Kệ"
     ],
     "meaning": "Đầu con nhím / lợn",
+    "meaningEn": "Pig's snout / hedgehog head",
     "examples": "帰, 録, 当, 雪",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12672,10 +13878,12 @@ const RADICALS_DATA = [
     "id": 1059,
     "kanji": "彡",
     "displayReading": "Bộ Sam",
+    "displayReadingEn": "Radical 59 · Bristle",
     "readings": [
       "Sam"
     ],
     "meaning": "Lông tóc, hoa văn, nét trang trí",
+    "meaningEn": "Hair, feathers, pattern",
     "examples": "形, 影, 彩, 彫",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12685,10 +13893,12 @@ const RADICALS_DATA = [
     "id": 1060,
     "kanji": "彳",
     "displayReading": "Bộ Xích",
+    "displayReadingEn": "Radical 60 · Step",
     "readings": [
       "Xích"
     ],
     "meaning": "Bước chân trái, đi lại",
+    "meaningEn": "Left step, walk",
     "examples": "行, 待, 後, 彼, 役",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -12698,10 +13908,12 @@ const RADICALS_DATA = [
     "id": 1061,
     "kanji": "心 (忄, ⺗)",
     "displayReading": "Bộ Tâm",
+    "displayReadingEn": "Radical 61 · Heart",
     "readings": [
       "Tâm"
     ],
     "meaning": "Trái tim, tâm trí, cảm xúc",
+    "meaningEn": "Heart, mind, emotion",
     "examples": "心, 思, 忙, 怖, 情",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12711,10 +13923,12 @@ const RADICALS_DATA = [
     "id": 1062,
     "kanji": "戈",
     "displayReading": "Bộ Qua",
+    "displayReadingEn": "Radical 62 · Halberd",
     "readings": [
       "Qua"
     ],
     "meaning": "Cây qua (vũ khí cổ)",
+    "meaningEn": "Halberd (ancient spear-axe)",
     "examples": "戦, 成, 我, 戒, 戯",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12724,10 +13938,12 @@ const RADICALS_DATA = [
     "id": 1063,
     "kanji": "戸 (戶)",
     "displayReading": "Bộ Hộ",
+    "displayReadingEn": "Radical 63 · Door",
     "readings": [
       "Hộ"
     ],
     "meaning": "Cửa một cánh, hộ gia đình",
+    "meaningEn": "Single-leaf door, household",
     "examples": "戸, 所, 戻, 房, 扇",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12737,10 +13953,12 @@ const RADICALS_DATA = [
     "id": 1064,
     "kanji": "手 (扌, 龵)",
     "displayReading": "Bộ Thủ",
+    "displayReadingEn": "Radical 64 · Hand",
     "readings": [
       "Thủ"
     ],
     "meaning": "Bàn tay, hành động bằng tay",
+    "meaningEn": "Hand, manual action",
     "examples": "手, 持, 打, 押, 投",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12750,10 +13968,12 @@ const RADICALS_DATA = [
     "id": 1065,
     "kanji": "支",
     "displayReading": "Bộ Chi",
+    "displayReadingEn": "Radical 65 · Branch",
     "readings": [
       "Chi"
     ],
     "meaning": "Cành nhánh, chống đỡ",
+    "meaningEn": "Branch, support",
     "examples": "支, 技, 枝",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12763,10 +13983,12 @@ const RADICALS_DATA = [
     "id": 1066,
     "kanji": "攴 (攵)",
     "displayReading": "Bộ Phộc",
+    "displayReadingEn": "Radical 66 · Rap",
     "readings": [
       "Phộc"
     ],
     "meaning": "Đánh khẽ, gõ",
+    "meaningEn": "Tap lightly, strike",
     "examples": "教, 政, 放, 数, 改",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12776,10 +13998,12 @@ const RADICALS_DATA = [
     "id": 1067,
     "kanji": "文",
     "displayReading": "Bộ Văn",
+    "displayReadingEn": "Radical 67 · Script",
     "readings": [
       "Văn"
     ],
     "meaning": "Văn chương, chữ viết, hoa văn",
+    "meaningEn": "Literature, writing, pattern",
     "examples": "文, 対, 紋, 斎",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12789,10 +14013,12 @@ const RADICALS_DATA = [
     "id": 1068,
     "kanji": "斗",
     "displayReading": "Bộ Đẩu",
+    "displayReadingEn": "Radical 68 · Dipper",
     "readings": [
       "Đẩu"
     ],
     "meaning": "Cái đấu (dụng cụ đong lường)",
+    "meaningEn": "Dipper, ladle (measuring unit)",
     "examples": "料, 斜, 斡",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12802,10 +14028,12 @@ const RADICALS_DATA = [
     "id": 1069,
     "kanji": "斤",
     "displayReading": "Bộ Cân",
+    "displayReadingEn": "Radical 69 · Axe",
     "readings": [
       "Cân"
     ],
     "meaning": "Cái rìu, đơn vị cân",
+    "meaningEn": "Axe, unit of weight",
     "examples": "新, 近, 断, 折, 所",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12815,10 +14043,12 @@ const RADICALS_DATA = [
     "id": 1070,
     "kanji": "方",
     "displayReading": "Bộ Phương",
+    "displayReadingEn": "Radical 70 · Square",
     "readings": [
       "Phương"
     ],
     "meaning": "Phương hướng, vuông vức",
+    "meaningEn": "Direction, square",
     "examples": "方, 旅, 族, 旗, 放",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12828,10 +14058,12 @@ const RADICALS_DATA = [
     "id": 1071,
     "kanji": "无 (旡)",
     "displayReading": "Bộ Vô",
+    "displayReadingEn": "Radical 71 · Not",
     "readings": [
       "Vô"
     ],
     "meaning": "Không có",
+    "meaningEn": "Not, have not",
     "examples": "既, 無",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12841,10 +14073,12 @@ const RADICALS_DATA = [
     "id": 1072,
     "kanji": "日",
     "displayReading": "Bộ Nhật",
+    "displayReadingEn": "Radical 72 · Sun",
     "readings": [
       "Nhật"
     ],
     "meaning": "Mặt trời, ngày, thời gian",
+    "meaningEn": "Sun, day, time",
     "examples": "日, 明, 時, 晴, 昨",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12854,10 +14088,12 @@ const RADICALS_DATA = [
     "id": 1073,
     "kanji": "曰",
     "displayReading": "Bộ Viết",
+    "displayReadingEn": "Radical 73 · Say",
     "readings": [
       "Viết"
     ],
     "meaning": "Nói rằng",
+    "meaningEn": "Say, speak",
     "examples": "書, 最, 曲, 更",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12867,10 +14103,12 @@ const RADICALS_DATA = [
     "id": 1074,
     "kanji": "月",
     "displayReading": "Bộ Nguyệt",
+    "displayReadingEn": "Radical 74 · Moon",
     "readings": [
       "Nguyệt"
     ],
     "meaning": "Mặt trăng, tháng (hoặc bộ Nhục - thịt)",
+    "meaningEn": "Moon, month (or flesh)",
     "examples": "月, 朝, 期, 有, 望",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12880,10 +14118,12 @@ const RADICALS_DATA = [
     "id": 1075,
     "kanji": "木",
     "displayReading": "Bộ Mộc",
+    "displayReadingEn": "Radical 75 · Tree",
     "readings": [
       "Mộc"
     ],
     "meaning": "Cây cối, gỗ",
+    "meaningEn": "Tree, wood",
     "examples": "木, 林, 森, 机, 本",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12893,10 +14133,12 @@ const RADICALS_DATA = [
     "id": 1076,
     "kanji": "欠",
     "displayReading": "Bộ Khiếm",
+    "displayReadingEn": "Radical 76 · Lack",
     "readings": [
       "Khiếm"
     ],
     "meaning": "Khiếm khuyết, ngáp, thiếu thốn",
+    "meaningEn": "Lack, yawn, owe",
     "examples": "欠, 次, 歌, 飲, 欲",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12906,10 +14148,12 @@ const RADICALS_DATA = [
     "id": 1077,
     "kanji": "止",
     "displayReading": "Bộ Chỉ",
+    "displayReadingEn": "Radical 77 · Stop",
     "readings": [
       "Chỉ"
     ],
     "meaning": "Dừng lại, bàn chân",
+    "meaningEn": "Stop, foot",
     "examples": "止, 正, 歩, 武, 歳",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12919,10 +14163,12 @@ const RADICALS_DATA = [
     "id": 1078,
     "kanji": "歹 (歺)",
     "displayReading": "Bộ Đãi",
+    "displayReadingEn": "Radical 78 · Death",
     "readings": [
       "Đãi"
     ],
     "meaning": "Xương tàn, chết chóc",
+    "meaningEn": "Broken bones, death",
     "examples": "死, 残, 殖, 殊",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12932,10 +14178,12 @@ const RADICALS_DATA = [
     "id": 1079,
     "kanji": "殳",
     "displayReading": "Bộ Thù",
+    "displayReadingEn": "Radical 79 · Weapon",
     "readings": [
       "Thù"
     ],
     "meaning": "Binh khí dài, đánh đập",
+    "meaningEn": "Long polearm, strike",
     "examples": "段, 殺, 殿, 設, 役",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12945,10 +14193,12 @@ const RADICALS_DATA = [
     "id": 1080,
     "kanji": "毋 (母)",
     "displayReading": "Bộ Vô / Mẫu",
+    "displayReadingEn": "Radical 80 · Do not",
     "readings": [
       "Vô / Mẫu"
     ],
     "meaning": "Chớ, đừng / Người mẹ",
+    "meaningEn": "Do not / Mother",
     "examples": "母, 毎, 毒, 貫",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12958,10 +14208,12 @@ const RADICALS_DATA = [
     "id": 1081,
     "kanji": "比",
     "displayReading": "Bộ Tỷ",
+    "displayReadingEn": "Radical 81 · Compare",
     "readings": [
       "Tỷ"
     ],
     "meaning": "So sánh, kề bên",
+    "meaningEn": "Compare, side by side",
     "examples": "比, 皆, 昆",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12971,10 +14223,12 @@ const RADICALS_DATA = [
     "id": 1082,
     "kanji": "毛",
     "displayReading": "Bộ Mao",
+    "displayReadingEn": "Radical 82 · Fur",
     "readings": [
       "Mao"
     ],
     "meaning": "Lông, tóc",
+    "meaningEn": "Fur, hair",
     "examples": "毛, 尾, 筆, 耗",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12984,10 +14238,12 @@ const RADICALS_DATA = [
     "id": 1083,
     "kanji": "氏",
     "displayReading": "Bộ Thị",
+    "displayReadingEn": "Radical 83 · Clan",
     "readings": [
       "Thị"
     ],
     "meaning": "Họ, dòng tộc",
+    "meaningEn": "Clan, family name",
     "examples": "氏, 民, 紙",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -12997,10 +14253,12 @@ const RADICALS_DATA = [
     "id": 1084,
     "kanji": "气",
     "displayReading": "Bộ Khí",
+    "displayReadingEn": "Radical 84 · Steam",
     "readings": [
       "Khí"
     ],
     "meaning": "Hơi, không khí",
+    "meaningEn": "Steam, air, breath",
     "examples": "気, 汽, 雰",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -13010,10 +14268,12 @@ const RADICALS_DATA = [
     "id": 1085,
     "kanji": "水 (氵, 氺)",
     "displayReading": "Bộ Thủy",
+    "displayReadingEn": "Radical 85 · Water",
     "readings": [
       "Thủy"
     ],
     "meaning": "Nước, chất lỏng",
+    "meaningEn": "Water, liquid",
     "examples": "水, 海, 泳, 洗, 池",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -13023,10 +14283,12 @@ const RADICALS_DATA = [
     "id": 1086,
     "kanji": "火 (灬)",
     "displayReading": "Bộ Hỏa",
+    "displayReadingEn": "Radical 86 · Fire",
     "readings": [
       "Hỏa"
     ],
     "meaning": "Lửa, nhiệt độ",
+    "meaningEn": "Fire, heat",
     "examples": "火, 焼, 熱, 燃, 煙",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -13036,10 +14298,12 @@ const RADICALS_DATA = [
     "id": 1087,
     "kanji": "爪 (爫)",
     "displayReading": "Bộ Trảo",
+    "displayReadingEn": "Radical 87 · Claw",
     "readings": [
       "Trảo"
     ],
     "meaning": "Móng vuốt",
+    "meaningEn": "Claw, nail",
     "examples": "爪, 愛, 受, 採, 争",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -13049,10 +14313,12 @@ const RADICALS_DATA = [
     "id": 1088,
     "kanji": "父",
     "displayReading": "Bộ Phụ",
+    "displayReadingEn": "Radical 88 · Father",
     "readings": [
       "Phụ"
     ],
     "meaning": "Người cha",
+    "meaningEn": "Father",
     "examples": "父, 釜, 爺",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -13062,10 +14328,12 @@ const RADICALS_DATA = [
     "id": 1089,
     "kanji": "爻",
     "displayReading": "Bộ Hào",
+    "displayReadingEn": "Radical 89 · Double X",
     "readings": [
       "Hào"
     ],
     "meaning": "Hào trong Kinh Dịch, đan xen",
+    "meaningEn": "Trigram lines, intertwine",
     "examples": "爽, 爾",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -13075,10 +14343,12 @@ const RADICALS_DATA = [
     "id": 1090,
     "kanji": "爿 (丬)",
     "displayReading": "Bộ Tường",
+    "displayReadingEn": "Radical 90 · Half tree trunk",
     "readings": [
       "Tường"
     ],
     "meaning": "Mảnh gỗ, cái giường",
+    "meaningEn": "Split wood, bed",
     "examples": "壮, 状, 将, 装",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -13088,10 +14358,12 @@ const RADICALS_DATA = [
     "id": 1091,
     "kanji": "片",
     "displayReading": "Bộ Phiến",
+    "displayReadingEn": "Radical 91 · Slice",
     "readings": [
       "Phiến"
     ],
     "meaning": "Mảnh, tấm, một phía",
+    "meaningEn": "Slice, piece, one side",
     "examples": "片, 版, 牌",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -13101,10 +14373,12 @@ const RADICALS_DATA = [
     "id": 1092,
     "kanji": "牙",
     "displayReading": "Bộ Nha",
+    "displayReadingEn": "Radical 92 · Fang",
     "readings": [
       "Nha"
     ],
     "meaning": "Răng nanh",
+    "meaningEn": "Fang, tusk",
     "examples": "牙, 芽, 邪",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -13114,10 +14388,12 @@ const RADICALS_DATA = [
     "id": 1093,
     "kanji": "牛 (牜)",
     "displayReading": "Bộ Ngưu",
+    "displayReadingEn": "Radical 93 · Cow",
     "readings": [
       "Ngưu"
     ],
     "meaning": "Con trâu, con bò",
+    "meaningEn": "Cow, ox, cattle",
     "examples": "牛, 物, 特, 牧, 犠",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -13127,10 +14403,12 @@ const RADICALS_DATA = [
     "id": 1094,
     "kanji": "犬 (犭)",
     "displayReading": "Bộ Khuyển",
+    "displayReadingEn": "Radical 94 · Dog",
     "readings": [
       "Khuyển"
     ],
     "meaning": "Con chó, loài thú",
+    "meaningEn": "Dog, beast",
     "examples": "犬, 猫, 独, 犯, 狂",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -13140,10 +14418,12 @@ const RADICALS_DATA = [
     "id": 1095,
     "kanji": "玄",
     "displayReading": "Bộ Huyền",
+    "displayReadingEn": "Radical 95 · Profound",
     "readings": [
       "Huyền"
     ],
     "meaning": "Màu đen huyền, huyền bí",
+    "meaningEn": "Dark black, mysterious",
     "examples": "玄, 率, 弦",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13153,10 +14433,12 @@ const RADICALS_DATA = [
     "id": 1096,
     "kanji": "玉 (王)",
     "displayReading": "Bộ Ngọc",
+    "displayReadingEn": "Radical 96 · Jade",
     "readings": [
       "Ngọc"
     ],
     "meaning": "Đá quý, ngọc báu",
+    "meaningEn": "Jade, gem, jewel",
     "examples": "玉, 王, 現, 理, 球",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13166,10 +14448,12 @@ const RADICALS_DATA = [
     "id": 1097,
     "kanji": "瓜",
     "displayReading": "Bộ Qua",
+    "displayReadingEn": "Radical 97 · Melon",
     "readings": [
       "Qua"
     ],
     "meaning": "Quả dưa",
+    "meaningEn": "Melon, gourd",
     "examples": "瓜, 孤, 弧",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13179,10 +14463,12 @@ const RADICALS_DATA = [
     "id": 1098,
     "kanji": "瓦",
     "displayReading": "Bộ Ngõa",
+    "displayReadingEn": "Radical 98 · Tile",
     "readings": [
       "Ngõa"
     ],
     "meaning": "Ngói lợp nhà, đồ gốm",
+    "meaningEn": "Roof tile, pottery",
     "examples": "瓦, 瓶, 瓷",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13192,10 +14478,12 @@ const RADICALS_DATA = [
     "id": 1099,
     "kanji": "甘",
     "displayReading": "Bộ Cam",
+    "displayReadingEn": "Radical 99 · Sweet",
     "readings": [
       "Cam"
     ],
     "meaning": "Ngọt ngào",
+    "meaningEn": "Sweet",
     "examples": "甘, 甚, 某",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13205,10 +14493,12 @@ const RADICALS_DATA = [
     "id": 1100,
     "kanji": "生",
     "displayReading": "Bộ Sinh",
+    "displayReadingEn": "Radical 100 · Life",
     "readings": [
       "Sinh"
     ],
     "meaning": "Sinh sống, sinh ra, tươi sống",
+    "meaningEn": "Life, birth, raw",
     "examples": "生, 産, 星, 性",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13218,10 +14508,12 @@ const RADICALS_DATA = [
     "id": 1101,
     "kanji": "用",
     "displayReading": "Bộ Dụng",
+    "displayReadingEn": "Radical 101 · Use",
     "readings": [
       "Dụng"
     ],
     "meaning": "Sử dụng, công dụng",
+    "meaningEn": "Use, utility",
     "examples": "用, 庸, 備",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13231,10 +14523,12 @@ const RADICALS_DATA = [
     "id": 1102,
     "kanji": "田",
     "displayReading": "Bộ Điền",
+    "displayReadingEn": "Radical 102 · Field",
     "readings": [
       "Điền"
     ],
     "meaning": "Ruộng đồng",
+    "meaningEn": "Rice field, farmland",
     "examples": "田, 男, 町, 界, 番",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13244,10 +14538,12 @@ const RADICALS_DATA = [
     "id": 1103,
     "kanji": "疋 (⺪)",
     "displayReading": "Bộ Sơ (Thất)",
+    "displayReadingEn": "Radical 103 · Bolt of cloth",
     "readings": [
       "Sơ (Thất)"
     ],
     "meaning": "Đơn vị đo vải, bàn chân",
+    "meaningEn": "Bolt of cloth, foot",
     "examples": "疎, 疑, 楚",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13257,10 +14553,12 @@ const RADICALS_DATA = [
     "id": 1104,
     "kanji": "疒",
     "displayReading": "Bộ Nạch",
+    "displayReadingEn": "Radical 104 · Sickness",
     "readings": [
       "Nạch"
     ],
     "meaning": "Bệnh tật, đau ốm",
+    "meaningEn": "Sickness, illness",
     "examples": "病, 痛, 疲, 症, 療",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13270,10 +14568,12 @@ const RADICALS_DATA = [
     "id": 1105,
     "kanji": "癶",
     "displayReading": "Bộ Bát",
+    "displayReadingEn": "Radical 105 · Dotted tent",
     "readings": [
       "Bát"
     ],
     "meaning": "Hai bàn chân bước ngược nhau",
+    "meaningEn": "Feet stepping apart",
     "examples": "発, 登",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13283,10 +14583,12 @@ const RADICALS_DATA = [
     "id": 1106,
     "kanji": "白",
     "displayReading": "Bộ Bạch",
+    "displayReadingEn": "Radical 106 · White",
     "readings": [
       "Bạch"
     ],
     "meaning": "Màu trắng, rõ ràng",
+    "meaningEn": "White, clear",
     "examples": "白, 百, 的, 皇, 皆",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13296,10 +14598,12 @@ const RADICALS_DATA = [
     "id": 1107,
     "kanji": "皮",
     "displayReading": "Bộ Bì",
+    "displayReadingEn": "Radical 107 · Skin",
     "readings": [
       "Bì"
     ],
     "meaning": "Da, vỏ ngoài",
+    "meaningEn": "Skin, hide, bark",
     "examples": "皮, 波, 破, 被",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13309,10 +14613,12 @@ const RADICALS_DATA = [
     "id": 1108,
     "kanji": "皿",
     "displayReading": "Bộ Mãnh",
+    "displayReadingEn": "Radical 108 · Dish",
     "readings": [
       "Mãnh"
     ],
     "meaning": "Cái đĩa, bát, đồ đựng",
+    "meaningEn": "Dish, plate, vessel",
     "examples": "皿, 血, 盆, 盛, 監",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13322,10 +14628,12 @@ const RADICALS_DATA = [
     "id": 1109,
     "kanji": "目",
     "displayReading": "Bộ Mục",
+    "displayReadingEn": "Radical 109 · Eye",
     "readings": [
       "Mục"
     ],
     "meaning": "Con mắt, nhìn ngắm",
+    "meaningEn": "Eye, look",
     "examples": "目, 見, 眠, 相, 省",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13335,10 +14643,12 @@ const RADICALS_DATA = [
     "id": 1110,
     "kanji": "矛",
     "displayReading": "Bộ Mâu",
+    "displayReadingEn": "Radical 110 · Spear",
     "readings": [
       "Mâu"
     ],
     "meaning": "Cây giáo, cây mâu",
+    "meaningEn": "Spear, lance",
     "examples": "矛, 柔, 務, 霧",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13348,10 +14658,12 @@ const RADICALS_DATA = [
     "id": 1111,
     "kanji": "矢",
     "displayReading": "Bộ Thỉ",
+    "displayReadingEn": "Radical 111 · Arrow",
     "readings": [
       "Thỉ"
     ],
     "meaning": "Mũi tên",
+    "meaningEn": "Arrow, dart",
     "examples": "矢, 知, 短, 族, 矯",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13361,10 +14673,12 @@ const RADICALS_DATA = [
     "id": 1112,
     "kanji": "石",
     "displayReading": "Bộ Thạch",
+    "displayReadingEn": "Radical 112 · Stone",
     "readings": [
       "Thạch"
     ],
     "meaning": "Đá, tảng đá",
+    "meaningEn": "Stone, rock",
     "examples": "石, 砂, 研, 破, 確",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13374,10 +14688,12 @@ const RADICALS_DATA = [
     "id": 1113,
     "kanji": "示 (礻)",
     "displayReading": "Bộ Thị",
+    "displayReadingEn": "Radical 113 · Spirit",
     "readings": [
       "Thị"
     ],
     "meaning": "Thần linh, lễ tế, chỉ bảo",
+    "meaningEn": "Spirit, altar, show",
     "examples": "示, 社, 神, 福, 礼",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13387,10 +14703,12 @@ const RADICALS_DATA = [
     "id": 1114,
     "kanji": "禸",
     "displayReading": "Bộ Nhựu",
+    "displayReadingEn": "Radical 114 · Track",
     "readings": [
       "Nhựu"
     ],
     "meaning": "Vết chân thú",
+    "meaningEn": "Animal footprint",
     "examples": "離, 禹, 禽",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13400,10 +14718,12 @@ const RADICALS_DATA = [
     "id": 1115,
     "kanji": "禾",
     "displayReading": "Bộ Hòa",
+    "displayReadingEn": "Radical 115 · Grain",
     "readings": [
       "Hòa"
     ],
     "meaning": "Cây lúa, ngũ cốc",
+    "meaningEn": "Grain, rice plant",
     "examples": "秋, 科, 移, 税, 秒",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13413,10 +14733,12 @@ const RADICALS_DATA = [
     "id": 1116,
     "kanji": "穴",
     "displayReading": "Bộ Huyệt",
+    "displayReadingEn": "Radical 116 · Cave",
     "readings": [
       "Huyệt"
     ],
     "meaning": "Hang động, cái lỗ",
+    "meaningEn": "Cave, hole",
     "examples": "穴, 空, 窓, 突, 究",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13426,10 +14748,12 @@ const RADICALS_DATA = [
     "id": 1117,
     "kanji": "立",
     "displayReading": "Bộ Lập",
+    "displayReadingEn": "Radical 117 · Stand",
     "readings": [
       "Lập"
     ],
     "meaning": "Đứng thẳng, thiết lập",
+    "meaningEn": "Stand upright, establish",
     "examples": "立, 音, 章, 童, 競",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -13439,10 +14763,12 @@ const RADICALS_DATA = [
     "id": 1118,
     "kanji": "竹 (⺮)",
     "displayReading": "Bộ Trúc",
+    "displayReadingEn": "Radical 118 · Bamboo",
     "readings": [
       "Trúc"
     ],
     "meaning": "Cây tre, cây trúc",
+    "meaningEn": "Bamboo",
     "examples": "竹, 笑, 第, 答, 筆",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13452,10 +14778,12 @@ const RADICALS_DATA = [
     "id": 1119,
     "kanji": "米",
     "displayReading": "Bộ Mễ",
+    "displayReadingEn": "Radical 119 · Rice",
     "readings": [
       "Mễ"
     ],
     "meaning": "Hạt gạo",
+    "meaningEn": "Rice grain",
     "examples": "米, 料, 粉, 精, 糖",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13465,10 +14793,12 @@ const RADICALS_DATA = [
     "id": 1120,
     "kanji": "糸 (糹)",
     "displayReading": "Bộ Mịch",
+    "displayReadingEn": "Radical 120 · Silk",
     "readings": [
       "Mịch"
     ],
     "meaning": "Sợi tơ, dây, sự liên kết",
+    "meaningEn": "Silk thread, string, connection",
     "examples": "糸, 紙, 絵, 結, 続",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13478,10 +14808,12 @@ const RADICALS_DATA = [
     "id": 1121,
     "kanji": "缶",
     "displayReading": "Bộ Phẫu",
+    "displayReadingEn": "Radical 121 · Jar",
     "readings": [
       "Phẫu"
     ],
     "meaning": "Cái bình sành, đồ gốm",
+    "meaningEn": "Earthenware jar, pottery",
     "examples": "缶, 欠, 陶, 鬱",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13491,10 +14823,12 @@ const RADICALS_DATA = [
     "id": 1122,
     "kanji": "网 (罒, ⺳)",
     "displayReading": "Bộ Võng",
+    "displayReadingEn": "Radical 122 · Net",
     "readings": [
       "Võng"
     ],
     "meaning": "Cái lưới",
+    "meaningEn": "Net, web",
     "examples": "買, 置, 罪, 罰, 署",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13504,10 +14838,12 @@ const RADICALS_DATA = [
     "id": 1123,
     "kanji": "羊 (⺶, ⺷)",
     "displayReading": "Bộ Dương",
+    "displayReadingEn": "Radical 123 · Sheep",
     "readings": [
       "Dương"
     ],
     "meaning": "Con cừu, con dê",
+    "meaningEn": "Sheep, goat",
     "examples": "羊, 美, 着, 義, 群",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13517,10 +14853,12 @@ const RADICALS_DATA = [
     "id": 1124,
     "kanji": "羽",
     "displayReading": "Bộ Vũ",
+    "displayReadingEn": "Radical 124 · Feather",
     "readings": [
       "Vũ"
     ],
     "meaning": "Lông vũ, đôi cánh",
+    "meaningEn": "Feather, wings",
     "examples": "羽, 習, 翌, 翻, 翼",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13530,10 +14868,12 @@ const RADICALS_DATA = [
     "id": 1125,
     "kanji": "老 (耂)",
     "displayReading": "Bộ Lão",
+    "displayReadingEn": "Radical 125 · Old",
     "readings": [
       "Lão"
     ],
     "meaning": "Già cả, người lớn tuổi",
+    "meaningEn": "Old, elderly",
     "examples": "老, 考, 者, 孝",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13543,10 +14883,12 @@ const RADICALS_DATA = [
     "id": 1126,
     "kanji": "而",
     "displayReading": "Bộ Nhi",
+    "displayReadingEn": "Radical 126 · And",
     "readings": [
       "Nhi"
     ],
     "meaning": "Mà, râu cằm",
+    "meaningEn": "And, beard",
     "examples": "耐, 端, 需",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13556,10 +14898,12 @@ const RADICALS_DATA = [
     "id": 1127,
     "kanji": "耒",
     "displayReading": "Bộ Lỗi",
+    "displayReadingEn": "Radical 127 · Plow",
     "readings": [
       "Lỗi"
     ],
     "meaning": "Cái cày",
+    "meaningEn": "Plow",
     "examples": "耕, 耗, 籍",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13569,10 +14913,12 @@ const RADICALS_DATA = [
     "id": 1128,
     "kanji": "耳",
     "displayReading": "Bộ Nhĩ",
+    "displayReadingEn": "Radical 128 · Ear",
     "readings": [
       "Nhĩ"
     ],
     "meaning": "Cái tai, lắng nghe",
+    "meaningEn": "Ear, listen",
     "examples": "耳, 聞, 聴, 職, 聖",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13582,10 +14928,12 @@ const RADICALS_DATA = [
     "id": 1129,
     "kanji": "聿 (⺻)",
     "displayReading": "Bộ Duật",
+    "displayReadingEn": "Radical 129 · Brush",
     "readings": [
       "Duật"
     ],
     "meaning": "Cây bút viết",
+    "meaningEn": "Writing brush",
     "examples": "筆, 書, 建, 律, 津",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13595,10 +14943,12 @@ const RADICALS_DATA = [
     "id": 1130,
     "kanji": "肉 (月)",
     "displayReading": "Bộ Nhục",
+    "displayReadingEn": "Radical 130 · Meat",
     "readings": [
       "Nhục"
     ],
     "meaning": "Thịt, bộ phận cơ thể",
+    "meaningEn": "Meat, flesh, body part",
     "examples": "肉, 腕, 腹, 胸, 育",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13608,10 +14958,12 @@ const RADICALS_DATA = [
     "id": 1131,
     "kanji": "臣",
     "displayReading": "Bộ Thần",
+    "displayReadingEn": "Radical 131 · Minister",
     "readings": [
       "Thần"
     ],
     "meaning": "Bề tôi, quan lại",
+    "meaningEn": "Minister, official, retainer",
     "examples": "臣, 臨, 堅, 賢",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13621,10 +14973,12 @@ const RADICALS_DATA = [
     "id": 1132,
     "kanji": "自",
     "displayReading": "Bộ Tự",
+    "displayReadingEn": "Radical 132 · Self",
     "readings": [
       "Tự"
     ],
     "meaning": "Tự mình, cái mũi",
+    "meaningEn": "Self, nose",
     "examples": "自, 息, 臭, 鼻",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13634,10 +14988,12 @@ const RADICALS_DATA = [
     "id": 1133,
     "kanji": "至",
     "displayReading": "Bộ Chí",
+    "displayReadingEn": "Radical 133 · Arrive",
     "readings": [
       "Chí"
     ],
     "meaning": "Đến nơi, cực điểm",
+    "meaningEn": "Arrive, reach, extreme",
     "examples": "至, 到, 致, 室",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13647,10 +15003,12 @@ const RADICALS_DATA = [
     "id": 1134,
     "kanji": "臼",
     "displayReading": "Bộ Cữu",
+    "displayReadingEn": "Radical 134 · Mortar",
     "readings": [
       "Cữu"
     ],
     "meaning": "Cái cối giã gạo",
+    "meaningEn": "Mortar (for pounding rice)",
     "examples": "旧, 興, 与, 児",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13660,10 +15018,12 @@ const RADICALS_DATA = [
     "id": 1135,
     "kanji": "舌",
     "displayReading": "Bộ Thiệt",
+    "displayReadingEn": "Radical 135 · Tongue",
     "readings": [
       "Thiệt"
     ],
     "meaning": "Cái lưỡi",
+    "meaningEn": "Tongue",
     "examples": "舌, 話, 辞, 乱, 舗",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13673,10 +15033,12 @@ const RADICALS_DATA = [
     "id": 1136,
     "kanji": "舛",
     "displayReading": "Bộ Suyễn",
+    "displayReadingEn": "Radical 136 · Oppose",
     "readings": [
       "Suyễn"
     ],
     "meaning": "Sai lầm, trái ngược",
+    "meaningEn": "Err, oppose, contrary",
     "examples": "舞, 瞬, 隣",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13686,10 +15048,12 @@ const RADICALS_DATA = [
     "id": 1137,
     "kanji": "舟",
     "displayReading": "Bộ Chu",
+    "displayReadingEn": "Radical 137 · Boat",
     "readings": [
       "Chu"
     ],
     "meaning": "Con thuyền",
+    "meaningEn": "Boat, ship",
     "examples": "舟, 船, 航, 艦, 般",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13699,10 +15063,12 @@ const RADICALS_DATA = [
     "id": 1138,
     "kanji": "艮",
     "displayReading": "Bộ Cấn",
+    "displayReadingEn": "Radical 138 · Stopping",
     "readings": [
       "Cấn"
     ],
     "meaning": "Dừng lại, quẻ Cấn, cứng đầu",
+    "meaningEn": "Stop, stubborn, Gen trigram",
     "examples": "良, 限, 銀, 根, 退",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13712,10 +15078,12 @@ const RADICALS_DATA = [
     "id": 1139,
     "kanji": "色",
     "displayReading": "Bộ Sắc",
+    "displayReadingEn": "Radical 139 · Color",
     "readings": [
       "Sắc"
     ],
     "meaning": "Màu sắc, dáng vẻ",
+    "meaningEn": "Color, appearance",
     "examples": "色, 絶, 艶",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13725,10 +15093,12 @@ const RADICALS_DATA = [
     "id": 1140,
     "kanji": "艸 (艹)",
     "displayReading": "Bộ Thảo",
+    "displayReadingEn": "Radical 140 · Grass",
     "readings": [
       "Thảo"
     ],
     "meaning": "Cỏ cây, thực vật",
+    "meaningEn": "Grass, plants, herbs",
     "examples": "花, 草, 茶, 薬, 葉",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13738,10 +15108,12 @@ const RADICALS_DATA = [
     "id": 1141,
     "kanji": "虍",
     "displayReading": "Bộ Hô",
+    "displayReadingEn": "Radical 141 · Tiger",
     "readings": [
       "Hô"
     ],
     "meaning": "Vằn con hổ",
+    "meaningEn": "Tiger stripes",
     "examples": "虎, 処, 虚, 慮, 劇",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13751,10 +15123,12 @@ const RADICALS_DATA = [
     "id": 1142,
     "kanji": "虫",
     "displayReading": "Bộ Trùng",
+    "displayReadingEn": "Radical 142 · Insect",
     "readings": [
       "Trùng"
     ],
     "meaning": "Sâu bọ, côn trùng",
+    "meaningEn": "Insect, bug, worm",
     "examples": "虫, 蚊, 蛇, 融, 独",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13764,10 +15138,12 @@ const RADICALS_DATA = [
     "id": 1143,
     "kanji": "血",
     "displayReading": "Bộ Huyết",
+    "displayReadingEn": "Radical 143 · Blood",
     "readings": [
       "Huyết"
     ],
     "meaning": "Máu",
+    "meaningEn": "Blood",
     "examples": "血, 衆, 脈",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13777,10 +15153,12 @@ const RADICALS_DATA = [
     "id": 1144,
     "kanji": "行",
     "displayReading": "Bộ Hành",
+    "displayReadingEn": "Radical 144 · Walk enclosure",
     "readings": [
       "Hành"
     ],
     "meaning": "Đi lại, con đường, thực hiện",
+    "meaningEn": "Walk, road, carry out",
     "examples": "行, 街, 術, 衛, 衝",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13790,10 +15168,12 @@ const RADICALS_DATA = [
     "id": 1145,
     "kanji": "衣 (衤)",
     "displayReading": "Bộ Y",
+    "displayReadingEn": "Radical 145 · Clothes",
     "readings": [
       "Y"
     ],
     "meaning": "Quần áo, trang phục",
+    "meaningEn": "Clothes, garment",
     "examples": "衣, 服, 初, 補, 表",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13803,10 +15183,12 @@ const RADICALS_DATA = [
     "id": 1146,
     "kanji": "襾 (西, 覀)",
     "displayReading": "Bộ Á",
+    "displayReadingEn": "Radical 146 · West",
     "readings": [
       "Á"
     ],
     "meaning": "Che đậy, hướng Tây",
+    "meaningEn": "Cover, west",
     "examples": "西, 要, 票, 覆",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -13816,10 +15198,12 @@ const RADICALS_DATA = [
     "id": 1147,
     "kanji": "見",
     "displayReading": "Bộ Kiến",
+    "displayReadingEn": "Radical 147 · See",
     "readings": [
       "Kiến"
     ],
     "meaning": "Nhìn thấy, quan sát",
+    "meaningEn": "See, look, observe",
     "examples": "見, 親, 観, 覚, 規",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13829,10 +15213,12 @@ const RADICALS_DATA = [
     "id": 1148,
     "kanji": "角",
     "displayReading": "Bộ Giác",
+    "displayReadingEn": "Radical 148 · Horn",
     "readings": [
       "Giác"
     ],
     "meaning": "Cái sừng, góc cạnh",
+    "meaningEn": "Horn, angle, corner",
     "examples": "角, 解, 触, 確",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13842,10 +15228,12 @@ const RADICALS_DATA = [
     "id": 1149,
     "kanji": "言 (訁)",
     "displayReading": "Bộ Ngôn",
+    "displayReadingEn": "Radical 149 · Speech",
     "readings": [
       "Ngôn"
     ],
     "meaning": "Lời nói, ngôn ngữ",
+    "meaningEn": "Speech, words, language",
     "examples": "言, 語, 話, 読, 記",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13855,10 +15243,12 @@ const RADICALS_DATA = [
     "id": 1150,
     "kanji": "谷",
     "displayReading": "Bộ Cốc",
+    "displayReadingEn": "Radical 150 · Valley",
     "readings": [
       "Cốc"
     ],
     "meaning": "Thung lũng, khe núi",
+    "meaningEn": "Valley, gorge",
     "examples": "谷, 欲, 浴, 俗, 容",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13868,10 +15258,12 @@ const RADICALS_DATA = [
     "id": 1151,
     "kanji": "豆",
     "displayReading": "Bộ Đậu",
+    "displayReadingEn": "Radical 151 · Bean",
     "readings": [
       "Đậu"
     ],
     "meaning": "Hạt đậu, đồ đựng tế lễ",
+    "meaningEn": "Bean, sacrificial vessel",
     "examples": "豆, 豊, 頭, 短, 登",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13881,10 +15273,12 @@ const RADICALS_DATA = [
     "id": 1152,
     "kanji": "豕",
     "displayReading": "Bộ Thỉ",
+    "displayReadingEn": "Radical 152 · Pig",
     "readings": [
       "Thỉ"
     ],
     "meaning": "Con lợn (heo)",
+    "meaningEn": "Pig, hog",
     "examples": "豚, 家, 象, 豪, 隊",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13894,10 +15288,12 @@ const RADICALS_DATA = [
     "id": 1153,
     "kanji": "豸",
     "displayReading": "Bộ Trãi",
+    "displayReadingEn": "Radical 153 · Badger",
     "readings": [
       "Trãi"
     ],
     "meaning": "Loài thú ăn thịt thân dài",
+    "meaningEn": "Badger, long-bodied beast",
     "examples": "豹, 貌, 猫, 墾",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13907,10 +15303,12 @@ const RADICALS_DATA = [
     "id": 1154,
     "kanji": "貝",
     "displayReading": "Bộ Bối",
+    "displayReadingEn": "Radical 154 · Shell",
     "readings": [
       "Bối"
     ],
     "meaning": "Vỏ sò, tiền bạc, tài sản",
+    "meaningEn": "Cowrie shell, money, wealth",
     "examples": "貝, 買, 売, 貯, 財",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13920,10 +15318,12 @@ const RADICALS_DATA = [
     "id": 1155,
     "kanji": "赤",
     "displayReading": "Bộ Xích",
+    "displayReadingEn": "Radical 155 · Red",
     "readings": [
       "Xích"
     ],
     "meaning": "Màu đỏ",
+    "meaningEn": "Red, bare",
     "examples": "赤, 赦, 赫",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13933,10 +15333,12 @@ const RADICALS_DATA = [
     "id": 1156,
     "kanji": "走",
     "displayReading": "Bộ Tẩu",
+    "displayReadingEn": "Radical 156 · Run",
     "readings": [
       "Tẩu"
     ],
     "meaning": "Chạy, di chuyển nhanh",
+    "meaningEn": "Run, move fast",
     "examples": "走, 起, 超, 越, 趣",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13946,10 +15348,12 @@ const RADICALS_DATA = [
     "id": 1157,
     "kanji": "足 (⻊)",
     "displayReading": "Bộ Túc",
+    "displayReadingEn": "Radical 157 · Foot",
     "readings": [
       "Túc"
     ],
     "meaning": "Bàn chân, đầy đủ",
+    "meaningEn": "Foot, sufficient",
     "examples": "足, 路, 踊, 跳, 距",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13959,10 +15363,12 @@ const RADICALS_DATA = [
     "id": 1158,
     "kanji": "身",
     "displayReading": "Bộ Thân",
+    "displayReadingEn": "Radical 158 · Body",
     "readings": [
       "Thân"
     ],
     "meaning": "Thân thể, bản thân",
+    "meaningEn": "Body, oneself",
     "examples": "身, 射, 謝, 躯",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13972,10 +15378,12 @@ const RADICALS_DATA = [
     "id": 1159,
     "kanji": "車",
     "displayReading": "Bộ Xa",
+    "displayReadingEn": "Radical 159 · Cart",
     "readings": [
       "Xa"
     ],
     "meaning": "Xe cộ, bánh xe",
+    "meaningEn": "Cart, vehicle, wheel",
     "examples": "車, 転, 軽, 輪, 軍",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13985,10 +15393,12 @@ const RADICALS_DATA = [
     "id": 1160,
     "kanji": "辛",
     "displayReading": "Bộ Tân",
+    "displayReadingEn": "Radical 160 · Bitter",
     "readings": [
       "Tân"
     ],
     "meaning": "Cay đắng, vất vả",
+    "meaningEn": "Bitter, spicy, hardship",
     "examples": "辛, 辞, 弁, 幸, 辟",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -13998,10 +15408,12 @@ const RADICALS_DATA = [
     "id": 1161,
     "kanji": "辰",
     "displayReading": "Bộ Thần",
+    "displayReadingEn": "Radical 161 · Morning",
     "readings": [
       "Thần"
     ],
     "meaning": "Ngôi sao, địa chi Thìn, buổi sớm",
+    "meaningEn": "Star, Dragon branch, early morning",
     "examples": "農, 振, 震, 辱",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -14011,10 +15423,12 @@ const RADICALS_DATA = [
     "id": 1162,
     "kanji": "辵 (辶)",
     "displayReading": "Bộ Sước",
+    "displayReadingEn": "Radical 162 · Walk",
     "readings": [
       "Sước"
     ],
     "meaning": "Bước đi, di chuyển trên đường",
+    "meaningEn": "Walk, move along a road",
     "examples": "道, 近, 遠, 進, 運",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -14024,10 +15438,12 @@ const RADICALS_DATA = [
     "id": 1163,
     "kanji": "邑 (阝 phải)",
     "displayReading": "Bộ Ấp",
+    "displayReadingEn": "Radical 163 · City",
     "readings": [
       "Ấp"
     ],
     "meaning": "Vùng đất, làng mạc, đô thị",
+    "meaningEn": "City, village, district",
     "examples": "都, 郡, 部, 郵, 郷",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -14037,10 +15453,12 @@ const RADICALS_DATA = [
     "id": 1164,
     "kanji": "酉",
     "displayReading": "Bộ Dậu",
+    "displayReadingEn": "Radical 164 · Wine",
     "readings": [
       "Dậu"
     ],
     "meaning": "Bình rượu, địa chi Dậu",
+    "meaningEn": "Wine jar, Rooster branch",
     "examples": "酒, 配, 酔, 酸, 医",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -14050,10 +15468,12 @@ const RADICALS_DATA = [
     "id": 1165,
     "kanji": "釆",
     "displayReading": "Bộ Biện",
+    "displayReadingEn": "Radical 165 · Distinguish",
     "readings": [
       "Biện"
     ],
     "meaning": "Phân biệt, dấu chân thú",
+    "meaningEn": "Distinguish, animal tracks",
     "examples": "採, 番, 釈, 審",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -14063,10 +15483,12 @@ const RADICALS_DATA = [
     "id": 1166,
     "kanji": "里",
     "displayReading": "Bộ Lý",
+    "displayReadingEn": "Radical 166 · Village",
     "readings": [
       "Lý"
     ],
     "meaning": "Làng xóm, đơn vị đo dặm",
+    "meaningEn": "Village, unit of distance (ri)",
     "examples": "里, 重, 野, 量, 黒",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -14076,10 +15498,12 @@ const RADICALS_DATA = [
     "id": 1167,
     "kanji": "金 (釒)",
     "displayReading": "Bộ Kim",
+    "displayReadingEn": "Radical 167 · Gold",
     "readings": [
       "Kim"
     ],
     "meaning": "Kim loại, vàng, tiền bạc",
+    "meaningEn": "Metal, gold, money",
     "examples": "金, 鉄, 銀, 鏡, 針",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -14089,10 +15513,12 @@ const RADICALS_DATA = [
     "id": 1168,
     "kanji": "長 (镸)",
     "displayReading": "Bộ Trường",
+    "displayReadingEn": "Radical 168 · Long",
     "readings": [
       "Trường"
     ],
     "meaning": "Dài, người đứng đầu, lớn lên",
+    "meaningEn": "Long, chief, grow",
     "examples": "長, 張, 帳, 膨",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -14102,10 +15528,12 @@ const RADICALS_DATA = [
     "id": 1169,
     "kanji": "門",
     "displayReading": "Bộ Môn",
+    "displayReadingEn": "Radical 169 · Gate",
     "readings": [
       "Môn"
     ],
     "meaning": "Cổng lớn, cánh cửa",
+    "meaningEn": "Gate, door",
     "examples": "門, 間, 開, 閉, 聞",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -14115,10 +15543,12 @@ const RADICALS_DATA = [
     "id": 1170,
     "kanji": "阜 (阝 trái)",
     "displayReading": "Bộ Phụ",
+    "displayReadingEn": "Radical 170 · Mound",
     "readings": [
       "Phụ"
     ],
     "meaning": "Gò đất, đồi núi, bậc thang",
+    "meaningEn": "Mound, hill, steps",
     "examples": "院, 階, 陽, 防, 限",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -14128,10 +15558,12 @@ const RADICALS_DATA = [
     "id": 1171,
     "kanji": "隶",
     "displayReading": "Bộ Đãi",
+    "displayReadingEn": "Radical 171 · Slave",
     "readings": [
       "Đãi"
     ],
     "meaning": "Kịp đến, phụ thuộc",
+    "meaningEn": "Reach, depend on",
     "examples": "隷, 康, 逮",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -14141,10 +15573,12 @@ const RADICALS_DATA = [
     "id": 1172,
     "kanji": "隹",
     "displayReading": "Bộ Chuy",
+    "displayReadingEn": "Radical 172 · Short-tailed bird",
     "readings": [
       "Chuy"
     ],
     "meaning": "Chim đuôi ngắn",
+    "meaningEn": "Short-tailed bird",
     "examples": "集, 雑, 難, 離, 雄",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -14154,10 +15588,12 @@ const RADICALS_DATA = [
     "id": 1173,
     "kanji": "雨 (⻗)",
     "displayReading": "Bộ Vũ",
+    "displayReadingEn": "Radical 173 · Rain",
     "readings": [
       "Vũ"
     ],
     "meaning": "Mưa, hiện tượng thời tiết",
+    "meaningEn": "Rain, weather phenomena",
     "examples": "雨, 雪, 雲, 電, 霧",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -14167,10 +15603,12 @@ const RADICALS_DATA = [
     "id": 1174,
     "kanji": "青 (靑)",
     "displayReading": "Bộ Thanh",
+    "displayReadingEn": "Radical 174 · Blue",
     "readings": [
       "Thanh"
     ],
     "meaning": "Màu xanh lam/lục, trẻ trung",
+    "meaningEn": "Blue, green, young",
     "examples": "青, 静, 晴, 清, 精",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -14180,10 +15618,12 @@ const RADICALS_DATA = [
     "id": 1175,
     "kanji": "非",
     "displayReading": "Bộ Phi",
+    "displayReadingEn": "Radical 175 · Wrong",
     "readings": [
       "Phi"
     ],
     "meaning": "Không phải, sai trái",
+    "meaningEn": "Wrong, not",
     "examples": "非, 悲, 罪, 排, 俳",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -14193,10 +15633,12 @@ const RADICALS_DATA = [
     "id": 1176,
     "kanji": "面",
     "displayReading": "Bộ Diện",
+    "displayReadingEn": "Radical 176 · Face",
     "readings": [
       "Diện"
     ],
     "meaning": "Khuôn mặt, bề mặt",
+    "meaningEn": "Face, surface",
     "examples": "面, 麺, 緬",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14206,10 +15648,12 @@ const RADICALS_DATA = [
     "id": 1177,
     "kanji": "革",
     "displayReading": "Bộ Cách",
+    "displayReadingEn": "Radical 177 · Leather",
     "readings": [
       "Cách"
     ],
     "meaning": "Da thú thuộc, cải cách",
+    "meaningEn": "Tanned leather, reform",
     "examples": "革, 靴, 鞄, 覇",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14219,10 +15663,12 @@ const RADICALS_DATA = [
     "id": 1178,
     "kanji": "韋",
     "displayReading": "Bộ Vi",
+    "displayReadingEn": "Radical 178 · Tanned leather",
     "readings": [
       "Vi"
     ],
     "meaning": "Da thuộc mềm, vây quanh",
+    "meaningEn": "Soft leather, surround",
     "examples": "韓, 偉, 違, 緯",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14232,10 +15678,12 @@ const RADICALS_DATA = [
     "id": 1179,
     "kanji": "韭",
     "displayReading": "Bộ Cửu",
+    "displayReadingEn": "Radical 179 · Leek",
     "readings": [
       "Cửu"
     ],
     "meaning": "Rau hẹ",
+    "meaningEn": "Leek, chives",
     "examples": "韮, 繊",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14245,10 +15693,12 @@ const RADICALS_DATA = [
     "id": 1180,
     "kanji": "音",
     "displayReading": "Bộ Âm",
+    "displayReadingEn": "Radical 180 · Sound",
     "readings": [
       "Âm"
     ],
     "meaning": "Âm thanh, tiếng động",
+    "meaningEn": "Sound, noise",
     "examples": "音, 暗, 意, 響, 韻",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14258,10 +15708,12 @@ const RADICALS_DATA = [
     "id": 1181,
     "kanji": "頁",
     "displayReading": "Bộ Hiệt",
+    "displayReadingEn": "Radical 181 · Leaf",
     "readings": [
       "Hiệt"
     ],
     "meaning": "Cái đầu, trang giấy",
+    "meaningEn": "Head, page of a book",
     "examples": "頭, 顔, 題, 願, 順",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14271,10 +15723,12 @@ const RADICALS_DATA = [
     "id": 1182,
     "kanji": "風",
     "displayReading": "Bộ Phong",
+    "displayReadingEn": "Radical 182 · Wind",
     "readings": [
       "Phong"
     ],
     "meaning": "Gió, phong cách",
+    "meaningEn": "Wind, style",
     "examples": "風, 台, 嵐, 颯",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14284,10 +15738,12 @@ const RADICALS_DATA = [
     "id": 1183,
     "kanji": "飛",
     "displayReading": "Bộ Phi",
+    "displayReadingEn": "Radical 183 · Fly",
     "readings": [
       "Phi"
     ],
     "meaning": "Bay lượn",
+    "meaningEn": "Fly, soar",
     "examples": "飛, 翻",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14297,10 +15753,12 @@ const RADICALS_DATA = [
     "id": 1184,
     "kanji": "食 (飠)",
     "displayReading": "Bộ Thực",
+    "displayReadingEn": "Radical 184 · Eat",
     "readings": [
       "Thực"
     ],
     "meaning": "Ăn uống, thức ăn",
+    "meaningEn": "Eat, food",
     "examples": "食, 飲, 飯, 館, 養",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14310,10 +15768,12 @@ const RADICALS_DATA = [
     "id": 1185,
     "kanji": "首",
     "displayReading": "Bộ Thủ",
+    "displayReadingEn": "Radical 185 · Head",
     "readings": [
       "Thủ"
     ],
     "meaning": "Cái đầu, cái cổ, đứng đầu",
+    "meaningEn": "Head, neck, leader",
     "examples": "首, 道, 導",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14323,10 +15783,12 @@ const RADICALS_DATA = [
     "id": 1186,
     "kanji": "香",
     "displayReading": "Bộ Hương",
+    "displayReadingEn": "Radical 186 · Fragrant",
     "readings": [
       "Hương"
     ],
     "meaning": "Mùi thơm, hương vị",
+    "meaningEn": "Fragrant, aroma",
     "examples": "香, 馨, 馥",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14336,10 +15798,12 @@ const RADICALS_DATA = [
     "id": 1187,
     "kanji": "馬",
     "displayReading": "Bộ Mã",
+    "displayReadingEn": "Radical 187 · Horse",
     "readings": [
       "Mã"
     ],
     "meaning": "Con ngựa",
+    "meaningEn": "Horse",
     "examples": "馬, 駅, 駐, 騒, 驚",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14349,10 +15813,12 @@ const RADICALS_DATA = [
     "id": 1188,
     "kanji": "骨",
     "displayReading": "Bộ Cốt",
+    "displayReadingEn": "Radical 188 · Bone",
     "readings": [
       "Cốt"
     ],
     "meaning": "Xương cốt",
+    "meaningEn": "Bone, skeleton",
     "examples": "骨, 滑, 髄, 骸",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14362,10 +15828,12 @@ const RADICALS_DATA = [
     "id": 1189,
     "kanji": "高",
     "displayReading": "Bộ Cao",
+    "displayReadingEn": "Radical 189 · Tall",
     "readings": [
       "Cao"
     ],
     "meaning": "Cao lớn",
+    "meaningEn": "Tall, high",
     "examples": "高, 稿, 橋",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14375,10 +15843,12 @@ const RADICALS_DATA = [
     "id": 1190,
     "kanji": "髟",
     "displayReading": "Bộ Tiêu",
+    "displayReadingEn": "Radical 190 · Hair",
     "readings": [
       "Tiêu"
     ],
     "meaning": "Tóc dài",
+    "meaningEn": "Long hair",
     "examples": "髪, 髭, 髯",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14388,10 +15858,12 @@ const RADICALS_DATA = [
     "id": 1191,
     "kanji": "鬥",
     "displayReading": "Bộ Đấu",
+    "displayReadingEn": "Radical 191 · Fight",
     "readings": [
       "Đấu"
     ],
     "meaning": "Đánh nhau, tranh đấu",
+    "meaningEn": "Fight, struggle",
     "examples": "闘, 鬧",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14401,10 +15873,12 @@ const RADICALS_DATA = [
     "id": 1192,
     "kanji": "鬯",
     "displayReading": "Bộ Sưởng",
+    "displayReadingEn": "Radical 192 · Sacrificial wine",
     "readings": [
       "Sưởng"
     ],
     "meaning": "Rượu nghệ dùng trong tế lễ",
+    "meaningEn": "Herbal sacrificial wine",
     "examples": "鬱",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14414,10 +15888,12 @@ const RADICALS_DATA = [
     "id": 1193,
     "kanji": "鬲",
     "displayReading": "Bộ Cách",
+    "displayReadingEn": "Radical 193 · Cauldron",
     "readings": [
       "Cách"
     ],
     "meaning": "Cái đỉnh, nồi ba chân",
+    "meaningEn": "Three-legged cauldron",
     "examples": "隔, 融, 鬲",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14427,10 +15903,12 @@ const RADICALS_DATA = [
     "id": 1194,
     "kanji": "鬼",
     "displayReading": "Bộ Quỷ",
+    "displayReadingEn": "Radical 194 · Ghost",
     "readings": [
       "Quỷ"
     ],
     "meaning": "Con quỷ, linh hồn",
+    "meaningEn": "Ghost, demon, spirit",
     "examples": "鬼, 魂, 魔, 魅, 塊",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -14440,10 +15918,12 @@ const RADICALS_DATA = [
     "id": 1195,
     "kanji": "魚",
     "displayReading": "Bộ Ngư",
+    "displayReadingEn": "Radical 195 · Fish",
     "readings": [
       "Ngư"
     ],
     "meaning": "Con cá",
+    "meaningEn": "Fish",
     "examples": "魚, 鮮, 鯨, 鯉, 鮭",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14453,10 +15933,12 @@ const RADICALS_DATA = [
     "id": 1196,
     "kanji": "鳥",
     "displayReading": "Bộ Điểu",
+    "displayReadingEn": "Radical 196 · Bird",
     "readings": [
       "Điểu"
     ],
     "meaning": "Con chim",
+    "meaningEn": "Bird",
     "examples": "鳥, 鳴, 島, 鶴, 鶏",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14466,10 +15948,12 @@ const RADICALS_DATA = [
     "id": 1197,
     "kanji": "鹵",
     "displayReading": "Bộ Lỗ",
+    "displayReadingEn": "Radical 197 · Salt",
     "readings": [
       "Lỗ"
     ],
     "meaning": "Đất mặn, muối mỏ",
+    "meaningEn": "Salty land, rock salt",
     "examples": "塩, 鹸",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14479,10 +15963,12 @@ const RADICALS_DATA = [
     "id": 1198,
     "kanji": "鹿",
     "displayReading": "Bộ Lộc",
+    "displayReadingEn": "Radical 198 · Deer",
     "readings": [
       "Lộc"
     ],
     "meaning": "Con hươu, con nai",
+    "meaningEn": "Deer",
     "examples": "鹿, 麗, 塵, 慶",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14492,10 +15978,12 @@ const RADICALS_DATA = [
     "id": 1199,
     "kanji": "麥 (麦)",
     "displayReading": "Bộ Mạch",
+    "displayReadingEn": "Radical 199 · Wheat",
     "readings": [
       "Mạch"
     ],
     "meaning": "Lúa mạch",
+    "meaningEn": "Wheat, barley",
     "examples": "麦, 麺, 麹",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14505,10 +15993,12 @@ const RADICALS_DATA = [
     "id": 1200,
     "kanji": "麻",
     "displayReading": "Bộ Ma",
+    "displayReadingEn": "Radical 200 · Hemp",
     "readings": [
       "Ma"
     ],
     "meaning": "Cây gai dầu, tê liệt",
+    "meaningEn": "Hemp, numb",
     "examples": "麻, 磨, 魔, 摩",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14518,10 +16008,12 @@ const RADICALS_DATA = [
     "id": 1201,
     "kanji": "黃 (黄)",
     "displayReading": "Bộ Hoàng",
+    "displayReadingEn": "Radical 201 · Yellow",
     "readings": [
       "Hoàng"
     ],
     "meaning": "Màu vàng",
+    "meaningEn": "Yellow",
     "examples": "黄, 横, 広",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14531,10 +16023,12 @@ const RADICALS_DATA = [
     "id": 1202,
     "kanji": "黍",
     "displayReading": "Bộ Thử",
+    "displayReadingEn": "Radical 202 · Millet",
     "readings": [
       "Thử"
     ],
     "meaning": "Cây kê (lúa nếp)",
+    "meaningEn": "Millet",
     "examples": "黎, 粘",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14544,10 +16038,12 @@ const RADICALS_DATA = [
     "id": 1203,
     "kanji": "黑 (黒)",
     "displayReading": "Bộ Hắc",
+    "displayReadingEn": "Radical 203 · Black",
     "readings": [
       "Hắc"
     ],
     "meaning": "Màu đen",
+    "meaningEn": "Black",
     "examples": "黒, 黙, 点, 墨, 党",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14557,10 +16053,12 @@ const RADICALS_DATA = [
     "id": 1204,
     "kanji": "黹",
     "displayReading": "Bộ Chỉ",
+    "displayReadingEn": "Radical 204 · Embroidery",
     "readings": [
       "Chỉ"
     ],
     "meaning": "Thêu thùa, may vá",
+    "meaningEn": "Embroidery, needlework",
     "examples": "黻, 黼",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14570,10 +16068,12 @@ const RADICALS_DATA = [
     "id": 1205,
     "kanji": "黽",
     "displayReading": "Bộ Mãnh",
+    "displayReadingEn": "Radical 205 · Frog",
     "readings": [
       "Mãnh"
     ],
     "meaning": "Con ếch, cố gắng",
+    "meaningEn": "Frog, strive",
     "examples": "縄, 蠅, 亀",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14583,10 +16083,12 @@ const RADICALS_DATA = [
     "id": 1206,
     "kanji": "鼎",
     "displayReading": "Bộ Đỉnh",
+    "displayReadingEn": "Radical 206 · Tripod",
     "readings": [
       "Đỉnh"
     ],
     "meaning": "Cái đỉnh đồng ba chân",
+    "meaningEn": "Three-legged bronze tripod",
     "examples": "鼎, 鼐",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14596,10 +16098,12 @@ const RADICALS_DATA = [
     "id": 1207,
     "kanji": "鼓",
     "displayReading": "Bộ Cổ",
+    "displayReadingEn": "Radical 207 · Drum",
     "readings": [
       "Cổ"
     ],
     "meaning": "Cái trống, cổ vũ",
+    "meaningEn": "Drum, encourage",
     "examples": "鼓, 樹, 喜",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14609,10 +16113,12 @@ const RADICALS_DATA = [
     "id": 1208,
     "kanji": "鼠",
     "displayReading": "Bộ Thử",
+    "displayReadingEn": "Radical 208 · Rat",
     "readings": [
       "Thử"
     ],
     "meaning": "Con chuột",
+    "meaningEn": "Rat, mouse",
     "examples": "鼠, 鼬, 竄",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14622,10 +16128,12 @@ const RADICALS_DATA = [
     "id": 1209,
     "kanji": "鼻",
     "displayReading": "Bộ Tỵ",
+    "displayReadingEn": "Radical 209 · Nose",
     "readings": [
       "Tỵ"
     ],
     "meaning": "Cái mũi",
+    "meaningEn": "Nose",
     "examples": "鼻, 鼾",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14635,10 +16143,12 @@ const RADICALS_DATA = [
     "id": 1210,
     "kanji": "齊 (斉)",
     "displayReading": "Bộ Tề",
+    "displayReadingEn": "Radical 210 · Even",
     "readings": [
       "Tề"
     ],
     "meaning": "Ngay ngắn, đều đặn",
+    "meaningEn": "Even, uniform, neat",
     "examples": "斉, 済, 剤, 斎",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14648,10 +16158,12 @@ const RADICALS_DATA = [
     "id": 1211,
     "kanji": "齒 (歯)",
     "displayReading": "Bộ Xỉ",
+    "displayReadingEn": "Radical 211 · Tooth",
     "readings": [
       "Xỉ"
     ],
     "meaning": "Cái răng",
+    "meaningEn": "Tooth",
     "examples": "歯, 齢, 噛",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14661,10 +16173,12 @@ const RADICALS_DATA = [
     "id": 1212,
     "kanji": "龍 (竜)",
     "displayReading": "Bộ Long",
+    "displayReadingEn": "Radical 212 · Dragon",
     "readings": [
       "Long"
     ],
     "meaning": "Con rồng",
+    "meaningEn": "Dragon",
     "examples": "龍, 竜, 滝, 襲",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14674,10 +16188,12 @@ const RADICALS_DATA = [
     "id": 1213,
     "kanji": "龜 (亀)",
     "displayReading": "Bộ Quy",
+    "displayReadingEn": "Radical 213 · Turtle",
     "readings": [
       "Quy"
     ],
     "meaning": "Con rùa",
+    "meaningEn": "Turtle, tortoise",
     "examples": "亀, 縄",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14687,10 +16203,12 @@ const RADICALS_DATA = [
     "id": 1214,
     "kanji": "龠",
     "displayReading": "Bộ Dược",
+    "displayReadingEn": "Radical 214 · Flute",
     "readings": [
       "Dược"
     ],
     "meaning": "Ống sáo cổ",
+    "meaningEn": "Ancient bamboo flute",
     "examples": "躍, 曜, 濯",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -14707,6 +16225,7 @@ const ALL_STUDY_ITEMS = [
       "いち"
     ],
     "meaning": "Số 1",
+    "meaningEn": "Number 1",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14718,6 +16237,7 @@ const ALL_STUDY_ITEMS = [
       "ひとつ"
     ],
     "meaning": "Một cái",
+    "meaningEn": "One thing",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14729,6 +16249,7 @@ const ALL_STUDY_ITEMS = [
       "に"
     ],
     "meaning": "Số 2",
+    "meaningEn": "Number 2",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14740,6 +16261,7 @@ const ALL_STUDY_ITEMS = [
       "ふたつ"
     ],
     "meaning": "Hai cái",
+    "meaningEn": "Two things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14751,6 +16273,7 @@ const ALL_STUDY_ITEMS = [
       "さん"
     ],
     "meaning": "Số 3",
+    "meaningEn": "Number 3",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14762,6 +16285,7 @@ const ALL_STUDY_ITEMS = [
       "みっつ"
     ],
     "meaning": "Ba cái",
+    "meaningEn": "Three things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14774,6 +16298,7 @@ const ALL_STUDY_ITEMS = [
       "し"
     ],
     "meaning": "Số 4",
+    "meaningEn": "Number 4",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14785,6 +16310,7 @@ const ALL_STUDY_ITEMS = [
       "よっつ"
     ],
     "meaning": "Bốn cái",
+    "meaningEn": "Four things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14796,6 +16322,7 @@ const ALL_STUDY_ITEMS = [
       "ご"
     ],
     "meaning": "Số 5",
+    "meaningEn": "Number 5",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14807,6 +16334,7 @@ const ALL_STUDY_ITEMS = [
       "いつつ"
     ],
     "meaning": "Năm cái",
+    "meaningEn": "Five things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14818,6 +16346,7 @@ const ALL_STUDY_ITEMS = [
       "ろく"
     ],
     "meaning": "Số 6",
+    "meaningEn": "Number 6",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14829,6 +16358,7 @@ const ALL_STUDY_ITEMS = [
       "むっつ"
     ],
     "meaning": "Sáu cái",
+    "meaningEn": "Six things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14841,6 +16371,7 @@ const ALL_STUDY_ITEMS = [
       "しち"
     ],
     "meaning": "Số 7",
+    "meaningEn": "Number 7",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14852,6 +16383,7 @@ const ALL_STUDY_ITEMS = [
       "ななつ"
     ],
     "meaning": "Bảy cái",
+    "meaningEn": "Seven things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14863,6 +16395,7 @@ const ALL_STUDY_ITEMS = [
       "はち"
     ],
     "meaning": "Số 8",
+    "meaningEn": "Number 8",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14874,6 +16407,7 @@ const ALL_STUDY_ITEMS = [
       "やっつ"
     ],
     "meaning": "Tám cái",
+    "meaningEn": "Eight things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14886,6 +16420,7 @@ const ALL_STUDY_ITEMS = [
       "く"
     ],
     "meaning": "Số 9",
+    "meaningEn": "Number 9",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14897,6 +16432,7 @@ const ALL_STUDY_ITEMS = [
       "ここのつ"
     ],
     "meaning": "Chín cái",
+    "meaningEn": "Nine things",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14908,6 +16444,7 @@ const ALL_STUDY_ITEMS = [
       "じゅう"
     ],
     "meaning": "Số 10",
+    "meaningEn": "Number 10",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14919,6 +16456,7 @@ const ALL_STUDY_ITEMS = [
       "ひゃく"
     ],
     "meaning": "Một trăm (100)",
+    "meaningEn": "One hundred (100)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14930,6 +16468,7 @@ const ALL_STUDY_ITEMS = [
       "さんびゃく"
     ],
     "meaning": "Ba trăm (300)",
+    "meaningEn": "Three hundred (300)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14941,6 +16480,7 @@ const ALL_STUDY_ITEMS = [
       "ろっぴゃく"
     ],
     "meaning": "Sáu trăm (600)",
+    "meaningEn": "Six hundred (600)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14952,6 +16492,7 @@ const ALL_STUDY_ITEMS = [
       "はっぴゃく"
     ],
     "meaning": "Tám trăm (800)",
+    "meaningEn": "Eight hundred (800)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14963,6 +16504,7 @@ const ALL_STUDY_ITEMS = [
       "せん"
     ],
     "meaning": "Một nghìn (1.000)",
+    "meaningEn": "One thousand (1,000)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14974,6 +16516,7 @@ const ALL_STUDY_ITEMS = [
       "さんぜん"
     ],
     "meaning": "Ba nghìn (3.000)",
+    "meaningEn": "Three thousand (3,000)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14985,6 +16528,7 @@ const ALL_STUDY_ITEMS = [
       "はっせん"
     ],
     "meaning": "Tám nghìn (8.000)",
+    "meaningEn": "Eight thousand (8,000)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -14996,6 +16540,7 @@ const ALL_STUDY_ITEMS = [
       "いちまん"
     ],
     "meaning": "Mười nghìn (10.000)",
+    "meaningEn": "Ten thousand (10,000)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15007,6 +16552,7 @@ const ALL_STUDY_ITEMS = [
       "じゅうまん"
     ],
     "meaning": "Một trăm nghìn (100.000)",
+    "meaningEn": "One hundred thousand (100,000)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15018,6 +16564,7 @@ const ALL_STUDY_ITEMS = [
       "ひゃくまん"
     ],
     "meaning": "Một triệu (1.000.000)",
+    "meaningEn": "One million (1,000,000)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15029,6 +16576,7 @@ const ALL_STUDY_ITEMS = [
       "えん"
     ],
     "meaning": "Yên (tiền Nhật)",
+    "meaningEn": "Yen (Japanese currency)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15040,6 +16588,7 @@ const ALL_STUDY_ITEMS = [
       "ひゃくえん"
     ],
     "meaning": "100 yên",
+    "meaningEn": "100 yen",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15051,6 +16600,7 @@ const ALL_STUDY_ITEMS = [
       "せんえん"
     ],
     "meaning": "1.000 yên",
+    "meaningEn": "1,000 yen",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15062,6 +16612,7 @@ const ALL_STUDY_ITEMS = [
       "いちまんえん"
     ],
     "meaning": "10.000 yên",
+    "meaningEn": "10,000 yen",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15073,6 +16624,7 @@ const ALL_STUDY_ITEMS = [
       "おかね"
     ],
     "meaning": "Tiền",
+    "meaningEn": "Money",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15084,6 +16636,7 @@ const ALL_STUDY_ITEMS = [
       "はん"
     ],
     "meaning": "Một nửa, rưỡi",
+    "meaningEn": "Half",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15095,6 +16648,7 @@ const ALL_STUDY_ITEMS = [
       "はんぶん"
     ],
     "meaning": "Một nửa",
+    "meaningEn": "Half (portion)",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15106,6 +16660,7 @@ const ALL_STUDY_ITEMS = [
       "はんとし"
     ],
     "meaning": "Nửa năm",
+    "meaningEn": "Half a year",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15117,6 +16672,7 @@ const ALL_STUDY_ITEMS = [
       "はんにち"
     ],
     "meaning": "Nửa ngày",
+    "meaningEn": "Half a day",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15128,6 +16684,7 @@ const ALL_STUDY_ITEMS = [
       "じゅうぶん"
     ],
     "meaning": "Đầy đủ",
+    "meaningEn": "Enough, sufficient",
     "topicId": "n5_01",
     "level": "N5"
   },
@@ -15140,6 +16697,7 @@ const ALL_STUDY_ITEMS = [
       "にち"
     ],
     "meaning": "Ngày, mặt trời",
+    "meaningEn": "Day, sun",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15152,6 +16710,7 @@ const ALL_STUDY_ITEMS = [
       "げつ"
     ],
     "meaning": "Tháng, mặt trăng",
+    "meaningEn": "Month, moon",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15163,6 +16722,7 @@ const ALL_STUDY_ITEMS = [
       "ひ"
     ],
     "meaning": "Lửa",
+    "meaningEn": "Fire",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15174,6 +16734,7 @@ const ALL_STUDY_ITEMS = [
       "みず"
     ],
     "meaning": "Nước",
+    "meaningEn": "Water",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15185,6 +16746,7 @@ const ALL_STUDY_ITEMS = [
       "き"
     ],
     "meaning": "Cây, gỗ",
+    "meaningEn": "Tree, wood",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15197,6 +16759,7 @@ const ALL_STUDY_ITEMS = [
       "きん"
     ],
     "meaning": "Tiền, vàng",
+    "meaningEn": "Money, gold",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15208,6 +16771,7 @@ const ALL_STUDY_ITEMS = [
       "つち"
     ],
     "meaning": "Đất",
+    "meaningEn": "Earth, soil",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15219,6 +16783,7 @@ const ALL_STUDY_ITEMS = [
       "ようび"
     ],
     "meaning": "Thứ trong tuần",
+    "meaningEn": "Day of the week",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15230,6 +16795,7 @@ const ALL_STUDY_ITEMS = [
       "げつようび"
     ],
     "meaning": "Thứ Hai",
+    "meaningEn": "Monday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15241,6 +16807,7 @@ const ALL_STUDY_ITEMS = [
       "かようび"
     ],
     "meaning": "Thứ Ba",
+    "meaningEn": "Tuesday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15252,6 +16819,7 @@ const ALL_STUDY_ITEMS = [
       "すいようび"
     ],
     "meaning": "Thứ Tư",
+    "meaningEn": "Wednesday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15263,6 +16831,7 @@ const ALL_STUDY_ITEMS = [
       "もくようび"
     ],
     "meaning": "Thứ Năm",
+    "meaningEn": "Thursday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15274,6 +16843,7 @@ const ALL_STUDY_ITEMS = [
       "きんようび"
     ],
     "meaning": "Thứ Sáu",
+    "meaningEn": "Friday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15285,6 +16855,7 @@ const ALL_STUDY_ITEMS = [
       "どようび"
     ],
     "meaning": "Thứ Bảy",
+    "meaningEn": "Saturday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15296,6 +16867,7 @@ const ALL_STUDY_ITEMS = [
       "にちようび"
     ],
     "meaning": "Chủ Nhật",
+    "meaningEn": "Sunday",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15307,6 +16879,7 @@ const ALL_STUDY_ITEMS = [
       "ついたち"
     ],
     "meaning": "Ngày mùng 1",
+    "meaningEn": "1st day of the month",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15318,6 +16891,7 @@ const ALL_STUDY_ITEMS = [
       "いちにち"
     ],
     "meaning": "Một ngày",
+    "meaningEn": "One day",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15329,6 +16903,7 @@ const ALL_STUDY_ITEMS = [
       "ふつか"
     ],
     "meaning": "Ngày mùng 2 / 2 ngày",
+    "meaningEn": "2nd day / 2 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15340,6 +16915,7 @@ const ALL_STUDY_ITEMS = [
       "みっか"
     ],
     "meaning": "Ngày mùng 3 / 3 ngày",
+    "meaningEn": "3rd day / 3 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15351,6 +16927,7 @@ const ALL_STUDY_ITEMS = [
       "よっか"
     ],
     "meaning": "Ngày mùng 4 / 4 ngày",
+    "meaningEn": "4th day / 4 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15362,6 +16939,7 @@ const ALL_STUDY_ITEMS = [
       "いつか"
     ],
     "meaning": "Ngày mùng 5 / 5 ngày",
+    "meaningEn": "5th day / 5 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15373,6 +16951,7 @@ const ALL_STUDY_ITEMS = [
       "むいか"
     ],
     "meaning": "Ngày mùng 6 / 6 ngày",
+    "meaningEn": "6th day / 6 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15384,6 +16963,7 @@ const ALL_STUDY_ITEMS = [
       "なのか"
     ],
     "meaning": "Ngày mùng 7 / 7 ngày",
+    "meaningEn": "7th day / 7 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15395,6 +16975,7 @@ const ALL_STUDY_ITEMS = [
       "ようか"
     ],
     "meaning": "Ngày mùng 8 / 8 ngày",
+    "meaningEn": "8th day / 8 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15406,6 +16987,7 @@ const ALL_STUDY_ITEMS = [
       "ここのか"
     ],
     "meaning": "Ngày mùng 9 / 9 ngày",
+    "meaningEn": "9th day / 9 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15417,6 +16999,7 @@ const ALL_STUDY_ITEMS = [
       "とおか"
     ],
     "meaning": "Ngày mùng 10 / 10 ngày",
+    "meaningEn": "10th day / 10 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15428,6 +17011,7 @@ const ALL_STUDY_ITEMS = [
       "はつか"
     ],
     "meaning": "Ngày 20 / 20 ngày",
+    "meaningEn": "20th day / 20 days",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15439,6 +17023,7 @@ const ALL_STUDY_ITEMS = [
       "いちがつ"
     ],
     "meaning": "Tháng 1",
+    "meaningEn": "January",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15450,6 +17035,7 @@ const ALL_STUDY_ITEMS = [
       "にがつ"
     ],
     "meaning": "Tháng 2",
+    "meaningEn": "February",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15461,6 +17047,7 @@ const ALL_STUDY_ITEMS = [
       "さんがつ"
     ],
     "meaning": "Tháng 3",
+    "meaningEn": "March",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15472,6 +17059,7 @@ const ALL_STUDY_ITEMS = [
       "しがつ"
     ],
     "meaning": "Tháng 4",
+    "meaningEn": "April",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15483,6 +17071,7 @@ const ALL_STUDY_ITEMS = [
       "ごがつ"
     ],
     "meaning": "Tháng 5",
+    "meaningEn": "May",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15494,6 +17083,7 @@ const ALL_STUDY_ITEMS = [
       "ろくがつ"
     ],
     "meaning": "Tháng 6",
+    "meaningEn": "June",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15505,6 +17095,7 @@ const ALL_STUDY_ITEMS = [
       "しちがつ"
     ],
     "meaning": "Tháng 7",
+    "meaningEn": "July",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15516,6 +17107,7 @@ const ALL_STUDY_ITEMS = [
       "はちがつ"
     ],
     "meaning": "Tháng 8",
+    "meaningEn": "August",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15527,6 +17119,7 @@ const ALL_STUDY_ITEMS = [
       "くがつ"
     ],
     "meaning": "Tháng 9",
+    "meaningEn": "September",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15538,6 +17131,7 @@ const ALL_STUDY_ITEMS = [
       "じゅうがつ"
     ],
     "meaning": "Tháng 10",
+    "meaningEn": "October",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15549,6 +17143,7 @@ const ALL_STUDY_ITEMS = [
       "じゅういちがつ"
     ],
     "meaning": "Tháng 11",
+    "meaningEn": "November",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15560,6 +17155,7 @@ const ALL_STUDY_ITEMS = [
       "じゅうにがつ"
     ],
     "meaning": "Tháng 12",
+    "meaningEn": "December",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15571,6 +17167,7 @@ const ALL_STUDY_ITEMS = [
       "いっかげつ"
     ],
     "meaning": "Một tháng (khoảng thời gian)",
+    "meaningEn": "One month (duration)",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15583,6 +17180,7 @@ const ALL_STUDY_ITEMS = [
       "ねん"
     ],
     "meaning": "Năm",
+    "meaningEn": "Year",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15595,6 +17193,7 @@ const ALL_STUDY_ITEMS = [
       "じ"
     ],
     "meaning": "Khi, lúc, giờ",
+    "meaningEn": "Time, hour, o'clock",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15606,6 +17205,7 @@ const ALL_STUDY_ITEMS = [
       "じかん"
     ],
     "meaning": "Thời gian, tiếng đồng hồ",
+    "meaningEn": "Time, hours",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15617,6 +17217,7 @@ const ALL_STUDY_ITEMS = [
       "なんじ"
     ],
     "meaning": "Mấy giờ",
+    "meaningEn": "What time",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15628,6 +17229,7 @@ const ALL_STUDY_ITEMS = [
       "よじ"
     ],
     "meaning": "4 giờ",
+    "meaningEn": "4 o'clock",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15639,6 +17241,7 @@ const ALL_STUDY_ITEMS = [
       "さんじはん"
     ],
     "meaning": "3 giờ rưỡi",
+    "meaningEn": "3:30",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15651,6 +17254,7 @@ const ALL_STUDY_ITEMS = [
       "ぷん"
     ],
     "meaning": "Phút",
+    "meaningEn": "Minute",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15663,6 +17267,7 @@ const ALL_STUDY_ITEMS = [
       "じっぷん"
     ],
     "meaning": "10 phút",
+    "meaningEn": "10 minutes",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15674,6 +17279,7 @@ const ALL_STUDY_ITEMS = [
       "わかる"
     ],
     "meaning": "Hiểu",
+    "meaningEn": "Understand",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15686,6 +17292,7 @@ const ALL_STUDY_ITEMS = [
       "ま"
     ],
     "meaning": "Khoảng giữa, khoảng thời gian",
+    "meaningEn": "Between, interval",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15697,6 +17304,7 @@ const ALL_STUDY_ITEMS = [
       "ふつかかん"
     ],
     "meaning": "Trong vòng 2 ngày",
+    "meaningEn": "Two days (duration)",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15708,6 +17316,7 @@ const ALL_STUDY_ITEMS = [
       "いま"
     ],
     "meaning": "Bây giờ",
+    "meaningEn": "Now",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15719,6 +17328,7 @@ const ALL_STUDY_ITEMS = [
       "きょう"
     ],
     "meaning": "Hôm nay",
+    "meaningEn": "Today",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15730,6 +17340,7 @@ const ALL_STUDY_ITEMS = [
       "こんげつ"
     ],
     "meaning": "Tháng này",
+    "meaningEn": "This month",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15741,6 +17352,7 @@ const ALL_STUDY_ITEMS = [
       "ことし"
     ],
     "meaning": "Năm nay",
+    "meaningEn": "This year",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15752,6 +17364,7 @@ const ALL_STUDY_ITEMS = [
       "こんしゅう"
     ],
     "meaning": "Tuần này",
+    "meaningEn": "This week",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15763,6 +17376,7 @@ const ALL_STUDY_ITEMS = [
       "まいにち"
     ],
     "meaning": "Mỗi ngày",
+    "meaningEn": "Every day",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15774,6 +17388,7 @@ const ALL_STUDY_ITEMS = [
       "まいしゅう"
     ],
     "meaning": "Mỗi tuần",
+    "meaningEn": "Every week",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15785,6 +17400,7 @@ const ALL_STUDY_ITEMS = [
       "まいつき"
     ],
     "meaning": "Mỗi tháng",
+    "meaningEn": "Every month",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15797,6 +17413,7 @@ const ALL_STUDY_ITEMS = [
       "まいねん"
     ],
     "meaning": "Mỗi năm",
+    "meaningEn": "Every year",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15808,6 +17425,7 @@ const ALL_STUDY_ITEMS = [
       "ごぜん"
     ],
     "meaning": "Buổi sáng (trước trưa)",
+    "meaningEn": "Morning, AM",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15819,6 +17437,7 @@ const ALL_STUDY_ITEMS = [
       "ごご"
     ],
     "meaning": "Buổi chiều (sau trưa)",
+    "meaningEn": "Afternoon, PM",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15830,6 +17449,7 @@ const ALL_STUDY_ITEMS = [
       "まえ"
     ],
     "meaning": "Trước, phía trước",
+    "meaningEn": "Before, in front",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15841,6 +17461,7 @@ const ALL_STUDY_ITEMS = [
       "あと"
     ],
     "meaning": "Sau",
+    "meaningEn": "After, later",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15852,6 +17473,7 @@ const ALL_STUDY_ITEMS = [
       "うしろ"
     ],
     "meaning": "Phía sau",
+    "meaningEn": "Behind, back",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15863,6 +17485,7 @@ const ALL_STUDY_ITEMS = [
       "さいご"
     ],
     "meaning": "Cuối cùng",
+    "meaningEn": "Last, final",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15874,6 +17497,7 @@ const ALL_STUDY_ITEMS = [
       "さき"
     ],
     "meaning": "Trước, phía trước",
+    "meaningEn": "Ahead, previous",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15885,6 +17509,7 @@ const ALL_STUDY_ITEMS = [
       "さきに"
     ],
     "meaning": "Trước, làm trước",
+    "meaningEn": "First, ahead",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15896,6 +17521,7 @@ const ALL_STUDY_ITEMS = [
       "せんしゅう"
     ],
     "meaning": "Tuần trước",
+    "meaningEn": "Last week",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15907,6 +17533,7 @@ const ALL_STUDY_ITEMS = [
       "せんげつ"
     ],
     "meaning": "Tháng trước",
+    "meaningEn": "Last month",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15918,6 +17545,7 @@ const ALL_STUDY_ITEMS = [
       "せんじつ"
     ],
     "meaning": "Hôm trước",
+    "meaningEn": "The other day",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15929,6 +17557,7 @@ const ALL_STUDY_ITEMS = [
       "たなばた"
     ],
     "meaning": "Lễ Thất Tịch",
+    "meaningEn": "Tanabata (Star Festival)",
     "topicId": "n5_02",
     "level": "N5"
   },
@@ -15940,6 +17569,7 @@ const ALL_STUDY_ITEMS = [
       "ひと"
     ],
     "meaning": "Người",
+    "meaningEn": "Person",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -15951,6 +17581,7 @@ const ALL_STUDY_ITEMS = [
       "ひとり"
     ],
     "meaning": "Một người",
+    "meaningEn": "One person, alone",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -15962,6 +17593,7 @@ const ALL_STUDY_ITEMS = [
       "ふたり"
     ],
     "meaning": "Hai người",
+    "meaningEn": "Two people",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -15973,6 +17605,7 @@ const ALL_STUDY_ITEMS = [
       "よにん"
     ],
     "meaning": "Bốn người",
+    "meaningEn": "Four people",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -15984,6 +17617,7 @@ const ALL_STUDY_ITEMS = [
       "きゅうにん"
     ],
     "meaning": "Chín người",
+    "meaningEn": "Nine people",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -15995,6 +17629,7 @@ const ALL_STUDY_ITEMS = [
       "ひとびと"
     ],
     "meaning": "Mọi người",
+    "meaningEn": "People, everyone",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16006,6 +17641,7 @@ const ALL_STUDY_ITEMS = [
       "にんげん"
     ],
     "meaning": "Con người, nhân loại",
+    "meaningEn": "Human being",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16017,6 +17653,7 @@ const ALL_STUDY_ITEMS = [
       "おとな"
     ],
     "meaning": "Người lớn",
+    "meaningEn": "Adult",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16028,6 +17665,7 @@ const ALL_STUDY_ITEMS = [
       "ちち"
     ],
     "meaning": "Bố (của mình)",
+    "meaningEn": "Father (humble)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16039,6 +17677,7 @@ const ALL_STUDY_ITEMS = [
       "おとうさん"
     ],
     "meaning": "Bố",
+    "meaningEn": "Father",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16050,6 +17689,7 @@ const ALL_STUDY_ITEMS = [
       "ちちおや"
     ],
     "meaning": "Người cha",
+    "meaningEn": "Father (formal)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16061,6 +17701,7 @@ const ALL_STUDY_ITEMS = [
       "はは"
     ],
     "meaning": "Mẹ (của mình)",
+    "meaningEn": "Mother (humble)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16072,6 +17713,7 @@ const ALL_STUDY_ITEMS = [
       "おかあさん"
     ],
     "meaning": "Mẹ",
+    "meaningEn": "Mother",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16083,6 +17725,7 @@ const ALL_STUDY_ITEMS = [
       "ははおや"
     ],
     "meaning": "Người mẹ",
+    "meaningEn": "Mother (formal)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16094,6 +17737,7 @@ const ALL_STUDY_ITEMS = [
       "こ"
     ],
     "meaning": "Trẻ em, con cái",
+    "meaningEn": "Child",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16105,6 +17749,7 @@ const ALL_STUDY_ITEMS = [
       "こども"
     ],
     "meaning": "Trẻ con",
+    "meaningEn": "Children",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16116,6 +17761,7 @@ const ALL_STUDY_ITEMS = [
       "おとこ"
     ],
     "meaning": "Đàn ông, nam giới",
+    "meaningEn": "Man, male",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16127,6 +17773,7 @@ const ALL_STUDY_ITEMS = [
       "おとこのひと"
     ],
     "meaning": "Người đàn ông",
+    "meaningEn": "Man (adult male)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16138,6 +17785,7 @@ const ALL_STUDY_ITEMS = [
       "おとこのこ"
     ],
     "meaning": "Bé trai",
+    "meaningEn": "Boy",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16149,6 +17797,7 @@ const ALL_STUDY_ITEMS = [
       "だんし"
     ],
     "meaning": "Nam sinh, con trai",
+    "meaningEn": "Male student, boy",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16160,6 +17809,7 @@ const ALL_STUDY_ITEMS = [
       "おんな"
     ],
     "meaning": "Phụ nữ, nữ giới",
+    "meaningEn": "Woman, female",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16171,6 +17821,7 @@ const ALL_STUDY_ITEMS = [
       "おんなのひと"
     ],
     "meaning": "Người phụ nữ",
+    "meaningEn": "Woman (adult female)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16182,6 +17833,7 @@ const ALL_STUDY_ITEMS = [
       "おんなのこ"
     ],
     "meaning": "Bé gái",
+    "meaningEn": "Girl",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16193,6 +17845,7 @@ const ALL_STUDY_ITEMS = [
       "じょし"
     ],
     "meaning": "Nữ sinh, con gái",
+    "meaningEn": "Female student, girl",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16204,6 +17857,7 @@ const ALL_STUDY_ITEMS = [
       "とも"
     ],
     "meaning": "Bạn",
+    "meaningEn": "Friend",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16215,6 +17869,7 @@ const ALL_STUDY_ITEMS = [
       "ともだち"
     ],
     "meaning": "Bạn bè",
+    "meaningEn": "Friend, friends",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16226,6 +17881,7 @@ const ALL_STUDY_ITEMS = [
       "ゆうじん"
     ],
     "meaning": "Người bạn, bạn thân",
+    "meaningEn": "Friend (formal)",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16237,6 +17893,7 @@ const ALL_STUDY_ITEMS = [
       "な"
     ],
     "meaning": "Tên",
+    "meaningEn": "Name",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16248,6 +17905,7 @@ const ALL_STUDY_ITEMS = [
       "なまえ"
     ],
     "meaning": "Tên, họ tên",
+    "meaningEn": "Full name, name",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16259,6 +17917,7 @@ const ALL_STUDY_ITEMS = [
       "みょうじ"
     ],
     "meaning": "Họ",
+    "meaningEn": "Family name, surname",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16270,6 +17929,7 @@ const ALL_STUDY_ITEMS = [
       "わたし"
     ],
     "meaning": "Tôi",
+    "meaningEn": "I, me",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16282,6 +17942,7 @@ const ALL_STUDY_ITEMS = [
       "なん"
     ],
     "meaning": "Cái gì",
+    "meaningEn": "What",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16293,6 +17954,7 @@ const ALL_STUDY_ITEMS = [
       "なんにん"
     ],
     "meaning": "Mấy người",
+    "meaningEn": "How many people",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16304,6 +17966,7 @@ const ALL_STUDY_ITEMS = [
       "なにじん"
     ],
     "meaning": "Người nước nào",
+    "meaningEn": "What nationality",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16315,6 +17978,7 @@ const ALL_STUDY_ITEMS = [
       "じぶん"
     ],
     "meaning": "Bản thân, chính mình",
+    "meaningEn": "Oneself",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16326,6 +17990,7 @@ const ALL_STUDY_ITEMS = [
       "じんせい"
     ],
     "meaning": "Cuộc đời, cuộc sống",
+    "meaningEn": "Human life",
     "topicId": "n5_03",
     "level": "N5"
   },
@@ -16337,6 +18002,7 @@ const ALL_STUDY_ITEMS = [
       "うえ"
     ],
     "meaning": "Bên trên",
+    "meaningEn": "Above, up",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16348,6 +18014,7 @@ const ALL_STUDY_ITEMS = [
       "あがる"
     ],
     "meaning": "Đi lên, tăng lên",
+    "meaningEn": "Go up, rise",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16359,6 +18026,7 @@ const ALL_STUDY_ITEMS = [
       "あげる"
     ],
     "meaning": "Đưa lên, tặng",
+    "meaningEn": "Raise, give",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16370,6 +18038,7 @@ const ALL_STUDY_ITEMS = [
       "した"
     ],
     "meaning": "Bên dưới",
+    "meaningEn": "Below, down",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16381,6 +18050,7 @@ const ALL_STUDY_ITEMS = [
       "さがる"
     ],
     "meaning": "Đi xuống, giảm xuống",
+    "meaningEn": "Go down, drop",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16392,6 +18062,7 @@ const ALL_STUDY_ITEMS = [
       "さげる"
     ],
     "meaning": "Hạ xuống",
+    "meaningEn": "Lower, hang down",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16403,6 +18074,7 @@ const ALL_STUDY_ITEMS = [
       "ひだり"
     ],
     "meaning": "Bên trái",
+    "meaningEn": "Left",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16414,6 +18086,7 @@ const ALL_STUDY_ITEMS = [
       "ひだりがわ"
     ],
     "meaning": "Phía bên trái",
+    "meaningEn": "Left side",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16425,6 +18098,7 @@ const ALL_STUDY_ITEMS = [
       "みぎ"
     ],
     "meaning": "Bên phải",
+    "meaningEn": "Right",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16436,6 +18110,7 @@ const ALL_STUDY_ITEMS = [
       "みぎがわ"
     ],
     "meaning": "Phía bên phải",
+    "meaningEn": "Right side",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16447,6 +18122,7 @@ const ALL_STUDY_ITEMS = [
       "さゆう"
     ],
     "meaning": "Trái phải",
+    "meaningEn": "Left and right",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16458,6 +18134,7 @@ const ALL_STUDY_ITEMS = [
       "なか"
     ],
     "meaning": "Bên trong, ở giữa",
+    "meaningEn": "Inside, middle",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16469,6 +18146,7 @@ const ALL_STUDY_ITEMS = [
       "いちにちじゅう"
     ],
     "meaning": "Suốt cả ngày",
+    "meaningEn": "All day long",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16480,6 +18158,7 @@ const ALL_STUDY_ITEMS = [
       "うち"
     ],
     "meaning": "Bên trong",
+    "meaningEn": "Inside, within",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16491,6 +18170,7 @@ const ALL_STUDY_ITEMS = [
       "あんない"
     ],
     "meaning": "Hướng dẫn",
+    "meaningEn": "Guidance, information",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16502,6 +18182,7 @@ const ALL_STUDY_ITEMS = [
       "そと"
     ],
     "meaning": "Bên ngoài",
+    "meaningEn": "Outside",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16513,6 +18194,7 @@ const ALL_STUDY_ITEMS = [
       "がいこく"
     ],
     "meaning": "Nước ngoài",
+    "meaningEn": "Foreign country",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16524,6 +18206,7 @@ const ALL_STUDY_ITEMS = [
       "がいこくじん"
     ],
     "meaning": "Người nước ngoài",
+    "meaningEn": "Foreigner",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16535,6 +18218,7 @@ const ALL_STUDY_ITEMS = [
       "ひがし"
     ],
     "meaning": "Phía Đông",
+    "meaningEn": "East",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16546,6 +18230,7 @@ const ALL_STUDY_ITEMS = [
       "ひがしぐち"
     ],
     "meaning": "Cửa Đông",
+    "meaningEn": "East exit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16557,6 +18242,7 @@ const ALL_STUDY_ITEMS = [
       "とうなんあじあ"
     ],
     "meaning": "Đông Nam Á",
+    "meaningEn": "Southeast Asia",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16568,6 +18254,7 @@ const ALL_STUDY_ITEMS = [
       "にし"
     ],
     "meaning": "Phía Tây",
+    "meaningEn": "West",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16579,6 +18266,7 @@ const ALL_STUDY_ITEMS = [
       "にしぐち"
     ],
     "meaning": "Cửa Tây",
+    "meaningEn": "West exit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16590,6 +18278,7 @@ const ALL_STUDY_ITEMS = [
       "かんさい"
     ],
     "meaning": "Vùng Kansai",
+    "meaningEn": "Kansai region",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16601,6 +18290,7 @@ const ALL_STUDY_ITEMS = [
       "みなみ"
     ],
     "meaning": "Phía Nam",
+    "meaningEn": "South",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16612,6 +18302,7 @@ const ALL_STUDY_ITEMS = [
       "みなみぐち"
     ],
     "meaning": "Cửa Nam",
+    "meaningEn": "South exit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16623,6 +18314,7 @@ const ALL_STUDY_ITEMS = [
       "きた"
     ],
     "meaning": "Phía Bắc",
+    "meaningEn": "North",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16634,6 +18326,7 @@ const ALL_STUDY_ITEMS = [
       "きたぐち"
     ],
     "meaning": "Cửa Bắc",
+    "meaningEn": "North exit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16645,6 +18338,7 @@ const ALL_STUDY_ITEMS = [
       "ほっかいどう"
     ],
     "meaning": "Hokkaido",
+    "meaningEn": "Hokkaido",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16656,6 +18350,7 @@ const ALL_STUDY_ITEMS = [
       "くち"
     ],
     "meaning": "Miệng, cửa ra vào",
+    "meaningEn": "Mouth, entrance",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16667,6 +18362,7 @@ const ALL_STUDY_ITEMS = [
       "じんこう"
     ],
     "meaning": "Dân số",
+    "meaningEn": "Population",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16678,6 +18374,7 @@ const ALL_STUDY_ITEMS = [
       "でる"
     ],
     "meaning": "Đi ra",
+    "meaningEn": "Go out, exit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16689,6 +18386,7 @@ const ALL_STUDY_ITEMS = [
       "だす"
     ],
     "meaning": "Đưa ra, gửi ra",
+    "meaningEn": "Take out, submit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16700,6 +18398,7 @@ const ALL_STUDY_ITEMS = [
       "でぐち"
     ],
     "meaning": "Lối ra",
+    "meaningEn": "Exit",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16711,6 +18410,7 @@ const ALL_STUDY_ITEMS = [
       "はいる"
     ],
     "meaning": "Đi vào",
+    "meaningEn": "Enter, go in",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16722,6 +18422,7 @@ const ALL_STUDY_ITEMS = [
       "いれる"
     ],
     "meaning": "Cho vào, bỏ vào",
+    "meaningEn": "Put in, insert",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16733,6 +18434,7 @@ const ALL_STUDY_ITEMS = [
       "いりぐち"
     ],
     "meaning": "Lối vào",
+    "meaningEn": "Entrance",
     "topicId": "n5_04",
     "level": "N5"
   },
@@ -16744,6 +18446,7 @@ const ALL_STUDY_ITEMS = [
       "いく"
     ],
     "meaning": "Đi",
+    "meaningEn": "Go",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16755,6 +18458,7 @@ const ALL_STUDY_ITEMS = [
       "おこなう"
     ],
     "meaning": "Tiến hành, tổ chức",
+    "meaningEn": "Perform, carry out",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16766,6 +18470,7 @@ const ALL_STUDY_ITEMS = [
       "くる"
     ],
     "meaning": "Đến",
+    "meaningEn": "Come",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16777,6 +18482,7 @@ const ALL_STUDY_ITEMS = [
       "らいしゅう"
     ],
     "meaning": "Tuần sau",
+    "meaningEn": "Next week",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16788,6 +18494,7 @@ const ALL_STUDY_ITEMS = [
       "らいげつ"
     ],
     "meaning": "Tháng sau",
+    "meaningEn": "Next month",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16799,6 +18506,7 @@ const ALL_STUDY_ITEMS = [
       "らいねん"
     ],
     "meaning": "Năm sau",
+    "meaningEn": "Next year",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16810,6 +18518,7 @@ const ALL_STUDY_ITEMS = [
       "かえる"
     ],
     "meaning": "Trở về",
+    "meaningEn": "Return home",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16821,6 +18530,7 @@ const ALL_STUDY_ITEMS = [
       "きこく"
     ],
     "meaning": "Về nước",
+    "meaningEn": "Return to one's country",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16832,6 +18542,7 @@ const ALL_STUDY_ITEMS = [
       "やすむ"
     ],
     "meaning": "Nghỉ ngơi",
+    "meaningEn": "Rest, take a break",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16843,6 +18554,7 @@ const ALL_STUDY_ITEMS = [
       "やすみ"
     ],
     "meaning": "Ngày nghỉ",
+    "meaningEn": "Holiday, day off",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16854,6 +18566,7 @@ const ALL_STUDY_ITEMS = [
       "えき"
     ],
     "meaning": "Nhà ga",
+    "meaningEn": "Train station",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16865,6 +18578,7 @@ const ALL_STUDY_ITEMS = [
       "えきまえ"
     ],
     "meaning": "Trước nhà ga",
+    "meaningEn": "In front of the station",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16876,6 +18590,7 @@ const ALL_STUDY_ITEMS = [
       "えきいん"
     ],
     "meaning": "Nhân viên nhà ga",
+    "meaningEn": "Station staff",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16887,6 +18602,7 @@ const ALL_STUDY_ITEMS = [
       "くるま"
     ],
     "meaning": "Ô tô, xe hơi",
+    "meaningEn": "Car, automobile",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16898,6 +18614,7 @@ const ALL_STUDY_ITEMS = [
       "でんしゃ"
     ],
     "meaning": "Tàu điện",
+    "meaningEn": "Electric train",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16909,6 +18626,7 @@ const ALL_STUDY_ITEMS = [
       "でんき"
     ],
     "meaning": "Điện, đèn điện",
+    "meaningEn": "Electricity, light",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16920,6 +18638,7 @@ const ALL_STUDY_ITEMS = [
       "みち"
     ],
     "meaning": "Con đường",
+    "meaningEn": "Road, way",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16931,6 +18650,7 @@ const ALL_STUDY_ITEMS = [
       "どうろ"
     ],
     "meaning": "Đường giao thông",
+    "meaningEn": "Road, street",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16942,6 +18662,7 @@ const ALL_STUDY_ITEMS = [
       "さどう"
     ],
     "meaning": "Trà đạo",
+    "meaningEn": "Tea ceremony",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16953,6 +18674,7 @@ const ALL_STUDY_ITEMS = [
       "しょどう"
     ],
     "meaning": "Thư pháp",
+    "meaningEn": "Calligraphy",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16964,6 +18686,7 @@ const ALL_STUDY_ITEMS = [
       "とおる"
     ],
     "meaning": "Đi qua",
+    "meaningEn": "Pass through",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16975,6 +18698,7 @@ const ALL_STUDY_ITEMS = [
       "とおり"
     ],
     "meaning": "Con phố, đại lộ",
+    "meaningEn": "Street, avenue",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16986,6 +18710,7 @@ const ALL_STUDY_ITEMS = [
       "かよう"
     ],
     "meaning": "Đi lại thường xuyên",
+    "meaningEn": "Commute",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -16997,6 +18722,7 @@ const ALL_STUDY_ITEMS = [
       "こうつう"
     ],
     "meaning": "Giao thông",
+    "meaningEn": "Traffic, transportation",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -17008,6 +18734,7 @@ const ALL_STUDY_ITEMS = [
       "ふつう"
     ],
     "meaning": "Bình thường, tàu thường",
+    "meaningEn": "Normal, local train",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -17019,6 +18746,7 @@ const ALL_STUDY_ITEMS = [
       "のる"
     ],
     "meaning": "Lên xe, đi phương tiện",
+    "meaningEn": "Ride, get on",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -17030,6 +18758,7 @@ const ALL_STUDY_ITEMS = [
       "のりもの"
     ],
     "meaning": "Phương tiện giao thông",
+    "meaningEn": "Vehicle",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -17041,6 +18770,7 @@ const ALL_STUDY_ITEMS = [
       "じょうば"
     ],
     "meaning": "Cưỡi ngựa",
+    "meaningEn": "Horseback riding",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -17052,6 +18782,7 @@ const ALL_STUDY_ITEMS = [
       "ぎんこう"
     ],
     "meaning": "Ngân hàng",
+    "meaningEn": "Bank",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -17063,6 +18794,7 @@ const ALL_STUDY_ITEMS = [
       "りょこう"
     ],
     "meaning": "Du lịch",
+    "meaningEn": "Travel, trip",
     "topicId": "n5_05",
     "level": "N5"
   },
@@ -17074,6 +18806,7 @@ const ALL_STUDY_ITEMS = [
       "まなぶ"
     ],
     "meaning": "Học hỏi",
+    "meaningEn": "Learn, study",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17085,6 +18818,7 @@ const ALL_STUDY_ITEMS = [
       "がっこう"
     ],
     "meaning": "Trường học",
+    "meaningEn": "School",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17096,6 +18830,7 @@ const ALL_STUDY_ITEMS = [
       "しょうがっこう"
     ],
     "meaning": "Trường tiểu học",
+    "meaningEn": "Elementary school",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17107,6 +18842,7 @@ const ALL_STUDY_ITEMS = [
       "ちゅうがっこう"
     ],
     "meaning": "Trường trung học cơ sở",
+    "meaningEn": "Junior high school",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17118,6 +18854,7 @@ const ALL_STUDY_ITEMS = [
       "こうこう"
     ],
     "meaning": "Trường trung học phổ thông",
+    "meaningEn": "High school",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17129,6 +18866,7 @@ const ALL_STUDY_ITEMS = [
       "だいがく"
     ],
     "meaning": "Trường đại học",
+    "meaningEn": "University",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17140,6 +18878,7 @@ const ALL_STUDY_ITEMS = [
       "がくせい"
     ],
     "meaning": "Học sinh, sinh viên",
+    "meaningEn": "Student",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17151,6 +18890,7 @@ const ALL_STUDY_ITEMS = [
       "だいがくせい"
     ],
     "meaning": "Sinh viên đại học",
+    "meaningEn": "University student",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17162,6 +18902,7 @@ const ALL_STUDY_ITEMS = [
       "こうこうせい"
     ],
     "meaning": "Học sinh cấp 3",
+    "meaningEn": "High school student",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17173,6 +18914,7 @@ const ALL_STUDY_ITEMS = [
       "せんせい"
     ],
     "meaning": "Giáo viên, bác sĩ",
+    "meaningEn": "Teacher, doctor",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17184,6 +18926,7 @@ const ALL_STUDY_ITEMS = [
       "うまれる"
     ],
     "meaning": "Được sinh ra",
+    "meaningEn": "Be born",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17195,6 +18938,7 @@ const ALL_STUDY_ITEMS = [
       "いきる"
     ],
     "meaning": "Sống",
+    "meaningEn": "Live, be alive",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17206,6 +18950,7 @@ const ALL_STUDY_ITEMS = [
       "うむ"
     ],
     "meaning": "Sinh nở",
+    "meaningEn": "Give birth",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17217,6 +18962,7 @@ const ALL_STUDY_ITEMS = [
       "たんじょうび"
     ],
     "meaning": "Sinh nhật",
+    "meaningEn": "Birthday",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17228,6 +18974,7 @@ const ALL_STUDY_ITEMS = [
       "ほん"
     ],
     "meaning": "Sách",
+    "meaningEn": "Book",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17239,6 +18986,7 @@ const ALL_STUDY_ITEMS = [
       "ほんや"
     ],
     "meaning": "Hiệu sách",
+    "meaningEn": "Bookstore",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17250,6 +18998,7 @@ const ALL_STUDY_ITEMS = [
       "にほん"
     ],
     "meaning": "Nhật Bản",
+    "meaningEn": "Japan",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17261,6 +19010,7 @@ const ALL_STUDY_ITEMS = [
       "ほんとう"
     ],
     "meaning": "Thật sự",
+    "meaningEn": "Truth, really",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17272,6 +19022,7 @@ const ALL_STUDY_ITEMS = [
       "かたる"
     ],
     "meaning": "Kể chuyện",
+    "meaningEn": "Tell, narrate",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17283,6 +19034,7 @@ const ALL_STUDY_ITEMS = [
       "にほんご"
     ],
     "meaning": "Tiếng Nhật",
+    "meaningEn": "Japanese language",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17294,6 +19046,7 @@ const ALL_STUDY_ITEMS = [
       "えいご"
     ],
     "meaning": "Tiếng Anh",
+    "meaningEn": "English language",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17305,6 +19058,7 @@ const ALL_STUDY_ITEMS = [
       "がいこくご"
     ],
     "meaning": "Ngoại ngữ",
+    "meaningEn": "Foreign language",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17316,6 +19070,7 @@ const ALL_STUDY_ITEMS = [
       "ぼこくご"
     ],
     "meaning": "Tiếng mẹ đẻ",
+    "meaningEn": "Native language",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17327,6 +19082,7 @@ const ALL_STUDY_ITEMS = [
       "ぶん"
     ],
     "meaning": "Câu văn",
+    "meaningEn": "Sentence, text",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17338,6 +19094,7 @@ const ALL_STUDY_ITEMS = [
       "ぶんしょう"
     ],
     "meaning": "Đoạn văn, bài văn",
+    "meaningEn": "Passage, essay",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17349,6 +19106,7 @@ const ALL_STUDY_ITEMS = [
       "さくぶん"
     ],
     "meaning": "Bài tập làm văn",
+    "meaningEn": "Composition, essay",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17360,6 +19118,7 @@ const ALL_STUDY_ITEMS = [
       "ぶんか"
     ],
     "meaning": "Văn hóa",
+    "meaningEn": "Culture",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17371,6 +19130,7 @@ const ALL_STUDY_ITEMS = [
       "よむ"
     ],
     "meaning": "Đọc",
+    "meaningEn": "Read",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17382,6 +19142,7 @@ const ALL_STUDY_ITEMS = [
       "どくしょ"
     ],
     "meaning": "Đọc sách",
+    "meaningEn": "Reading books",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17393,6 +19154,7 @@ const ALL_STUDY_ITEMS = [
       "みる"
     ],
     "meaning": "Nhìn, xem",
+    "meaningEn": "See, watch, look",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17404,6 +19166,7 @@ const ALL_STUDY_ITEMS = [
       "みせる"
     ],
     "meaning": "Cho xem",
+    "meaningEn": "Show",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17415,6 +19178,7 @@ const ALL_STUDY_ITEMS = [
       "みえる"
     ],
     "meaning": "Nhìn thấy",
+    "meaningEn": "Be visible",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17426,6 +19190,7 @@ const ALL_STUDY_ITEMS = [
       "きく"
     ],
     "meaning": "Nghe, hỏi",
+    "meaningEn": "Listen, ask",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17437,6 +19202,7 @@ const ALL_STUDY_ITEMS = [
       "きこえる"
     ],
     "meaning": "Nghe thấy",
+    "meaningEn": "Be audible",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17448,6 +19214,7 @@ const ALL_STUDY_ITEMS = [
       "しんぶん"
     ],
     "meaning": "Tờ báo",
+    "meaningEn": "Newspaper",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17459,6 +19226,7 @@ const ALL_STUDY_ITEMS = [
       "かく"
     ],
     "meaning": "Viết",
+    "meaningEn": "Write",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17470,6 +19238,7 @@ const ALL_STUDY_ITEMS = [
       "じしょ"
     ],
     "meaning": "Từ điển",
+    "meaningEn": "Dictionary",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17481,6 +19250,7 @@ const ALL_STUDY_ITEMS = [
       "いう"
     ],
     "meaning": "Nói",
+    "meaningEn": "Say",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17492,6 +19262,7 @@ const ALL_STUDY_ITEMS = [
       "ことば"
     ],
     "meaning": "Từ ngữ, ngôn ngữ",
+    "meaningEn": "Word, language",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17503,6 +19274,7 @@ const ALL_STUDY_ITEMS = [
       "はなす"
     ],
     "meaning": "Nói chuyện",
+    "meaningEn": "Speak, talk",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17514,6 +19286,7 @@ const ALL_STUDY_ITEMS = [
       "はなし"
     ],
     "meaning": "Câu chuyện",
+    "meaningEn": "Story, talk",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17525,6 +19298,7 @@ const ALL_STUDY_ITEMS = [
       "かいわ"
     ],
     "meaning": "Hội thoại",
+    "meaningEn": "Conversation",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17536,6 +19310,7 @@ const ALL_STUDY_ITEMS = [
       "でんわ"
     ],
     "meaning": "Điện thoại",
+    "meaningEn": "Telephone",
     "topicId": "n5_06",
     "level": "N5"
   },
@@ -17547,6 +19322,7 @@ const ALL_STUDY_ITEMS = [
       "たべる"
     ],
     "meaning": "Ăn",
+    "meaningEn": "Eat",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17558,6 +19334,7 @@ const ALL_STUDY_ITEMS = [
       "たべもの"
     ],
     "meaning": "Đồ ăn",
+    "meaningEn": "Food",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17569,6 +19346,7 @@ const ALL_STUDY_ITEMS = [
       "しょくじ"
     ],
     "meaning": "Bữa ăn, việc ăn uống",
+    "meaningEn": "Meal",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17580,6 +19358,7 @@ const ALL_STUDY_ITEMS = [
       "のむ"
     ],
     "meaning": "Uống",
+    "meaningEn": "Drink",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17591,6 +19370,7 @@ const ALL_STUDY_ITEMS = [
       "のみもの"
     ],
     "meaning": "Đồ uống",
+    "meaningEn": "Beverage, drink",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17602,6 +19382,7 @@ const ALL_STUDY_ITEMS = [
       "さかな"
     ],
     "meaning": "Cá",
+    "meaningEn": "Fish",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17613,6 +19394,7 @@ const ALL_STUDY_ITEMS = [
       "なまざかな"
     ],
     "meaning": "Cá sống",
+    "meaningEn": "Raw fish",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17624,6 +19406,7 @@ const ALL_STUDY_ITEMS = [
       "やきざかな"
     ],
     "meaning": "Cá nướng",
+    "meaningEn": "Grilled fish",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17635,6 +19418,7 @@ const ALL_STUDY_ITEMS = [
       "さかなや"
     ],
     "meaning": "Tiệm cá",
+    "meaningEn": "Fish shop",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17646,6 +19430,7 @@ const ALL_STUDY_ITEMS = [
       "きんぎょ"
     ],
     "meaning": "Cá vàng",
+    "meaningEn": "Goldfish",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17657,6 +19442,7 @@ const ALL_STUDY_ITEMS = [
       "にく"
     ],
     "meaning": "Thịt",
+    "meaningEn": "Meat",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17668,6 +19454,7 @@ const ALL_STUDY_ITEMS = [
       "ぎゅうにく"
     ],
     "meaning": "Thịt bò",
+    "meaningEn": "Beef",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17679,6 +19466,7 @@ const ALL_STUDY_ITEMS = [
       "やきにく"
     ],
     "meaning": "Thịt nướng",
+    "meaningEn": "Grilled meat (yakiniku)",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17690,6 +19478,7 @@ const ALL_STUDY_ITEMS = [
       "たまご"
     ],
     "meaning": "Trứng",
+    "meaningEn": "Egg",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17701,6 +19490,7 @@ const ALL_STUDY_ITEMS = [
       "なまたまご"
     ],
     "meaning": "Trứng sống",
+    "meaningEn": "Raw egg",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17712,6 +19502,7 @@ const ALL_STUDY_ITEMS = [
       "なまビール"
     ],
     "meaning": "Bia tươi",
+    "meaningEn": "Draft beer",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17723,6 +19514,7 @@ const ALL_STUDY_ITEMS = [
       "おちゃ"
     ],
     "meaning": "Trà",
+    "meaningEn": "Green tea, tea",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17734,6 +19526,7 @@ const ALL_STUDY_ITEMS = [
       "こうちゃ"
     ],
     "meaning": "Hồng trà, trà đen",
+    "meaningEn": "Black tea",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17745,6 +19538,7 @@ const ALL_STUDY_ITEMS = [
       "かう"
     ],
     "meaning": "Mua",
+    "meaningEn": "Buy",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17756,6 +19550,7 @@ const ALL_STUDY_ITEMS = [
       "かいもの"
     ],
     "meaning": "Mua sắm",
+    "meaningEn": "Shopping",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17767,6 +19562,7 @@ const ALL_STUDY_ITEMS = [
       "みせ"
     ],
     "meaning": "Cửa hàng",
+    "meaningEn": "Shop, store",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17778,6 +19574,7 @@ const ALL_STUDY_ITEMS = [
       "てんいん"
     ],
     "meaning": "Nhân viên cửa hàng",
+    "meaningEn": "Store clerk",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17789,6 +19586,7 @@ const ALL_STUDY_ITEMS = [
       "たかい"
     ],
     "meaning": "Cao, đắt",
+    "meaningEn": "Tall, high, expensive",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17800,6 +19598,7 @@ const ALL_STUDY_ITEMS = [
       "やすい"
     ],
     "meaning": "Rẻ",
+    "meaningEn": "Cheap, inexpensive",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17811,6 +19610,7 @@ const ALL_STUDY_ITEMS = [
       "おおい"
     ],
     "meaning": "Nhiều",
+    "meaningEn": "Many, much",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17822,6 +19622,7 @@ const ALL_STUDY_ITEMS = [
       "たぶん"
     ],
     "meaning": "Có lẽ",
+    "meaningEn": "Probably, maybe",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17833,6 +19634,7 @@ const ALL_STUDY_ITEMS = [
       "たすう"
     ],
     "meaning": "Số đông",
+    "meaningEn": "Majority, large number",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17844,6 +19646,7 @@ const ALL_STUDY_ITEMS = [
       "すくない"
     ],
     "meaning": "Ít",
+    "meaningEn": "Few, little",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17855,6 +19658,7 @@ const ALL_STUDY_ITEMS = [
       "すこし"
     ],
     "meaning": "Một chút",
+    "meaningEn": "A little, slightly",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17866,6 +19670,7 @@ const ALL_STUDY_ITEMS = [
       "しょうねん"
     ],
     "meaning": "Thiếu niên",
+    "meaningEn": "Boy, youth",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17877,6 +19682,7 @@ const ALL_STUDY_ITEMS = [
       "あたらしい"
     ],
     "meaning": "Mới",
+    "meaningEn": "New",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17888,6 +19694,7 @@ const ALL_STUDY_ITEMS = [
       "ふるい"
     ],
     "meaning": "Cũ",
+    "meaningEn": "Old (objects)",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17899,6 +19706,7 @@ const ALL_STUDY_ITEMS = [
       "ちゅうこ"
     ],
     "meaning": "Đồ cũ, hàng đã qua sử dụng",
+    "meaningEn": "Secondhand, used",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17910,6 +19718,7 @@ const ALL_STUDY_ITEMS = [
       "おおきい"
     ],
     "meaning": "To, lớn",
+    "meaningEn": "Big, large",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17921,6 +19730,7 @@ const ALL_STUDY_ITEMS = [
       "ちいさい"
     ],
     "meaning": "Nhỏ, bé",
+    "meaningEn": "Small, little",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17932,6 +19742,7 @@ const ALL_STUDY_ITEMS = [
       "ながい"
     ],
     "meaning": "Dài",
+    "meaningEn": "Long",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17943,6 +19754,7 @@ const ALL_STUDY_ITEMS = [
       "こうちょう"
     ],
     "meaning": "Hiệu trưởng",
+    "meaningEn": "School principal",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17954,6 +19766,7 @@ const ALL_STUDY_ITEMS = [
       "しゃちょう"
     ],
     "meaning": "Giám đốc công ty",
+    "meaningEn": "Company president",
     "topicId": "n5_07",
     "level": "N5"
   },
@@ -17965,6 +19778,7 @@ const ALL_STUDY_ITEMS = [
       "やま"
     ],
     "meaning": "Núi",
+    "meaningEn": "Mountain",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -17976,6 +19790,7 @@ const ALL_STUDY_ITEMS = [
       "ふじさん"
     ],
     "meaning": "Núi Phú Sĩ",
+    "meaningEn": "Mount Fuji",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -17987,6 +19802,7 @@ const ALL_STUDY_ITEMS = [
       "かざん"
     ],
     "meaning": "Núi lửa",
+    "meaningEn": "Volcano",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -17998,6 +19814,7 @@ const ALL_STUDY_ITEMS = [
       "かわ"
     ],
     "meaning": "Sông",
+    "meaningEn": "River",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18009,6 +19826,7 @@ const ALL_STUDY_ITEMS = [
       "おがわ"
     ],
     "meaning": "Suối nhỏ, sông nhỏ",
+    "meaningEn": "Stream, brook",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18020,6 +19838,7 @@ const ALL_STUDY_ITEMS = [
       "おおかわ"
     ],
     "meaning": "Sông lớn",
+    "meaningEn": "Big river",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18031,6 +19850,7 @@ const ALL_STUDY_ITEMS = [
       "かせん"
     ],
     "meaning": "Sông ngòi",
+    "meaningEn": "Rivers",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18042,6 +19862,7 @@ const ALL_STUDY_ITEMS = [
       "うみ"
     ],
     "meaning": "Biển",
+    "meaningEn": "Sea, ocean",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18053,6 +19874,7 @@ const ALL_STUDY_ITEMS = [
       "かいがん"
     ],
     "meaning": "Bờ biển",
+    "meaningEn": "Coast, seashore",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18064,6 +19886,7 @@ const ALL_STUDY_ITEMS = [
       "かいがい"
     ],
     "meaning": "Nước ngoài, hải ngoại",
+    "meaningEn": "Overseas, abroad",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18075,6 +19898,7 @@ const ALL_STUDY_ITEMS = [
       "はな"
     ],
     "meaning": "Hoa",
+    "meaningEn": "Flower",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18086,6 +19910,7 @@ const ALL_STUDY_ITEMS = [
       "はなみ"
     ],
     "meaning": "Ngắm hoa",
+    "meaningEn": "Flower viewing (hanami)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18097,6 +19922,7 @@ const ALL_STUDY_ITEMS = [
       "はなび"
     ],
     "meaning": "Pháo hoa",
+    "meaningEn": "Fireworks",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18108,6 +19934,7 @@ const ALL_STUDY_ITEMS = [
       "かびん"
     ],
     "meaning": "Bình hoa",
+    "meaningEn": "Flower vase",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18119,6 +19946,7 @@ const ALL_STUDY_ITEMS = [
       "てんき"
     ],
     "meaning": "Thời tiết",
+    "meaningEn": "Weather",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18130,6 +19958,7 @@ const ALL_STUDY_ITEMS = [
       "てんこう"
     ],
     "meaning": "Khí hậu",
+    "meaningEn": "Weather, climate",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18141,6 +19970,7 @@ const ALL_STUDY_ITEMS = [
       "げんき"
     ],
     "meaning": "Khỏe mạnh",
+    "meaningEn": "Healthy, energetic",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18152,6 +19982,7 @@ const ALL_STUDY_ITEMS = [
       "くうき"
     ],
     "meaning": "Không khí",
+    "meaningEn": "Air, atmosphere",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18163,6 +19994,7 @@ const ALL_STUDY_ITEMS = [
       "あめ"
     ],
     "meaning": "Mưa",
+    "meaningEn": "Rain",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18174,6 +20006,7 @@ const ALL_STUDY_ITEMS = [
       "おおあめ"
     ],
     "meaning": "Mưa to",
+    "meaningEn": "Heavy rain",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18185,6 +20018,7 @@ const ALL_STUDY_ITEMS = [
       "あまみず"
     ],
     "meaning": "Nước mưa",
+    "meaningEn": "Rainwater",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18196,6 +20030,7 @@ const ALL_STUDY_ITEMS = [
       "そら"
     ],
     "meaning": "Bầu trời",
+    "meaningEn": "Sky",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18207,6 +20042,7 @@ const ALL_STUDY_ITEMS = [
       "あおぞら"
     ],
     "meaning": "Bầu trời xanh",
+    "meaningEn": "Blue sky",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18218,6 +20054,7 @@ const ALL_STUDY_ITEMS = [
       "くうこう"
     ],
     "meaning": "Sân bay",
+    "meaningEn": "Airport",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18229,6 +20066,7 @@ const ALL_STUDY_ITEMS = [
       "からっぽ"
     ],
     "meaning": "Trống rỗng",
+    "meaningEn": "Empty",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18240,6 +20078,7 @@ const ALL_STUDY_ITEMS = [
       "て"
     ],
     "meaning": "Bàn tay",
+    "meaningEn": "Hand",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18251,6 +20090,7 @@ const ALL_STUDY_ITEMS = [
       "みぎて"
     ],
     "meaning": "Tay phải",
+    "meaningEn": "Right hand",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18262,6 +20102,7 @@ const ALL_STUDY_ITEMS = [
       "ひだりて"
     ],
     "meaning": "Tay trái",
+    "meaningEn": "Left hand",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18273,6 +20114,7 @@ const ALL_STUDY_ITEMS = [
       "じょうず"
     ],
     "meaning": "Giỏi, khéo",
+    "meaningEn": "Skillful, good at",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18284,6 +20126,7 @@ const ALL_STUDY_ITEMS = [
       "へた"
     ],
     "meaning": "Kém, vụng",
+    "meaningEn": "Unskillful, poor at",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18295,6 +20138,7 @@ const ALL_STUDY_ITEMS = [
       "あし"
     ],
     "meaning": "Chân",
+    "meaningEn": "Foot, leg",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18306,6 +20150,7 @@ const ALL_STUDY_ITEMS = [
       "たりる"
     ],
     "meaning": "Đủ",
+    "meaningEn": "Be enough, suffice",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18317,6 +20162,7 @@ const ALL_STUDY_ITEMS = [
       "め"
     ],
     "meaning": "Con mắt",
+    "meaningEn": "Eye",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18328,6 +20174,7 @@ const ALL_STUDY_ITEMS = [
       "もくてき"
     ],
     "meaning": "Mục đích",
+    "meaningEn": "Purpose, goal",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18339,6 +20186,7 @@ const ALL_STUDY_ITEMS = [
       "みみ"
     ],
     "meaning": "Cái tai",
+    "meaningEn": "Ear",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18350,6 +20198,7 @@ const ALL_STUDY_ITEMS = [
       "こころ"
     ],
     "meaning": "Trái tim, tấm lòng",
+    "meaningEn": "Heart, mind",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18361,6 +20210,7 @@ const ALL_STUDY_ITEMS = [
       "あんしん"
     ],
     "meaning": "Yên tâm",
+    "meaningEn": "Relief, peace of mind",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18372,6 +20222,7 @@ const ALL_STUDY_ITEMS = [
       "しんぱい"
     ],
     "meaning": "Lo lắng",
+    "meaningEn": "Worry, anxiety",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18383,6 +20234,7 @@ const ALL_STUDY_ITEMS = [
       "ちゅうしん"
     ],
     "meaning": "Trung tâm",
+    "meaningEn": "Center, core",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18394,6 +20246,7 @@ const ALL_STUDY_ITEMS = [
       "しろ"
     ],
     "meaning": "Màu trắng",
+    "meaningEn": "White (noun)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18405,6 +20258,7 @@ const ALL_STUDY_ITEMS = [
       "しろい"
     ],
     "meaning": "Trắng",
+    "meaningEn": "White (adj)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18416,6 +20270,7 @@ const ALL_STUDY_ITEMS = [
       "しろいろ"
     ],
     "meaning": "Màu trắng (danh từ)",
+    "meaningEn": "White color",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18427,6 +20282,7 @@ const ALL_STUDY_ITEMS = [
       "あか"
     ],
     "meaning": "Màu đỏ",
+    "meaningEn": "Red (noun)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18438,6 +20294,7 @@ const ALL_STUDY_ITEMS = [
       "あかい"
     ],
     "meaning": "Đỏ",
+    "meaningEn": "Red (adj)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18449,6 +20306,7 @@ const ALL_STUDY_ITEMS = [
       "あかちゃん"
     ],
     "meaning": "Em bé",
+    "meaningEn": "Baby, infant",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18460,6 +20318,7 @@ const ALL_STUDY_ITEMS = [
       "あかしんごう"
     ],
     "meaning": "Đèn đỏ giao thông",
+    "meaningEn": "Red traffic light",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18471,6 +20330,7 @@ const ALL_STUDY_ITEMS = [
       "あお"
     ],
     "meaning": "Màu xanh lam",
+    "meaningEn": "Blue (noun)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18482,6 +20342,7 @@ const ALL_STUDY_ITEMS = [
       "あおい"
     ],
     "meaning": "Xanh lam",
+    "meaningEn": "Blue (adj)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18493,6 +20354,7 @@ const ALL_STUDY_ITEMS = [
       "あおいろ"
     ],
     "meaning": "Màu xanh lam (danh từ)",
+    "meaningEn": "Blue color",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18504,6 +20366,7 @@ const ALL_STUDY_ITEMS = [
       "あおしんごう"
     ],
     "meaning": "Đèn xanh giao thông",
+    "meaningEn": "Green traffic light",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18515,6 +20378,7 @@ const ALL_STUDY_ITEMS = [
       "くろ"
     ],
     "meaning": "Màu đen",
+    "meaningEn": "Black (noun)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18526,6 +20390,7 @@ const ALL_STUDY_ITEMS = [
       "くろい"
     ],
     "meaning": "Đen",
+    "meaningEn": "Black (adj)",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18537,6 +20402,7 @@ const ALL_STUDY_ITEMS = [
       "くろいろ"
     ],
     "meaning": "Màu đen (danh từ)",
+    "meaningEn": "Black color",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18548,6 +20414,7 @@ const ALL_STUDY_ITEMS = [
       "こくばん"
     ],
     "meaning": "Bảng đen",
+    "meaningEn": "Blackboard",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18559,6 +20426,7 @@ const ALL_STUDY_ITEMS = [
       "くろねこ"
     ],
     "meaning": "Mèo đen",
+    "meaningEn": "Black cat",
     "topicId": "n5_08",
     "level": "N5"
   },
@@ -18570,6 +20438,7 @@ const ALL_STUDY_ITEMS = [
       "あに"
     ],
     "meaning": "Anh trai (của mình)",
+    "meaningEn": "Older brother (humble)",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18581,6 +20450,7 @@ const ALL_STUDY_ITEMS = [
       "おにいさん"
     ],
     "meaning": "Anh trai",
+    "meaningEn": "Older brother",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18592,6 +20462,7 @@ const ALL_STUDY_ITEMS = [
       "きょうだい"
     ],
     "meaning": "Anh chị em",
+    "meaningEn": "Siblings",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18603,6 +20474,7 @@ const ALL_STUDY_ITEMS = [
       "あね"
     ],
     "meaning": "Chị gái (của mình)",
+    "meaningEn": "Older sister (humble)",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18614,6 +20486,7 @@ const ALL_STUDY_ITEMS = [
       "おねえさん"
     ],
     "meaning": "Chị gái",
+    "meaningEn": "Older sister",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18625,6 +20498,7 @@ const ALL_STUDY_ITEMS = [
       "しまい"
     ],
     "meaning": "Chị em gái",
+    "meaningEn": "Sisters",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18636,6 +20510,7 @@ const ALL_STUDY_ITEMS = [
       "おとうと"
     ],
     "meaning": "Em trai",
+    "meaningEn": "Younger brother",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18647,6 +20522,7 @@ const ALL_STUDY_ITEMS = [
       "いもうと"
     ],
     "meaning": "Em gái",
+    "meaningEn": "Younger sister",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18659,6 +20535,7 @@ const ALL_STUDY_ITEMS = [
       "うち"
     ],
     "meaning": "Nhà, gia đình",
+    "meaningEn": "House, home",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18670,6 +20547,7 @@ const ALL_STUDY_ITEMS = [
       "かぞく"
     ],
     "meaning": "Gia đình",
+    "meaningEn": "Family",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18681,6 +20559,7 @@ const ALL_STUDY_ITEMS = [
       "おや"
     ],
     "meaning": "Cha mẹ",
+    "meaningEn": "Parent",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18692,6 +20571,7 @@ const ALL_STUDY_ITEMS = [
       "りょうしん"
     ],
     "meaning": "Bố mẹ, song thân",
+    "meaningEn": "Both parents",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18703,6 +20583,7 @@ const ALL_STUDY_ITEMS = [
       "しんせつ"
     ],
     "meaning": "Thân thiện, tốt bụng",
+    "meaningEn": "Kind, friendly",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18714,6 +20595,7 @@ const ALL_STUDY_ITEMS = [
       "しんゆう"
     ],
     "meaning": "Bạn thân",
+    "meaningEn": "Close friend",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18725,6 +20607,7 @@ const ALL_STUDY_ITEMS = [
       "すむ"
     ],
     "meaning": "Sinh sống, cư trú",
+    "meaningEn": "Live, reside",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18736,6 +20619,7 @@ const ALL_STUDY_ITEMS = [
       "じゅうしょ"
     ],
     "meaning": "Địa chỉ",
+    "meaningEn": "Address",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18747,6 +20631,7 @@ const ALL_STUDY_ITEMS = [
       "しごと"
     ],
     "meaning": "Công việc",
+    "meaningEn": "Work, job",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18758,6 +20643,7 @@ const ALL_STUDY_ITEMS = [
       "しかた"
     ],
     "meaning": "Cách làm, phương pháp",
+    "meaningEn": "Way, method",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18769,6 +20655,7 @@ const ALL_STUDY_ITEMS = [
       "はたらく"
     ],
     "meaning": "Làm việc, lao động",
+    "meaningEn": "Work, labor",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18780,6 +20667,7 @@ const ALL_STUDY_ITEMS = [
       "かいしゃ"
     ],
     "meaning": "Công ty",
+    "meaningEn": "Company",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18791,6 +20679,7 @@ const ALL_STUDY_ITEMS = [
       "しゃいん"
     ],
     "meaning": "Nhân viên công ty",
+    "meaningEn": "Company employee",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18802,6 +20691,7 @@ const ALL_STUDY_ITEMS = [
       "かいしゃいん"
     ],
     "meaning": "Nhân viên văn phòng",
+    "meaningEn": "Office worker",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18813,6 +20703,7 @@ const ALL_STUDY_ITEMS = [
       "しゃかい"
     ],
     "meaning": "Xã hội",
+    "meaningEn": "Society",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18824,6 +20715,7 @@ const ALL_STUDY_ITEMS = [
       "ぜんいん"
     ],
     "meaning": "Toàn thể nhân viên / mọi người",
+    "meaningEn": "Everyone, all members",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18835,6 +20727,7 @@ const ALL_STUDY_ITEMS = [
       "おっと"
     ],
     "meaning": "Chồng",
+    "meaningEn": "Husband",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18846,6 +20739,7 @@ const ALL_STUDY_ITEMS = [
       "だいじょうぶ"
     ],
     "meaning": "Không sao, ổn",
+    "meaningEn": "All right, okay",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18857,6 +20751,7 @@ const ALL_STUDY_ITEMS = [
       "つま"
     ],
     "meaning": "Vợ",
+    "meaningEn": "Wife",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18868,6 +20763,7 @@ const ALL_STUDY_ITEMS = [
       "ふさい"
     ],
     "meaning": "Vợ chồng",
+    "meaningEn": "Husband and wife (formal)",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18879,6 +20775,7 @@ const ALL_STUDY_ITEMS = [
       "ふうふ"
     ],
     "meaning": "Hai vợ chồng",
+    "meaningEn": "Married couple",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18890,6 +20787,7 @@ const ALL_STUDY_ITEMS = [
       "むすぶ"
     ],
     "meaning": "Buộc, nối, kết lại",
+    "meaningEn": "Tie, bind, connect",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18901,6 +20799,7 @@ const ALL_STUDY_ITEMS = [
       "けっこん"
     ],
     "meaning": "Kết hôn",
+    "meaningEn": "Marriage",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18912,6 +20811,7 @@ const ALL_STUDY_ITEMS = [
       "けっか"
     ],
     "meaning": "Kết quả",
+    "meaningEn": "Result, outcome",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18923,6 +20823,7 @@ const ALL_STUDY_ITEMS = [
       "さい"
     ],
     "meaning": "Tuổi",
+    "meaningEn": "Years of age",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18934,6 +20835,7 @@ const ALL_STUDY_ITEMS = [
       "はたち"
     ],
     "meaning": "20 tuổi",
+    "meaningEn": "20 years old",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18945,6 +20847,7 @@ const ALL_STUDY_ITEMS = [
       "せかい"
     ],
     "meaning": "Thế giới",
+    "meaningEn": "World",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18956,6 +20859,7 @@ const ALL_STUDY_ITEMS = [
       "せわ"
     ],
     "meaning": "Sự chăm sóc, giúp đỡ",
+    "meaningEn": "Care, help",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18967,6 +20871,7 @@ const ALL_STUDY_ITEMS = [
       "かれ"
     ],
     "meaning": "Anh ấy, bạn trai",
+    "meaningEn": "He, boyfriend",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18978,6 +20883,7 @@ const ALL_STUDY_ITEMS = [
       "かのじょ"
     ],
     "meaning": "Cô ấy, bạn gái",
+    "meaningEn": "She, girlfriend",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -18989,6 +20895,7 @@ const ALL_STUDY_ITEMS = [
       "くに"
     ],
     "meaning": "Đất nước, quốc gia",
+    "meaningEn": "Country, nation",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19000,6 +20907,7 @@ const ALL_STUDY_ITEMS = [
       "ちゅうごく"
     ],
     "meaning": "Trung Quốc",
+    "meaningEn": "China",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19011,6 +20919,7 @@ const ALL_STUDY_ITEMS = [
       "かんこく"
     ],
     "meaning": "Hàn Quốc",
+    "meaningEn": "South Korea",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19022,6 +20931,7 @@ const ALL_STUDY_ITEMS = [
       "べいこく"
     ],
     "meaning": "Nước Mỹ",
+    "meaningEn": "United States",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19033,6 +20943,7 @@ const ALL_STUDY_ITEMS = [
       "えいこく"
     ],
     "meaning": "Nước Anh",
+    "meaningEn": "United Kingdom",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19044,6 +20955,7 @@ const ALL_STUDY_ITEMS = [
       "こくさい"
     ],
     "meaning": "Quốc tế",
+    "meaningEn": "International",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19055,6 +20967,7 @@ const ALL_STUDY_ITEMS = [
       "えいゆう"
     ],
     "meaning": "Anh hùng",
+    "meaningEn": "Hero",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19066,6 +20979,7 @@ const ALL_STUDY_ITEMS = [
       "しゅふ"
     ],
     "meaning": "Nội trợ",
+    "meaningEn": "Housewife",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19077,6 +20991,7 @@ const ALL_STUDY_ITEMS = [
       "しゅじんこう"
     ],
     "meaning": "Nhân vật chính",
+    "meaningEn": "Main character, protagonist",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19088,6 +21003,7 @@ const ALL_STUDY_ITEMS = [
       "せんぱい"
     ],
     "meaning": "Tiền bối",
+    "meaningEn": "Senior (senpai)",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19099,6 +21015,7 @@ const ALL_STUDY_ITEMS = [
       "こうはい"
     ],
     "meaning": "Hậu bối",
+    "meaningEn": "Junior (kohai)",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19110,6 +21027,7 @@ const ALL_STUDY_ITEMS = [
       "かちょう"
     ],
     "meaning": "Trưởng phòng ban / tổ trưởng",
+    "meaningEn": "Section manager",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19121,6 +21039,7 @@ const ALL_STUDY_ITEMS = [
       "ざんぎょう"
     ],
     "meaning": "Làm thêm giờ, tăng ca",
+    "meaningEn": "Overtime work",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19132,6 +21051,7 @@ const ALL_STUDY_ITEMS = [
       "しゅっちょう"
     ],
     "meaning": "Đi công tác",
+    "meaningEn": "Business trip",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19143,6 +21063,7 @@ const ALL_STUDY_ITEMS = [
       "しゅうしょく"
     ],
     "meaning": "Xin việc, đi làm",
+    "meaningEn": "Finding employment",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19154,6 +21075,7 @@ const ALL_STUDY_ITEMS = [
       "ひっこし"
     ],
     "meaning": "Chuyển nhà",
+    "meaningEn": "Moving house",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19165,6 +21087,7 @@ const ALL_STUDY_ITEMS = [
       "あいさつ"
     ],
     "meaning": "Chào hỏi",
+    "meaningEn": "Greeting",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19176,6 +21099,7 @@ const ALL_STUDY_ITEMS = [
       "そうだん"
     ],
     "meaning": "Trao đổi, bàn bạc, tư vấn",
+    "meaningEn": "Consultation, discussion",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19187,6 +21111,7 @@ const ALL_STUDY_ITEMS = [
       "れんらく"
     ],
     "meaning": "Liên lạc",
+    "meaningEn": "Contact, notification",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19198,6 +21123,7 @@ const ALL_STUDY_ITEMS = [
       "しょうかい"
     ],
     "meaning": "Giới thiệu",
+    "meaningEn": "Introduction",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19209,6 +21135,7 @@ const ALL_STUDY_ITEMS = [
       "けっこんしき"
     ],
     "meaning": "Lễ cưới",
+    "meaningEn": "Wedding ceremony",
     "topicId": "n4_01",
     "level": "N4"
   },
@@ -19220,6 +21147,7 @@ const ALL_STUDY_ITEMS = [
       "あさ"
     ],
     "meaning": "Buổi sáng",
+    "meaningEn": "Morning",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19231,6 +21159,7 @@ const ALL_STUDY_ITEMS = [
       "けさ"
     ],
     "meaning": "Sáng nay",
+    "meaningEn": "This morning",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19242,6 +21171,7 @@ const ALL_STUDY_ITEMS = [
       "まいあさ"
     ],
     "meaning": "Mỗi sáng",
+    "meaningEn": "Every morning",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19253,6 +21183,7 @@ const ALL_STUDY_ITEMS = [
       "ひる"
     ],
     "meaning": "Buổi trưa, ban ngày",
+    "meaningEn": "Noon, daytime",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19264,6 +21195,7 @@ const ALL_STUDY_ITEMS = [
       "ひるやすみ"
     ],
     "meaning": "Giờ nghỉ trưa",
+    "meaningEn": "Lunch break",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19275,6 +21207,7 @@ const ALL_STUDY_ITEMS = [
       "ひるね"
     ],
     "meaning": "Ngủ trưa",
+    "meaningEn": "Afternoon nap",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19286,6 +21219,7 @@ const ALL_STUDY_ITEMS = [
       "よる"
     ],
     "meaning": "Buổi tối, ban đêm",
+    "meaningEn": "Night, evening",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19297,6 +21231,7 @@ const ALL_STUDY_ITEMS = [
       "こんや"
     ],
     "meaning": "Tối nay",
+    "meaningEn": "Tonight",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19308,6 +21243,7 @@ const ALL_STUDY_ITEMS = [
       "やけい"
     ],
     "meaning": "Cảnh đêm",
+    "meaningEn": "Night view",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19319,6 +21255,7 @@ const ALL_STUDY_ITEMS = [
       "やきん"
     ],
     "meaning": "Làm ca đêm",
+    "meaningEn": "Night shift",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19330,6 +21267,7 @@ const ALL_STUDY_ITEMS = [
       "ばん"
     ],
     "meaning": "Buổi tối",
+    "meaningEn": "Evening, night",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19341,6 +21279,7 @@ const ALL_STUDY_ITEMS = [
       "こんばん"
     ],
     "meaning": "Tối nay",
+    "meaningEn": "This evening",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19352,6 +21291,7 @@ const ALL_STUDY_ITEMS = [
       "まいばん"
     ],
     "meaning": "Mỗi tối",
+    "meaningEn": "Every evening",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19363,6 +21303,7 @@ const ALL_STUDY_ITEMS = [
       "きのう"
     ],
     "meaning": "Hôm qua",
+    "meaningEn": "Yesterday",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19374,6 +21315,7 @@ const ALL_STUDY_ITEMS = [
       "さくねん"
     ],
     "meaning": "Năm ngoái (trang trọng)",
+    "meaningEn": "Last year (formal)",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19385,6 +21327,7 @@ const ALL_STUDY_ITEMS = [
       "きょねん"
     ],
     "meaning": "Năm ngoái",
+    "meaningEn": "Last year",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19396,6 +21339,7 @@ const ALL_STUDY_ITEMS = [
       "かこ"
     ],
     "meaning": "Quá khứ",
+    "meaningEn": "The past",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19407,6 +21351,7 @@ const ALL_STUDY_ITEMS = [
       "はる"
     ],
     "meaning": "Mùa xuân",
+    "meaningEn": "Spring",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19418,6 +21363,7 @@ const ALL_STUDY_ITEMS = [
       "はるやすみ"
     ],
     "meaning": "Kỳ nghỉ xuân",
+    "meaningEn": "Spring break",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19429,6 +21375,7 @@ const ALL_STUDY_ITEMS = [
       "せいしゅん"
     ],
     "meaning": "Tuổi thanh xuân",
+    "meaningEn": "Youth, springtime of life",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19440,6 +21387,7 @@ const ALL_STUDY_ITEMS = [
       "なつ"
     ],
     "meaning": "Mùa hè",
+    "meaningEn": "Summer",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19451,6 +21399,7 @@ const ALL_STUDY_ITEMS = [
       "なつやすみ"
     ],
     "meaning": "Kỳ nghỉ hè",
+    "meaningEn": "Summer vacation",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19462,6 +21411,7 @@ const ALL_STUDY_ITEMS = [
       "しょか"
     ],
     "meaning": "Đầu hè",
+    "meaningEn": "Early summer",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19473,6 +21423,7 @@ const ALL_STUDY_ITEMS = [
       "あき"
     ],
     "meaning": "Mùa thu",
+    "meaningEn": "Autumn, fall",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19484,6 +21435,7 @@ const ALL_STUDY_ITEMS = [
       "あきかぜ"
     ],
     "meaning": "Gió thu",
+    "meaningEn": "Autumn breeze",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19495,6 +21447,7 @@ const ALL_STUDY_ITEMS = [
       "しゅうぶん"
     ],
     "meaning": "Thu phân",
+    "meaningEn": "Autumnal equinox",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19506,6 +21459,7 @@ const ALL_STUDY_ITEMS = [
       "ふゆ"
     ],
     "meaning": "Mùa đông",
+    "meaningEn": "Winter",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19517,6 +21471,7 @@ const ALL_STUDY_ITEMS = [
       "ふゆやすみ"
     ],
     "meaning": "Kỳ nghỉ đông",
+    "meaningEn": "Winter vacation",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19528,6 +21483,7 @@ const ALL_STUDY_ITEMS = [
       "とうじ"
     ],
     "meaning": "Đông chí",
+    "meaningEn": "Winter solstice",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19539,6 +21495,7 @@ const ALL_STUDY_ITEMS = [
       "しき"
     ],
     "meaning": "Bốn mùa",
+    "meaningEn": "Four seasons",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19550,6 +21507,7 @@ const ALL_STUDY_ITEMS = [
       "きせつ"
     ],
     "meaning": "Mùa, thời tiết theo mùa",
+    "meaningEn": "Season",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19561,6 +21519,7 @@ const ALL_STUDY_ITEMS = [
       "はれ"
     ],
     "meaning": "Trời nắng, trời quang",
+    "meaningEn": "Sunny, clear weather",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19572,6 +21531,7 @@ const ALL_STUDY_ITEMS = [
       "はれる"
     ],
     "meaning": "Hửng nắng, quang đãng",
+    "meaningEn": "Clear up (weather)",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19583,6 +21543,7 @@ const ALL_STUDY_ITEMS = [
       "せいてん"
     ],
     "meaning": "Trời quang mây tạnh",
+    "meaningEn": "Clear sky, fine weather",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19594,6 +21555,7 @@ const ALL_STUDY_ITEMS = [
       "くも"
     ],
     "meaning": "Mây",
+    "meaningEn": "Cloud",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19605,6 +21567,7 @@ const ALL_STUDY_ITEMS = [
       "あまぐも"
     ],
     "meaning": "Mây mưa",
+    "meaningEn": "Rain cloud",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19616,6 +21579,7 @@ const ALL_STUDY_ITEMS = [
       "うんかい"
     ],
     "meaning": "Biển mây",
+    "meaningEn": "Sea of clouds",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19627,6 +21591,7 @@ const ALL_STUDY_ITEMS = [
       "くもり"
     ],
     "meaning": "Trời có mây, âm u",
+    "meaningEn": "Cloudy weather",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19638,6 +21603,7 @@ const ALL_STUDY_ITEMS = [
       "かぜ"
     ],
     "meaning": "Gió",
+    "meaningEn": "Wind",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19649,6 +21615,7 @@ const ALL_STUDY_ITEMS = [
       "たいふう"
     ],
     "meaning": "Bão",
+    "meaningEn": "Typhoon",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19660,6 +21627,7 @@ const ALL_STUDY_ITEMS = [
       "つゆ"
     ],
     "meaning": "Mùa mưa",
+    "meaningEn": "Rainy season",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19671,6 +21639,7 @@ const ALL_STUDY_ITEMS = [
       "ゆき"
     ],
     "meaning": "Tuyết",
+    "meaningEn": "Snow",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19682,6 +21651,7 @@ const ALL_STUDY_ITEMS = [
       "おおゆき"
     ],
     "meaning": "Tuyết rơi dày",
+    "meaningEn": "Heavy snow",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19693,6 +21663,7 @@ const ALL_STUDY_ITEMS = [
       "あつい"
     ],
     "meaning": "Nóng (thời tiết)",
+    "meaningEn": "Hot (weather)",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19704,6 +21675,7 @@ const ALL_STUDY_ITEMS = [
       "さむい"
     ],
     "meaning": "Lạnh (thời tiết)",
+    "meaningEn": "Cold (weather)",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19715,6 +21687,7 @@ const ALL_STUDY_ITEMS = [
       "あたたかい"
     ],
     "meaning": "Ấm áp",
+    "meaningEn": "Warm",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19726,6 +21699,7 @@ const ALL_STUDY_ITEMS = [
       "だんぼう"
     ],
     "meaning": "Máy sưởi, hệ thống sưởi",
+    "meaningEn": "Heater, heating",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19737,6 +21711,7 @@ const ALL_STUDY_ITEMS = [
       "すずしい"
     ],
     "meaning": "Mát mẻ",
+    "meaningEn": "Cool, refreshing",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19748,6 +21723,7 @@ const ALL_STUDY_ITEMS = [
       "つめたい"
     ],
     "meaning": "Lạnh (đồ vật, chạm vào)",
+    "meaningEn": "Cold (to touch)",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19759,6 +21735,7 @@ const ALL_STUDY_ITEMS = [
       "れいぼう"
     ],
     "meaning": "Điều hòa làm mát",
+    "meaningEn": "Air conditioning",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19770,6 +21747,7 @@ const ALL_STUDY_ITEMS = [
       "れいぞうこ"
     ],
     "meaning": "Tủ lạnh",
+    "meaningEn": "Refrigerator",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19781,6 +21759,7 @@ const ALL_STUDY_ITEMS = [
       "あかるい"
     ],
     "meaning": "Sáng sủa, tươi sáng",
+    "meaningEn": "Bright, cheerful",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19793,6 +21772,7 @@ const ALL_STUDY_ITEMS = [
       "あす"
     ],
     "meaning": "Ngày mai",
+    "meaningEn": "Tomorrow",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19804,6 +21784,7 @@ const ALL_STUDY_ITEMS = [
       "くらい"
     ],
     "meaning": "Tối tăm",
+    "meaningEn": "Dark",
     "topicId": "n4_02",
     "level": "N4"
   },
@@ -19815,6 +21796,7 @@ const ALL_STUDY_ITEMS = [
       "りょうり"
     ],
     "meaning": "Món ăn, nấu ăn",
+    "meaningEn": "Cooking, dish",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19826,6 +21808,7 @@ const ALL_STUDY_ITEMS = [
       "ざいりょう"
     ],
     "meaning": "Nguyên liệu",
+    "meaningEn": "Ingredient, material",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19837,6 +21820,7 @@ const ALL_STUDY_ITEMS = [
       "りょうきん"
     ],
     "meaning": "Phí, cước phí",
+    "meaningEn": "Fee, charge",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19848,6 +21832,7 @@ const ALL_STUDY_ITEMS = [
       "ごはん"
     ],
     "meaning": "Cơm, bữa ăn",
+    "meaningEn": "Cooked rice, meal",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19859,6 +21844,7 @@ const ALL_STUDY_ITEMS = [
       "あさごはん"
     ],
     "meaning": "Bữa sáng",
+    "meaningEn": "Breakfast",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19870,6 +21856,7 @@ const ALL_STUDY_ITEMS = [
       "ひるごはん"
     ],
     "meaning": "Bữa trưa",
+    "meaningEn": "Lunch",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19881,6 +21868,7 @@ const ALL_STUDY_ITEMS = [
       "ばんごはん"
     ],
     "meaning": "Bữa tối",
+    "meaningEn": "Dinner",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19892,6 +21880,7 @@ const ALL_STUDY_ITEMS = [
       "ちょうしょく"
     ],
     "meaning": "Bữa sáng (trang trọng)",
+    "meaningEn": "Breakfast (formal)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19903,6 +21892,7 @@ const ALL_STUDY_ITEMS = [
       "ちゅうしょく"
     ],
     "meaning": "Bữa trưa (trang trọng)",
+    "meaningEn": "Lunch (formal)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19914,6 +21904,7 @@ const ALL_STUDY_ITEMS = [
       "ゆうしょく"
     ],
     "meaning": "Bữa tối (trang trọng)",
+    "meaningEn": "Dinner (formal)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19925,6 +21916,7 @@ const ALL_STUDY_ITEMS = [
       "やしょく"
     ],
     "meaning": "Bữa ăn khuya",
+    "meaningEn": "Midnight snack",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19936,6 +21928,7 @@ const ALL_STUDY_ITEMS = [
       "がいしょく"
     ],
     "meaning": "Ăn ngoài hàng",
+    "meaningEn": "Eating out",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19947,6 +21940,7 @@ const ALL_STUDY_ITEMS = [
       "やさい"
     ],
     "meaning": "Rau củ",
+    "meaningEn": "Vegetables",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19958,6 +21952,7 @@ const ALL_STUDY_ITEMS = [
       "なまやさい"
     ],
     "meaning": "Rau sống",
+    "meaningEn": "Raw vegetables",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19969,6 +21964,7 @@ const ALL_STUDY_ITEMS = [
       "くだもの"
     ],
     "meaning": "Trái cây, hoa quả",
+    "meaningEn": "Fruit",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19980,6 +21976,7 @@ const ALL_STUDY_ITEMS = [
       "うし"
     ],
     "meaning": "Con bò",
+    "meaningEn": "Cow",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -19991,6 +21988,7 @@ const ALL_STUDY_ITEMS = [
       "ぎゅうにゅう"
     ],
     "meaning": "Sữa bò",
+    "meaningEn": "Milk",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20002,6 +22000,7 @@ const ALL_STUDY_ITEMS = [
       "ぶた"
     ],
     "meaning": "Con lợn (heo)",
+    "meaningEn": "Pig",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20013,6 +22012,7 @@ const ALL_STUDY_ITEMS = [
       "ぶたにく"
     ],
     "meaning": "Thịt lợn",
+    "meaningEn": "Pork",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20024,6 +22024,7 @@ const ALL_STUDY_ITEMS = [
       "とり"
     ],
     "meaning": "Con chim, gà",
+    "meaningEn": "Bird, chicken",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20035,6 +22036,7 @@ const ALL_STUDY_ITEMS = [
       "とりにく"
     ],
     "meaning": "Thịt gà",
+    "meaningEn": "Chicken meat",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20046,6 +22048,7 @@ const ALL_STUDY_ITEMS = [
       "やきとり"
     ],
     "meaning": "Thịt gà nướng xiên",
+    "meaningEn": "Grilled chicken skewers (yakitori)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20057,6 +22060,7 @@ const ALL_STUDY_ITEMS = [
       "やく"
     ],
     "meaning": "Nướng, rán, đốt",
+    "meaningEn": "Grill, bake, roast",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20068,6 +22072,7 @@ const ALL_STUDY_ITEMS = [
       "はるまき"
     ],
     "meaning": "Chả giò, nem rán",
+    "meaningEn": "Spring roll",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20079,6 +22084,7 @@ const ALL_STUDY_ITEMS = [
       "つくる"
     ],
     "meaning": "Làm, nấu, chế tạo",
+    "meaningEn": "Make, cook, create",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20090,6 +22096,7 @@ const ALL_STUDY_ITEMS = [
       "きる"
     ],
     "meaning": "Cắt",
+    "meaningEn": "Cut",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20101,6 +22108,7 @@ const ALL_STUDY_ITEMS = [
       "きって"
     ],
     "meaning": "Tem thư",
+    "meaningEn": "Postage stamp",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20112,6 +22120,7 @@ const ALL_STUDY_ITEMS = [
       "きっぷ"
     ],
     "meaning": "Vé (tàu, xe)",
+    "meaningEn": "Ticket",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20123,6 +22132,7 @@ const ALL_STUDY_ITEMS = [
       "たいせつ"
     ],
     "meaning": "Quan trọng, quý giá",
+    "meaningEn": "Important, precious",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20134,6 +22144,7 @@ const ALL_STUDY_ITEMS = [
       "あまい"
     ],
     "meaning": "Ngọt",
+    "meaningEn": "Sweet",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20145,6 +22156,7 @@ const ALL_STUDY_ITEMS = [
       "からい"
     ],
     "meaning": "Cay",
+    "meaningEn": "Spicy, hot",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20156,6 +22168,7 @@ const ALL_STUDY_ITEMS = [
       "にがい"
     ],
     "meaning": "Đắng",
+    "meaningEn": "Bitter",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20167,6 +22180,7 @@ const ALL_STUDY_ITEMS = [
       "にがて"
     ],
     "meaning": "Kém, không giỏi, ngại",
+    "meaningEn": "Weak at, dislike",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20178,6 +22192,7 @@ const ALL_STUDY_ITEMS = [
       "ちゅうもん"
     ],
     "meaning": "Gọi món, đặt hàng",
+    "meaningEn": "Order (food, goods)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20189,6 +22204,7 @@ const ALL_STUDY_ITEMS = [
       "ちゅうい"
     ],
     "meaning": "Chú ý, cẩn thận",
+    "meaningEn": "Attention, caution",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20200,6 +22216,7 @@ const ALL_STUDY_ITEMS = [
       "しょくどう"
     ],
     "meaning": "Nhà ăn, căng tin",
+    "meaningEn": "Cafeteria, dining hall",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20211,6 +22228,7 @@ const ALL_STUDY_ITEMS = [
       "きっさてん"
     ],
     "meaning": "Quán cà phê, giải khát",
+    "meaningEn": "Coffee shop, cafe",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20222,6 +22240,7 @@ const ALL_STUDY_ITEMS = [
       "さけ"
     ],
     "meaning": "Rượu",
+    "meaningEn": "Alcohol, sake",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20233,6 +22252,7 @@ const ALL_STUDY_ITEMS = [
       "おさけ"
     ],
     "meaning": "Rượu (lịch sự)",
+    "meaningEn": "Alcohol (polite)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20244,6 +22264,7 @@ const ALL_STUDY_ITEMS = [
       "にほんしゅ"
     ],
     "meaning": "Rượu sake Nhật",
+    "meaningEn": "Japanese sake",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20255,6 +22276,7 @@ const ALL_STUDY_ITEMS = [
       "あじ"
     ],
     "meaning": "Mùi vị",
+    "meaningEn": "Taste, flavor",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20266,6 +22288,7 @@ const ALL_STUDY_ITEMS = [
       "みそ"
     ],
     "meaning": "Tương miso",
+    "meaningEn": "Miso paste",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20277,6 +22300,7 @@ const ALL_STUDY_ITEMS = [
       "わしょく"
     ],
     "meaning": "Ẩm thực Nhật Bản",
+    "meaningEn": "Japanese cuisine",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20288,6 +22312,7 @@ const ALL_STUDY_ITEMS = [
       "わふう"
     ],
     "meaning": "Phong cách Nhật",
+    "meaningEn": "Japanese style",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20299,6 +22324,7 @@ const ALL_STUDY_ITEMS = [
       "ようしょく"
     ],
     "meaning": "Ẩm thực phương Tây",
+    "meaningEn": "Western cuisine",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20310,6 +22336,7 @@ const ALL_STUDY_ITEMS = [
       "もの"
     ],
     "meaning": "Đồ vật, thứ",
+    "meaningEn": "Thing, object",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20321,6 +22348,7 @@ const ALL_STUDY_ITEMS = [
       "こうぶつ"
     ],
     "meaning": "Món ăn yêu thích",
+    "meaningEn": "Favorite food",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20332,6 +22360,7 @@ const ALL_STUDY_ITEMS = [
       "べんとう"
     ],
     "meaning": "Cơm hộp bento",
+    "meaningEn": "Boxed lunch (bento)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20343,6 +22372,7 @@ const ALL_STUDY_ITEMS = [
       "やおや"
     ],
     "meaning": "Cửa hàng rau quả",
+    "meaningEn": "Greengrocer",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20354,6 +22384,7 @@ const ALL_STUDY_ITEMS = [
       "わかす"
     ],
     "meaning": "Đun sôi",
+    "meaningEn": "Boil (water)",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20365,6 +22396,7 @@ const ALL_STUDY_ITEMS = [
       "にる"
     ],
     "meaning": "Ninh, hầm, kho",
+    "meaningEn": "Simmer, stew",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20376,6 +22408,7 @@ const ALL_STUDY_ITEMS = [
       "あげる"
     ],
     "meaning": "Chiên ngập dầu, rán",
+    "meaningEn": "Deep-fry",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20387,6 +22420,7 @@ const ALL_STUDY_ITEMS = [
       "いためる"
     ],
     "meaning": "Xào",
+    "meaningEn": "Stir-fry",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20398,6 +22432,7 @@ const ALL_STUDY_ITEMS = [
       "まぜる"
     ],
     "meaning": "Trộn",
+    "meaningEn": "Mix",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20409,6 +22444,7 @@ const ALL_STUDY_ITEMS = [
       "ひやす"
     ],
     "meaning": "Làm lạnh, ướp lạnh",
+    "meaningEn": "Chill, cool down",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20420,6 +22456,7 @@ const ALL_STUDY_ITEMS = [
       "あたためる"
     ],
     "meaning": "Hâm nóng",
+    "meaningEn": "Warm up, heat up",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20431,6 +22468,7 @@ const ALL_STUDY_ITEMS = [
       "しお"
     ],
     "meaning": "Muối",
+    "meaningEn": "Salt",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20442,6 +22480,7 @@ const ALL_STUDY_ITEMS = [
       "さとう"
     ],
     "meaning": "Đường",
+    "meaningEn": "Sugar",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20453,6 +22492,7 @@ const ALL_STUDY_ITEMS = [
       "しょうゆ"
     ],
     "meaning": "Nước tương, xì dầu",
+    "meaningEn": "Soy sauce",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20464,6 +22504,7 @@ const ALL_STUDY_ITEMS = [
       "あぶら"
     ],
     "meaning": "Dầu ăn",
+    "meaningEn": "Cooking oil",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20475,6 +22516,7 @@ const ALL_STUDY_ITEMS = [
       "こめ"
     ],
     "meaning": "Gạo",
+    "meaningEn": "Uncooked rice",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20486,6 +22528,7 @@ const ALL_STUDY_ITEMS = [
       "さら"
     ],
     "meaning": "Cái đĩa",
+    "meaningEn": "Plate, dish",
     "topicId": "n4_03",
     "level": "N4"
   },
@@ -20497,6 +22540,7 @@ const ALL_STUDY_ITEMS = [
       "すき"
     ],
     "meaning": "Thích",
+    "meaningEn": "Like, fond of",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20508,6 +22552,7 @@ const ALL_STUDY_ITEMS = [
       "だいすき"
     ],
     "meaning": "Rất thích",
+    "meaningEn": "Love, like very much",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20519,6 +22564,7 @@ const ALL_STUDY_ITEMS = [
       "このむ"
     ],
     "meaning": "Ưa thích, yêu chuộng",
+    "meaningEn": "Prefer, be fond of",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20530,6 +22576,7 @@ const ALL_STUDY_ITEMS = [
       "こうい"
     ],
     "meaning": "Thiện ý, lòng tốt",
+    "meaningEn": "Goodwill, kindness",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20541,6 +22588,7 @@ const ALL_STUDY_ITEMS = [
       "しゅみ"
     ],
     "meaning": "Sở thích",
+    "meaningEn": "Hobby, pastime",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20552,6 +22600,7 @@ const ALL_STUDY_ITEMS = [
       "うつす"
     ],
     "meaning": "Chụp ảnh, sao chép",
+    "meaningEn": "Photograph, copy",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20563,6 +22612,7 @@ const ALL_STUDY_ITEMS = [
       "しゃしん"
     ],
     "meaning": "Bức ảnh",
+    "meaningEn": "Photograph",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20574,6 +22624,7 @@ const ALL_STUDY_ITEMS = [
       "しゃしんか"
     ],
     "meaning": "Nhiếp ảnh gia",
+    "meaningEn": "Photographer",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20585,6 +22636,7 @@ const ALL_STUDY_ITEMS = [
       "ま"
     ],
     "meaning": "Thật, chính giữa",
+    "meaningEn": "True, exact center",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20596,6 +22648,7 @@ const ALL_STUDY_ITEMS = [
       "まんなか"
     ],
     "meaning": "Chính giữa",
+    "meaningEn": "Right in the middle",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20607,6 +22660,7 @@ const ALL_STUDY_ITEMS = [
       "えいが"
     ],
     "meaning": "Phim điện ảnh",
+    "meaningEn": "Movie, film",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20618,6 +22672,7 @@ const ALL_STUDY_ITEMS = [
       "えいがかん"
     ],
     "meaning": "Rạp chiếu phim",
+    "meaningEn": "Movie theater",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20629,6 +22684,7 @@ const ALL_STUDY_ITEMS = [
       "まんが"
     ],
     "meaning": "Truyện tranh manga",
+    "meaningEn": "Manga, comic",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20640,6 +22696,7 @@ const ALL_STUDY_ITEMS = [
       "がか"
     ],
     "meaning": "Họa sĩ",
+    "meaningEn": "Painter, artist",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20651,6 +22708,7 @@ const ALL_STUDY_ITEMS = [
       "え"
     ],
     "meaning": "Tranh vẽ",
+    "meaningEn": "Picture, painting",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20662,6 +22720,7 @@ const ALL_STUDY_ITEMS = [
       "えほん"
     ],
     "meaning": "Sách tranh",
+    "meaningEn": "Picture book",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20673,6 +22732,7 @@ const ALL_STUDY_ITEMS = [
       "うた"
     ],
     "meaning": "Bài hát",
+    "meaningEn": "Song",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20684,6 +22744,7 @@ const ALL_STUDY_ITEMS = [
       "うたう"
     ],
     "meaning": "Hát",
+    "meaningEn": "Sing",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20695,6 +22756,7 @@ const ALL_STUDY_ITEMS = [
       "かしゅ"
     ],
     "meaning": "Ca sĩ",
+    "meaningEn": "Singer",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20706,6 +22768,7 @@ const ALL_STUDY_ITEMS = [
       "えんそう"
     ],
     "meaning": "Biểu diễn nhạc cụ",
+    "meaningEn": "Musical performance",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20717,6 +22780,7 @@ const ALL_STUDY_ITEMS = [
       "はこぶ"
     ],
     "meaning": "Vận chuyển, mang vác",
+    "meaningEn": "Carry, transport",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20728,6 +22792,7 @@ const ALL_STUDY_ITEMS = [
       "うんどう"
     ],
     "meaning": "Vận động, thể thao",
+    "meaningEn": "Exercise, sports",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20739,6 +22804,7 @@ const ALL_STUDY_ITEMS = [
       "うごく"
     ],
     "meaning": "Di chuyển, hoạt động",
+    "meaningEn": "Move",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20750,6 +22816,7 @@ const ALL_STUDY_ITEMS = [
       "どうぶつ"
     ],
     "meaning": "Động vật",
+    "meaningEn": "Animal",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20761,6 +22828,7 @@ const ALL_STUDY_ITEMS = [
       "どうぶつえん"
     ],
     "meaning": "Sở thú",
+    "meaningEn": "Zoo",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20772,6 +22840,7 @@ const ALL_STUDY_ITEMS = [
       "じどう"
     ],
     "meaning": "Tự động",
+    "meaningEn": "Automatic",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20783,6 +22852,7 @@ const ALL_STUDY_ITEMS = [
       "はしる"
     ],
     "meaning": "Chạy",
+    "meaningEn": "Run",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20794,6 +22864,7 @@ const ALL_STUDY_ITEMS = [
       "およぐ"
     ],
     "meaning": "Bơi",
+    "meaningEn": "Swim",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20805,6 +22876,7 @@ const ALL_STUDY_ITEMS = [
       "すいえい"
     ],
     "meaning": "Môn bơi lội",
+    "meaningEn": "Swimming",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20816,6 +22888,7 @@ const ALL_STUDY_ITEMS = [
       "やきゅう"
     ],
     "meaning": "Bóng chày",
+    "meaningEn": "Baseball",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20827,6 +22900,7 @@ const ALL_STUDY_ITEMS = [
       "あそぶ"
     ],
     "meaning": "Chơi, vui chơi",
+    "meaningEn": "Play, hang out",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20838,6 +22912,7 @@ const ALL_STUDY_ITEMS = [
       "ならう"
     ],
     "meaning": "Học (từ ai đó)",
+    "meaningEn": "Learn (from someone)",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20849,6 +22924,7 @@ const ALL_STUDY_ITEMS = [
       "がくしゅう"
     ],
     "meaning": "Học tập",
+    "meaningEn": "Learning, study",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20860,6 +22936,7 @@ const ALL_STUDY_ITEMS = [
       "ふくしゅう"
     ],
     "meaning": "Ôn tập",
+    "meaningEn": "Review, revision",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20871,6 +22948,7 @@ const ALL_STUDY_ITEMS = [
       "よしゅう"
     ],
     "meaning": "Chuẩn bị bài trước",
+    "meaningEn": "Lesson preparation",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20882,6 +22960,7 @@ const ALL_STUDY_ITEMS = [
       "れんしゅう"
     ],
     "meaning": "Luyện tập",
+    "meaningEn": "Practice, training",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20893,6 +22972,7 @@ const ALL_STUDY_ITEMS = [
       "ためす"
     ],
     "meaning": "Thử, thử nghiệm",
+    "meaningEn": "Try, test",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20904,6 +22984,7 @@ const ALL_STUDY_ITEMS = [
       "しあい"
     ],
     "meaning": "Trận đấu",
+    "meaningEn": "Match, game",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20915,6 +22996,7 @@ const ALL_STUDY_ITEMS = [
       "あう"
     ],
     "meaning": "Hợp, vừa vặn, khớp",
+    "meaningEn": "Fit, match, suit",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20926,6 +23008,7 @@ const ALL_STUDY_ITEMS = [
       "まにあう"
     ],
     "meaning": "Kịp giờ",
+    "meaningEn": "Be in time",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20937,6 +23020,7 @@ const ALL_STUDY_ITEMS = [
       "つごう"
     ],
     "meaning": "Sự thuận tiện, hoàn cảnh",
+    "meaningEn": "Convenience, circumstances",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20948,6 +23032,7 @@ const ALL_STUDY_ITEMS = [
       "かつ"
     ],
     "meaning": "Thắng",
+    "meaningEn": "Win",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20959,6 +23044,7 @@ const ALL_STUDY_ITEMS = [
       "しょうぶ"
     ],
     "meaning": "Thắng thua, trận đấu",
+    "meaningEn": "Victory or defeat, match",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20970,6 +23056,7 @@ const ALL_STUDY_ITEMS = [
       "まける"
     ],
     "meaning": "Thua",
+    "meaningEn": "Lose",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20981,6 +23068,7 @@ const ALL_STUDY_ITEMS = [
       "おと"
     ],
     "meaning": "Âm thanh, tiếng động",
+    "meaningEn": "Sound, noise",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -20992,6 +23080,7 @@ const ALL_STUDY_ITEMS = [
       "おんがく"
     ],
     "meaning": "Âm nhạc",
+    "meaningEn": "Music",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21003,6 +23092,7 @@ const ALL_STUDY_ITEMS = [
       "がっき"
     ],
     "meaning": "Nhạc cụ",
+    "meaningEn": "Musical instrument",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21014,6 +23104,7 @@ const ALL_STUDY_ITEMS = [
       "たのしい"
     ],
     "meaning": "Vui vẻ",
+    "meaningEn": "Fun, enjoyable",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21025,6 +23116,7 @@ const ALL_STUDY_ITEMS = [
       "たのしむ"
     ],
     "meaning": "Tận hưởng",
+    "meaningEn": "Enjoy",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21036,6 +23128,7 @@ const ALL_STUDY_ITEMS = [
       "らく"
     ],
     "meaning": "Thoải mái, nhàn hạ",
+    "meaningEn": "Comfortable, easy",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21047,6 +23140,7 @@ const ALL_STUDY_ITEMS = [
       "たび"
     ],
     "meaning": "Chuyến đi, du lịch",
+    "meaningEn": "Trip, journey",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21058,6 +23152,7 @@ const ALL_STUDY_ITEMS = [
       "りょかん"
     ],
     "meaning": "Lữ quán kiểu Nhật",
+    "meaningEn": "Japanese-style inn (ryokan)",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21069,6 +23164,7 @@ const ALL_STUDY_ITEMS = [
       "さんか"
     ],
     "meaning": "Tham gia",
+    "meaningEn": "Participate",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21080,6 +23176,7 @@ const ALL_STUDY_ITEMS = [
       "おうえん"
     ],
     "meaning": "Cổ vũ, ủng hộ",
+    "meaningEn": "Cheer, support",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21091,6 +23188,7 @@ const ALL_STUDY_ITEMS = [
       "けんがく"
     ],
     "meaning": "Tham quan học tập",
+    "meaningEn": "Field trip, study visit",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21102,6 +23200,7 @@ const ALL_STUDY_ITEMS = [
       "びじゅつ"
     ],
     "meaning": "Mỹ thuật",
+    "meaningEn": "Fine arts",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21113,6 +23212,7 @@ const ALL_STUDY_ITEMS = [
       "げいじゅつ"
     ],
     "meaning": "Nghệ thuật",
+    "meaningEn": "Art",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21124,6 +23224,7 @@ const ALL_STUDY_ITEMS = [
       "ぎじゅつ"
     ],
     "meaning": "Kỹ thuật",
+    "meaningEn": "Technology, technique",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21135,6 +23236,7 @@ const ALL_STUDY_ITEMS = [
       "にんぎょうげき"
     ],
     "meaning": "Múa rối",
+    "meaningEn": "Puppet show",
     "topicId": "n4_04",
     "level": "N4"
   },
@@ -21146,6 +23248,7 @@ const ALL_STUDY_ITEMS = [
       "まち"
     ],
     "meaning": "Thị trấn, khu phố",
+    "meaningEn": "Town, neighborhood",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21157,6 +23260,7 @@ const ALL_STUDY_ITEMS = [
       "ひろい"
     ],
     "meaning": "Rộng",
+    "meaningEn": "Wide, spacious",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21168,6 +23272,7 @@ const ALL_STUDY_ITEMS = [
       "ひろば"
     ],
     "meaning": "Quảng trường",
+    "meaningEn": "Public square, plaza",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21179,6 +23284,7 @@ const ALL_STUDY_ITEMS = [
       "こうこく"
     ],
     "meaning": "Quảng cáo",
+    "meaningEn": "Advertisement",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21190,6 +23296,7 @@ const ALL_STUDY_ITEMS = [
       "ば"
     ],
     "meaning": "Nơi, chỗ, hiện trường",
+    "meaningEn": "Place, spot, scene",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21201,6 +23308,7 @@ const ALL_STUDY_ITEMS = [
       "ばしょ"
     ],
     "meaning": "Địa điểm",
+    "meaningEn": "Place, location",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21212,6 +23320,7 @@ const ALL_STUDY_ITEMS = [
       "こうじょう"
     ],
     "meaning": "Nhà máy, công xưởng",
+    "meaningEn": "Factory, plant",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21223,6 +23332,7 @@ const ALL_STUDY_ITEMS = [
       "ちゅうしゃじょう"
     ],
     "meaning": "Bãi đỗ xe",
+    "meaningEn": "Parking lot",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21234,6 +23344,7 @@ const ALL_STUDY_ITEMS = [
       "ところ"
     ],
     "meaning": "Nơi chốn, chỗ",
+    "meaningEn": "Place, spot",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21245,6 +23356,7 @@ const ALL_STUDY_ITEMS = [
       "だいどころ"
     ],
     "meaning": "Nhà bếp",
+    "meaningEn": "Kitchen",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21256,6 +23368,7 @@ const ALL_STUDY_ITEMS = [
       "ちかい"
     ],
     "meaning": "Gần",
+    "meaningEn": "Near, close",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21267,6 +23380,7 @@ const ALL_STUDY_ITEMS = [
       "きんじょ"
     ],
     "meaning": "Hàng xóm, vùng lân cận",
+    "meaningEn": "Neighborhood",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21278,6 +23392,7 @@ const ALL_STUDY_ITEMS = [
       "さいきん"
     ],
     "meaning": "Gần đây",
+    "meaningEn": "Recently, lately",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21289,6 +23404,7 @@ const ALL_STUDY_ITEMS = [
       "とおい"
     ],
     "meaning": "Xa",
+    "meaningEn": "Far, distant",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21300,6 +23416,7 @@ const ALL_STUDY_ITEMS = [
       "えんりょ"
     ],
     "meaning": "Khách sáo, ngại ngùng",
+    "meaningEn": "Reserve, hesitation",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21311,6 +23428,7 @@ const ALL_STUDY_ITEMS = [
       "よこ"
     ],
     "meaning": "Bên cạnh, chiều ngang",
+    "meaningEn": "Beside, horizontal",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21322,6 +23440,7 @@ const ALL_STUDY_ITEMS = [
       "かど"
     ],
     "meaning": "Góc phố, góc cạnh",
+    "meaningEn": "Street corner, angle",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21334,6 +23453,7 @@ const ALL_STUDY_ITEMS = [
       "あたり"
     ],
     "meaning": "Vùng lân cận, khu vực",
+    "meaningEn": "Vicinity, around",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21345,6 +23465,7 @@ const ALL_STUDY_ITEMS = [
       "しま"
     ],
     "meaning": "Hòn đảo",
+    "meaningEn": "Island",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21356,6 +23477,7 @@ const ALL_STUDY_ITEMS = [
       "はし"
     ],
     "meaning": "Cây cầu",
+    "meaningEn": "Bridge",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21367,6 +23489,7 @@ const ALL_STUDY_ITEMS = [
       "わたる"
     ],
     "meaning": "Băng qua (đường, cầu)",
+    "meaningEn": "Cross (a road, bridge)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21378,6 +23501,7 @@ const ALL_STUDY_ITEMS = [
       "わたす"
     ],
     "meaning": "Trao tay, đưa cho",
+    "meaningEn": "Hand over, pass",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21389,6 +23513,7 @@ const ALL_STUDY_ITEMS = [
       "まがる"
     ],
     "meaning": "Rẽ, quẹo, cong",
+    "meaningEn": "Turn, bend",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21400,6 +23525,7 @@ const ALL_STUDY_ITEMS = [
       "きょく"
     ],
     "meaning": "Bản nhạc, ca khúc",
+    "meaningEn": "Song, musical piece",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21411,6 +23537,7 @@ const ALL_STUDY_ITEMS = [
       "とまる"
     ],
     "meaning": "Dừng lại (tự động từ)",
+    "meaningEn": "Stop (intransitive)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21422,6 +23549,7 @@ const ALL_STUDY_ITEMS = [
       "とめる"
     ],
     "meaning": "Làm dừng lại, đỗ xe",
+    "meaningEn": "Stop, park (transitive)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21433,6 +23561,7 @@ const ALL_STUDY_ITEMS = [
       "ちゅうし"
     ],
     "meaning": "Hủy bỏ, đình chỉ",
+    "meaningEn": "Cancellation, suspension",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21444,6 +23573,7 @@ const ALL_STUDY_ITEMS = [
       "あるく"
     ],
     "meaning": "Đi bộ",
+    "meaningEn": "Walk",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21455,6 +23585,7 @@ const ALL_STUDY_ITEMS = [
       "さんぽ"
     ],
     "meaning": "Đi dạo",
+    "meaningEn": "Stroll, take a walk",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21466,6 +23597,7 @@ const ALL_STUDY_ITEMS = [
       "じてんしゃ"
     ],
     "meaning": "Xe đạp",
+    "meaningEn": "Bicycle",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21477,6 +23609,7 @@ const ALL_STUDY_ITEMS = [
       "うんてん"
     ],
     "meaning": "Lái xe",
+    "meaningEn": "Driving",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21488,6 +23621,7 @@ const ALL_STUDY_ITEMS = [
       "うんてんしゅ"
     ],
     "meaning": "Tài xế",
+    "meaningEn": "Driver",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21499,6 +23633,7 @@ const ALL_STUDY_ITEMS = [
       "おりる"
     ],
     "meaning": "Xuống xe, bước xuống",
+    "meaningEn": "Get off (a vehicle)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21510,6 +23645,7 @@ const ALL_STUDY_ITEMS = [
       "ふる"
     ],
     "meaning": "Rơi (mưa, tuyết)",
+    "meaningEn": "Fall (rain, snow)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21521,6 +23657,7 @@ const ALL_STUDY_ITEMS = [
       "しゅっぱつ"
     ],
     "meaning": "Xuất phát",
+    "meaningEn": "Departure",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21532,6 +23669,7 @@ const ALL_STUDY_ITEMS = [
       "はっぴょう"
     ],
     "meaning": "Phát biểu, công bố",
+    "meaningEn": "Announcement, presentation",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21543,6 +23681,7 @@ const ALL_STUDY_ITEMS = [
       "つく"
     ],
     "meaning": "Đến nơi",
+    "meaningEn": "Arrive",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21554,6 +23693,7 @@ const ALL_STUDY_ITEMS = [
       "きる"
     ],
     "meaning": "Mặc (áo)",
+    "meaningEn": "Wear (clothes)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21565,6 +23705,7 @@ const ALL_STUDY_ITEMS = [
       "とうちゃく"
     ],
     "meaning": "Sự đến nơi",
+    "meaningEn": "Arrival",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21576,6 +23717,7 @@ const ALL_STUDY_ITEMS = [
       "とぶ"
     ],
     "meaning": "Bay",
+    "meaningEn": "Fly",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21587,6 +23729,7 @@ const ALL_STUDY_ITEMS = [
       "ひこうき"
     ],
     "meaning": "Máy bay",
+    "meaningEn": "Airplane",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21598,6 +23741,7 @@ const ALL_STUDY_ITEMS = [
       "きかい"
     ],
     "meaning": "Cơ hội",
+    "meaningEn": "Opportunity, chance",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21609,6 +23753,7 @@ const ALL_STUDY_ITEMS = [
       "ふね"
     ],
     "meaning": "Con tàu, thuyền",
+    "meaningEn": "Ship, boat",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21620,6 +23765,7 @@ const ALL_STUDY_ITEMS = [
       "みなと"
     ],
     "meaning": "Bến cảng",
+    "meaningEn": "Port, harbor",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21631,6 +23777,7 @@ const ALL_STUDY_ITEMS = [
       "やど"
     ],
     "meaning": "Nhà trọ, nơi lưu trú",
+    "meaningEn": "Inn, lodging",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21642,6 +23789,7 @@ const ALL_STUDY_ITEMS = [
       "としょかん"
     ],
     "meaning": "Thư viện",
+    "meaningEn": "Library",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21653,6 +23801,7 @@ const ALL_STUDY_ITEMS = [
       "びじゅつかん"
     ],
     "meaning": "Bảo tàng mỹ thuật",
+    "meaningEn": "Art museum",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21664,6 +23813,7 @@ const ALL_STUDY_ITEMS = [
       "たいいくかん"
     ],
     "meaning": "Nhà thi đấu thể thao",
+    "meaningEn": "Gymnasium",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21675,6 +23825,7 @@ const ALL_STUDY_ITEMS = [
       "よやく"
     ],
     "meaning": "Đặt trước",
+    "meaningEn": "Reservation",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21686,6 +23837,7 @@ const ALL_STUDY_ITEMS = [
       "よてい"
     ],
     "meaning": "Dự định, lịch trình",
+    "meaningEn": "Plan, schedule",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21697,6 +23849,7 @@ const ALL_STUDY_ITEMS = [
       "やくそく"
     ],
     "meaning": "Lời hứa, cuộc hẹn",
+    "meaningEn": "Promise, appointment",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21708,6 +23861,7 @@ const ALL_STUDY_ITEMS = [
       "ちず"
     ],
     "meaning": "Bản đồ",
+    "meaningEn": "Map",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21719,6 +23873,7 @@ const ALL_STUDY_ITEMS = [
       "ちかてつ"
     ],
     "meaning": "Tàu điện ngầm",
+    "meaningEn": "Subway",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21730,6 +23885,7 @@ const ALL_STUDY_ITEMS = [
       "ちり"
     ],
     "meaning": "Địa lý",
+    "meaningEn": "Geography",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21741,6 +23897,7 @@ const ALL_STUDY_ITEMS = [
       "じしん"
     ],
     "meaning": "Động đất",
+    "meaningEn": "Earthquake",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21752,6 +23909,7 @@ const ALL_STUDY_ITEMS = [
       "こうえん"
     ],
     "meaning": "Công viên",
+    "meaningEn": "Park",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21763,6 +23921,7 @@ const ALL_STUDY_ITEMS = [
       "けん"
     ],
     "meaning": "Tỉnh",
+    "meaningEn": "Prefecture",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21774,6 +23933,7 @@ const ALL_STUDY_ITEMS = [
       "し"
     ],
     "meaning": "Thành phố",
+    "meaningEn": "City",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21785,6 +23945,7 @@ const ALL_STUDY_ITEMS = [
       "しみん"
     ],
     "meaning": "Người dân thành phố",
+    "meaningEn": "Citizen",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21796,6 +23957,7 @@ const ALL_STUDY_ITEMS = [
       "むら"
     ],
     "meaning": "Ngôi làng",
+    "meaningEn": "Village",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21807,6 +23969,7 @@ const ALL_STUDY_ITEMS = [
       "いなか"
     ],
     "meaning": "Nông thôn, quê",
+    "meaningEn": "Countryside, hometown",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21818,6 +23981,7 @@ const ALL_STUDY_ITEMS = [
       "とうきょう"
     ],
     "meaning": "Tokyo",
+    "meaningEn": "Tokyo",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21829,6 +23993,7 @@ const ALL_STUDY_ITEMS = [
       "きょうと"
     ],
     "meaning": "Kyoto",
+    "meaningEn": "Kyoto",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21840,6 +24005,7 @@ const ALL_STUDY_ITEMS = [
       "しゅと"
     ],
     "meaning": "Thủ đô",
+    "meaningEn": "Capital city",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21851,6 +24017,7 @@ const ALL_STUDY_ITEMS = [
       "ぎん"
     ],
     "meaning": "Bạc",
+    "meaningEn": "Silver",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21862,6 +24029,7 @@ const ALL_STUDY_ITEMS = [
       "おみやげ"
     ],
     "meaning": "Quà lưu niệm",
+    "meaningEn": "Souvenir",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21873,6 +24041,7 @@ const ALL_STUDY_ITEMS = [
       "こうつうひ"
     ],
     "meaning": "Chi phí đi lại",
+    "meaningEn": "Transportation fee",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21884,6 +24053,7 @@ const ALL_STUDY_ITEMS = [
       "のりかえ"
     ],
     "meaning": "Chuyển tuyến tàu/xe",
+    "meaningEn": "Transfer (trains/buses)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21895,6 +24065,7 @@ const ALL_STUDY_ITEMS = [
       "こうそくどうろ"
     ],
     "meaning": "Đường cao tốc",
+    "meaningEn": "Expressway, highway",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21906,6 +24077,7 @@ const ALL_STUDY_ITEMS = [
       "こうさてん"
     ],
     "meaning": "Ngã tư, giao lộ",
+    "meaningEn": "Intersection",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21917,6 +24089,7 @@ const ALL_STUDY_ITEMS = [
       "おうだんほどう"
     ],
     "meaning": "Vạch qua đường cho người đi bộ",
+    "meaningEn": "Crosswalk",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21928,6 +24101,7 @@ const ALL_STUDY_ITEMS = [
       "けいさつ"
     ],
     "meaning": "Cảnh sát",
+    "meaningEn": "Police",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21939,6 +24113,7 @@ const ALL_STUDY_ITEMS = [
       "こうばん"
     ],
     "meaning": "Đồn cảnh sát nhỏ",
+    "meaningEn": "Police box (koban)",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21950,6 +24125,7 @@ const ALL_STUDY_ITEMS = [
       "しやくしょ"
     ],
     "meaning": "Ủy ban nhân dân thành phố",
+    "meaningEn": "City hall",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21961,6 +24137,7 @@ const ALL_STUDY_ITEMS = [
       "はくぶつかん"
     ],
     "meaning": "Bảo tàng",
+    "meaningEn": "Museum",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21972,6 +24149,7 @@ const ALL_STUDY_ITEMS = [
       "すいぞくかん"
     ],
     "meaning": "Thủy cung",
+    "meaningEn": "Aquarium",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21983,6 +24161,7 @@ const ALL_STUDY_ITEMS = [
       "にゅうじょうりょう"
     ],
     "meaning": "Vé vào cổng",
+    "meaningEn": "Admission fee",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -21994,6 +24173,7 @@ const ALL_STUDY_ITEMS = [
       "しゅっぱつじかん"
     ],
     "meaning": "Giờ khởi hành",
+    "meaningEn": "Departure time",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -22005,6 +24185,7 @@ const ALL_STUDY_ITEMS = [
       "とうちゃくじかん"
     ],
     "meaning": "Giờ đến nơi",
+    "meaningEn": "Arrival time",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -22016,6 +24197,7 @@ const ALL_STUDY_ITEMS = [
       "せかいいさん"
     ],
     "meaning": "Di sản thế giới",
+    "meaningEn": "World Heritage",
     "topicId": "n4_05",
     "level": "N4"
   },
@@ -22027,6 +24209,7 @@ const ALL_STUDY_ITEMS = [
       "からだ"
     ],
     "meaning": "Cơ thể",
+    "meaningEn": "Body",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22038,6 +24221,7 @@ const ALL_STUDY_ITEMS = [
       "たいいく"
     ],
     "meaning": "Thể dục",
+    "meaningEn": "Physical education",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22049,6 +24233,7 @@ const ALL_STUDY_ITEMS = [
       "たいちょう"
     ],
     "meaning": "Tình trạng sức khỏe",
+    "meaningEn": "Physical condition",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22060,6 +24245,7 @@ const ALL_STUDY_ITEMS = [
       "たいじゅう"
     ],
     "meaning": "Cân nặng",
+    "meaningEn": "Body weight",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22071,6 +24257,7 @@ const ALL_STUDY_ITEMS = [
       "あたま"
     ],
     "meaning": "Cái đầu",
+    "meaningEn": "Head",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22082,6 +24269,7 @@ const ALL_STUDY_ITEMS = [
       "ずつう"
     ],
     "meaning": "Đau đầu",
+    "meaningEn": "Headache",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22093,6 +24281,7 @@ const ALL_STUDY_ITEMS = [
       "かお"
     ],
     "meaning": "Khuôn mặt",
+    "meaningEn": "Face",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22104,6 +24293,7 @@ const ALL_STUDY_ITEMS = [
       "くび"
     ],
     "meaning": "Cái cổ",
+    "meaningEn": "Neck",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22115,6 +24305,7 @@ const ALL_STUDY_ITEMS = [
       "こえ"
     ],
     "meaning": "Giọng nói",
+    "meaningEn": "Voice",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22126,6 +24317,7 @@ const ALL_STUDY_ITEMS = [
       "びょうき"
     ],
     "meaning": "Bệnh tật, ốm",
+    "meaningEn": "Illness, sickness",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22137,6 +24329,7 @@ const ALL_STUDY_ITEMS = [
       "びょういん"
     ],
     "meaning": "Bệnh viện",
+    "meaningEn": "Hospital",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22148,6 +24341,7 @@ const ALL_STUDY_ITEMS = [
       "にゅういん"
     ],
     "meaning": "Nhập viện",
+    "meaningEn": "Hospitalization",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22159,6 +24353,7 @@ const ALL_STUDY_ITEMS = [
       "たいいん"
     ],
     "meaning": "Xuất viện",
+    "meaningEn": "Hospital discharge",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22170,6 +24365,7 @@ const ALL_STUDY_ITEMS = [
       "だいがくいん"
     ],
     "meaning": "Cao học, sau đại học",
+    "meaningEn": "Graduate school",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22181,6 +24377,7 @@ const ALL_STUDY_ITEMS = [
       "いしゃ"
     ],
     "meaning": "Bác sĩ",
+    "meaningEn": "Doctor",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22192,6 +24389,7 @@ const ALL_STUDY_ITEMS = [
       "はいしゃ"
     ],
     "meaning": "Nha sĩ",
+    "meaningEn": "Dentist",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22203,6 +24401,7 @@ const ALL_STUDY_ITEMS = [
       "いがく"
     ],
     "meaning": "Y học",
+    "meaningEn": "Medicine (medical science)",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22214,6 +24413,7 @@ const ALL_STUDY_ITEMS = [
       "わかもの"
     ],
     "meaning": "Người trẻ tuổi",
+    "meaningEn": "Young person",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22225,6 +24425,7 @@ const ALL_STUDY_ITEMS = [
       "さくしゃ"
     ],
     "meaning": "Tác giả",
+    "meaningEn": "Author, creator",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22236,6 +24437,7 @@ const ALL_STUDY_ITEMS = [
       "いたい"
     ],
     "meaning": "Đau",
+    "meaningEn": "Painful, sore",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22247,6 +24449,7 @@ const ALL_STUDY_ITEMS = [
       "ねつ"
     ],
     "meaning": "Sốt, nhiệt",
+    "meaningEn": "Fever, heat",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22258,6 +24461,7 @@ const ALL_STUDY_ITEMS = [
       "ねっしん"
     ],
     "meaning": "Nhiệt tình, chăm chỉ",
+    "meaningEn": "Enthusiastic, earnest",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22269,6 +24473,7 @@ const ALL_STUDY_ITEMS = [
       "かぜ"
     ],
     "meaning": "Cảm lạnh",
+    "meaningEn": "Cold (illness)",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22280,6 +24485,7 @@ const ALL_STUDY_ITEMS = [
       "くすり"
     ],
     "meaning": "Thuốc",
+    "meaningEn": "Medicine (drug)",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22291,6 +24497,7 @@ const ALL_STUDY_ITEMS = [
       "やっきょく"
     ],
     "meaning": "Hiệu thuốc",
+    "meaningEn": "Pharmacy",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22302,6 +24509,7 @@ const ALL_STUDY_ITEMS = [
       "ねる"
     ],
     "meaning": "Ngủ",
+    "meaningEn": "Sleep, go to bed",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22313,6 +24521,7 @@ const ALL_STUDY_ITEMS = [
       "ねぼう"
     ],
     "meaning": "Ngủ quên",
+    "meaningEn": "Oversleep",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22324,6 +24533,7 @@ const ALL_STUDY_ITEMS = [
       "おきる"
     ],
     "meaning": "Thức dậy, xảy ra",
+    "meaningEn": "Wake up, happen",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22335,6 +24545,7 @@ const ALL_STUDY_ITEMS = [
       "おこす"
     ],
     "meaning": "Đánh thức",
+    "meaningEn": "Wake someone up",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22346,6 +24557,7 @@ const ALL_STUDY_ITEMS = [
       "はやおき"
     ],
     "meaning": "Dậy sớm",
+    "meaningEn": "Waking up early",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22357,6 +24569,7 @@ const ALL_STUDY_ITEMS = [
       "つかれる"
     ],
     "meaning": "Mệt mỏi",
+    "meaningEn": "Get tired",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22368,6 +24581,7 @@ const ALL_STUDY_ITEMS = [
       "じもと"
     ],
     "meaning": "Địa phương, quê nhà",
+    "meaningEn": "Local area, hometown",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22379,6 +24593,7 @@ const ALL_STUDY_ITEMS = [
       "しぬ"
     ],
     "meaning": "Chết",
+    "meaningEn": "Die",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22390,6 +24605,7 @@ const ALL_STUDY_ITEMS = [
       "は"
     ],
     "meaning": "Răng",
+    "meaningEn": "Tooth, teeth",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22401,6 +24617,7 @@ const ALL_STUDY_ITEMS = [
       "おなか"
     ],
     "meaning": "Bụng",
+    "meaningEn": "Stomach, belly",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22412,6 +24629,7 @@ const ALL_STUDY_ITEMS = [
       "せ"
     ],
     "meaning": "Lưng, chiều cao",
+    "meaningEn": "Back, height",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22423,6 +24641,7 @@ const ALL_STUDY_ITEMS = [
       "しんさつ"
     ],
     "meaning": "Khám bệnh",
+    "meaningEn": "Medical examination",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22434,6 +24653,7 @@ const ALL_STUDY_ITEMS = [
       "ちゅうしゃ"
     ],
     "meaning": "Tiêm thuốc",
+    "meaningEn": "Injection",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22445,6 +24665,7 @@ const ALL_STUDY_ITEMS = [
       "しゅじゅつ"
     ],
     "meaning": "Phẫu thuật",
+    "meaningEn": "Surgery",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22456,6 +24677,7 @@ const ALL_STUDY_ITEMS = [
       "おみまい"
     ],
     "meaning": "Thăm người ốm",
+    "meaningEn": "Visiting a sick person",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22467,6 +24689,7 @@ const ALL_STUDY_ITEMS = [
       "けが"
     ],
     "meaning": "Vết thương, bị thương",
+    "meaningEn": "Injury, wound",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22478,6 +24701,7 @@ const ALL_STUDY_ITEMS = [
       "ち"
     ],
     "meaning": "Máu",
+    "meaningEn": "Blood",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22489,6 +24713,7 @@ const ALL_STUDY_ITEMS = [
       "ほね"
     ],
     "meaning": "Xương",
+    "meaningEn": "Bone",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22500,6 +24725,7 @@ const ALL_STUDY_ITEMS = [
       "ゆび"
     ],
     "meaning": "Ngón tay",
+    "meaningEn": "Finger, toe",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22511,6 +24737,7 @@ const ALL_STUDY_ITEMS = [
       "かた"
     ],
     "meaning": "Vai",
+    "meaningEn": "Shoulder",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22522,6 +24749,7 @@ const ALL_STUDY_ITEMS = [
       "こし"
     ],
     "meaning": "Hông, thắt lưng",
+    "meaningEn": "Waist, lower back",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22533,6 +24761,7 @@ const ALL_STUDY_ITEMS = [
       "けんこう"
     ],
     "meaning": "Sức khỏe",
+    "meaningEn": "Health",
     "topicId": "n4_06",
     "level": "N4"
   },
@@ -22544,6 +24773,7 @@ const ALL_STUDY_ITEMS = [
       "べんきょう"
     ],
     "meaning": "Học tập",
+    "meaningEn": "Study",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22555,6 +24785,7 @@ const ALL_STUDY_ITEMS = [
       "かがく"
     ],
     "meaning": "Hóa học",
+    "meaningEn": "Chemistry",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22566,6 +24797,7 @@ const ALL_STUDY_ITEMS = [
       "かがく"
     ],
     "meaning": "Khoa học",
+    "meaningEn": "Science",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22577,6 +24809,7 @@ const ALL_STUDY_ITEMS = [
       "りゅうがく"
     ],
     "meaning": "Du học",
+    "meaningEn": "Study abroad",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22588,6 +24821,7 @@ const ALL_STUDY_ITEMS = [
       "りゅうがくせい"
     ],
     "meaning": "Du học sinh",
+    "meaningEn": "International student",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22599,6 +24833,7 @@ const ALL_STUDY_ITEMS = [
       "たつじん"
     ],
     "meaning": "Cao thủ, người thành thạo",
+    "meaningEn": "Master, expert",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22610,6 +24845,7 @@ const ALL_STUDY_ITEMS = [
       "おしえる"
     ],
     "meaning": "Dạy, chỉ bảo",
+    "meaningEn": "Teach, tell",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22621,6 +24857,7 @@ const ALL_STUDY_ITEMS = [
       "きょうしつ"
     ],
     "meaning": "Phòng học",
+    "meaningEn": "Classroom",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22632,6 +24869,7 @@ const ALL_STUDY_ITEMS = [
       "きょうかしょ"
     ],
     "meaning": "Sách giáo khoa",
+    "meaningEn": "Textbook",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22643,6 +24881,7 @@ const ALL_STUDY_ITEMS = [
       "かいぎしつ"
     ],
     "meaning": "Phòng họp",
+    "meaningEn": "Meeting room",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22654,6 +24893,7 @@ const ALL_STUDY_ITEMS = [
       "もんだい"
     ],
     "meaning": "Vấn đề, câu hỏi đề thi",
+    "meaningEn": "Problem, exam question",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22665,6 +24905,7 @@ const ALL_STUDY_ITEMS = [
       "しゅくだい"
     ],
     "meaning": "Bài tập về nhà",
+    "meaningEn": "Homework",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22676,6 +24917,7 @@ const ALL_STUDY_ITEMS = [
       "わだい"
     ],
     "meaning": "Chủ đề nói chuyện",
+    "meaningEn": "Topic of conversation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22687,6 +24929,7 @@ const ALL_STUDY_ITEMS = [
       "しつもん"
     ],
     "meaning": "Câu hỏi, thắc mắc",
+    "meaningEn": "Question",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22698,6 +24941,7 @@ const ALL_STUDY_ITEMS = [
       "こたえる"
     ],
     "meaning": "Trả lời",
+    "meaningEn": "Answer (verb)",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22709,6 +24953,7 @@ const ALL_STUDY_ITEMS = [
       "こたえ"
     ],
     "meaning": "Câu trả lời, đáp án",
+    "meaningEn": "Answer (noun)",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22720,6 +24965,7 @@ const ALL_STUDY_ITEMS = [
       "しけん"
     ],
     "meaning": "Kỳ thi",
+    "meaningEn": "Exam, test",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22731,6 +24977,7 @@ const ALL_STUDY_ITEMS = [
       "けいけん"
     ],
     "meaning": "Kinh nghiệm",
+    "meaningEn": "Experience",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22742,6 +24989,7 @@ const ALL_STUDY_ITEMS = [
       "かんじ"
     ],
     "meaning": "Chữ Hán (Kanji)",
+    "meaningEn": "Kanji",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22753,6 +25001,7 @@ const ALL_STUDY_ITEMS = [
       "もじ"
     ],
     "meaning": "Chữ viết, ký tự",
+    "meaningEn": "Character, letter",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22764,6 +25013,7 @@ const ALL_STUDY_ITEMS = [
       "じ"
     ],
     "meaning": "Chữ cái, nét chữ",
+    "meaningEn": "Letter, character",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22775,6 +25025,7 @@ const ALL_STUDY_ITEMS = [
       "いみ"
     ],
     "meaning": "Ý nghĩa",
+    "meaningEn": "Meaning",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22786,6 +25037,7 @@ const ALL_STUDY_ITEMS = [
       "いけん"
     ],
     "meaning": "Ý kiến",
+    "meaningEn": "Opinion",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22797,6 +25049,7 @@ const ALL_STUDY_ITEMS = [
       "しる"
     ],
     "meaning": "Biết",
+    "meaningEn": "Know",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22808,6 +25061,7 @@ const ALL_STUDY_ITEMS = [
       "おしらせ"
     ],
     "meaning": "Thông báo",
+    "meaningEn": "Notice, announcement",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22819,6 +25073,7 @@ const ALL_STUDY_ITEMS = [
       "おもう"
     ],
     "meaning": "Nghĩ, cảm thấy",
+    "meaningEn": "Think, feel",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22830,6 +25085,7 @@ const ALL_STUDY_ITEMS = [
       "おもいだす"
     ],
     "meaning": "Nhớ lại",
+    "meaningEn": "Recall, remember",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22841,6 +25097,7 @@ const ALL_STUDY_ITEMS = [
       "かんがえる"
     ],
     "meaning": "Suy nghĩ, cân nhắc",
+    "meaningEn": "Think, consider",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22852,6 +25109,7 @@ const ALL_STUDY_ITEMS = [
       "かんがえ"
     ],
     "meaning": "Suy nghĩ, ý tưởng",
+    "meaningEn": "Thought, idea",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22863,6 +25121,7 @@ const ALL_STUDY_ITEMS = [
       "おぼえる"
     ],
     "meaning": "Ghi nhớ, học thuộc",
+    "meaningEn": "Memorize, remember",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22874,6 +25133,7 @@ const ALL_STUDY_ITEMS = [
       "わすれる"
     ],
     "meaning": "Quên",
+    "meaningEn": "Forget",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22885,6 +25145,7 @@ const ALL_STUDY_ITEMS = [
       "わすれもの"
     ],
     "meaning": "Đồ để quên",
+    "meaningEn": "Lost item, forgotten thing",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22896,6 +25157,7 @@ const ALL_STUDY_ITEMS = [
       "せつめい"
     ],
     "meaning": "Giải thích",
+    "meaningEn": "Explanation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22907,6 +25169,7 @@ const ALL_STUDY_ITEMS = [
       "しょうせつ"
     ],
     "meaning": "Tiểu thuyết",
+    "meaningEn": "Novel",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22918,6 +25181,7 @@ const ALL_STUDY_ITEMS = [
       "けんきゅう"
     ],
     "meaning": "Nghiên cứu",
+    "meaningEn": "Research",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22929,6 +25193,7 @@ const ALL_STUDY_ITEMS = [
       "けんきゅうしつ"
     ],
     "meaning": "Phòng nghiên cứu",
+    "meaningEn": "Research lab",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22940,6 +25205,7 @@ const ALL_STUDY_ITEMS = [
       "そつぎょう"
     ],
     "meaning": "Tốt nghiệp",
+    "meaningEn": "Graduation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22951,6 +25217,7 @@ const ALL_STUDY_ITEMS = [
       "じゅぎょう"
     ],
     "meaning": "Giờ học, tiết học",
+    "meaningEn": "Class, lesson",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22962,6 +25229,7 @@ const ALL_STUDY_ITEMS = [
       "さんぎょう"
     ],
     "meaning": "Ngành công nghiệp",
+    "meaningEn": "Industry",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22973,6 +25241,7 @@ const ALL_STUDY_ITEMS = [
       "とけい"
     ],
     "meaning": "Đồng hồ",
+    "meaningEn": "Clock, watch",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22984,6 +25253,7 @@ const ALL_STUDY_ITEMS = [
       "けいかく"
     ],
     "meaning": "Kế hoạch",
+    "meaningEn": "Plan",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -22995,6 +25265,7 @@ const ALL_STUDY_ITEMS = [
       "けいさん"
     ],
     "meaning": "Tính toán",
+    "meaningEn": "Calculation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23006,6 +25277,7 @@ const ALL_STUDY_ITEMS = [
       "にっき"
     ],
     "meaning": "Nhật ký",
+    "meaningEn": "Diary",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23017,6 +25289,7 @@ const ALL_STUDY_ITEMS = [
       "きじ"
     ],
     "meaning": "Bài báo",
+    "meaningEn": "News article",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23028,6 +25301,7 @@ const ALL_STUDY_ITEMS = [
       "きにゅう"
     ],
     "meaning": "Điền vào (đơn, giấy tờ)",
+    "meaningEn": "Fill in (a form)",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23039,6 +25313,7 @@ const ALL_STUDY_ITEMS = [
       "うけつけ"
     ],
     "meaning": "Quầy lễ tân, tiếp nhận",
+    "meaningEn": "Reception desk",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23050,6 +25325,7 @@ const ALL_STUDY_ITEMS = [
       "うける"
     ],
     "meaning": "Tham dự (kỳ thi), nhận",
+    "meaningEn": "Take (an exam), receive",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23061,6 +25337,7 @@ const ALL_STUDY_ITEMS = [
       "にゅうがく"
     ],
     "meaning": "Nhập học",
+    "meaningEn": "School entrance",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23072,6 +25349,7 @@ const ALL_STUDY_ITEMS = [
       "にゅうがくしき"
     ],
     "meaning": "Lễ khai giảng, nhập học",
+    "meaningEn": "Entrance ceremony",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23083,6 +25361,7 @@ const ALL_STUDY_ITEMS = [
       "そつぎょうしき"
     ],
     "meaning": "Lễ tốt nghiệp",
+    "meaningEn": "Graduation ceremony",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23094,6 +25373,7 @@ const ALL_STUDY_ITEMS = [
       "ごうかく"
     ],
     "meaning": "Đỗ (kỳ thi)",
+    "meaningEn": "Pass (an exam)",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23105,6 +25385,7 @@ const ALL_STUDY_ITEMS = [
       "ふごうかく"
     ],
     "meaning": "Trượt (kỳ thi)",
+    "meaningEn": "Fail (an exam)",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23116,6 +25397,7 @@ const ALL_STUDY_ITEMS = [
       "せいせき"
     ],
     "meaning": "Thành tích, điểm số",
+    "meaningEn": "Grades, results",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23127,6 +25409,7 @@ const ALL_STUDY_ITEMS = [
       "てんすう"
     ],
     "meaning": "Điểm số",
+    "meaningEn": "Score, points",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23138,6 +25421,7 @@ const ALL_STUDY_ITEMS = [
       "ほんやく"
     ],
     "meaning": "Biên dịch",
+    "meaningEn": "Written translation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23149,6 +25433,7 @@ const ALL_STUDY_ITEMS = [
       "つうやく"
     ],
     "meaning": "Phiên dịch",
+    "meaningEn": "Interpreting",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23160,6 +25445,7 @@ const ALL_STUDY_ITEMS = [
       "せんもん"
     ],
     "meaning": "Chuyên môn, chuyên ngành",
+    "meaningEn": "Specialty, major",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23171,6 +25457,7 @@ const ALL_STUDY_ITEMS = [
       "きょういく"
     ],
     "meaning": "Giáo dục",
+    "meaningEn": "Education",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23182,6 +25469,7 @@ const ALL_STUDY_ITEMS = [
       "かくにん"
     ],
     "meaning": "Xác nhận",
+    "meaningEn": "Confirmation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23193,6 +25481,7 @@ const ALL_STUDY_ITEMS = [
       "じゅんび"
     ],
     "meaning": "Chuẩn bị",
+    "meaningEn": "Preparation",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23204,6 +25493,7 @@ const ALL_STUDY_ITEMS = [
       "もうしこむ"
     ],
     "meaning": "Đăng ký",
+    "meaningEn": "Apply, sign up",
     "topicId": "n4_07",
     "level": "N4"
   },
@@ -23215,6 +25505,7 @@ const ALL_STUDY_ITEMS = [
       "うる"
     ],
     "meaning": "Bán",
+    "meaningEn": "Sell",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23226,6 +25517,7 @@ const ALL_STUDY_ITEMS = [
       "うりば"
     ],
     "meaning": "Quầy bán hàng",
+    "meaningEn": "Sales counter, section",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23237,6 +25529,7 @@ const ALL_STUDY_ITEMS = [
       "じどうはんばいき"
     ],
     "meaning": "Máy bán hàng tự động",
+    "meaningEn": "Vending machine",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23248,6 +25541,7 @@ const ALL_STUDY_ITEMS = [
       "はらう"
     ],
     "meaning": "Trả tiền, thanh toán",
+    "meaningEn": "Pay",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23259,6 +25553,7 @@ const ALL_STUDY_ITEMS = [
       "かす"
     ],
     "meaning": "Cho mượn",
+    "meaningEn": "Lend",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23270,6 +25565,7 @@ const ALL_STUDY_ITEMS = [
       "かりる"
     ],
     "meaning": "Đi mượn",
+    "meaningEn": "Borrow",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23281,6 +25577,7 @@ const ALL_STUDY_ITEMS = [
       "かえす"
     ],
     "meaning": "Trả lại",
+    "meaningEn": "Return (something)",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23292,6 +25589,7 @@ const ALL_STUDY_ITEMS = [
       "へんじ"
     ],
     "meaning": "Hồi âm, trả lời",
+    "meaningEn": "Reply, response",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23303,6 +25601,7 @@ const ALL_STUDY_ITEMS = [
       "おくる"
     ],
     "meaning": "Gửi đi, tiễn",
+    "meaningEn": "Send, see off",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23314,6 +25613,7 @@ const ALL_STUDY_ITEMS = [
       "ほうそう"
     ],
     "meaning": "Phát sóng",
+    "meaningEn": "Broadcast",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23325,6 +25625,7 @@ const ALL_STUDY_ITEMS = [
       "とどく"
     ],
     "meaning": "Được gửi tới, đến nơi",
+    "meaningEn": "Arrive, be delivered",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23336,6 +25637,7 @@ const ALL_STUDY_ITEMS = [
       "とどける"
     ],
     "meaning": "Giao hàng, gửi tới",
+    "meaningEn": "Deliver, send",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23347,6 +25649,7 @@ const ALL_STUDY_ITEMS = [
       "しなもの"
     ],
     "meaning": "Hàng hóa, đồ đạc",
+    "meaningEn": "Goods, articles",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23358,6 +25661,7 @@ const ALL_STUDY_ITEMS = [
       "しょうひん"
     ],
     "meaning": "Sản phẩm",
+    "meaningEn": "Product, merchandise",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23369,6 +25673,7 @@ const ALL_STUDY_ITEMS = [
       "ふく"
     ],
     "meaning": "Quần áo, trang phục",
+    "meaningEn": "Clothes",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23380,6 +25685,7 @@ const ALL_STUDY_ITEMS = [
       "ようふく"
     ],
     "meaning": "Âu phục, quần áo kiểu Tây",
+    "meaningEn": "Western clothes",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23391,6 +25697,7 @@ const ALL_STUDY_ITEMS = [
       "わふく"
     ],
     "meaning": "Trang phục truyền thống Nhật",
+    "meaningEn": "Japanese traditional clothes",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23402,6 +25709,7 @@ const ALL_STUDY_ITEMS = [
       "かみ"
     ],
     "meaning": "Giấy",
+    "meaningEn": "Paper",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23413,6 +25721,7 @@ const ALL_STUDY_ITEMS = [
       "てがみ"
     ],
     "meaning": "Bức thư",
+    "meaningEn": "Letter",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23424,6 +25733,7 @@ const ALL_STUDY_ITEMS = [
       "はこ"
     ],
     "meaning": "Cái hộp",
+    "meaningEn": "Box",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23435,6 +25745,7 @@ const ALL_STUDY_ITEMS = [
       "ふくろ"
     ],
     "meaning": "Cái túi",
+    "meaningEn": "Bag",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23446,6 +25757,7 @@ const ALL_STUDY_ITEMS = [
       "てぶくろ"
     ],
     "meaning": "Găng tay",
+    "meaningEn": "Gloves",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23457,6 +25769,7 @@ const ALL_STUDY_ITEMS = [
       "いろ"
     ],
     "meaning": "Màu sắc",
+    "meaningEn": "Color",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23468,6 +25781,7 @@ const ALL_STUDY_ITEMS = [
       "いろいろ"
     ],
     "meaning": "Đủ loại, nhiều thứ",
+    "meaningEn": "Various",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23479,6 +25793,7 @@ const ALL_STUDY_ITEMS = [
       "けしき"
     ],
     "meaning": "Phong cảnh",
+    "meaningEn": "Scenery, landscape",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23490,6 +25805,7 @@ const ALL_STUDY_ITEMS = [
       "かたち"
     ],
     "meaning": "Hình dạng",
+    "meaningEn": "Shape, form",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23501,6 +25817,7 @@ const ALL_STUDY_ITEMS = [
       "にんぎょう"
     ],
     "meaning": "Búp bê",
+    "meaningEn": "Doll",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23512,6 +25829,7 @@ const ALL_STUDY_ITEMS = [
       "おもい"
     ],
     "meaning": "Nặng",
+    "meaningEn": "Heavy",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23523,6 +25841,7 @@ const ALL_STUDY_ITEMS = [
       "じゅうよう"
     ],
     "meaning": "Quan trọng",
+    "meaningEn": "Important",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23534,6 +25853,7 @@ const ALL_STUDY_ITEMS = [
       "かるい"
     ],
     "meaning": "Nhẹ",
+    "meaningEn": "Light (weight)",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23545,6 +25865,7 @@ const ALL_STUDY_ITEMS = [
       "みじかい"
     ],
     "meaning": "Ngắn",
+    "meaningEn": "Short",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23556,6 +25877,7 @@ const ALL_STUDY_ITEMS = [
       "たんしょ"
     ],
     "meaning": "Nhược điểm",
+    "meaningEn": "Weak point, flaw",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23567,6 +25889,7 @@ const ALL_STUDY_ITEMS = [
       "ちょうしょ"
     ],
     "meaning": "Ưu điểm",
+    "meaningEn": "Strong point, merit",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23578,6 +25901,7 @@ const ALL_STUDY_ITEMS = [
       "ふとい"
     ],
     "meaning": "To, dày, mập",
+    "meaningEn": "Thick, fat",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23589,6 +25913,7 @@ const ALL_STUDY_ITEMS = [
       "ふとる"
     ],
     "meaning": "Tăng cân, béo lên",
+    "meaningEn": "Gain weight",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23600,6 +25925,7 @@ const ALL_STUDY_ITEMS = [
       "ほそい"
     ],
     "meaning": "Mảnh, gầy, hẹp",
+    "meaningEn": "Thin, slender",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23611,6 +25937,7 @@ const ALL_STUDY_ITEMS = [
       "こまかい"
     ],
     "meaning": "Chi tiết, nhỏ lẻ",
+    "meaningEn": "Detailed, fine",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23622,6 +25949,7 @@ const ALL_STUDY_ITEMS = [
       "とくべつ"
     ],
     "meaning": "Đặc biệt",
+    "meaningEn": "Special",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23633,6 +25961,7 @@ const ALL_STUDY_ITEMS = [
       "とくに"
     ],
     "meaning": "Đặc biệt là",
+    "meaningEn": "Especially",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23644,6 +25973,7 @@ const ALL_STUDY_ITEMS = [
       "わかれる"
     ],
     "meaning": "Chia tay, tạm biệt",
+    "meaningEn": "Part ways, separate",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23655,6 +25985,7 @@ const ALL_STUDY_ITEMS = [
       "べつに"
     ],
     "meaning": "Không có gì đặc biệt",
+    "meaningEn": "Not particularly",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23666,6 +25997,7 @@ const ALL_STUDY_ITEMS = [
       "べんり"
     ],
     "meaning": "Tiện lợi",
+    "meaningEn": "Convenient",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23677,6 +26009,7 @@ const ALL_STUDY_ITEMS = [
       "ふべん"
     ],
     "meaning": "Bất tiện",
+    "meaningEn": "Inconvenient",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23688,6 +26021,7 @@ const ALL_STUDY_ITEMS = [
       "ゆうびんきょく"
     ],
     "meaning": "Bưu điện",
+    "meaningEn": "Post office",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23699,6 +26033,7 @@ const ALL_STUDY_ITEMS = [
       "りよう"
     ],
     "meaning": "Sử dụng, tận dụng",
+    "meaningEn": "Use, utilization",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23710,6 +26045,7 @@ const ALL_STUDY_ITEMS = [
       "はやい"
     ],
     "meaning": "Sớm",
+    "meaningEn": "Early",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23721,6 +26057,7 @@ const ALL_STUDY_ITEMS = [
       "はやい"
     ],
     "meaning": "Nhanh",
+    "meaningEn": "Fast, quick",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23732,6 +26069,7 @@ const ALL_STUDY_ITEMS = [
       "こうそく"
     ],
     "meaning": "Tốc độ cao, cao tốc",
+    "meaningEn": "High speed, express",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23743,6 +26081,7 @@ const ALL_STUDY_ITEMS = [
       "おそい"
     ],
     "meaning": "Chậm, muộn",
+    "meaningEn": "Slow, late",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23754,6 +26093,7 @@ const ALL_STUDY_ITEMS = [
       "おくれる"
     ],
     "meaning": "Bị muộn, trễ",
+    "meaningEn": "Be late",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23765,6 +26105,7 @@ const ALL_STUDY_ITEMS = [
       "むずかしい"
     ],
     "meaning": "Khó",
+    "meaningEn": "Difficult, hard",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23776,6 +26117,7 @@ const ALL_STUDY_ITEMS = [
       "やさしい"
     ],
     "meaning": "Dễ",
+    "meaningEn": "Easy, simple",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23787,6 +26129,7 @@ const ALL_STUDY_ITEMS = [
       "ただしい"
     ],
     "meaning": "Đúng, chính xác",
+    "meaningEn": "Correct, right",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23798,6 +26141,7 @@ const ALL_STUDY_ITEMS = [
       "おしょうがつ"
     ],
     "meaning": "Tết Dương lịch",
+    "meaningEn": "New Year",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23809,6 +26153,7 @@ const ALL_STUDY_ITEMS = [
       "おなじ"
     ],
     "meaning": "Giống nhau",
+    "meaningEn": "Same",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23820,6 +26165,7 @@ const ALL_STUDY_ITEMS = [
       "ちがう"
     ],
     "meaning": "Khác nhau, sai",
+    "meaningEn": "Different, wrong",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23831,6 +26177,7 @@ const ALL_STUDY_ITEMS = [
       "まちがい"
     ],
     "meaning": "Lỗi sai, sự nhầm lẫn",
+    "meaningEn": "Mistake, error",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23843,6 +26190,7 @@ const ALL_STUDY_ITEMS = [
       "いい"
     ],
     "meaning": "Tốt",
+    "meaningEn": "Good",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23854,6 +26202,7 @@ const ALL_STUDY_ITEMS = [
       "わるい"
     ],
     "meaning": "Xấu, tệ",
+    "meaningEn": "Bad",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23865,6 +26214,7 @@ const ALL_STUDY_ITEMS = [
       "つよい"
     ],
     "meaning": "Mạnh, khỏe",
+    "meaningEn": "Strong",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23876,6 +26226,7 @@ const ALL_STUDY_ITEMS = [
       "よわい"
     ],
     "meaning": "Yếu",
+    "meaningEn": "Weak",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23887,6 +26238,7 @@ const ALL_STUDY_ITEMS = [
       "わかい"
     ],
     "meaning": "Trẻ",
+    "meaningEn": "Young",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23898,6 +26250,7 @@ const ALL_STUDY_ITEMS = [
       "ねだん"
     ],
     "meaning": "Giá cả",
+    "meaningEn": "Price",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23909,6 +26262,7 @@ const ALL_STUDY_ITEMS = [
       "さいふ"
     ],
     "meaning": "Ví tiền",
+    "meaningEn": "Wallet",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23920,6 +26274,7 @@ const ALL_STUDY_ITEMS = [
       "くつ"
     ],
     "meaning": "Giày",
+    "meaningEn": "Shoes",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23931,6 +26286,7 @@ const ALL_STUDY_ITEMS = [
       "かさ"
     ],
     "meaning": "Cái ô (dù)",
+    "meaningEn": "Umbrella",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23942,6 +26298,7 @@ const ALL_STUDY_ITEMS = [
       "めがね"
     ],
     "meaning": "Kính mắt",
+    "meaningEn": "Eyeglasses",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23953,6 +26310,7 @@ const ALL_STUDY_ITEMS = [
       "わりびき"
     ],
     "meaning": "Giảm giá, chiết khấu",
+    "meaningEn": "Discount",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23964,6 +26322,7 @@ const ALL_STUDY_ITEMS = [
       "はんがく"
     ],
     "meaning": "Giảm nửa giá",
+    "meaningEn": "Half price",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23975,6 +26334,7 @@ const ALL_STUDY_ITEMS = [
       "げんきん"
     ],
     "meaning": "Tiền mặt",
+    "meaningEn": "Cash",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23986,6 +26346,7 @@ const ALL_STUDY_ITEMS = [
       "りょうしゅうしょ"
     ],
     "meaning": "Hóa đơn, biên lai",
+    "meaningEn": "Receipt",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -23997,6 +26358,7 @@ const ALL_STUDY_ITEMS = [
       "あずける"
     ],
     "meaning": "Gửi giữ (hành lý, tiền)",
+    "meaningEn": "Deposit, leave in care",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -24008,6 +26370,7 @@ const ALL_STUDY_ITEMS = [
       "しゅうり"
     ],
     "meaning": "Sửa chữa",
+    "meaningEn": "Repair",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -24019,6 +26382,7 @@ const ALL_STUDY_ITEMS = [
       "こしょう"
     ],
     "meaning": "Hỏng hóc (máy móc)",
+    "meaningEn": "Breakdown, malfunction",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -24030,6 +26394,7 @@ const ALL_STUDY_ITEMS = [
       "せつめいしょ"
     ],
     "meaning": "Sách hướng dẫn sử dụng",
+    "meaningEn": "Instruction manual",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -24041,6 +26406,7 @@ const ALL_STUDY_ITEMS = [
       "かぐ"
     ],
     "meaning": "Đồ nội thất",
+    "meaningEn": "Furniture",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -24052,6 +26418,7 @@ const ALL_STUDY_ITEMS = [
       "どうぐ"
     ],
     "meaning": "Dụng cụ",
+    "meaningEn": "Tool",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -24063,6 +26430,7 @@ const ALL_STUDY_ITEMS = [
       "かぎ"
     ],
     "meaning": "Chìa khóa",
+    "meaningEn": "Key",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -24074,6 +26442,7 @@ const ALL_STUDY_ITEMS = [
       "まど"
     ],
     "meaning": "Cửa sổ",
+    "meaningEn": "Window",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -24085,6 +26454,7 @@ const ALL_STUDY_ITEMS = [
       "かがみ"
     ],
     "meaning": "Cái gương",
+    "meaningEn": "Mirror",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -24096,6 +26466,7 @@ const ALL_STUDY_ITEMS = [
       "ふとん"
     ],
     "meaning": "Chăn đệm kiểu Nhật",
+    "meaningEn": "Futon (Japanese bedding)",
     "topicId": "n4_08",
     "level": "N4"
   },
@@ -24107,6 +26478,7 @@ const ALL_STUDY_ITEMS = [
       "まつり"
     ],
     "meaning": "Lễ hội",
+    "meaningEn": "Festival",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24118,6 +26490,7 @@ const ALL_STUDY_ITEMS = [
       "おまつり"
     ],
     "meaning": "Lễ hội (lịch sự)",
+    "meaningEn": "Festival (polite)",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24129,6 +26502,7 @@ const ALL_STUDY_ITEMS = [
       "ぶんかさい"
     ],
     "meaning": "Lễ hội văn hóa",
+    "meaningEn": "Cultural festival",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24140,6 +26514,7 @@ const ALL_STUDY_ITEMS = [
       "いわう"
     ],
     "meaning": "Chúc mừng, ăn mừng",
+    "meaningEn": "Celebrate",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24151,6 +26526,7 @@ const ALL_STUDY_ITEMS = [
       "おいわい"
     ],
     "meaning": "Lời chúc / quà mừng",
+    "meaningEn": "Celebration, gift",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24162,6 +26538,7 @@ const ALL_STUDY_ITEMS = [
       "しゅくじつ"
     ],
     "meaning": "Ngày lễ quốc gia",
+    "meaningEn": "National holiday",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24173,6 +26550,7 @@ const ALL_STUDY_ITEMS = [
       "おれい"
     ],
     "meaning": "Lời cảm ơn, quà cảm ơn",
+    "meaningEn": "Gratitude, thank-you gift",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24184,6 +26562,7 @@ const ALL_STUDY_ITEMS = [
       "しつれい"
     ],
     "meaning": "Thất lễ, xin phép",
+    "meaningEn": "Rudeness, excuse me",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24195,6 +26574,7 @@ const ALL_STUDY_ITEMS = [
       "れきし"
     ],
     "meaning": "Lịch sử",
+    "meaningEn": "History",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24206,6 +26586,7 @@ const ALL_STUDY_ITEMS = [
       "むかし"
     ],
     "meaning": "Ngày xưa",
+    "meaningEn": "Olden days, long ago",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24217,6 +26598,7 @@ const ALL_STUDY_ITEMS = [
       "むかしばなし"
     ],
     "meaning": "Chuyện cổ tích",
+    "meaningEn": "Folktale, old story",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24228,6 +26610,7 @@ const ALL_STUDY_ITEMS = [
       "じだい"
     ],
     "meaning": "Thời đại",
+    "meaningEn": "Era, period",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24239,6 +26622,7 @@ const ALL_STUDY_ITEMS = [
       "しょくじだい"
     ],
     "meaning": "Tiền ăn",
+    "meaningEn": "Meal expense",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24250,6 +26634,7 @@ const ALL_STUDY_ITEMS = [
       "たてる"
     ],
     "meaning": "Xây dựng",
+    "meaningEn": "Build, construct",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24261,6 +26646,7 @@ const ALL_STUDY_ITEMS = [
       "たてもの"
     ],
     "meaning": "Tòa nhà, công trình",
+    "meaningEn": "Building",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24272,6 +26658,7 @@ const ALL_STUDY_ITEMS = [
       "てら"
     ],
     "meaning": "Chùa",
+    "meaningEn": "Temple",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24283,6 +26670,7 @@ const ALL_STUDY_ITEMS = [
       "おてら"
     ],
     "meaning": "Ngôi chùa",
+    "meaningEn": "Buddhist temple",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24294,6 +26682,7 @@ const ALL_STUDY_ITEMS = [
       "かみ"
     ],
     "meaning": "Thần linh",
+    "meaningEn": "God, spirit",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24305,6 +26694,7 @@ const ALL_STUDY_ITEMS = [
       "かみさま"
     ],
     "meaning": "Thần linh, Chúa trời",
+    "meaningEn": "God (polite)",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24316,6 +26706,7 @@ const ALL_STUDY_ITEMS = [
       "じんじゃ"
     ],
     "meaning": "Đền thờ Thần đạo",
+    "meaningEn": "Shinto shrine",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24327,6 +26718,7 @@ const ALL_STUDY_ITEMS = [
       "もり"
     ],
     "meaning": "Rừng rậm",
+    "meaningEn": "Dense forest",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24338,6 +26730,7 @@ const ALL_STUDY_ITEMS = [
       "しんりん"
     ],
     "meaning": "Rừng cây, lâm nghiệp",
+    "meaningEn": "Forest, woods",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24349,6 +26742,7 @@ const ALL_STUDY_ITEMS = [
       "はやし"
     ],
     "meaning": "Rừng thưa",
+    "meaningEn": "Woods, grove",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24360,6 +26754,7 @@ const ALL_STUDY_ITEMS = [
       "いけ"
     ],
     "meaning": "Cái ao",
+    "meaningEn": "Pond",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24371,6 +26766,7 @@ const ALL_STUDY_ITEMS = [
       "でんち"
     ],
     "meaning": "Pin",
+    "meaningEn": "Battery",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24382,6 +26778,7 @@ const ALL_STUDY_ITEMS = [
       "ひかり"
     ],
     "meaning": "Ánh sáng",
+    "meaningEn": "Light",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24393,6 +26790,7 @@ const ALL_STUDY_ITEMS = [
       "ひかる"
     ],
     "meaning": "Tỏa sáng, lấp lánh",
+    "meaningEn": "Shine, glitter",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24404,6 +26802,7 @@ const ALL_STUDY_ITEMS = [
       "かんこう"
     ],
     "meaning": "Tham quan, du lịch",
+    "meaningEn": "Sightseeing, tourism",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24415,6 +26814,7 @@ const ALL_STUDY_ITEMS = [
       "しぜん"
     ],
     "meaning": "Tự nhiên, thiên nhiên",
+    "meaningEn": "Nature, natural",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24426,6 +26826,7 @@ const ALL_STUDY_ITEMS = [
       "ぜんぜん"
     ],
     "meaning": "Hoàn toàn không",
+    "meaningEn": "Not at all, completely",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24437,6 +26838,7 @@ const ALL_STUDY_ITEMS = [
       "かんきょう"
     ],
     "meaning": "Môi trường",
+    "meaningEn": "Environment",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24448,6 +26850,7 @@ const ALL_STUDY_ITEMS = [
       "ほし"
     ],
     "meaning": "Ngôi sao",
+    "meaningEn": "Star",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24459,6 +26862,7 @@ const ALL_STUDY_ITEMS = [
       "くさ"
     ],
     "meaning": "Cỏ",
+    "meaningEn": "Grass",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24470,6 +26874,7 @@ const ALL_STUDY_ITEMS = [
       "は"
     ],
     "meaning": "Chiếc lá",
+    "meaningEn": "Leaf",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24481,6 +26886,7 @@ const ALL_STUDY_ITEMS = [
       "いし"
     ],
     "meaning": "Hòn đá",
+    "meaningEn": "Stone, rock",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24492,6 +26898,7 @@ const ALL_STUDY_ITEMS = [
       "いぬ"
     ],
     "meaning": "Con chó",
+    "meaningEn": "Dog",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24503,6 +26910,7 @@ const ALL_STUDY_ITEMS = [
       "ねこ"
     ],
     "meaning": "Con mèo",
+    "meaningEn": "Cat",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24514,6 +26922,7 @@ const ALL_STUDY_ITEMS = [
       "うま"
     ],
     "meaning": "Con ngựa",
+    "meaningEn": "Horse",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24525,6 +26934,7 @@ const ALL_STUDY_ITEMS = [
       "むし"
     ],
     "meaning": "Côn trùng, sâu bọ",
+    "meaningEn": "Insect, bug",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24536,6 +26946,7 @@ const ALL_STUDY_ITEMS = [
       "さく"
     ],
     "meaning": "Nở (hoa)",
+    "meaningEn": "Bloom (flowers)",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24547,6 +26958,7 @@ const ALL_STUDY_ITEMS = [
       "かれる"
     ],
     "meaning": "Héo úa, khô héo",
+    "meaningEn": "Wither, dry up",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24559,6 +26971,7 @@ const ALL_STUDY_ITEMS = [
       "もみじ"
     ],
     "meaning": "Lá đỏ mùa thu",
+    "meaningEn": "Autumn foliage",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24570,6 +26983,7 @@ const ALL_STUDY_ITEMS = [
       "さくら"
     ],
     "meaning": "Hoa anh đào",
+    "meaningEn": "Cherry blossom",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24581,6 +26995,7 @@ const ALL_STUDY_ITEMS = [
       "たけ"
     ],
     "meaning": "Cây tre",
+    "meaningEn": "Bamboo",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24592,6 +27007,7 @@ const ALL_STUDY_ITEMS = [
       "でんとう"
     ],
     "meaning": "Truyền thống",
+    "meaningEn": "Tradition",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24603,6 +27019,7 @@ const ALL_STUDY_ITEMS = [
       "しゅうかん"
     ],
     "meaning": "Tập quán, thói quen",
+    "meaningEn": "Custom, habit",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24614,6 +27031,7 @@ const ALL_STUDY_ITEMS = [
       "せんそう"
     ],
     "meaning": "Chiến tranh",
+    "meaningEn": "War",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24625,6 +27043,7 @@ const ALL_STUDY_ITEMS = [
       "せいじ"
     ],
     "meaning": "Chính trị",
+    "meaningEn": "Politics",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24636,6 +27055,7 @@ const ALL_STUDY_ITEMS = [
       "けいざい"
     ],
     "meaning": "Kinh tế",
+    "meaningEn": "Economy",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24647,6 +27067,7 @@ const ALL_STUDY_ITEMS = [
       "ほうりつ"
     ],
     "meaning": "Pháp luật",
+    "meaningEn": "Law",
     "topicId": "n4_09",
     "level": "N4"
   },
@@ -24658,6 +27079,7 @@ const ALL_STUDY_ITEMS = [
       "こと"
     ],
     "meaning": "Việc, chuyện",
+    "meaningEn": "Thing, matter",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24669,6 +27091,7 @@ const ALL_STUDY_ITEMS = [
       "だいじ"
     ],
     "meaning": "Quan trọng",
+    "meaningEn": "Important, serious",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24680,6 +27103,7 @@ const ALL_STUDY_ITEMS = [
       "ようじ"
     ],
     "meaning": "Việc bận, việc cần làm",
+    "meaningEn": "Errand, business",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24691,6 +27115,7 @@ const ALL_STUDY_ITEMS = [
       "じこ"
     ],
     "meaning": "Tai nạn",
+    "meaningEn": "Accident",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24702,6 +27127,7 @@ const ALL_STUDY_ITEMS = [
       "かじ"
     ],
     "meaning": "Hỏa hoạn",
+    "meaningEn": "Fire (disaster)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24713,6 +27139,7 @@ const ALL_STUDY_ITEMS = [
       "あう"
     ],
     "meaning": "Gặp gỡ",
+    "meaningEn": "Meet",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24724,6 +27151,7 @@ const ALL_STUDY_ITEMS = [
       "かいぎ"
     ],
     "meaning": "Cuộc họp",
+    "meaningEn": "Meeting, conference",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24735,6 +27163,7 @@ const ALL_STUDY_ITEMS = [
       "かいじょう"
     ],
     "meaning": "Hội trường, địa điểm tổ chức",
+    "meaningEn": "Venue, assembly hall",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24746,6 +27175,7 @@ const ALL_STUDY_ITEMS = [
       "はじまる"
     ],
     "meaning": "Bắt đầu (tự động từ)",
+    "meaningEn": "Begin (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24757,6 +27187,7 @@ const ALL_STUDY_ITEMS = [
       "はじめる"
     ],
     "meaning": "Bắt đầu (tha động từ)",
+    "meaningEn": "Start, begin (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24768,6 +27199,7 @@ const ALL_STUDY_ITEMS = [
       "おわる"
     ],
     "meaning": "Kết thúc",
+    "meaningEn": "End, finish",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24779,6 +27211,7 @@ const ALL_STUDY_ITEMS = [
       "あける"
     ],
     "meaning": "Mở (tha động từ)",
+    "meaningEn": "Open (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24791,6 +27224,7 @@ const ALL_STUDY_ITEMS = [
       "ひらく"
     ],
     "meaning": "Mở ra, tổ chức",
+    "meaningEn": "Open (intransitive), hold (an event)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24802,6 +27236,7 @@ const ALL_STUDY_ITEMS = [
       "しめる"
     ],
     "meaning": "Đóng (tha động từ)",
+    "meaningEn": "Close (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24813,6 +27248,7 @@ const ALL_STUDY_ITEMS = [
       "しまる"
     ],
     "meaning": "Đóng lại (tự động từ)",
+    "meaningEn": "Close (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24824,6 +27260,7 @@ const ALL_STUDY_ITEMS = [
       "たつ"
     ],
     "meaning": "Đứng",
+    "meaningEn": "Stand",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24835,6 +27272,7 @@ const ALL_STUDY_ITEMS = [
       "やくにたつ"
     ],
     "meaning": "Có ích",
+    "meaningEn": "Be useful, helpful",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24846,6 +27284,7 @@ const ALL_STUDY_ITEMS = [
       "すわる"
     ],
     "meaning": "Ngồi",
+    "meaningEn": "Sit",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24857,6 +27296,7 @@ const ALL_STUDY_ITEMS = [
       "まつ"
     ],
     "meaning": "Chờ đợi",
+    "meaningEn": "Wait",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24868,6 +27308,7 @@ const ALL_STUDY_ITEMS = [
       "しょうたい"
     ],
     "meaning": "Mời, lời mời",
+    "meaningEn": "Invitation",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24879,6 +27320,7 @@ const ALL_STUDY_ITEMS = [
       "もつ"
     ],
     "meaning": "Cầm, mang, sở hữu",
+    "meaningEn": "Hold, carry, have",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24890,6 +27332,7 @@ const ALL_STUDY_ITEMS = [
       "きもち"
     ],
     "meaning": "Cảm giác, tâm trạng",
+    "meaningEn": "Feeling, mood",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24901,6 +27344,7 @@ const ALL_STUDY_ITEMS = [
       "つかう"
     ],
     "meaning": "Sử dụng",
+    "meaningEn": "Use",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24912,6 +27356,7 @@ const ALL_STUDY_ITEMS = [
       "たいしかん"
     ],
     "meaning": "Đại sứ quán",
+    "meaningEn": "Embassy",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24923,6 +27368,7 @@ const ALL_STUDY_ITEMS = [
       "つたえる"
     ],
     "meaning": "Truyền đạt, nhắn lại",
+    "meaningEn": "Convey, pass on a message",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24934,6 +27380,7 @@ const ALL_STUDY_ITEMS = [
       "てつだう"
     ],
     "meaning": "Giúp đỡ",
+    "meaningEn": "Help, assist",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24945,6 +27392,7 @@ const ALL_STUDY_ITEMS = [
       "たすける"
     ],
     "meaning": "Cứu giúp, trợ giúp",
+    "meaningEn": "Save, rescue, help",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24956,6 +27404,7 @@ const ALL_STUDY_ITEMS = [
       "あらう"
     ],
     "meaning": "Rửa, giặt",
+    "meaningEn": "Wash",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24967,6 +27416,7 @@ const ALL_STUDY_ITEMS = [
       "せんたく"
     ],
     "meaning": "Giặt giũ",
+    "meaningEn": "Laundry",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24978,6 +27428,7 @@ const ALL_STUDY_ITEMS = [
       "そうじ"
     ],
     "meaning": "Dọn dẹp, quét dọn",
+    "meaningEn": "Cleaning",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -24989,6 +27440,7 @@ const ALL_STUDY_ITEMS = [
       "あつまる"
     ],
     "meaning": "Tập trung, tụ họp",
+    "meaningEn": "Gather (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25000,6 +27452,7 @@ const ALL_STUDY_ITEMS = [
       "あつめる"
     ],
     "meaning": "Sưu tầm, thu thập",
+    "meaningEn": "Collect, gather (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25011,6 +27464,7 @@ const ALL_STUDY_ITEMS = [
       "きまる"
     ],
     "meaning": "Được quyết định",
+    "meaningEn": "Be decided",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25022,6 +27476,7 @@ const ALL_STUDY_ITEMS = [
       "きめる"
     ],
     "meaning": "Quyết định",
+    "meaningEn": "Decide",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25033,6 +27488,7 @@ const ALL_STUDY_ITEMS = [
       "かわる"
     ],
     "meaning": "Thay đổi (tự động từ)",
+    "meaningEn": "Change (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25044,6 +27500,7 @@ const ALL_STUDY_ITEMS = [
       "かえる"
     ],
     "meaning": "Thay đổi (tha động từ)",
+    "meaningEn": "Change (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25055,6 +27512,7 @@ const ALL_STUDY_ITEMS = [
       "たいへん"
     ],
     "meaning": "Vất vả, rất, nghiêm trọng",
+    "meaningEn": "Very, tough, serious",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25066,6 +27524,7 @@ const ALL_STUDY_ITEMS = [
       "へん"
     ],
     "meaning": "Kỳ lạ, bất thường",
+    "meaningEn": "Strange, weird",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25077,6 +27536,7 @@ const ALL_STUDY_ITEMS = [
       "なおす"
     ],
     "meaning": "Sửa chữa",
+    "meaningEn": "Fix, repair",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25088,6 +27548,7 @@ const ALL_STUDY_ITEMS = [
       "なおる"
     ],
     "meaning": "Khỏi bệnh",
+    "meaningEn": "Recover, get well",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25099,6 +27560,7 @@ const ALL_STUDY_ITEMS = [
       "ちょくせつ"
     ],
     "meaning": "Trực tiếp",
+    "meaningEn": "Directly",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25110,6 +27572,7 @@ const ALL_STUDY_ITEMS = [
       "つづく"
     ],
     "meaning": "Tiếp tục (tự động từ)",
+    "meaningEn": "Continue (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25121,6 +27584,7 @@ const ALL_STUDY_ITEMS = [
       "つづける"
     ],
     "meaning": "Tiếp tục (tha động từ)",
+    "meaningEn": "Continue (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25132,6 +27596,7 @@ const ALL_STUDY_ITEMS = [
       "えらぶ"
     ],
     "meaning": "Lựa chọn",
+    "meaningEn": "Choose, select",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25143,6 +27608,7 @@ const ALL_STUDY_ITEMS = [
       "せんしゅ"
     ],
     "meaning": "Vận động viên, tuyển thủ",
+    "meaningEn": "Athlete, player",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25154,6 +27620,7 @@ const ALL_STUDY_ITEMS = [
       "さがす"
     ],
     "meaning": "Tìm kiếm",
+    "meaningEn": "Search, look for",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25165,6 +27632,7 @@ const ALL_STUDY_ITEMS = [
       "しらべる"
     ],
     "meaning": "Tra cứu, điều tra",
+    "meaningEn": "Look up, investigate",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25176,6 +27644,7 @@ const ALL_STUDY_ITEMS = [
       "ちょうし"
     ],
     "meaning": "Tình trạng, phong độ",
+    "meaningEn": "Condition, shape",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25187,6 +27656,7 @@ const ALL_STUDY_ITEMS = [
       "おく"
     ],
     "meaning": "Đặt, để",
+    "meaningEn": "Put, place",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25198,6 +27668,7 @@ const ALL_STUDY_ITEMS = [
       "おす"
     ],
     "meaning": "Ấn, đẩy",
+    "meaningEn": "Push, press",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25209,6 +27680,7 @@ const ALL_STUDY_ITEMS = [
       "ひく"
     ],
     "meaning": "Kéo, tra từ điển",
+    "meaningEn": "Pull, look up (in dictionary)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25220,6 +27692,7 @@ const ALL_STUDY_ITEMS = [
       "よぶ"
     ],
     "meaning": "Gọi",
+    "meaningEn": "Call",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25231,6 +27704,7 @@ const ALL_STUDY_ITEMS = [
       "とる"
     ],
     "meaning": "Lấy, chụp",
+    "meaningEn": "Take, get",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25242,6 +27716,7 @@ const ALL_STUDY_ITEMS = [
       "とる"
     ],
     "meaning": "Chụp ảnh, quay phim",
+    "meaningEn": "Take (a photo), shoot (video)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25253,6 +27728,7 @@ const ALL_STUDY_ITEMS = [
       "くらべる"
     ],
     "meaning": "So sánh",
+    "meaningEn": "Compare",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25264,6 +27740,7 @@ const ALL_STUDY_ITEMS = [
       "けす"
     ],
     "meaning": "Tắt, xóa",
+    "meaningEn": "Turn off, erase",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25275,6 +27752,7 @@ const ALL_STUDY_ITEMS = [
       "きえる"
     ],
     "meaning": "Tắt, biến mất",
+    "meaningEn": "Go out, disappear",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25286,6 +27764,7 @@ const ALL_STUDY_ITEMS = [
       "こわれる"
     ],
     "meaning": "Bị hỏng, vỡ",
+    "meaningEn": "Break (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25297,6 +27776,7 @@ const ALL_STUDY_ITEMS = [
       "こわす"
     ],
     "meaning": "Làm hỏng, phá vỡ",
+    "meaningEn": "Break (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25308,6 +27788,7 @@ const ALL_STUDY_ITEMS = [
       "おとす"
     ],
     "meaning": "Làm rơi",
+    "meaningEn": "Drop",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25319,6 +27800,7 @@ const ALL_STUDY_ITEMS = [
       "おちる"
     ],
     "meaning": "Rơi xuống, thi trượt",
+    "meaningEn": "Fall, fail (an exam)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25330,6 +27812,7 @@ const ALL_STUDY_ITEMS = [
       "ならぶ"
     ],
     "meaning": "Xếp hàng",
+    "meaningEn": "Line up (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25341,6 +27824,7 @@ const ALL_STUDY_ITEMS = [
       "ならべる"
     ],
     "meaning": "Sắp xếp, bày biện",
+    "meaningEn": "Arrange, line up (transitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25352,6 +27836,7 @@ const ALL_STUDY_ITEMS = [
       "かざる"
     ],
     "meaning": "Trang trí",
+    "meaningEn": "Decorate",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25363,6 +27848,7 @@ const ALL_STUDY_ITEMS = [
       "つつむ"
     ],
     "meaning": "Gói, bọc",
+    "meaningEn": "Wrap, pack",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25374,6 +27860,7 @@ const ALL_STUDY_ITEMS = [
       "おる"
     ],
     "meaning": "Gấp, bẻ gãy",
+    "meaningEn": "Fold, break",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25385,6 +27872,7 @@ const ALL_STUDY_ITEMS = [
       "かたづける"
     ],
     "meaning": "Dọn dẹp, thu gọn",
+    "meaningEn": "Tidy up, put away",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25396,6 +27884,7 @@ const ALL_STUDY_ITEMS = [
       "すてる"
     ],
     "meaning": "Vứt bỏ",
+    "meaningEn": "Throw away",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25407,6 +27896,7 @@ const ALL_STUDY_ITEMS = [
       "ひろう"
     ],
     "meaning": "Nhặt lên",
+    "meaningEn": "Pick up",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25418,6 +27908,7 @@ const ALL_STUDY_ITEMS = [
       "まもる"
     ],
     "meaning": "Bảo vệ, tuân thủ",
+    "meaningEn": "Protect, obey",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25429,6 +27920,7 @@ const ALL_STUDY_ITEMS = [
       "たのむ"
     ],
     "meaning": "Nhờ vả, gọi món",
+    "meaningEn": "Request, ask a favor",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25440,6 +27932,7 @@ const ALL_STUDY_ITEMS = [
       "さそう"
     ],
     "meaning": "Rủ rê, mời",
+    "meaningEn": "Invite, ask out",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25451,6 +27944,7 @@ const ALL_STUDY_ITEMS = [
       "ことわる"
     ],
     "meaning": "Từ chối",
+    "meaningEn": "Refuse, decline",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25462,6 +27956,7 @@ const ALL_STUDY_ITEMS = [
       "あやまる"
     ],
     "meaning": "Xin lỗi",
+    "meaningEn": "Apologize",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25473,6 +27968,7 @@ const ALL_STUDY_ITEMS = [
       "ほめる"
     ],
     "meaning": "Khen ngợi",
+    "meaningEn": "Praise",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25484,6 +27980,7 @@ const ALL_STUDY_ITEMS = [
       "しかる"
     ],
     "meaning": "Mắng, trách phạt",
+    "meaningEn": "Scold",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25495,6 +27992,7 @@ const ALL_STUDY_ITEMS = [
       "にげる"
     ],
     "meaning": "Chạy trốn",
+    "meaningEn": "Run away, escape",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25506,6 +28004,7 @@ const ALL_STUDY_ITEMS = [
       "さわぐ"
     ],
     "meaning": "Làm ồn, náo loạn",
+    "meaningEn": "Make noise",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25517,6 +28016,7 @@ const ALL_STUDY_ITEMS = [
       "なれる"
     ],
     "meaning": "Làm quen, quen thuộc",
+    "meaningEn": "Get used to",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25528,6 +28028,7 @@ const ALL_STUDY_ITEMS = [
       "そだてる"
     ],
     "meaning": "Nuôi dưỡng, trồng trọt",
+    "meaningEn": "Raise, grow",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25539,6 +28040,7 @@ const ALL_STUDY_ITEMS = [
       "ふえる"
     ],
     "meaning": "Tăng lên",
+    "meaningEn": "Increase",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25550,6 +28052,7 @@ const ALL_STUDY_ITEMS = [
       "へる"
     ],
     "meaning": "Giảm xuống",
+    "meaningEn": "Decrease",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25561,6 +28064,7 @@ const ALL_STUDY_ITEMS = [
       "なる"
     ],
     "meaning": "Kêu, reo (chuông)",
+    "meaningEn": "Ring, sound",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25572,6 +28076,7 @@ const ALL_STUDY_ITEMS = [
       "ぬれる"
     ],
     "meaning": "Bị ướt",
+    "meaningEn": "Get wet",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25583,6 +28088,7 @@ const ALL_STUDY_ITEMS = [
       "かわく"
     ],
     "meaning": "Khô",
+    "meaningEn": "Dry (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25594,6 +28100,7 @@ const ALL_STUDY_ITEMS = [
       "われる"
     ],
     "meaning": "Bị vỡ",
+    "meaningEn": "Break, crack (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25605,6 +28112,7 @@ const ALL_STUDY_ITEMS = [
       "おれる"
     ],
     "meaning": "Bị gãy",
+    "meaningEn": "Break, snap (intransitive)",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25616,6 +28124,7 @@ const ALL_STUDY_ITEMS = [
       "よごれる"
     ],
     "meaning": "Bị bẩn",
+    "meaningEn": "Get dirty",
     "topicId": "n4_10",
     "level": "N4"
   },
@@ -25627,6 +28136,7 @@ const ALL_STUDY_ITEMS = [
       "わらう"
     ],
     "meaning": "Cười",
+    "meaningEn": "Laugh, smile",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25638,6 +28148,7 @@ const ALL_STUDY_ITEMS = [
       "なく"
     ],
     "meaning": "Khóc",
+    "meaningEn": "Cry",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25649,6 +28160,7 @@ const ALL_STUDY_ITEMS = [
       "おこる"
     ],
     "meaning": "Tức giận",
+    "meaningEn": "Get angry",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25660,6 +28172,7 @@ const ALL_STUDY_ITEMS = [
       "よろこぶ"
     ],
     "meaning": "Vui mừng",
+    "meaningEn": "Be glad, rejoice",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25671,6 +28184,7 @@ const ALL_STUDY_ITEMS = [
       "かなしい"
     ],
     "meaning": "Buồn bã",
+    "meaningEn": "Sad",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25682,6 +28196,7 @@ const ALL_STUDY_ITEMS = [
       "うれしい"
     ],
     "meaning": "Vui sướng",
+    "meaningEn": "Happy, glad",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25693,6 +28208,7 @@ const ALL_STUDY_ITEMS = [
       "さびしい"
     ],
     "meaning": "Cô đơn, buồn tẻ",
+    "meaningEn": "Lonely",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25704,6 +28220,7 @@ const ALL_STUDY_ITEMS = [
       "こわい"
     ],
     "meaning": "Sợ hãi",
+    "meaningEn": "Scary, afraid",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25715,6 +28232,7 @@ const ALL_STUDY_ITEMS = [
       "おどろく"
     ],
     "meaning": "Ngạc nhiên",
+    "meaningEn": "Be surprised",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25726,6 +28244,7 @@ const ALL_STUDY_ITEMS = [
       "いそがしい"
     ],
     "meaning": "Bận rộn",
+    "meaningEn": "Busy",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25737,6 +28256,7 @@ const ALL_STUDY_ITEMS = [
       "ひま"
     ],
     "meaning": "Rảnh rỗi",
+    "meaningEn": "Free time, not busy",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25748,6 +28268,7 @@ const ALL_STUDY_ITEMS = [
       "あぶない"
     ],
     "meaning": "Nguy hiểm",
+    "meaningEn": "Dangerous",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25759,6 +28280,7 @@ const ALL_STUDY_ITEMS = [
       "きけん"
     ],
     "meaning": "Sự nguy hiểm",
+    "meaningEn": "Danger",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25770,6 +28292,7 @@ const ALL_STUDY_ITEMS = [
       "あんぜん"
     ],
     "meaning": "An toàn",
+    "meaningEn": "Safety, safe",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25781,6 +28304,7 @@ const ALL_STUDY_ITEMS = [
       "ほけん"
     ],
     "meaning": "Bảo hiểm",
+    "meaningEn": "Insurance",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25792,6 +28316,7 @@ const ALL_STUDY_ITEMS = [
       "かならず"
     ],
     "meaning": "Nhất định, chắc chắn",
+    "meaningEn": "Surely, without fail",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25803,6 +28328,7 @@ const ALL_STUDY_ITEMS = [
       "ひつよう"
     ],
     "meaning": "Cần thiết",
+    "meaningEn": "Necessary",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25814,6 +28340,7 @@ const ALL_STUDY_ITEMS = [
       "いる"
     ],
     "meaning": "Cần",
+    "meaningEn": "Need",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25825,6 +28352,7 @@ const ALL_STUDY_ITEMS = [
       "ふあん"
     ],
     "meaning": "Bất an, lo âu",
+    "meaningEn": "Uneasy, anxious",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25836,6 +28364,7 @@ const ALL_STUDY_ITEMS = [
       "むり"
     ],
     "meaning": "Vô lý, quá sức",
+    "meaningEn": "Impossible, unreasonable",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25847,6 +28376,7 @@ const ALL_STUDY_ITEMS = [
       "むりょう"
     ],
     "meaning": "Miễn phí",
+    "meaningEn": "Free of charge",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25858,6 +28388,7 @@ const ALL_STUDY_ITEMS = [
       "ゆうめい"
     ],
     "meaning": "Nổi tiếng",
+    "meaningEn": "Famous",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25869,6 +28400,7 @@ const ALL_STUDY_ITEMS = [
       "ぜんぶ"
     ],
     "meaning": "Toàn bộ, tất cả",
+    "meaningEn": "All, entire",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25880,6 +28412,7 @@ const ALL_STUDY_ITEMS = [
       "へや"
     ],
     "meaning": "Căn phòng",
+    "meaningEn": "Room",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25891,6 +28424,7 @@ const ALL_STUDY_ITEMS = [
       "ぶちょう"
     ],
     "meaning": "Trưởng phòng",
+    "meaningEn": "Department manager",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25902,6 +28436,7 @@ const ALL_STUDY_ITEMS = [
       "こんど"
     ],
     "meaning": "Lần này, lần tới",
+    "meaningEn": "This time, next time",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25913,6 +28448,7 @@ const ALL_STUDY_ITEMS = [
       "いちど"
     ],
     "meaning": "Một lần",
+    "meaningEn": "Once, one time",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25924,6 +28460,7 @@ const ALL_STUDY_ITEMS = [
       "おんど"
     ],
     "meaning": "Nhiệt độ",
+    "meaningEn": "Temperature",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25935,6 +28472,7 @@ const ALL_STUDY_ITEMS = [
       "いっかい"
     ],
     "meaning": "Một lần",
+    "meaningEn": "One time",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25946,6 +28484,7 @@ const ALL_STUDY_ITEMS = [
       "こんかい"
     ],
     "meaning": "Lần này",
+    "meaningEn": "This time",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25957,6 +28496,7 @@ const ALL_STUDY_ITEMS = [
       "じかい"
     ],
     "meaning": "Lần tới",
+    "meaningEn": "Next time",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25968,6 +28508,7 @@ const ALL_STUDY_ITEMS = [
       "つぎ"
     ],
     "meaning": "Tiếp theo",
+    "meaningEn": "Next",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25979,6 +28520,7 @@ const ALL_STUDY_ITEMS = [
       "いちばん"
     ],
     "meaning": "Nhất, số một",
+    "meaningEn": "Number one, best",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -25990,6 +28532,7 @@ const ALL_STUDY_ITEMS = [
       "ばんごう"
     ],
     "meaning": "Số hiệu, con số",
+    "meaningEn": "Number",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26001,6 +28544,7 @@ const ALL_STUDY_ITEMS = [
       "でんわばんごう"
     ],
     "meaning": "Số điện thoại",
+    "meaningEn": "Phone number",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26012,6 +28556,7 @@ const ALL_STUDY_ITEMS = [
       "ばんぐみ"
     ],
     "meaning": "Chương trình truyền hình",
+    "meaningEn": "TV program",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26023,6 +28568,7 @@ const ALL_STUDY_ITEMS = [
       "しんごう"
     ],
     "meaning": "Đèn tín hiệu giao thông",
+    "meaningEn": "Traffic light",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26034,6 +28580,7 @@ const ALL_STUDY_ITEMS = [
       "かた"
     ],
     "meaning": "Vị (người), cách thức",
+    "meaningEn": "Person (polite), way, method",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26045,6 +28592,7 @@ const ALL_STUDY_ITEMS = [
       "ゆうがた"
     ],
     "meaning": "Chiều tối",
+    "meaningEn": "Evening, dusk",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26056,6 +28604,7 @@ const ALL_STUDY_ITEMS = [
       "ほうほう"
     ],
     "meaning": "Phương pháp",
+    "meaningEn": "Method, way",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26067,6 +28616,7 @@ const ALL_STUDY_ITEMS = [
       "いじょう"
     ],
     "meaning": "Trở lên, trên",
+    "meaningEn": "Or more, above",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26078,6 +28628,7 @@ const ALL_STUDY_ITEMS = [
       "いか"
     ],
     "meaning": "Trở xuống, dưới",
+    "meaningEn": "Or less, below",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26089,6 +28640,7 @@ const ALL_STUDY_ITEMS = [
       "いない"
     ],
     "meaning": "Trong vòng, không quá",
+    "meaningEn": "Within, less than",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26100,6 +28652,7 @@ const ALL_STUDY_ITEMS = [
       "ようい"
     ],
     "meaning": "Chuẩn bị",
+    "meaningEn": "Preparation",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26111,6 +28664,7 @@ const ALL_STUDY_ITEMS = [
       "しょうらい"
     ],
     "meaning": "Tương lai",
+    "meaningEn": "Future",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26122,6 +28676,7 @@ const ALL_STUDY_ITEMS = [
       "ゆめ"
     ],
     "meaning": "Giấc mơ, ước mơ",
+    "meaningEn": "Dream",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26133,6 +28688,7 @@ const ALL_STUDY_ITEMS = [
       "きぼう"
     ],
     "meaning": "Hy vọng, nguyện vọng",
+    "meaningEn": "Hope, wish",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26144,6 +28700,7 @@ const ALL_STUDY_ITEMS = [
       "じゆう"
     ],
     "meaning": "Tự do",
+    "meaningEn": "Freedom",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26155,6 +28712,7 @@ const ALL_STUDY_ITEMS = [
       "りゆう"
     ],
     "meaning": "Lý do",
+    "meaningEn": "Reason",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26166,6 +28724,7 @@ const ALL_STUDY_ITEMS = [
       "へいわ"
     ],
     "meaning": "Hòa bình",
+    "meaningEn": "Peace",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26177,6 +28736,7 @@ const ALL_STUDY_ITEMS = [
       "かんたん"
     ],
     "meaning": "Đơn giản",
+    "meaningEn": "Simple, easy",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26188,6 +28748,7 @@ const ALL_STUDY_ITEMS = [
       "ふくざつ"
     ],
     "meaning": "Phức tạp",
+    "meaningEn": "Complex, complicated",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26199,6 +28760,7 @@ const ALL_STUDY_ITEMS = [
       "ていねい"
     ],
     "meaning": "Lịch sự, cẩn thận",
+    "meaningEn": "Polite, careful",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26210,6 +28772,7 @@ const ALL_STUDY_ITEMS = [
       "しずか"
     ],
     "meaning": "Yên tĩnh",
+    "meaningEn": "Quiet",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26221,6 +28784,7 @@ const ALL_STUDY_ITEMS = [
       "にぎやか"
     ],
     "meaning": "Náo nhiệt, đông vui",
+    "meaningEn": "Lively, bustling",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26232,6 +28796,7 @@ const ALL_STUDY_ITEMS = [
       "はずかしい"
     ],
     "meaning": "Xấu hổ, ngại ngùng",
+    "meaningEn": "Embarrassed, shy",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26243,6 +28808,7 @@ const ALL_STUDY_ITEMS = [
       "うらやましい"
     ],
     "meaning": "Ghen tị, ngưỡng mộ",
+    "meaningEn": "Envious, jealous",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26254,6 +28820,7 @@ const ALL_STUDY_ITEMS = [
       "すばらしい"
     ],
     "meaning": "Tuyệt vời",
+    "meaningEn": "Wonderful, splendid",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26265,6 +28832,7 @@ const ALL_STUDY_ITEMS = [
       "めずらしい"
     ],
     "meaning": "Hiếm có, lạ",
+    "meaningEn": "Rare, unusual",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26276,6 +28844,7 @@ const ALL_STUDY_ITEMS = [
       "きびしい"
     ],
     "meaning": "Nghiêm khắc, khắc nghiệt",
+    "meaningEn": "Strict, severe",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26287,6 +28856,7 @@ const ALL_STUDY_ITEMS = [
       "やさしい"
     ],
     "meaning": "Hiền lành, tốt bụng",
+    "meaningEn": "Kind, gentle",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26298,6 +28868,7 @@ const ALL_STUDY_ITEMS = [
       "まじめ"
     ],
     "meaning": "Chăm chỉ, nghiêm túc",
+    "meaningEn": "Serious, earnest",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26309,6 +28880,7 @@ const ALL_STUDY_ITEMS = [
       "てきとう"
     ],
     "meaning": "Phù hợp, qua loa",
+    "meaningEn": "Suitable, appropriate",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26320,6 +28892,7 @@ const ALL_STUDY_ITEMS = [
       "ざんねん"
     ],
     "meaning": "Đáng tiếc",
+    "meaningEn": "Regrettable, unfortunate",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26331,6 +28904,7 @@ const ALL_STUDY_ITEMS = [
       "きそく"
     ],
     "meaning": "Quy tắc, nội quy",
+    "meaningEn": "Rule, regulation",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26342,6 +28916,7 @@ const ALL_STUDY_ITEMS = [
       "きんし"
     ],
     "meaning": "Cấm",
+    "meaningEn": "Prohibition, ban",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26353,6 +28928,7 @@ const ALL_STUDY_ITEMS = [
       "ひじょうぐち"
     ],
     "meaning": "Lối thoát hiểm",
+    "meaningEn": "Emergency exit",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26364,6 +28940,7 @@ const ALL_STUDY_ITEMS = [
       "けいさつしょ"
     ],
     "meaning": "Sở cảnh sát",
+    "meaningEn": "Police station",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26375,6 +28952,7 @@ const ALL_STUDY_ITEMS = [
       "しょうぼうしょ"
     ],
     "meaning": "Trạm cứu hỏa",
+    "meaningEn": "Fire station",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26386,6 +28964,7 @@ const ALL_STUDY_ITEMS = [
       "きゅうきゅうしゃ"
     ],
     "meaning": "Xe cứu thương",
+    "meaningEn": "Ambulance",
     "topicId": "n4_11",
     "level": "N4"
   },
@@ -26393,10 +28972,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1001,
     "kanji": "一",
     "displayReading": "Bộ Nhất",
+    "displayReadingEn": "Radical 1 · One",
     "readings": [
       "Nhất"
     ],
     "meaning": "Một, số một",
+    "meaningEn": "One, number one",
     "examples": "一, 七, 三, 上, 下",
     "topicId": "rad_1_stroke",
     "level": "RADICALS",
@@ -26406,10 +28987,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1002,
     "kanji": "丨",
     "displayReading": "Bộ Cổn",
+    "displayReadingEn": "Radical 2 · Line",
     "readings": [
       "Cổn"
     ],
     "meaning": "Nét sổ thẳng",
+    "meaningEn": "Vertical stroke",
     "examples": "中, 串, 豊",
     "topicId": "rad_1_stroke",
     "level": "RADICALS",
@@ -26419,10 +29002,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1003,
     "kanji": "丶",
     "displayReading": "Bộ Chủ",
+    "displayReadingEn": "Radical 3 · Dot",
     "readings": [
       "Chủ"
     ],
     "meaning": "Điểm, chấm",
+    "meaningEn": "Dot, point",
     "examples": "主, 丸, 丹",
     "topicId": "rad_1_stroke",
     "level": "RADICALS",
@@ -26432,10 +29017,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1004,
     "kanji": "丿",
     "displayReading": "Bộ Phiệt",
+    "displayReadingEn": "Radical 4 · Slash",
     "readings": [
       "Phiệt"
     ],
     "meaning": "Nét phẩy",
+    "meaningEn": "Diagonal slash stroke",
     "examples": "久, 之, 乗",
     "topicId": "rad_1_stroke",
     "level": "RADICALS",
@@ -26445,10 +29032,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1005,
     "kanji": "乙 (乚, ⺄)",
     "displayReading": "Bộ Ất",
+    "displayReadingEn": "Radical 5 · Second",
     "readings": [
       "Ất"
     ],
     "meaning": "Vị trí thứ 2 trong Thiên Can, uốn cong",
+    "meaningEn": "Second Heavenly Stem, bent line",
     "examples": "九, 乱, 乳",
     "topicId": "rad_1_stroke",
     "level": "RADICALS",
@@ -26458,10 +29047,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1006,
     "kanji": "亅",
     "displayReading": "Bộ Quyết",
+    "displayReadingEn": "Radical 6 · Hook",
     "readings": [
       "Quyết"
     ],
     "meaning": "Nét sổ có móc",
+    "meaningEn": "Hooked vertical stroke",
     "examples": "了, 予, 事",
     "topicId": "rad_1_stroke",
     "level": "RADICALS",
@@ -26471,10 +29062,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1007,
     "kanji": "二",
     "displayReading": "Bộ Nhị",
+    "displayReadingEn": "Radical 7 · Two",
     "readings": [
       "Nhị"
     ],
     "meaning": "Số hai",
+    "meaningEn": "Number two",
     "examples": "二, 五, 井, 亜",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26484,10 +29077,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1008,
     "kanji": "亠",
     "displayReading": "Bộ Đầu",
+    "displayReadingEn": "Radical 8 · Lid",
     "readings": [
       "Đầu"
     ],
     "meaning": "Nắp đậy, phần đầu (không có nghĩa độc lập)",
+    "meaningEn": "Lid, cover, head",
     "examples": "亡, 交, 京, 高",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26497,10 +29092,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1009,
     "kanji": "人 (亻, 𠆢)",
     "displayReading": "Bộ Nhân",
+    "displayReadingEn": "Radical 9 · Person",
     "readings": [
       "Nhân"
     ],
     "meaning": "Người",
+    "meaningEn": "Person, human",
     "examples": "人, 休, 体, 働, 今",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26510,10 +29107,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1010,
     "kanji": "儿",
     "displayReading": "Bộ Nhân (nhi)",
+    "displayReadingEn": "Radical 10 · Legs",
     "readings": [
       "Nhân (nhi)"
     ],
     "meaning": "Người đi, đôi chân",
+    "meaningEn": "Walking person, human legs",
     "examples": "元, 兄, 光, 先",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26523,10 +29122,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1011,
     "kanji": "入",
     "displayReading": "Bộ Nhập",
+    "displayReadingEn": "Radical 11 · Enter",
     "readings": [
       "Nhập"
     ],
     "meaning": "Đi vào",
+    "meaningEn": "Enter, go in",
     "examples": "入, 全, 両",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26536,10 +29137,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1012,
     "kanji": "八 (丷)",
     "displayReading": "Bộ Bát",
+    "displayReadingEn": "Radical 12 · Eight",
     "readings": [
       "Bát"
     ],
     "meaning": "Số tám, chia tách",
+    "meaningEn": "Number eight, divide",
     "examples": "八, 六, 公, 共",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26549,10 +29152,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1013,
     "kanji": "冂",
     "displayReading": "Bộ Quynh",
+    "displayReadingEn": "Radical 13 · Down box",
     "readings": [
       "Quynh"
     ],
     "meaning": "Vùng biên giới, khoảng trống bao quanh",
+    "meaningEn": "Wide border, open enclosure",
     "examples": "内, 円, 再, 冊",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26562,10 +29167,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1014,
     "kanji": "冖",
     "displayReading": "Bộ Mịch",
+    "displayReadingEn": "Radical 14 · Cover",
     "readings": [
       "Mịch"
     ],
     "meaning": "Trùm khăn lên, che đậy",
+    "meaningEn": "Cover over, cloth cover",
     "examples": "写, 冠, 軍",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26575,10 +29182,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1015,
     "kanji": "冫",
     "displayReading": "Bộ Băng",
+    "displayReadingEn": "Radical 15 · Ice",
     "readings": [
       "Băng"
     ],
     "meaning": "Nước đá, lạnh giá",
+    "meaningEn": "Ice, cold",
     "examples": "氷, 冷, 冬, 凍",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26588,10 +29197,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1016,
     "kanji": "几",
     "displayReading": "Bộ Kỷ",
+    "displayReadingEn": "Radical 16 · Table",
     "readings": [
       "Kỷ"
     ],
     "meaning": "Cái bàn nhỏ, ghế tựa",
+    "meaningEn": "Small table, bench",
     "examples": "机, 凡, 風",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26601,10 +29212,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1017,
     "kanji": "凵",
     "displayReading": "Bộ Khảm",
+    "displayReadingEn": "Radical 17 · Open box",
     "readings": [
       "Khảm"
     ],
     "meaning": "Há miệng, hố sâu",
+    "meaningEn": "Open mouth, receptacle, pit",
     "examples": "出, 凶, 凸, 凹",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26614,10 +29227,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1018,
     "kanji": "刀 (刂)",
     "displayReading": "Bộ Đao",
+    "displayReadingEn": "Radical 18 · Knife",
     "readings": [
       "Đao"
     ],
     "meaning": "Con dao, cắt gọt",
+    "meaningEn": "Knife, blade, cut",
     "examples": "刀, 切, 分, 利, 別",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26627,10 +29242,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1019,
     "kanji": "力",
     "displayReading": "Bộ Lực",
+    "displayReadingEn": "Radical 19 · Power",
     "readings": [
       "Lực"
     ],
     "meaning": "Sức mạnh",
+    "meaningEn": "Power, strength",
     "examples": "力, 動, 働, 勉, 助",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26640,10 +29257,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1020,
     "kanji": "勹",
     "displayReading": "Bộ Bao",
+    "displayReadingEn": "Radical 20 · Wrap",
     "readings": [
       "Bao"
     ],
     "meaning": "Bao bọc, ôm ấp",
+    "meaningEn": "Wrap, embrace",
     "examples": "包, 句, 匂",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26653,10 +29272,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1021,
     "kanji": "匕",
     "displayReading": "Bộ Chủy",
+    "displayReadingEn": "Radical 21 · Spoon",
     "readings": [
       "Chủy"
     ],
     "meaning": "Cái thìa, muỗng",
+    "meaningEn": "Spoon, ladle",
     "examples": "化, 北, 匙",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26666,10 +29287,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1022,
     "kanji": "匚",
     "displayReading": "Bộ Phương",
+    "displayReadingEn": "Radical 22 · Right open box",
     "readings": [
       "Phương"
     ],
     "meaning": "Cái hộp, tủ đựng",
+    "meaningEn": "Box, cabinet, chest",
     "examples": "匠, 匹, 区",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26679,10 +29302,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1023,
     "kanji": "匸",
     "displayReading": "Bộ Hệ",
+    "displayReadingEn": "Radical 23 · Hiding enclosure",
     "readings": [
       "Hệ"
     ],
     "meaning": "Che giấu, đậy lại",
+    "meaningEn": "Hide, conceal, cover",
     "examples": "区, 医, 匿",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26692,10 +29317,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1024,
     "kanji": "十",
     "displayReading": "Bộ Thập",
+    "displayReadingEn": "Radical 24 · Ten",
     "readings": [
       "Thập"
     ],
     "meaning": "Số mười, đầy đủ",
+    "meaningEn": "Number ten, complete",
     "examples": "十, 千, 午, 半, 南",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26705,10 +29332,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1025,
     "kanji": "卜",
     "displayReading": "Bộ Bốc",
+    "displayReadingEn": "Radical 25 · Divination",
     "readings": [
       "Bốc"
     ],
     "meaning": "Xem bói",
+    "meaningEn": "Divination, fortune-telling",
     "examples": "占, 卦, 外",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26718,10 +29347,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1026,
     "kanji": "卩 (㔾)",
     "displayReading": "Bộ Tiết",
+    "displayReadingEn": "Radical 26 · Seal",
     "readings": [
       "Tiết"
     ],
     "meaning": "Đốt tre, con dấu",
+    "meaningEn": "Bamboo joint, official seal",
     "examples": "印, 危, 即, 卵",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26731,10 +29362,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1027,
     "kanji": "厂",
     "displayReading": "Bộ Hán",
+    "displayReadingEn": "Radical 27 · Cliff",
     "readings": [
       "Hán"
     ],
     "meaning": "Sườn núi, vách đá",
+    "meaningEn": "Cliff, mountain slope",
     "examples": "原, 厚, 圧, 歴",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26744,10 +29377,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1028,
     "kanji": "厶",
     "displayReading": "Bộ Khư (Tư)",
+    "displayReadingEn": "Radical 28 · Private",
     "readings": [
       "Khư (Tư)"
     ],
     "meaning": "Riêng tư",
+    "meaningEn": "Private, personal",
     "examples": "去, 参, 私",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26757,10 +29392,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1029,
     "kanji": "又",
     "displayReading": "Bộ Hựu",
+    "displayReadingEn": "Radical 29 · Again",
     "readings": [
       "Hựu"
     ],
     "meaning": "Lại nữa, bàn tay phải",
+    "meaningEn": "Again, right hand",
     "examples": "又, 友, 反, 取, 受",
     "topicId": "rad_2_stroke",
     "level": "RADICALS",
@@ -26770,10 +29407,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1030,
     "kanji": "口",
     "displayReading": "Bộ Khẩu",
+    "displayReadingEn": "Radical 30 · Mouth",
     "readings": [
       "Khẩu"
     ],
     "meaning": "Cái miệng, ăn nói",
+    "meaningEn": "Mouth, speech, eating",
     "examples": "口, 古, 味, 呼, 問",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26783,10 +29422,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1031,
     "kanji": "囗",
     "displayReading": "Bộ Vi",
+    "displayReadingEn": "Radical 31 · Enclosure",
     "readings": [
       "Vi"
     ],
     "meaning": "Vây quanh, biên giới",
+    "meaningEn": "Enclosure, border, surround",
     "examples": "国, 四, 回, 園, 図",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26796,10 +29437,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1032,
     "kanji": "土",
     "displayReading": "Bộ Thổ",
+    "displayReadingEn": "Radical 32 · Earth",
     "readings": [
       "Thổ"
     ],
     "meaning": "Đất đai",
+    "meaningEn": "Earth, soil, land",
     "examples": "土, 地, 場, 坂, 城",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26809,10 +29452,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1033,
     "kanji": "士",
     "displayReading": "Bộ Sĩ",
+    "displayReadingEn": "Radical 33 · Scholar",
     "readings": [
       "Sĩ"
     ],
     "meaning": "Kẻ sĩ, học giả, chiến binh",
+    "meaningEn": "Scholar, gentleman, warrior",
     "examples": "士, 売, 声, 壮",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26822,10 +29467,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1034,
     "kanji": "夂",
     "displayReading": "Bộ Trĩ",
+    "displayReadingEn": "Radical 34 · Go",
     "readings": [
       "Trĩ"
     ],
     "meaning": "Bước chậm theo sau",
+    "meaningEn": "Walk slowly behind",
     "examples": "冬, 各, 条",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26835,10 +29482,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1035,
     "kanji": "夊",
     "displayReading": "Bộ Tuy",
+    "displayReadingEn": "Radical 35 · Go slowly",
     "readings": [
       "Tuy"
     ],
     "meaning": "Đi chậm chạp",
+    "meaningEn": "Walk slowly",
     "examples": "夏, 復, 変",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26848,10 +29497,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1036,
     "kanji": "夕",
     "displayReading": "Bộ Tịch",
+    "displayReadingEn": "Radical 36 · Evening",
     "readings": [
       "Tịch"
     ],
     "meaning": "Đêm tối, buổi chiều",
+    "meaningEn": "Evening, night",
     "examples": "夕, 外, 多, 夜, 夢",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26861,10 +29512,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1037,
     "kanji": "大",
     "displayReading": "Bộ Đại",
+    "displayReadingEn": "Radical 37 · Big",
     "readings": [
       "Đại"
     ],
     "meaning": "To lớn",
+    "meaningEn": "Big, large, great",
     "examples": "大, 天, 太, 夫, 奇",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26874,10 +29527,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1038,
     "kanji": "女",
     "displayReading": "Bộ Nữ",
+    "displayReadingEn": "Radical 38 · Woman",
     "readings": [
       "Nữ"
     ],
     "meaning": "Phụ nữ, con gái",
+    "meaningEn": "Woman, female",
     "examples": "女, 好, 姉, 妹, 始",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26887,10 +29542,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1039,
     "kanji": "子",
     "displayReading": "Bộ Tử",
+    "displayReadingEn": "Radical 39 · Child",
     "readings": [
       "Tử"
     ],
     "meaning": "Con cái, trẻ em",
+    "meaningEn": "Child, offspring",
     "examples": "子, 学, 字, 孫, 季",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26900,10 +29557,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1040,
     "kanji": "宀",
     "displayReading": "Bộ Miên",
+    "displayReadingEn": "Radical 40 · Roof",
     "readings": [
       "Miên"
     ],
     "meaning": "Mái nhà, che chở",
+    "meaningEn": "Roof, shelter",
     "examples": "家, 安, 室, 宿, 守",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26913,10 +29572,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1041,
     "kanji": "寸",
     "displayReading": "Bộ Thốn",
+    "displayReadingEn": "Radical 41 · Inch",
     "readings": [
       "Thốn"
     ],
     "meaning": "Đơn vị đo (tấc), quy tắc",
+    "meaningEn": "Inch (unit), rule, measure",
     "examples": "寸, 寺, 対, 専, 導",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26926,10 +29587,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1042,
     "kanji": "小 (⺌, ⺍)",
     "displayReading": "Bộ Tiểu",
+    "displayReadingEn": "Radical 42 · Small",
     "readings": [
       "Tiểu"
     ],
     "meaning": "Nhỏ bé",
+    "meaningEn": "Small, little",
     "examples": "小, 少, 尚, 当",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26939,10 +29602,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1043,
     "kanji": "尢 (尣)",
     "displayReading": "Bộ Uông",
+    "displayReadingEn": "Radical 43 · Lame",
     "readings": [
       "Uông"
     ],
     "meaning": "Yếu đuối, chân khập khiễng",
+    "meaningEn": "Weak, lame leg",
     "examples": "就, 尤",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26952,10 +29617,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1044,
     "kanji": "尸",
     "displayReading": "Bộ Thi",
+    "displayReadingEn": "Radical 44 · Corpse",
     "readings": [
       "Thi"
     ],
     "meaning": "Thây ma, cơ thể nằm",
+    "meaningEn": "Corpse, reclining body",
     "examples": "局, 屋, 届, 居, 層",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26965,10 +29632,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1045,
     "kanji": "屮",
     "displayReading": "Bộ Triệt",
+    "displayReadingEn": "Radical 45 · Sprout",
     "readings": [
       "Triệt"
     ],
     "meaning": "Mầm non mới nhú",
+    "meaningEn": "Young sprout, shoot",
     "examples": "屯, 逆",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26978,10 +29647,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1046,
     "kanji": "山",
     "displayReading": "Bộ Sơn",
+    "displayReadingEn": "Radical 46 · Mountain",
     "readings": [
       "Sơn"
     ],
     "meaning": "Ngọn núi",
+    "meaningEn": "Mountain",
     "examples": "山, 岩, 島, 峠, 岸",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -26991,10 +29662,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1047,
     "kanji": "巛 (川)",
     "displayReading": "Bộ Xuyên",
+    "displayReadingEn": "Radical 47 · River",
     "readings": [
       "Xuyên"
     ],
     "meaning": "Sông ngòi, dòng chảy",
+    "meaningEn": "River, stream, flow",
     "examples": "川, 州, 巡, 巣",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27004,10 +29677,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1048,
     "kanji": "工",
     "displayReading": "Bộ Công",
+    "displayReadingEn": "Radical 48 · Work",
     "readings": [
       "Công"
     ],
     "meaning": "Người thợ, công việc",
+    "meaningEn": "Work, craft, artisan",
     "examples": "工, 左, 差, 巧",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27017,10 +29692,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1049,
     "kanji": "己 (已, 巳)",
     "displayReading": "Bộ Kỷ",
+    "displayReadingEn": "Radical 49 · Oneself",
     "readings": [
       "Kỷ"
     ],
     "meaning": "Bản thân mình",
+    "meaningEn": "Oneself, self",
     "examples": "己, 巻, 改, 配",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27030,10 +29707,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1050,
     "kanji": "巾",
     "displayReading": "Bộ Cân",
+    "displayReadingEn": "Radical 50 · Turban",
     "readings": [
       "Cân"
     ],
     "meaning": "Cái khăn, vải vóc",
+    "meaningEn": "Cloth, towel, scarf",
     "examples": "市, 布, 席, 帯, 帰",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27043,10 +29722,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1051,
     "kanji": "干",
     "displayReading": "Bộ Can",
+    "displayReadingEn": "Radical 51 · Dry",
     "readings": [
       "Can"
     ],
     "meaning": "Khô ráo, can thiệp, cái khiên",
+    "meaningEn": "Dry, interfere, shield",
     "examples": "干, 平, 年, 幸, 幹",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27056,10 +29737,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1052,
     "kanji": "幺",
     "displayReading": "Bộ Yêu",
+    "displayReadingEn": "Radical 52 · Short thread",
     "readings": [
       "Yêu"
     ],
     "meaning": "Nhỏ nhắn, sợi tơ nhỏ",
+    "meaningEn": "Tiny, fine silk thread",
     "examples": "幼, 幾, 幻, 幽",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27069,10 +29752,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1053,
     "kanji": "广",
     "displayReading": "Bộ Nghiễm",
+    "displayReadingEn": "Radical 53 · Dotted cliff",
     "readings": [
       "Nghiễm"
     ],
     "meaning": "Mái nhà, tòa nhà",
+    "meaningEn": "Slanted roof, building",
     "examples": "広, 店, 度, 庫, 庭",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27082,10 +29767,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1054,
     "kanji": "廴",
     "displayReading": "Bộ Dẫn",
+    "displayReadingEn": "Radical 54 · Long stride",
     "readings": [
       "Dẫn"
     ],
     "meaning": "Bước dài",
+    "meaningEn": "Long stride, move forward",
     "examples": "建, 延, 廷",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27095,10 +29782,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1055,
     "kanji": "廾",
     "displayReading": "Bộ Củng",
+    "displayReadingEn": "Radical 55 · Arch",
     "readings": [
       "Củng"
     ],
     "meaning": "Chắp hai tay",
+    "meaningEn": "Joined hands",
     "examples": "弁, 弄, 弊",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27108,10 +29797,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1056,
     "kanji": "弋",
     "displayReading": "Bộ Dặc",
+    "displayReadingEn": "Radical 56 · Shoot",
     "readings": [
       "Dặc"
     ],
     "meaning": "Bắn tên, cái cọc",
+    "meaningEn": "Shoot arrow, stake",
     "examples": "式, 弐, 鳶",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27121,10 +29812,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1057,
     "kanji": "弓",
     "displayReading": "Bộ Cung",
+    "displayReadingEn": "Radical 57 · Bow",
     "readings": [
       "Cung"
     ],
     "meaning": "Cái cung tên",
+    "meaningEn": "Bow (weapon)",
     "examples": "弓, 引, 強, 弱, 張",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27134,10 +29827,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1058,
     "kanji": "彐 (彑)",
     "displayReading": "Bộ Kệ",
+    "displayReadingEn": "Radical 58 · Snout",
     "readings": [
       "Kệ"
     ],
     "meaning": "Đầu con nhím / lợn",
+    "meaningEn": "Pig's snout / hedgehog head",
     "examples": "帰, 録, 当, 雪",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27147,10 +29842,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1059,
     "kanji": "彡",
     "displayReading": "Bộ Sam",
+    "displayReadingEn": "Radical 59 · Bristle",
     "readings": [
       "Sam"
     ],
     "meaning": "Lông tóc, hoa văn, nét trang trí",
+    "meaningEn": "Hair, feathers, pattern",
     "examples": "形, 影, 彩, 彫",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27160,10 +29857,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1060,
     "kanji": "彳",
     "displayReading": "Bộ Xích",
+    "displayReadingEn": "Radical 60 · Step",
     "readings": [
       "Xích"
     ],
     "meaning": "Bước chân trái, đi lại",
+    "meaningEn": "Left step, walk",
     "examples": "行, 待, 後, 彼, 役",
     "topicId": "rad_3_stroke",
     "level": "RADICALS",
@@ -27173,10 +29872,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1061,
     "kanji": "心 (忄, ⺗)",
     "displayReading": "Bộ Tâm",
+    "displayReadingEn": "Radical 61 · Heart",
     "readings": [
       "Tâm"
     ],
     "meaning": "Trái tim, tâm trí, cảm xúc",
+    "meaningEn": "Heart, mind, emotion",
     "examples": "心, 思, 忙, 怖, 情",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27186,10 +29887,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1062,
     "kanji": "戈",
     "displayReading": "Bộ Qua",
+    "displayReadingEn": "Radical 62 · Halberd",
     "readings": [
       "Qua"
     ],
     "meaning": "Cây qua (vũ khí cổ)",
+    "meaningEn": "Halberd (ancient spear-axe)",
     "examples": "戦, 成, 我, 戒, 戯",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27199,10 +29902,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1063,
     "kanji": "戸 (戶)",
     "displayReading": "Bộ Hộ",
+    "displayReadingEn": "Radical 63 · Door",
     "readings": [
       "Hộ"
     ],
     "meaning": "Cửa một cánh, hộ gia đình",
+    "meaningEn": "Single-leaf door, household",
     "examples": "戸, 所, 戻, 房, 扇",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27212,10 +29917,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1064,
     "kanji": "手 (扌, 龵)",
     "displayReading": "Bộ Thủ",
+    "displayReadingEn": "Radical 64 · Hand",
     "readings": [
       "Thủ"
     ],
     "meaning": "Bàn tay, hành động bằng tay",
+    "meaningEn": "Hand, manual action",
     "examples": "手, 持, 打, 押, 投",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27225,10 +29932,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1065,
     "kanji": "支",
     "displayReading": "Bộ Chi",
+    "displayReadingEn": "Radical 65 · Branch",
     "readings": [
       "Chi"
     ],
     "meaning": "Cành nhánh, chống đỡ",
+    "meaningEn": "Branch, support",
     "examples": "支, 技, 枝",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27238,10 +29947,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1066,
     "kanji": "攴 (攵)",
     "displayReading": "Bộ Phộc",
+    "displayReadingEn": "Radical 66 · Rap",
     "readings": [
       "Phộc"
     ],
     "meaning": "Đánh khẽ, gõ",
+    "meaningEn": "Tap lightly, strike",
     "examples": "教, 政, 放, 数, 改",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27251,10 +29962,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1067,
     "kanji": "文",
     "displayReading": "Bộ Văn",
+    "displayReadingEn": "Radical 67 · Script",
     "readings": [
       "Văn"
     ],
     "meaning": "Văn chương, chữ viết, hoa văn",
+    "meaningEn": "Literature, writing, pattern",
     "examples": "文, 対, 紋, 斎",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27264,10 +29977,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1068,
     "kanji": "斗",
     "displayReading": "Bộ Đẩu",
+    "displayReadingEn": "Radical 68 · Dipper",
     "readings": [
       "Đẩu"
     ],
     "meaning": "Cái đấu (dụng cụ đong lường)",
+    "meaningEn": "Dipper, ladle (measuring unit)",
     "examples": "料, 斜, 斡",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27277,10 +29992,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1069,
     "kanji": "斤",
     "displayReading": "Bộ Cân",
+    "displayReadingEn": "Radical 69 · Axe",
     "readings": [
       "Cân"
     ],
     "meaning": "Cái rìu, đơn vị cân",
+    "meaningEn": "Axe, unit of weight",
     "examples": "新, 近, 断, 折, 所",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27290,10 +30007,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1070,
     "kanji": "方",
     "displayReading": "Bộ Phương",
+    "displayReadingEn": "Radical 70 · Square",
     "readings": [
       "Phương"
     ],
     "meaning": "Phương hướng, vuông vức",
+    "meaningEn": "Direction, square",
     "examples": "方, 旅, 族, 旗, 放",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27303,10 +30022,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1071,
     "kanji": "无 (旡)",
     "displayReading": "Bộ Vô",
+    "displayReadingEn": "Radical 71 · Not",
     "readings": [
       "Vô"
     ],
     "meaning": "Không có",
+    "meaningEn": "Not, have not",
     "examples": "既, 無",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27316,10 +30037,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1072,
     "kanji": "日",
     "displayReading": "Bộ Nhật",
+    "displayReadingEn": "Radical 72 · Sun",
     "readings": [
       "Nhật"
     ],
     "meaning": "Mặt trời, ngày, thời gian",
+    "meaningEn": "Sun, day, time",
     "examples": "日, 明, 時, 晴, 昨",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27329,10 +30052,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1073,
     "kanji": "曰",
     "displayReading": "Bộ Viết",
+    "displayReadingEn": "Radical 73 · Say",
     "readings": [
       "Viết"
     ],
     "meaning": "Nói rằng",
+    "meaningEn": "Say, speak",
     "examples": "書, 最, 曲, 更",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27342,10 +30067,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1074,
     "kanji": "月",
     "displayReading": "Bộ Nguyệt",
+    "displayReadingEn": "Radical 74 · Moon",
     "readings": [
       "Nguyệt"
     ],
     "meaning": "Mặt trăng, tháng (hoặc bộ Nhục - thịt)",
+    "meaningEn": "Moon, month (or flesh)",
     "examples": "月, 朝, 期, 有, 望",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27355,10 +30082,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1075,
     "kanji": "木",
     "displayReading": "Bộ Mộc",
+    "displayReadingEn": "Radical 75 · Tree",
     "readings": [
       "Mộc"
     ],
     "meaning": "Cây cối, gỗ",
+    "meaningEn": "Tree, wood",
     "examples": "木, 林, 森, 机, 本",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27368,10 +30097,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1076,
     "kanji": "欠",
     "displayReading": "Bộ Khiếm",
+    "displayReadingEn": "Radical 76 · Lack",
     "readings": [
       "Khiếm"
     ],
     "meaning": "Khiếm khuyết, ngáp, thiếu thốn",
+    "meaningEn": "Lack, yawn, owe",
     "examples": "欠, 次, 歌, 飲, 欲",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27381,10 +30112,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1077,
     "kanji": "止",
     "displayReading": "Bộ Chỉ",
+    "displayReadingEn": "Radical 77 · Stop",
     "readings": [
       "Chỉ"
     ],
     "meaning": "Dừng lại, bàn chân",
+    "meaningEn": "Stop, foot",
     "examples": "止, 正, 歩, 武, 歳",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27394,10 +30127,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1078,
     "kanji": "歹 (歺)",
     "displayReading": "Bộ Đãi",
+    "displayReadingEn": "Radical 78 · Death",
     "readings": [
       "Đãi"
     ],
     "meaning": "Xương tàn, chết chóc",
+    "meaningEn": "Broken bones, death",
     "examples": "死, 残, 殖, 殊",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27407,10 +30142,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1079,
     "kanji": "殳",
     "displayReading": "Bộ Thù",
+    "displayReadingEn": "Radical 79 · Weapon",
     "readings": [
       "Thù"
     ],
     "meaning": "Binh khí dài, đánh đập",
+    "meaningEn": "Long polearm, strike",
     "examples": "段, 殺, 殿, 設, 役",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27420,10 +30157,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1080,
     "kanji": "毋 (母)",
     "displayReading": "Bộ Vô / Mẫu",
+    "displayReadingEn": "Radical 80 · Do not",
     "readings": [
       "Vô / Mẫu"
     ],
     "meaning": "Chớ, đừng / Người mẹ",
+    "meaningEn": "Do not / Mother",
     "examples": "母, 毎, 毒, 貫",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27433,10 +30172,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1081,
     "kanji": "比",
     "displayReading": "Bộ Tỷ",
+    "displayReadingEn": "Radical 81 · Compare",
     "readings": [
       "Tỷ"
     ],
     "meaning": "So sánh, kề bên",
+    "meaningEn": "Compare, side by side",
     "examples": "比, 皆, 昆",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27446,10 +30187,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1082,
     "kanji": "毛",
     "displayReading": "Bộ Mao",
+    "displayReadingEn": "Radical 82 · Fur",
     "readings": [
       "Mao"
     ],
     "meaning": "Lông, tóc",
+    "meaningEn": "Fur, hair",
     "examples": "毛, 尾, 筆, 耗",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27459,10 +30202,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1083,
     "kanji": "氏",
     "displayReading": "Bộ Thị",
+    "displayReadingEn": "Radical 83 · Clan",
     "readings": [
       "Thị"
     ],
     "meaning": "Họ, dòng tộc",
+    "meaningEn": "Clan, family name",
     "examples": "氏, 民, 紙",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27472,10 +30217,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1084,
     "kanji": "气",
     "displayReading": "Bộ Khí",
+    "displayReadingEn": "Radical 84 · Steam",
     "readings": [
       "Khí"
     ],
     "meaning": "Hơi, không khí",
+    "meaningEn": "Steam, air, breath",
     "examples": "気, 汽, 雰",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27485,10 +30232,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1085,
     "kanji": "水 (氵, 氺)",
     "displayReading": "Bộ Thủy",
+    "displayReadingEn": "Radical 85 · Water",
     "readings": [
       "Thủy"
     ],
     "meaning": "Nước, chất lỏng",
+    "meaningEn": "Water, liquid",
     "examples": "水, 海, 泳, 洗, 池",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27498,10 +30247,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1086,
     "kanji": "火 (灬)",
     "displayReading": "Bộ Hỏa",
+    "displayReadingEn": "Radical 86 · Fire",
     "readings": [
       "Hỏa"
     ],
     "meaning": "Lửa, nhiệt độ",
+    "meaningEn": "Fire, heat",
     "examples": "火, 焼, 熱, 燃, 煙",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27511,10 +30262,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1087,
     "kanji": "爪 (爫)",
     "displayReading": "Bộ Trảo",
+    "displayReadingEn": "Radical 87 · Claw",
     "readings": [
       "Trảo"
     ],
     "meaning": "Móng vuốt",
+    "meaningEn": "Claw, nail",
     "examples": "爪, 愛, 受, 採, 争",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27524,10 +30277,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1088,
     "kanji": "父",
     "displayReading": "Bộ Phụ",
+    "displayReadingEn": "Radical 88 · Father",
     "readings": [
       "Phụ"
     ],
     "meaning": "Người cha",
+    "meaningEn": "Father",
     "examples": "父, 釜, 爺",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27537,10 +30292,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1089,
     "kanji": "爻",
     "displayReading": "Bộ Hào",
+    "displayReadingEn": "Radical 89 · Double X",
     "readings": [
       "Hào"
     ],
     "meaning": "Hào trong Kinh Dịch, đan xen",
+    "meaningEn": "Trigram lines, intertwine",
     "examples": "爽, 爾",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27550,10 +30307,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1090,
     "kanji": "爿 (丬)",
     "displayReading": "Bộ Tường",
+    "displayReadingEn": "Radical 90 · Half tree trunk",
     "readings": [
       "Tường"
     ],
     "meaning": "Mảnh gỗ, cái giường",
+    "meaningEn": "Split wood, bed",
     "examples": "壮, 状, 将, 装",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27563,10 +30322,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1091,
     "kanji": "片",
     "displayReading": "Bộ Phiến",
+    "displayReadingEn": "Radical 91 · Slice",
     "readings": [
       "Phiến"
     ],
     "meaning": "Mảnh, tấm, một phía",
+    "meaningEn": "Slice, piece, one side",
     "examples": "片, 版, 牌",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27576,10 +30337,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1092,
     "kanji": "牙",
     "displayReading": "Bộ Nha",
+    "displayReadingEn": "Radical 92 · Fang",
     "readings": [
       "Nha"
     ],
     "meaning": "Răng nanh",
+    "meaningEn": "Fang, tusk",
     "examples": "牙, 芽, 邪",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27589,10 +30352,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1093,
     "kanji": "牛 (牜)",
     "displayReading": "Bộ Ngưu",
+    "displayReadingEn": "Radical 93 · Cow",
     "readings": [
       "Ngưu"
     ],
     "meaning": "Con trâu, con bò",
+    "meaningEn": "Cow, ox, cattle",
     "examples": "牛, 物, 特, 牧, 犠",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27602,10 +30367,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1094,
     "kanji": "犬 (犭)",
     "displayReading": "Bộ Khuyển",
+    "displayReadingEn": "Radical 94 · Dog",
     "readings": [
       "Khuyển"
     ],
     "meaning": "Con chó, loài thú",
+    "meaningEn": "Dog, beast",
     "examples": "犬, 猫, 独, 犯, 狂",
     "topicId": "rad_4_stroke",
     "level": "RADICALS",
@@ -27615,10 +30382,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1095,
     "kanji": "玄",
     "displayReading": "Bộ Huyền",
+    "displayReadingEn": "Radical 95 · Profound",
     "readings": [
       "Huyền"
     ],
     "meaning": "Màu đen huyền, huyền bí",
+    "meaningEn": "Dark black, mysterious",
     "examples": "玄, 率, 弦",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27628,10 +30397,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1096,
     "kanji": "玉 (王)",
     "displayReading": "Bộ Ngọc",
+    "displayReadingEn": "Radical 96 · Jade",
     "readings": [
       "Ngọc"
     ],
     "meaning": "Đá quý, ngọc báu",
+    "meaningEn": "Jade, gem, jewel",
     "examples": "玉, 王, 現, 理, 球",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27641,10 +30412,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1097,
     "kanji": "瓜",
     "displayReading": "Bộ Qua",
+    "displayReadingEn": "Radical 97 · Melon",
     "readings": [
       "Qua"
     ],
     "meaning": "Quả dưa",
+    "meaningEn": "Melon, gourd",
     "examples": "瓜, 孤, 弧",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27654,10 +30427,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1098,
     "kanji": "瓦",
     "displayReading": "Bộ Ngõa",
+    "displayReadingEn": "Radical 98 · Tile",
     "readings": [
       "Ngõa"
     ],
     "meaning": "Ngói lợp nhà, đồ gốm",
+    "meaningEn": "Roof tile, pottery",
     "examples": "瓦, 瓶, 瓷",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27667,10 +30442,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1099,
     "kanji": "甘",
     "displayReading": "Bộ Cam",
+    "displayReadingEn": "Radical 99 · Sweet",
     "readings": [
       "Cam"
     ],
     "meaning": "Ngọt ngào",
+    "meaningEn": "Sweet",
     "examples": "甘, 甚, 某",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27680,10 +30457,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1100,
     "kanji": "生",
     "displayReading": "Bộ Sinh",
+    "displayReadingEn": "Radical 100 · Life",
     "readings": [
       "Sinh"
     ],
     "meaning": "Sinh sống, sinh ra, tươi sống",
+    "meaningEn": "Life, birth, raw",
     "examples": "生, 産, 星, 性",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27693,10 +30472,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1101,
     "kanji": "用",
     "displayReading": "Bộ Dụng",
+    "displayReadingEn": "Radical 101 · Use",
     "readings": [
       "Dụng"
     ],
     "meaning": "Sử dụng, công dụng",
+    "meaningEn": "Use, utility",
     "examples": "用, 庸, 備",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27706,10 +30487,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1102,
     "kanji": "田",
     "displayReading": "Bộ Điền",
+    "displayReadingEn": "Radical 102 · Field",
     "readings": [
       "Điền"
     ],
     "meaning": "Ruộng đồng",
+    "meaningEn": "Rice field, farmland",
     "examples": "田, 男, 町, 界, 番",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27719,10 +30502,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1103,
     "kanji": "疋 (⺪)",
     "displayReading": "Bộ Sơ (Thất)",
+    "displayReadingEn": "Radical 103 · Bolt of cloth",
     "readings": [
       "Sơ (Thất)"
     ],
     "meaning": "Đơn vị đo vải, bàn chân",
+    "meaningEn": "Bolt of cloth, foot",
     "examples": "疎, 疑, 楚",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27732,10 +30517,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1104,
     "kanji": "疒",
     "displayReading": "Bộ Nạch",
+    "displayReadingEn": "Radical 104 · Sickness",
     "readings": [
       "Nạch"
     ],
     "meaning": "Bệnh tật, đau ốm",
+    "meaningEn": "Sickness, illness",
     "examples": "病, 痛, 疲, 症, 療",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27745,10 +30532,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1105,
     "kanji": "癶",
     "displayReading": "Bộ Bát",
+    "displayReadingEn": "Radical 105 · Dotted tent",
     "readings": [
       "Bát"
     ],
     "meaning": "Hai bàn chân bước ngược nhau",
+    "meaningEn": "Feet stepping apart",
     "examples": "発, 登",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27758,10 +30547,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1106,
     "kanji": "白",
     "displayReading": "Bộ Bạch",
+    "displayReadingEn": "Radical 106 · White",
     "readings": [
       "Bạch"
     ],
     "meaning": "Màu trắng, rõ ràng",
+    "meaningEn": "White, clear",
     "examples": "白, 百, 的, 皇, 皆",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27771,10 +30562,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1107,
     "kanji": "皮",
     "displayReading": "Bộ Bì",
+    "displayReadingEn": "Radical 107 · Skin",
     "readings": [
       "Bì"
     ],
     "meaning": "Da, vỏ ngoài",
+    "meaningEn": "Skin, hide, bark",
     "examples": "皮, 波, 破, 被",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27784,10 +30577,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1108,
     "kanji": "皿",
     "displayReading": "Bộ Mãnh",
+    "displayReadingEn": "Radical 108 · Dish",
     "readings": [
       "Mãnh"
     ],
     "meaning": "Cái đĩa, bát, đồ đựng",
+    "meaningEn": "Dish, plate, vessel",
     "examples": "皿, 血, 盆, 盛, 監",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27797,10 +30592,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1109,
     "kanji": "目",
     "displayReading": "Bộ Mục",
+    "displayReadingEn": "Radical 109 · Eye",
     "readings": [
       "Mục"
     ],
     "meaning": "Con mắt, nhìn ngắm",
+    "meaningEn": "Eye, look",
     "examples": "目, 見, 眠, 相, 省",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27810,10 +30607,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1110,
     "kanji": "矛",
     "displayReading": "Bộ Mâu",
+    "displayReadingEn": "Radical 110 · Spear",
     "readings": [
       "Mâu"
     ],
     "meaning": "Cây giáo, cây mâu",
+    "meaningEn": "Spear, lance",
     "examples": "矛, 柔, 務, 霧",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27823,10 +30622,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1111,
     "kanji": "矢",
     "displayReading": "Bộ Thỉ",
+    "displayReadingEn": "Radical 111 · Arrow",
     "readings": [
       "Thỉ"
     ],
     "meaning": "Mũi tên",
+    "meaningEn": "Arrow, dart",
     "examples": "矢, 知, 短, 族, 矯",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27836,10 +30637,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1112,
     "kanji": "石",
     "displayReading": "Bộ Thạch",
+    "displayReadingEn": "Radical 112 · Stone",
     "readings": [
       "Thạch"
     ],
     "meaning": "Đá, tảng đá",
+    "meaningEn": "Stone, rock",
     "examples": "石, 砂, 研, 破, 確",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27849,10 +30652,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1113,
     "kanji": "示 (礻)",
     "displayReading": "Bộ Thị",
+    "displayReadingEn": "Radical 113 · Spirit",
     "readings": [
       "Thị"
     ],
     "meaning": "Thần linh, lễ tế, chỉ bảo",
+    "meaningEn": "Spirit, altar, show",
     "examples": "示, 社, 神, 福, 礼",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27862,10 +30667,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1114,
     "kanji": "禸",
     "displayReading": "Bộ Nhựu",
+    "displayReadingEn": "Radical 114 · Track",
     "readings": [
       "Nhựu"
     ],
     "meaning": "Vết chân thú",
+    "meaningEn": "Animal footprint",
     "examples": "離, 禹, 禽",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27875,10 +30682,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1115,
     "kanji": "禾",
     "displayReading": "Bộ Hòa",
+    "displayReadingEn": "Radical 115 · Grain",
     "readings": [
       "Hòa"
     ],
     "meaning": "Cây lúa, ngũ cốc",
+    "meaningEn": "Grain, rice plant",
     "examples": "秋, 科, 移, 税, 秒",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27888,10 +30697,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1116,
     "kanji": "穴",
     "displayReading": "Bộ Huyệt",
+    "displayReadingEn": "Radical 116 · Cave",
     "readings": [
       "Huyệt"
     ],
     "meaning": "Hang động, cái lỗ",
+    "meaningEn": "Cave, hole",
     "examples": "穴, 空, 窓, 突, 究",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27901,10 +30712,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1117,
     "kanji": "立",
     "displayReading": "Bộ Lập",
+    "displayReadingEn": "Radical 117 · Stand",
     "readings": [
       "Lập"
     ],
     "meaning": "Đứng thẳng, thiết lập",
+    "meaningEn": "Stand upright, establish",
     "examples": "立, 音, 章, 童, 競",
     "topicId": "rad_5_stroke",
     "level": "RADICALS",
@@ -27914,10 +30727,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1118,
     "kanji": "竹 (⺮)",
     "displayReading": "Bộ Trúc",
+    "displayReadingEn": "Radical 118 · Bamboo",
     "readings": [
       "Trúc"
     ],
     "meaning": "Cây tre, cây trúc",
+    "meaningEn": "Bamboo",
     "examples": "竹, 笑, 第, 答, 筆",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -27927,10 +30742,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1119,
     "kanji": "米",
     "displayReading": "Bộ Mễ",
+    "displayReadingEn": "Radical 119 · Rice",
     "readings": [
       "Mễ"
     ],
     "meaning": "Hạt gạo",
+    "meaningEn": "Rice grain",
     "examples": "米, 料, 粉, 精, 糖",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -27940,10 +30757,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1120,
     "kanji": "糸 (糹)",
     "displayReading": "Bộ Mịch",
+    "displayReadingEn": "Radical 120 · Silk",
     "readings": [
       "Mịch"
     ],
     "meaning": "Sợi tơ, dây, sự liên kết",
+    "meaningEn": "Silk thread, string, connection",
     "examples": "糸, 紙, 絵, 結, 続",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -27953,10 +30772,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1121,
     "kanji": "缶",
     "displayReading": "Bộ Phẫu",
+    "displayReadingEn": "Radical 121 · Jar",
     "readings": [
       "Phẫu"
     ],
     "meaning": "Cái bình sành, đồ gốm",
+    "meaningEn": "Earthenware jar, pottery",
     "examples": "缶, 欠, 陶, 鬱",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -27966,10 +30787,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1122,
     "kanji": "网 (罒, ⺳)",
     "displayReading": "Bộ Võng",
+    "displayReadingEn": "Radical 122 · Net",
     "readings": [
       "Võng"
     ],
     "meaning": "Cái lưới",
+    "meaningEn": "Net, web",
     "examples": "買, 置, 罪, 罰, 署",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -27979,10 +30802,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1123,
     "kanji": "羊 (⺶, ⺷)",
     "displayReading": "Bộ Dương",
+    "displayReadingEn": "Radical 123 · Sheep",
     "readings": [
       "Dương"
     ],
     "meaning": "Con cừu, con dê",
+    "meaningEn": "Sheep, goat",
     "examples": "羊, 美, 着, 義, 群",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -27992,10 +30817,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1124,
     "kanji": "羽",
     "displayReading": "Bộ Vũ",
+    "displayReadingEn": "Radical 124 · Feather",
     "readings": [
       "Vũ"
     ],
     "meaning": "Lông vũ, đôi cánh",
+    "meaningEn": "Feather, wings",
     "examples": "羽, 習, 翌, 翻, 翼",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28005,10 +30832,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1125,
     "kanji": "老 (耂)",
     "displayReading": "Bộ Lão",
+    "displayReadingEn": "Radical 125 · Old",
     "readings": [
       "Lão"
     ],
     "meaning": "Già cả, người lớn tuổi",
+    "meaningEn": "Old, elderly",
     "examples": "老, 考, 者, 孝",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28018,10 +30847,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1126,
     "kanji": "而",
     "displayReading": "Bộ Nhi",
+    "displayReadingEn": "Radical 126 · And",
     "readings": [
       "Nhi"
     ],
     "meaning": "Mà, râu cằm",
+    "meaningEn": "And, beard",
     "examples": "耐, 端, 需",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28031,10 +30862,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1127,
     "kanji": "耒",
     "displayReading": "Bộ Lỗi",
+    "displayReadingEn": "Radical 127 · Plow",
     "readings": [
       "Lỗi"
     ],
     "meaning": "Cái cày",
+    "meaningEn": "Plow",
     "examples": "耕, 耗, 籍",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28044,10 +30877,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1128,
     "kanji": "耳",
     "displayReading": "Bộ Nhĩ",
+    "displayReadingEn": "Radical 128 · Ear",
     "readings": [
       "Nhĩ"
     ],
     "meaning": "Cái tai, lắng nghe",
+    "meaningEn": "Ear, listen",
     "examples": "耳, 聞, 聴, 職, 聖",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28057,10 +30892,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1129,
     "kanji": "聿 (⺻)",
     "displayReading": "Bộ Duật",
+    "displayReadingEn": "Radical 129 · Brush",
     "readings": [
       "Duật"
     ],
     "meaning": "Cây bút viết",
+    "meaningEn": "Writing brush",
     "examples": "筆, 書, 建, 律, 津",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28070,10 +30907,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1130,
     "kanji": "肉 (月)",
     "displayReading": "Bộ Nhục",
+    "displayReadingEn": "Radical 130 · Meat",
     "readings": [
       "Nhục"
     ],
     "meaning": "Thịt, bộ phận cơ thể",
+    "meaningEn": "Meat, flesh, body part",
     "examples": "肉, 腕, 腹, 胸, 育",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28083,10 +30922,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1131,
     "kanji": "臣",
     "displayReading": "Bộ Thần",
+    "displayReadingEn": "Radical 131 · Minister",
     "readings": [
       "Thần"
     ],
     "meaning": "Bề tôi, quan lại",
+    "meaningEn": "Minister, official, retainer",
     "examples": "臣, 臨, 堅, 賢",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28096,10 +30937,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1132,
     "kanji": "自",
     "displayReading": "Bộ Tự",
+    "displayReadingEn": "Radical 132 · Self",
     "readings": [
       "Tự"
     ],
     "meaning": "Tự mình, cái mũi",
+    "meaningEn": "Self, nose",
     "examples": "自, 息, 臭, 鼻",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28109,10 +30952,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1133,
     "kanji": "至",
     "displayReading": "Bộ Chí",
+    "displayReadingEn": "Radical 133 · Arrive",
     "readings": [
       "Chí"
     ],
     "meaning": "Đến nơi, cực điểm",
+    "meaningEn": "Arrive, reach, extreme",
     "examples": "至, 到, 致, 室",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28122,10 +30967,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1134,
     "kanji": "臼",
     "displayReading": "Bộ Cữu",
+    "displayReadingEn": "Radical 134 · Mortar",
     "readings": [
       "Cữu"
     ],
     "meaning": "Cái cối giã gạo",
+    "meaningEn": "Mortar (for pounding rice)",
     "examples": "旧, 興, 与, 児",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28135,10 +30982,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1135,
     "kanji": "舌",
     "displayReading": "Bộ Thiệt",
+    "displayReadingEn": "Radical 135 · Tongue",
     "readings": [
       "Thiệt"
     ],
     "meaning": "Cái lưỡi",
+    "meaningEn": "Tongue",
     "examples": "舌, 話, 辞, 乱, 舗",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28148,10 +30997,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1136,
     "kanji": "舛",
     "displayReading": "Bộ Suyễn",
+    "displayReadingEn": "Radical 136 · Oppose",
     "readings": [
       "Suyễn"
     ],
     "meaning": "Sai lầm, trái ngược",
+    "meaningEn": "Err, oppose, contrary",
     "examples": "舞, 瞬, 隣",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28161,10 +31012,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1137,
     "kanji": "舟",
     "displayReading": "Bộ Chu",
+    "displayReadingEn": "Radical 137 · Boat",
     "readings": [
       "Chu"
     ],
     "meaning": "Con thuyền",
+    "meaningEn": "Boat, ship",
     "examples": "舟, 船, 航, 艦, 般",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28174,10 +31027,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1138,
     "kanji": "艮",
     "displayReading": "Bộ Cấn",
+    "displayReadingEn": "Radical 138 · Stopping",
     "readings": [
       "Cấn"
     ],
     "meaning": "Dừng lại, quẻ Cấn, cứng đầu",
+    "meaningEn": "Stop, stubborn, Gen trigram",
     "examples": "良, 限, 銀, 根, 退",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28187,10 +31042,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1139,
     "kanji": "色",
     "displayReading": "Bộ Sắc",
+    "displayReadingEn": "Radical 139 · Color",
     "readings": [
       "Sắc"
     ],
     "meaning": "Màu sắc, dáng vẻ",
+    "meaningEn": "Color, appearance",
     "examples": "色, 絶, 艶",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28200,10 +31057,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1140,
     "kanji": "艸 (艹)",
     "displayReading": "Bộ Thảo",
+    "displayReadingEn": "Radical 140 · Grass",
     "readings": [
       "Thảo"
     ],
     "meaning": "Cỏ cây, thực vật",
+    "meaningEn": "Grass, plants, herbs",
     "examples": "花, 草, 茶, 薬, 葉",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28213,10 +31072,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1141,
     "kanji": "虍",
     "displayReading": "Bộ Hô",
+    "displayReadingEn": "Radical 141 · Tiger",
     "readings": [
       "Hô"
     ],
     "meaning": "Vằn con hổ",
+    "meaningEn": "Tiger stripes",
     "examples": "虎, 処, 虚, 慮, 劇",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28226,10 +31087,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1142,
     "kanji": "虫",
     "displayReading": "Bộ Trùng",
+    "displayReadingEn": "Radical 142 · Insect",
     "readings": [
       "Trùng"
     ],
     "meaning": "Sâu bọ, côn trùng",
+    "meaningEn": "Insect, bug, worm",
     "examples": "虫, 蚊, 蛇, 融, 独",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28239,10 +31102,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1143,
     "kanji": "血",
     "displayReading": "Bộ Huyết",
+    "displayReadingEn": "Radical 143 · Blood",
     "readings": [
       "Huyết"
     ],
     "meaning": "Máu",
+    "meaningEn": "Blood",
     "examples": "血, 衆, 脈",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28252,10 +31117,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1144,
     "kanji": "行",
     "displayReading": "Bộ Hành",
+    "displayReadingEn": "Radical 144 · Walk enclosure",
     "readings": [
       "Hành"
     ],
     "meaning": "Đi lại, con đường, thực hiện",
+    "meaningEn": "Walk, road, carry out",
     "examples": "行, 街, 術, 衛, 衝",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28265,10 +31132,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1145,
     "kanji": "衣 (衤)",
     "displayReading": "Bộ Y",
+    "displayReadingEn": "Radical 145 · Clothes",
     "readings": [
       "Y"
     ],
     "meaning": "Quần áo, trang phục",
+    "meaningEn": "Clothes, garment",
     "examples": "衣, 服, 初, 補, 表",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28278,10 +31147,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1146,
     "kanji": "襾 (西, 覀)",
     "displayReading": "Bộ Á",
+    "displayReadingEn": "Radical 146 · West",
     "readings": [
       "Á"
     ],
     "meaning": "Che đậy, hướng Tây",
+    "meaningEn": "Cover, west",
     "examples": "西, 要, 票, 覆",
     "topicId": "rad_6_stroke",
     "level": "RADICALS",
@@ -28291,10 +31162,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1147,
     "kanji": "見",
     "displayReading": "Bộ Kiến",
+    "displayReadingEn": "Radical 147 · See",
     "readings": [
       "Kiến"
     ],
     "meaning": "Nhìn thấy, quan sát",
+    "meaningEn": "See, look, observe",
     "examples": "見, 親, 観, 覚, 規",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28304,10 +31177,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1148,
     "kanji": "角",
     "displayReading": "Bộ Giác",
+    "displayReadingEn": "Radical 148 · Horn",
     "readings": [
       "Giác"
     ],
     "meaning": "Cái sừng, góc cạnh",
+    "meaningEn": "Horn, angle, corner",
     "examples": "角, 解, 触, 確",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28317,10 +31192,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1149,
     "kanji": "言 (訁)",
     "displayReading": "Bộ Ngôn",
+    "displayReadingEn": "Radical 149 · Speech",
     "readings": [
       "Ngôn"
     ],
     "meaning": "Lời nói, ngôn ngữ",
+    "meaningEn": "Speech, words, language",
     "examples": "言, 語, 話, 読, 記",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28330,10 +31207,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1150,
     "kanji": "谷",
     "displayReading": "Bộ Cốc",
+    "displayReadingEn": "Radical 150 · Valley",
     "readings": [
       "Cốc"
     ],
     "meaning": "Thung lũng, khe núi",
+    "meaningEn": "Valley, gorge",
     "examples": "谷, 欲, 浴, 俗, 容",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28343,10 +31222,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1151,
     "kanji": "豆",
     "displayReading": "Bộ Đậu",
+    "displayReadingEn": "Radical 151 · Bean",
     "readings": [
       "Đậu"
     ],
     "meaning": "Hạt đậu, đồ đựng tế lễ",
+    "meaningEn": "Bean, sacrificial vessel",
     "examples": "豆, 豊, 頭, 短, 登",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28356,10 +31237,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1152,
     "kanji": "豕",
     "displayReading": "Bộ Thỉ",
+    "displayReadingEn": "Radical 152 · Pig",
     "readings": [
       "Thỉ"
     ],
     "meaning": "Con lợn (heo)",
+    "meaningEn": "Pig, hog",
     "examples": "豚, 家, 象, 豪, 隊",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28369,10 +31252,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1153,
     "kanji": "豸",
     "displayReading": "Bộ Trãi",
+    "displayReadingEn": "Radical 153 · Badger",
     "readings": [
       "Trãi"
     ],
     "meaning": "Loài thú ăn thịt thân dài",
+    "meaningEn": "Badger, long-bodied beast",
     "examples": "豹, 貌, 猫, 墾",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28382,10 +31267,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1154,
     "kanji": "貝",
     "displayReading": "Bộ Bối",
+    "displayReadingEn": "Radical 154 · Shell",
     "readings": [
       "Bối"
     ],
     "meaning": "Vỏ sò, tiền bạc, tài sản",
+    "meaningEn": "Cowrie shell, money, wealth",
     "examples": "貝, 買, 売, 貯, 財",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28395,10 +31282,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1155,
     "kanji": "赤",
     "displayReading": "Bộ Xích",
+    "displayReadingEn": "Radical 155 · Red",
     "readings": [
       "Xích"
     ],
     "meaning": "Màu đỏ",
+    "meaningEn": "Red, bare",
     "examples": "赤, 赦, 赫",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28408,10 +31297,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1156,
     "kanji": "走",
     "displayReading": "Bộ Tẩu",
+    "displayReadingEn": "Radical 156 · Run",
     "readings": [
       "Tẩu"
     ],
     "meaning": "Chạy, di chuyển nhanh",
+    "meaningEn": "Run, move fast",
     "examples": "走, 起, 超, 越, 趣",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28421,10 +31312,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1157,
     "kanji": "足 (⻊)",
     "displayReading": "Bộ Túc",
+    "displayReadingEn": "Radical 157 · Foot",
     "readings": [
       "Túc"
     ],
     "meaning": "Bàn chân, đầy đủ",
+    "meaningEn": "Foot, sufficient",
     "examples": "足, 路, 踊, 跳, 距",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28434,10 +31327,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1158,
     "kanji": "身",
     "displayReading": "Bộ Thân",
+    "displayReadingEn": "Radical 158 · Body",
     "readings": [
       "Thân"
     ],
     "meaning": "Thân thể, bản thân",
+    "meaningEn": "Body, oneself",
     "examples": "身, 射, 謝, 躯",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28447,10 +31342,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1159,
     "kanji": "車",
     "displayReading": "Bộ Xa",
+    "displayReadingEn": "Radical 159 · Cart",
     "readings": [
       "Xa"
     ],
     "meaning": "Xe cộ, bánh xe",
+    "meaningEn": "Cart, vehicle, wheel",
     "examples": "車, 転, 軽, 輪, 軍",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28460,10 +31357,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1160,
     "kanji": "辛",
     "displayReading": "Bộ Tân",
+    "displayReadingEn": "Radical 160 · Bitter",
     "readings": [
       "Tân"
     ],
     "meaning": "Cay đắng, vất vả",
+    "meaningEn": "Bitter, spicy, hardship",
     "examples": "辛, 辞, 弁, 幸, 辟",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28473,10 +31372,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1161,
     "kanji": "辰",
     "displayReading": "Bộ Thần",
+    "displayReadingEn": "Radical 161 · Morning",
     "readings": [
       "Thần"
     ],
     "meaning": "Ngôi sao, địa chi Thìn, buổi sớm",
+    "meaningEn": "Star, Dragon branch, early morning",
     "examples": "農, 振, 震, 辱",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28486,10 +31387,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1162,
     "kanji": "辵 (辶)",
     "displayReading": "Bộ Sước",
+    "displayReadingEn": "Radical 162 · Walk",
     "readings": [
       "Sước"
     ],
     "meaning": "Bước đi, di chuyển trên đường",
+    "meaningEn": "Walk, move along a road",
     "examples": "道, 近, 遠, 進, 運",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28499,10 +31402,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1163,
     "kanji": "邑 (阝 phải)",
     "displayReading": "Bộ Ấp",
+    "displayReadingEn": "Radical 163 · City",
     "readings": [
       "Ấp"
     ],
     "meaning": "Vùng đất, làng mạc, đô thị",
+    "meaningEn": "City, village, district",
     "examples": "都, 郡, 部, 郵, 郷",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28512,10 +31417,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1164,
     "kanji": "酉",
     "displayReading": "Bộ Dậu",
+    "displayReadingEn": "Radical 164 · Wine",
     "readings": [
       "Dậu"
     ],
     "meaning": "Bình rượu, địa chi Dậu",
+    "meaningEn": "Wine jar, Rooster branch",
     "examples": "酒, 配, 酔, 酸, 医",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28525,10 +31432,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1165,
     "kanji": "釆",
     "displayReading": "Bộ Biện",
+    "displayReadingEn": "Radical 165 · Distinguish",
     "readings": [
       "Biện"
     ],
     "meaning": "Phân biệt, dấu chân thú",
+    "meaningEn": "Distinguish, animal tracks",
     "examples": "採, 番, 釈, 審",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28538,10 +31447,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1166,
     "kanji": "里",
     "displayReading": "Bộ Lý",
+    "displayReadingEn": "Radical 166 · Village",
     "readings": [
       "Lý"
     ],
     "meaning": "Làng xóm, đơn vị đo dặm",
+    "meaningEn": "Village, unit of distance (ri)",
     "examples": "里, 重, 野, 量, 黒",
     "topicId": "rad_7_stroke",
     "level": "RADICALS",
@@ -28551,10 +31462,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1167,
     "kanji": "金 (釒)",
     "displayReading": "Bộ Kim",
+    "displayReadingEn": "Radical 167 · Gold",
     "readings": [
       "Kim"
     ],
     "meaning": "Kim loại, vàng, tiền bạc",
+    "meaningEn": "Metal, gold, money",
     "examples": "金, 鉄, 銀, 鏡, 針",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -28564,10 +31477,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1168,
     "kanji": "長 (镸)",
     "displayReading": "Bộ Trường",
+    "displayReadingEn": "Radical 168 · Long",
     "readings": [
       "Trường"
     ],
     "meaning": "Dài, người đứng đầu, lớn lên",
+    "meaningEn": "Long, chief, grow",
     "examples": "長, 張, 帳, 膨",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -28577,10 +31492,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1169,
     "kanji": "門",
     "displayReading": "Bộ Môn",
+    "displayReadingEn": "Radical 169 · Gate",
     "readings": [
       "Môn"
     ],
     "meaning": "Cổng lớn, cánh cửa",
+    "meaningEn": "Gate, door",
     "examples": "門, 間, 開, 閉, 聞",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -28590,10 +31507,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1170,
     "kanji": "阜 (阝 trái)",
     "displayReading": "Bộ Phụ",
+    "displayReadingEn": "Radical 170 · Mound",
     "readings": [
       "Phụ"
     ],
     "meaning": "Gò đất, đồi núi, bậc thang",
+    "meaningEn": "Mound, hill, steps",
     "examples": "院, 階, 陽, 防, 限",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -28603,10 +31522,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1171,
     "kanji": "隶",
     "displayReading": "Bộ Đãi",
+    "displayReadingEn": "Radical 171 · Slave",
     "readings": [
       "Đãi"
     ],
     "meaning": "Kịp đến, phụ thuộc",
+    "meaningEn": "Reach, depend on",
     "examples": "隷, 康, 逮",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -28616,10 +31537,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1172,
     "kanji": "隹",
     "displayReading": "Bộ Chuy",
+    "displayReadingEn": "Radical 172 · Short-tailed bird",
     "readings": [
       "Chuy"
     ],
     "meaning": "Chim đuôi ngắn",
+    "meaningEn": "Short-tailed bird",
     "examples": "集, 雑, 難, 離, 雄",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -28629,10 +31552,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1173,
     "kanji": "雨 (⻗)",
     "displayReading": "Bộ Vũ",
+    "displayReadingEn": "Radical 173 · Rain",
     "readings": [
       "Vũ"
     ],
     "meaning": "Mưa, hiện tượng thời tiết",
+    "meaningEn": "Rain, weather phenomena",
     "examples": "雨, 雪, 雲, 電, 霧",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -28642,10 +31567,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1174,
     "kanji": "青 (靑)",
     "displayReading": "Bộ Thanh",
+    "displayReadingEn": "Radical 174 · Blue",
     "readings": [
       "Thanh"
     ],
     "meaning": "Màu xanh lam/lục, trẻ trung",
+    "meaningEn": "Blue, green, young",
     "examples": "青, 静, 晴, 清, 精",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -28655,10 +31582,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1175,
     "kanji": "非",
     "displayReading": "Bộ Phi",
+    "displayReadingEn": "Radical 175 · Wrong",
     "readings": [
       "Phi"
     ],
     "meaning": "Không phải, sai trái",
+    "meaningEn": "Wrong, not",
     "examples": "非, 悲, 罪, 排, 俳",
     "topicId": "rad_8_stroke",
     "level": "RADICALS",
@@ -28668,10 +31597,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1176,
     "kanji": "面",
     "displayReading": "Bộ Diện",
+    "displayReadingEn": "Radical 176 · Face",
     "readings": [
       "Diện"
     ],
     "meaning": "Khuôn mặt, bề mặt",
+    "meaningEn": "Face, surface",
     "examples": "面, 麺, 緬",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28681,10 +31612,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1177,
     "kanji": "革",
     "displayReading": "Bộ Cách",
+    "displayReadingEn": "Radical 177 · Leather",
     "readings": [
       "Cách"
     ],
     "meaning": "Da thú thuộc, cải cách",
+    "meaningEn": "Tanned leather, reform",
     "examples": "革, 靴, 鞄, 覇",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28694,10 +31627,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1178,
     "kanji": "韋",
     "displayReading": "Bộ Vi",
+    "displayReadingEn": "Radical 178 · Tanned leather",
     "readings": [
       "Vi"
     ],
     "meaning": "Da thuộc mềm, vây quanh",
+    "meaningEn": "Soft leather, surround",
     "examples": "韓, 偉, 違, 緯",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28707,10 +31642,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1179,
     "kanji": "韭",
     "displayReading": "Bộ Cửu",
+    "displayReadingEn": "Radical 179 · Leek",
     "readings": [
       "Cửu"
     ],
     "meaning": "Rau hẹ",
+    "meaningEn": "Leek, chives",
     "examples": "韮, 繊",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28720,10 +31657,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1180,
     "kanji": "音",
     "displayReading": "Bộ Âm",
+    "displayReadingEn": "Radical 180 · Sound",
     "readings": [
       "Âm"
     ],
     "meaning": "Âm thanh, tiếng động",
+    "meaningEn": "Sound, noise",
     "examples": "音, 暗, 意, 響, 韻",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28733,10 +31672,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1181,
     "kanji": "頁",
     "displayReading": "Bộ Hiệt",
+    "displayReadingEn": "Radical 181 · Leaf",
     "readings": [
       "Hiệt"
     ],
     "meaning": "Cái đầu, trang giấy",
+    "meaningEn": "Head, page of a book",
     "examples": "頭, 顔, 題, 願, 順",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28746,10 +31687,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1182,
     "kanji": "風",
     "displayReading": "Bộ Phong",
+    "displayReadingEn": "Radical 182 · Wind",
     "readings": [
       "Phong"
     ],
     "meaning": "Gió, phong cách",
+    "meaningEn": "Wind, style",
     "examples": "風, 台, 嵐, 颯",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28759,10 +31702,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1183,
     "kanji": "飛",
     "displayReading": "Bộ Phi",
+    "displayReadingEn": "Radical 183 · Fly",
     "readings": [
       "Phi"
     ],
     "meaning": "Bay lượn",
+    "meaningEn": "Fly, soar",
     "examples": "飛, 翻",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28772,10 +31717,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1184,
     "kanji": "食 (飠)",
     "displayReading": "Bộ Thực",
+    "displayReadingEn": "Radical 184 · Eat",
     "readings": [
       "Thực"
     ],
     "meaning": "Ăn uống, thức ăn",
+    "meaningEn": "Eat, food",
     "examples": "食, 飲, 飯, 館, 養",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28785,10 +31732,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1185,
     "kanji": "首",
     "displayReading": "Bộ Thủ",
+    "displayReadingEn": "Radical 185 · Head",
     "readings": [
       "Thủ"
     ],
     "meaning": "Cái đầu, cái cổ, đứng đầu",
+    "meaningEn": "Head, neck, leader",
     "examples": "首, 道, 導",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28798,10 +31747,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1186,
     "kanji": "香",
     "displayReading": "Bộ Hương",
+    "displayReadingEn": "Radical 186 · Fragrant",
     "readings": [
       "Hương"
     ],
     "meaning": "Mùi thơm, hương vị",
+    "meaningEn": "Fragrant, aroma",
     "examples": "香, 馨, 馥",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28811,10 +31762,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1187,
     "kanji": "馬",
     "displayReading": "Bộ Mã",
+    "displayReadingEn": "Radical 187 · Horse",
     "readings": [
       "Mã"
     ],
     "meaning": "Con ngựa",
+    "meaningEn": "Horse",
     "examples": "馬, 駅, 駐, 騒, 驚",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28824,10 +31777,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1188,
     "kanji": "骨",
     "displayReading": "Bộ Cốt",
+    "displayReadingEn": "Radical 188 · Bone",
     "readings": [
       "Cốt"
     ],
     "meaning": "Xương cốt",
+    "meaningEn": "Bone, skeleton",
     "examples": "骨, 滑, 髄, 骸",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28837,10 +31792,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1189,
     "kanji": "高",
     "displayReading": "Bộ Cao",
+    "displayReadingEn": "Radical 189 · Tall",
     "readings": [
       "Cao"
     ],
     "meaning": "Cao lớn",
+    "meaningEn": "Tall, high",
     "examples": "高, 稿, 橋",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28850,10 +31807,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1190,
     "kanji": "髟",
     "displayReading": "Bộ Tiêu",
+    "displayReadingEn": "Radical 190 · Hair",
     "readings": [
       "Tiêu"
     ],
     "meaning": "Tóc dài",
+    "meaningEn": "Long hair",
     "examples": "髪, 髭, 髯",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28863,10 +31822,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1191,
     "kanji": "鬥",
     "displayReading": "Bộ Đấu",
+    "displayReadingEn": "Radical 191 · Fight",
     "readings": [
       "Đấu"
     ],
     "meaning": "Đánh nhau, tranh đấu",
+    "meaningEn": "Fight, struggle",
     "examples": "闘, 鬧",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28876,10 +31837,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1192,
     "kanji": "鬯",
     "displayReading": "Bộ Sưởng",
+    "displayReadingEn": "Radical 192 · Sacrificial wine",
     "readings": [
       "Sưởng"
     ],
     "meaning": "Rượu nghệ dùng trong tế lễ",
+    "meaningEn": "Herbal sacrificial wine",
     "examples": "鬱",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28889,10 +31852,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1193,
     "kanji": "鬲",
     "displayReading": "Bộ Cách",
+    "displayReadingEn": "Radical 193 · Cauldron",
     "readings": [
       "Cách"
     ],
     "meaning": "Cái đỉnh, nồi ba chân",
+    "meaningEn": "Three-legged cauldron",
     "examples": "隔, 融, 鬲",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28902,10 +31867,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1194,
     "kanji": "鬼",
     "displayReading": "Bộ Quỷ",
+    "displayReadingEn": "Radical 194 · Ghost",
     "readings": [
       "Quỷ"
     ],
     "meaning": "Con quỷ, linh hồn",
+    "meaningEn": "Ghost, demon, spirit",
     "examples": "鬼, 魂, 魔, 魅, 塊",
     "topicId": "rad_9_10_stroke",
     "level": "RADICALS",
@@ -28915,10 +31882,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1195,
     "kanji": "魚",
     "displayReading": "Bộ Ngư",
+    "displayReadingEn": "Radical 195 · Fish",
     "readings": [
       "Ngư"
     ],
     "meaning": "Con cá",
+    "meaningEn": "Fish",
     "examples": "魚, 鮮, 鯨, 鯉, 鮭",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -28928,10 +31897,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1196,
     "kanji": "鳥",
     "displayReading": "Bộ Điểu",
+    "displayReadingEn": "Radical 196 · Bird",
     "readings": [
       "Điểu"
     ],
     "meaning": "Con chim",
+    "meaningEn": "Bird",
     "examples": "鳥, 鳴, 島, 鶴, 鶏",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -28941,10 +31912,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1197,
     "kanji": "鹵",
     "displayReading": "Bộ Lỗ",
+    "displayReadingEn": "Radical 197 · Salt",
     "readings": [
       "Lỗ"
     ],
     "meaning": "Đất mặn, muối mỏ",
+    "meaningEn": "Salty land, rock salt",
     "examples": "塩, 鹸",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -28954,10 +31927,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1198,
     "kanji": "鹿",
     "displayReading": "Bộ Lộc",
+    "displayReadingEn": "Radical 198 · Deer",
     "readings": [
       "Lộc"
     ],
     "meaning": "Con hươu, con nai",
+    "meaningEn": "Deer",
     "examples": "鹿, 麗, 塵, 慶",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -28967,10 +31942,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1199,
     "kanji": "麥 (麦)",
     "displayReading": "Bộ Mạch",
+    "displayReadingEn": "Radical 199 · Wheat",
     "readings": [
       "Mạch"
     ],
     "meaning": "Lúa mạch",
+    "meaningEn": "Wheat, barley",
     "examples": "麦, 麺, 麹",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -28980,10 +31957,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1200,
     "kanji": "麻",
     "displayReading": "Bộ Ma",
+    "displayReadingEn": "Radical 200 · Hemp",
     "readings": [
       "Ma"
     ],
     "meaning": "Cây gai dầu, tê liệt",
+    "meaningEn": "Hemp, numb",
     "examples": "麻, 磨, 魔, 摩",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -28993,10 +31972,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1201,
     "kanji": "黃 (黄)",
     "displayReading": "Bộ Hoàng",
+    "displayReadingEn": "Radical 201 · Yellow",
     "readings": [
       "Hoàng"
     ],
     "meaning": "Màu vàng",
+    "meaningEn": "Yellow",
     "examples": "黄, 横, 広",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29006,10 +31987,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1202,
     "kanji": "黍",
     "displayReading": "Bộ Thử",
+    "displayReadingEn": "Radical 202 · Millet",
     "readings": [
       "Thử"
     ],
     "meaning": "Cây kê (lúa nếp)",
+    "meaningEn": "Millet",
     "examples": "黎, 粘",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29019,10 +32002,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1203,
     "kanji": "黑 (黒)",
     "displayReading": "Bộ Hắc",
+    "displayReadingEn": "Radical 203 · Black",
     "readings": [
       "Hắc"
     ],
     "meaning": "Màu đen",
+    "meaningEn": "Black",
     "examples": "黒, 黙, 点, 墨, 党",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29032,10 +32017,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1204,
     "kanji": "黹",
     "displayReading": "Bộ Chỉ",
+    "displayReadingEn": "Radical 204 · Embroidery",
     "readings": [
       "Chỉ"
     ],
     "meaning": "Thêu thùa, may vá",
+    "meaningEn": "Embroidery, needlework",
     "examples": "黻, 黼",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29045,10 +32032,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1205,
     "kanji": "黽",
     "displayReading": "Bộ Mãnh",
+    "displayReadingEn": "Radical 205 · Frog",
     "readings": [
       "Mãnh"
     ],
     "meaning": "Con ếch, cố gắng",
+    "meaningEn": "Frog, strive",
     "examples": "縄, 蠅, 亀",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29058,10 +32047,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1206,
     "kanji": "鼎",
     "displayReading": "Bộ Đỉnh",
+    "displayReadingEn": "Radical 206 · Tripod",
     "readings": [
       "Đỉnh"
     ],
     "meaning": "Cái đỉnh đồng ba chân",
+    "meaningEn": "Three-legged bronze tripod",
     "examples": "鼎, 鼐",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29071,10 +32062,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1207,
     "kanji": "鼓",
     "displayReading": "Bộ Cổ",
+    "displayReadingEn": "Radical 207 · Drum",
     "readings": [
       "Cổ"
     ],
     "meaning": "Cái trống, cổ vũ",
+    "meaningEn": "Drum, encourage",
     "examples": "鼓, 樹, 喜",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29084,10 +32077,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1208,
     "kanji": "鼠",
     "displayReading": "Bộ Thử",
+    "displayReadingEn": "Radical 208 · Rat",
     "readings": [
       "Thử"
     ],
     "meaning": "Con chuột",
+    "meaningEn": "Rat, mouse",
     "examples": "鼠, 鼬, 竄",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29097,10 +32092,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1209,
     "kanji": "鼻",
     "displayReading": "Bộ Tỵ",
+    "displayReadingEn": "Radical 209 · Nose",
     "readings": [
       "Tỵ"
     ],
     "meaning": "Cái mũi",
+    "meaningEn": "Nose",
     "examples": "鼻, 鼾",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29110,10 +32107,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1210,
     "kanji": "齊 (斉)",
     "displayReading": "Bộ Tề",
+    "displayReadingEn": "Radical 210 · Even",
     "readings": [
       "Tề"
     ],
     "meaning": "Ngay ngắn, đều đặn",
+    "meaningEn": "Even, uniform, neat",
     "examples": "斉, 済, 剤, 斎",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29123,10 +32122,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1211,
     "kanji": "齒 (歯)",
     "displayReading": "Bộ Xỉ",
+    "displayReadingEn": "Radical 211 · Tooth",
     "readings": [
       "Xỉ"
     ],
     "meaning": "Cái răng",
+    "meaningEn": "Tooth",
     "examples": "歯, 齢, 噛",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29136,10 +32137,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1212,
     "kanji": "龍 (竜)",
     "displayReading": "Bộ Long",
+    "displayReadingEn": "Radical 212 · Dragon",
     "readings": [
       "Long"
     ],
     "meaning": "Con rồng",
+    "meaningEn": "Dragon",
     "examples": "龍, 竜, 滝, 襲",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29149,10 +32152,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1213,
     "kanji": "龜 (亀)",
     "displayReading": "Bộ Quy",
+    "displayReadingEn": "Radical 213 · Turtle",
     "readings": [
       "Quy"
     ],
     "meaning": "Con rùa",
+    "meaningEn": "Turtle, tortoise",
     "examples": "亀, 縄",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",
@@ -29162,10 +32167,12 @@ const ALL_STUDY_ITEMS = [
     "id": 1214,
     "kanji": "龠",
     "displayReading": "Bộ Dược",
+    "displayReadingEn": "Radical 214 · Flute",
     "readings": [
       "Dược"
     ],
     "meaning": "Ống sáo cổ",
+    "meaningEn": "Ancient bamboo flute",
     "examples": "躍, 曜, 濯",
     "topicId": "rad_11_17_stroke",
     "level": "RADICALS",

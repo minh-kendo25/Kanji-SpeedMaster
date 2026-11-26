@@ -149,7 +149,10 @@
       <span>Kanji Kachi</span>
       <span class="jp">漢字勝ち</span>
     </a>
-    <a class="back-btn" href="./index.html">← Quay lại ứng dụng</a>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <button id="lang-toggle" class="back-btn" style="cursor:pointer;" type="button">EN / VI</button>
+      <a class="back-btn" id="back-link" href="./index.html">← Quay lại ứng dụng</a>
+    </div>
   </header>
 
   <main>
@@ -237,6 +240,115 @@
         <li><strong>Email hỗ trợ &amp; quyền riêng tư:</strong> <a class="email" href="mailto:theocean2505@gmail.com?subject=%5BKanji%20Kachi%5D%20Li%C3%AAn%20h%E1%BB%87%20quy%E1%BB%81n%20ri%C3%AAng%20t%C6%B0">theocean2505@gmail.com</a></li>
       </ul>
     </article>
+
+    <article class="card" id="policy-en" style="display:none;">
+      <h1>Privacy Policy</h1>
+      <div class="meta">
+        <strong>Last Updated:</strong> 23/11/2026 ·
+        <strong>Applies to:</strong> Kanji Kachi Mobile App (Android) &amp; Web Platform
+      </div>
+
+      <p><strong>Kanji Kachi</strong> ("we", "our") is committed to respecting and protecting your privacy. This policy explains what data we collect, how we use it, and your rights when using Kanji Kachi.</p>
+
+      <h2>1. Data Controller</h2>
+      <p>Kanji Kachi is developed and operated by <strong>Phạm Hoàng Bảo Minh</strong>. Privacy inquiries: <a class="email" href="mailto:theocean2505@gmail.com?subject=%5BKanji%20Kachi%5D%20Privacy%20Inquiry">theocean2505@gmail.com</a>.</p>
+
+      <h2>2. Data We Collect</h2>
+      <h3>a. Account Information (via Google Sign-In)</h3>
+      <ul>
+        <li>Email address</li>
+        <li>Display Name</li>
+        <li>Profile Photo URL</li>
+        <li>Unique Firebase User UID</li>
+      </ul>
+
+      <h3>b. Study Progress Data</h3>
+      <ul>
+        <li>Remembered word IDs in Vocabulary and Practice</li>
+        <li>Completed topics and words marked for review</li>
+        <li>Last studied item and activity timestamp</li>
+        <li>Daily AI Tutor token usage</li>
+      </ul>
+
+      <h3>c. Data We NEVER Collect</h3>
+      <ul>
+        <li>NO contacts, SMS, or call logs</li>
+        <li>NO GPS / precise location</li>
+        <li>NO microphone, camera, or photo library</li>
+        <li>NO phone numbers, national IDs, or payment card numbers</li>
+      </ul>
+
+      <h2>3. How We Use Data</h2>
+      <ul>
+        <li>Authenticate your account and maintain a secure session.</li>
+        <li>Sync your study progress in real time between Android and Web via Google Cloud Firestore.</li>
+        <li>Restore learning progress across devices.</li>
+        <li>Power the AI Kanji Tutor and display ads to keep the app free.</li>
+      </ul>
+
+      <h2>4. Storage &amp; Security</h2>
+      <ul>
+        <li><strong>Offline-First:</strong> Data is stored locally (Android Jetpack DataStore / browser storage) and synced to the cloud when online.</li>
+        <li><strong>Encryption:</strong> HTTPS/TLS in transit and Encryption at Rest on Google Cloud.</li>
+        <li><strong>Security Rules:</strong> Only the authenticated Firebase UID owner can read or write their own study data.</li>
+      </ul>
+
+      <h2>5. Third-Party Services</h2>
+      <ul>
+        <li><strong>Google Firebase &amp; Google Cloud (Google LLC):</strong> Google Sign-In, Cloud Firestore, and Firebase App Check.</li>
+        <li><strong>Firebase AI Logic &amp; Gemini (Google LLC):</strong> Processes questions sent to AI Kanji Tutor. On mobile, chat history is stored locally and auto-clears after 2 hours of inactivity or at 00:00 (UTC+7).</li>
+        <li><strong>Google AdMob &amp; Google AdSense (Google LLC):</strong> Displays ads on Mobile and Web. Kanji Kachi never sends your email or study progress to ad networks.</li>
+        <li><strong>Google Play Billing (Google LLC):</strong> Processes Plus subscriptions when enabled.</li>
+      </ul>
+
+      <h2>6. Your Rights &amp; Account Deletion</h2>
+      <ul>
+        <li><strong>Reset Progress:</strong> Reset anytime in <strong>Profile → Settings → Reset Progress</strong>.</li>
+        <li><strong>Permanent Account &amp; Data Deletion:</strong> Email <a class="email" href="mailto:theocean2505@gmail.com?subject=%5BKanji%20Kachi%5D%20Account%20Deletion%20Request">theocean2505@gmail.com</a> with subject <em>"[Kanji Kachi] Account Deletion Request"</em>; all cloud data is deleted within <strong>48 hours</strong>.</li>
+      </ul>
+
+      <h2>7. Children's Privacy</h2>
+      <p>Kanji Kachi is intended for learners aged 13 and older. We do not knowingly collect personal data from children under 13 without parental consent.</p>
+
+      <h2>8. Contact</h2>
+      <ul>
+        <li><strong>Operator:</strong> Kanji Kachi Team</li>
+        <li><strong>Support &amp; Privacy Email:</strong> <a class="email" href="mailto:theocean2505@gmail.com?subject=%5BKanji%20Kachi%5D%20Privacy%20Inquiry">theocean2505@gmail.com</a></li>
+      </ul>
+    </article>
   </main>
+  <script>
+    (function () {
+      var viCard = document.querySelector('main > article.card:not(#policy-en)');
+      var enCard = document.getElementById('policy-en');
+      var btn = document.getElementById('lang-toggle');
+      var back = document.getElementById('back-link');
+      function detectLang() {
+        try {
+          var raw = localStorage.getItem('kanji_kachi_state_clean_v1');
+          if (raw) {
+            var p = JSON.parse(raw);
+            if (p && (p.lang === 'vi' || p.lang === 'en')) return p.lang;
+          }
+        } catch (e) {}
+        return (navigator.language || '').toLowerCase().startsWith('vi') ? 'vi' : 'en';
+      }
+      var lang = detectLang();
+      function render() {
+        var isEn = lang === 'en';
+        viCard.style.display = isEn ? 'none' : 'block';
+        enCard.style.display = isEn ? 'block' : 'none';
+        document.documentElement.lang = lang;
+        document.title = isEn ? 'Privacy Policy — Kanji Kachi' : 'Chính sách quyền riêng tư — Kanji Kachi';
+        btn.textContent = isEn ? 'Tiếng Việt' : 'English';
+        back.textContent = isEn ? '← Back to App' : '← Quay lại ứng dụng';
+      }
+      btn.addEventListener('click', function () {
+        lang = lang === 'en' ? 'vi' : 'en';
+        render();
+      });
+      render();
+    })();
+  </script>
 </body>
 </html>

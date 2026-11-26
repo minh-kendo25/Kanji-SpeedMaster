@@ -92,22 +92,22 @@
         <div class="space-y-1">
           <button id="sb-nav-home" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-primary hover:bg-surface-alt transition-all nav-item-active" onclick="app.switchTab('home')">
             <span class="material-symbols-outlined nav-icon text-[20px] text-primary">cottage</span>
-            <span>Trang chủ</span>
+            <span data-i18n="nav_home">Trang chủ</span>
           </button>
 
           <button id="sb-nav-practice" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-ink-muted hover:text-primary hover:bg-surface-alt transition-all" onclick="app.switchTab('practice')">
             <span class="material-symbols-outlined nav-icon text-[20px] text-ink-dim">draw</span>
-            <span>Luyện phản xạ</span>
+            <span data-i18n="nav_practice">Luyện phản xạ</span>
           </button>
 
           <button id="sb-nav-vocab" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-ink-muted hover:text-primary hover:bg-surface-alt transition-all" onclick="app.switchTab('vocab')">
             <span class="material-symbols-outlined nav-icon text-[20px] text-ink-dim">menu_book</span>
-            <span>Từ vựng & Flashcard</span>
+            <span data-i18n="nav_vocab">Từ vựng & Flashcard</span>
           </button>
 
           <button id="sb-nav-profile" class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold text-ink-muted hover:text-primary hover:bg-surface-alt transition-all" onclick="app.switchTab('profile')">
             <span class="material-symbols-outlined nav-icon text-[20px] text-ink-dim">person</span>
-            <span>Cá nhân</span>
+            <span data-i18n="nav_profile">Cá nhân</span>
           </button>
         </div>
 
@@ -115,16 +115,16 @@
 
         <!-- Nhóm 2: Bắt đầu tại đây -->
         <div class="space-y-1">
-          <span class="px-3 text-[10px] font-bold text-ink-dim uppercase tracking-wider block">Bắt đầu tại đây</span>
+          <span data-i18n="nav_start_here" class="px-3 text-[10px] font-bold text-ink-dim uppercase tracking-wider block">Bắt đầu tại đây</span>
 
           <button class="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startFlashcardsFromHome('N5')">
             <span class="material-symbols-outlined text-[18px] text-secondary">style</span>
-            <span>Thẻ ghi nhớ (Flashcard)</span>
+            <span data-i18n="nav_flashcards">Thẻ ghi nhớ (Flashcard)</span>
           </button>
 
           <button class="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.toggleAiChat(true)">
             <span class="material-symbols-outlined text-[18px] text-primary">auto_awesome</span>
-            <span>Gia sư Kanji AI</span>
+            <span data-i18n="nav_ai_tutor">Gia sư Kanji AI</span>
           </button>
         </div>
 
@@ -132,24 +132,47 @@
 
         <!-- Nhóm 3: Lộ trình của bạn -->
         <div class="space-y-1">
-          <span class="px-3 text-[10px] font-bold text-ink-dim uppercase tracking-wider block">Lộ trình của bạn</span>
+          <span data-i18n="nav_roadmap" class="px-3 text-[10px] font-bold text-ink-dim uppercase tracking-wider block">Lộ trình của bạn</span>
 
           <button class="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startFlashcardsFromHome('N5')">
             <span class="material-symbols-outlined text-[18px] text-primary">folder</span>
-            <span>Kanji N5 (Sơ cấp)</span>
+            <span data-i18n="nav_n5">Kanji N5 (Sơ cấp)</span>
           </button>
 
           <button class="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startFlashcardsFromHome('N4')">
             <span class="material-symbols-outlined text-[18px] text-secondary">folder</span>
-            <span>Kanji N4 (Sơ trung cấp)</span>
+            <span data-i18n="nav_n4">Kanji N4 (Sơ trung cấp)</span>
           </button>
 
           <button class="w-full flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs font-medium text-ink-muted hover:text-primary hover:bg-surface-alt transition-colors" onclick="app.startFlashcardsFromHome('RADICALS')">
             <span class="material-symbols-outlined text-[18px] text-tertiary">folder</span>
-            <span>214 Bộ thủ Khang Hy</span>
+            <span data-i18n="nav_radicals">214 Bộ thủ Khang Hy</span>
           </button>
         </div>
 
+      </div>
+
+      <!-- Mobile App Download Placeholder (Beta Testing) -->
+      <div class="px-3.5 py-3 border-t border-border-subtle space-y-2.5 flex-shrink-0">
+        <div class="flex items-center justify-between">
+          <span data-i18n="sb_download_title" class="text-[10px] font-bold text-ink-dim uppercase tracking-wider">TẢI XUỐNG & LIÊN KẾT</span>
+          <span data-i18n="sb_beta_badge" class="px-1.5 py-0.5 rounded-md bg-vermilion-soft text-secondary text-[9px] font-extrabold uppercase tracking-wider">Beta</span>
+        </div>
+
+        <button type="button" onclick="app.openMobileAppLink('android')" class="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl bg-black hover:bg-neutral-900 text-white border border-white/10 shadow-sm transition-all active:scale-[0.98] text-left group">
+          <svg class="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#00D2FF" d="M3.61 1.814L13.793 12 3.61 22.186a1.48 1.48 0 0 1-.61-1.2V3.014c0-.496.245-.935.61-1.2z"/>
+            <path fill="#00F076" d="M17.207 8.586L13.793 12l3.414 3.414 3.854-2.188c.715-.406.715-1.446 0-1.852l-3.854-2.788z"/>
+            <path fill="#FF3A44" d="M3.61 22.186L13.793 12l3.414 3.414-12.46 7.078c-.44.25-.94.156-1.137-.306z"/>
+            <path fill="#FFC900" d="M17.207 8.586L4.747 1.508c-.44-.25-.94-.156-1.137.306L13.793 12l3.414-3.414z"/>
+          </svg>
+          <div class="flex flex-col leading-tight min-w-0">
+            <span class="text-[8px] font-semibold uppercase tracking-wider text-white/75">GET IT ON</span>
+            <span class="text-[13px] font-bold tracking-tight text-white truncate">Google Play</span>
+          </div>
+        </button>
+
+        <p data-i18n="sb_beta_note" class="text-[10px] text-ink-dim text-center font-medium">App đang thử nghiệm · Sắp ra mắt</p>
       </div>
 
       <!-- Sidebar Footer -->
@@ -179,8 +202,9 @@
             <input 
               id="top-search-input" 
               type="text" 
+              maxlength="120"
               class="w-full bg-transparent text-xs text-primary placeholder:text-ink-dim focus:outline-none" 
-              placeholder="Tìm kiếm Hán tự, Hiragana hoặc nghĩa..." 
+              data-i18n-placeholder="search_placeholder" placeholder="Tìm kiếm Hán tự, Hiragana hoặc nghĩa..." 
               oninput="app.onGlobalSearch(this.value)"
             >
           </div>
@@ -192,7 +216,7 @@
           <div id="header-auth-container">
             <button id="header-btn-login" class="h-9 px-3 flex items-center gap-2 rounded-xl bg-surface-card border border-border-subtle hover:border-primary text-primary text-xs font-bold transition-colors shadow-sm" onclick="app.signInWithGoogle()" title="Đăng nhập Google để đồng bộ với App">
               <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-              <span class="hidden sm:inline">Đăng nhập</span>
+              <span data-i18n="auth_signin" class="hidden sm:inline">Đăng nhập</span>
             </button>
             <button id="header-btn-user" class="h-9 pl-1.5 pr-3 flex items-center gap-2 rounded-xl bg-surface-card border border-border-subtle hover:border-primary text-primary text-xs font-bold transition-colors shadow-sm hidden" onclick="app.switchTab('profile')" title="Tài khoản đã đồng bộ đám mây">
               <img id="header-user-avatar" src="logo.png" alt="Avatar" class="w-6 h-6 rounded-full object-cover border border-border-subtle">
@@ -200,6 +224,12 @@
               <span class="w-2 h-2 rounded-full bg-tertiary flex-shrink-0" title="Đã đồng bộ"></span>
             </button>
           </div>
+
+          <!-- Language Toggle (VI / EN) -->
+          <button id="header-btn-lang" class="h-9 px-2.5 flex items-center gap-1 rounded-xl bg-surface-card border border-border-subtle text-primary hover:border-primary text-xs font-bold transition-colors" title="Switch Language (VI / EN)" onclick="app.toggleLanguage()">
+            <span class="material-symbols-outlined text-[16px]">translate</span>
+            <span id="header-lang-label">VI</span>
+          </button>
 
           <!-- Dark Mode Toggle -->
           <button id="header-btn-theme" class="w-9 h-9 flex items-center justify-center rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary transition-colors" title="Chuyển chế độ Tối / Sáng" onclick="app.toggleTheme()">
@@ -223,10 +253,10 @@
           <div class="space-y-1.5">
             <div class="flex items-center gap-2 text-secondary">
               <span class="w-2 h-2 rounded-full bg-secondary"></span>
-              <span class="text-xs uppercase tracking-wider font-bold">Rèn luyện chánh niệm</span>
+              <span data-i18n="home_eyebrow" class="text-xs uppercase tracking-wider font-bold">Rèn luyện chánh niệm</span>
             </div>
-            <h1 class="font-serif font-bold text-2xl sm:text-3xl text-primary tracking-tight">Hôm nay bạn muốn rèn luyện gì?</h1>
-            <p class="text-sm text-ink-muted">15 phút gõ và phản xạ mỗi ngày để nhớ sâu 1.061 Hán tự N5 & N4.</p>
+            <h1 data-i18n="home_heading" class="font-serif font-bold text-2xl sm:text-3xl text-primary tracking-tight">Hôm nay bạn muốn rèn luyện gì?</h1>
+            <p data-i18n="home_sub" class="text-sm text-ink-muted">15 phút gõ và phản xạ mỗi ngày để nhớ sâu 1.061 Hán tự N5 & N4.</p>
           </div>
 
           <!-- ================= CÂU KANJI HÔM NAY (DAILY SPOTLIGHT - TƯƠNG TỰ APP MOBILE) ================= -->
@@ -239,7 +269,7 @@
               <div class="flex items-center justify-between">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-vermilion-soft text-secondary text-xs font-bold tracking-wide uppercase">
                   <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-                  <span>CÂU KANJI HÔM NAY</span>
+                  <span data-i18n="spotlight_eyebrow">CÂU KANJI HÔM NAY</span>
                 </div>
                 <button id="spotlight-btn-tts" class="w-10 h-10 rounded-full bg-surface-alt hover:bg-border-subtle text-primary flex items-center justify-center transition-colors shadow-sm" onclick="app.speakSpotlight()" title="Nghe phát âm">
                   <span class="material-symbols-outlined text-[20px]">volume_up</span>
@@ -263,14 +293,14 @@
 
               <!-- Bottom Action Row -->
               <div class="pt-3 border-t border-border-subtle flex items-center justify-between gap-2 text-xs">
-                <span class="text-ink-dim">Tự động chọn ngẫu nhiên mỗi ngày • JLPT N5/N4</span>
+                <span data-i18n="spotlight_meta" class="text-ink-dim">Tự động chọn ngẫu nhiên mỗi ngày • JLPT N5/N4</span>
                 <div class="flex items-center gap-3">
                   <button class="font-bold text-primary hover:text-secondary flex items-center gap-1 transition-colors" onclick="app.askAiAboutCurrentScreen()" title="Hỏi Gia sư AI về từ này">
                     <span class="material-symbols-outlined text-[15px] text-secondary">auto_awesome</span>
-                    <span>Hỏi AI</span>
+                    <span data-i18n="spotlight_ask_ai">Hỏi AI</span>
                   </button>
                   <button class="font-bold text-secondary hover:text-secondary/80 flex items-center gap-1 transition-colors" onclick="app.practiceSpotlight()">
-                    <span>Luyện tập từ này</span>
+                    <span data-i18n="spotlight_practice_word">Luyện tập từ này</span>
                     <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                   </button>
                 </div>
@@ -287,13 +317,13 @@
                   <span class="material-symbols-outlined text-[26px]">style</span>
                 </div>
                 <div>
-                  <span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Học mới & ghi nhớ</span>
-                  <h3 class="font-serif font-bold text-lg text-primary mt-0.5">Học Hán tự (Flashcard 3D)</h3>
-                  <p class="text-xs text-ink-muted mt-1 leading-relaxed">Lật thẻ 3D trực quan, nghe phát âm chuẩn Tokyo, đánh dấu Đã nhớ / Chưa nhớ và tự đồng bộ với App.</p>
+                  <span data-i18n="card_flashcard_eyebrow" class="text-[10px] font-bold uppercase tracking-wider text-secondary">Học mới & ghi nhớ</span>
+                  <h3 data-i18n="card_flashcard_title" class="font-serif font-bold text-lg text-primary mt-0.5">Học Hán tự (Flashcard 3D)</h3>
+                  <p data-i18n="card_flashcard_desc" class="text-xs text-ink-muted mt-1 leading-relaxed">Lật thẻ 3D trực quan, nghe phát âm chuẩn Tokyo, đánh dấu Đã nhớ / Chưa nhớ và tự đồng bộ với App.</p>
                 </div>
               </div>
               <div class="mt-5 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-secondary">
-                <span>Bắt đầu học Flashcard</span>
+                <span data-i18n="card_flashcard_cta">Bắt đầu học Flashcard</span>
                 <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
             </div>
@@ -305,13 +335,13 @@
                   <span class="material-symbols-outlined text-[26px]">draw</span>
                 </div>
                 <div>
-                  <span class="text-[10px] font-bold uppercase tracking-wider text-ink-dim">Kiểm tra tốc độ</span>
-                  <h3 class="font-serif font-bold text-lg text-primary mt-0.5">Luyện phản xạ (Kiểm tra)</h3>
-                  <p class="text-xs text-ink-muted mt-1 leading-relaxed">3 chế độ bài thi giống App: Gõ Hiragana, Trắc nghiệm 4 đáp án hoặc Phản xạ toàn diện.</p>
+                  <span data-i18n="card_practice_eyebrow" class="text-[10px] font-bold uppercase tracking-wider text-ink-dim">Kiểm tra tốc độ</span>
+                  <h3 data-i18n="card_practice_title" class="font-serif font-bold text-lg text-primary mt-0.5">Luyện phản xạ (Kiểm tra)</h3>
+                  <p data-i18n="card_practice_desc" class="text-xs text-ink-muted mt-1 leading-relaxed">3 chế độ bài thi giống App: Gõ Hiragana, Trắc nghiệm 4 đáp án hoặc Phản xạ toàn diện.</p>
                 </div>
               </div>
               <div class="mt-5 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-primary">
-                <span>Vào phòng luyện tập</span>
+                <span data-i18n="card_practice_cta">Vào phòng luyện tập</span>
                 <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
             </div>
@@ -321,11 +351,11 @@
           <div class="space-y-4">
             <div class="flex items-center justify-between">
               <div>
-                <h2 class="font-serif font-bold text-lg text-primary">Chủ đề Hán tự · Học & Luyện tập</h2>
-                <p class="text-xs text-ink-muted">Chọn chủ đề để học bằng Flashcard hoặc làm bài kiểm tra phản xạ ngay.</p>
+                <h2 data-i18n="home_topics_title" class="font-serif font-bold text-lg text-primary">Chủ đề Hán tự · Học & Luyện tập</h2>
+                <p data-i18n="home_topics_sub" class="text-xs text-ink-muted">Chọn chủ đề để học bằng Flashcard hoặc làm bài kiểm tra phản xạ ngay.</p>
               </div>
               <button class="text-xs font-bold text-secondary hover:underline flex items-center gap-1 flex-shrink-0" onclick="app.switchTab('vocab')">
-                <span>Xem toàn bộ chủ đề</span>
+                <span data-i18n="home_view_all_topics">Xem toàn bộ chủ đề</span>
                 <span class="material-symbols-outlined text-[16px]">chevron_right</span>
               </button>
             </div>
@@ -343,8 +373,8 @@
           <!-- Header -->
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h2 class="font-serif font-bold text-xl sm:text-2xl text-primary tracking-tight">Học từ vựng Flashcard</h2>
-              <p class="text-xs text-ink-muted mt-0.5">Chọn chủ đề JLPT N5, N4 hoặc 214 Bộ thủ Khang Hy để học thẻ ghi nhớ 3D.</p>
+              <h2 data-i18n="vocab_title" class="font-serif font-bold text-xl sm:text-2xl text-primary tracking-tight">Học từ vựng Flashcard</h2>
+              <p data-i18n="vocab_sub" class="text-xs text-ink-muted mt-0.5">Chọn chủ đề JLPT N5, N4 hoặc 214 Bộ thủ Khang Hy để học thẻ ghi nhớ 3D.</p>
             </div>
           </div>
 
@@ -358,7 +388,7 @@
               <span>Kanji N4</span>
             </button>
             <button id="lvl-filter-radicals" class="px-4 py-2 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs font-semibold transition-all" onclick="app.filterVocabLevel('RADICALS')">
-              <span>214 Bộ thủ Khang Hy</span>
+              <span data-i18n="nav_radicals">214 Bộ thủ Khang Hy</span>
             </button>
           </div>
 
@@ -404,7 +434,7 @@
               <div class="flex items-center justify-between gap-3 bg-surface-card px-4 py-3 rounded-xl border border-border-subtle shadow-sm">
                 <button class="flex items-center gap-1.5 text-xs font-bold text-ink-muted hover:text-primary transition-colors flex-shrink-0" onclick="app.backToFlashcardTopics()">
                   <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-                  <span>Quay lại</span>
+                  <span data-i18n="back">Quay lại</span>
                 </button>
                 <span id="flashcard-active-topic-title" class="text-xs sm:text-sm font-bold text-primary truncate">Số đếm & Tiền tệ</span>
               </div>
@@ -433,7 +463,7 @@
                   <div class="my-auto flex flex-col items-center">
                     <span id="fc-kanji" class="kanji-glyph text-8xl sm:text-9xl font-normal text-primary select-none">一</span>
                     <span class="text-xs text-ink-dim mt-4 flex items-center gap-1">
-                      <span class="material-symbols-outlined text-[16px]">touch_app</span> Chạm thẻ để xem nghĩa & cách đọc
+                      <span class="material-symbols-outlined text-[16px]">touch_app</span> <span data-i18n="fc_tap_flip">Chạm thẻ để xem nghĩa & cách đọc</span>
                     </span>
                   </div>
 
@@ -445,11 +475,11 @@
                 <!-- Back Face -->
                 <div class="absolute inset-0 w-full h-full bg-surface-card border-2 border-secondary/30 rounded-2xl p-7 flex flex-col justify-between items-center text-center backface-hidden rotate-y-180">
                   <div class="w-full flex items-center justify-between text-xs text-ink-muted">
-                    <span class="text-xs font-bold text-secondary uppercase tracking-wider">Nghĩa & Cách đọc</span>
+                    <span data-i18n="fc_back_label" class="text-xs font-bold text-secondary uppercase tracking-wider">Nghĩa & Cách đọc</span>
                     <div class="flex items-center gap-1.5">
                       <button class="px-3 py-1.5 rounded-full bg-vermilion-soft text-secondary hover:opacity-85 text-xs font-bold flex items-center gap-1 transition-opacity" onclick="event.stopPropagation(); app.askAiAboutCurrentScreen()" title="Hỏi Gia sư AI về thẻ này">
                         <span class="material-symbols-outlined text-[15px]">auto_awesome</span>
-                        <span>Hỏi AI</span>
+                        <span data-i18n="spotlight_ask_ai">Hỏi AI</span>
                       </button>
                       <button class="w-9 h-9 rounded-full hover:bg-surface-alt text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.speakFlashcardWord()">
                         <span class="material-symbols-outlined text-[20px]">volume_up</span>
@@ -465,7 +495,7 @@
                   </div>
 
                   <div class="w-full text-center text-xs text-ink-dim">
-                    Đánh giá bên dưới để lưu tiến độ đồng bộ với App
+                    <span data-i18n="fc_rate_note">Đánh giá bên dưới để lưu tiến độ đồng bộ với App</span>
                   </div>
                 </div>
 
@@ -477,12 +507,12 @@
               <div class="grid grid-cols-2 gap-3 pt-1">
                 <button class="py-3.5 rounded-xl bg-vermilion-soft border border-secondary/20 text-secondary hover:opacity-90 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm" onclick="app.markFlashcardForgotten()">
                   <span class="material-symbols-outlined text-[20px]">history</span>
-                  <span>Chưa nhớ (Ôn lại)</span>
+                  <span data-i18n="fc_forgot">Chưa nhớ (Ôn lại)</span>
                 </button>
 
                 <button class="py-3.5 rounded-xl bg-matcha-soft border border-tertiary/20 text-tertiary hover:opacity-90 font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm" onclick="app.markFlashcardRemembered()">
                   <span class="material-symbols-outlined text-[20px]">check_circle</span>
-                  <span>Đã nhớ</span>
+                  <span data-i18n="fc_remembered">Đã nhớ</span>
                 </button>
               </div>
             </div>
@@ -495,28 +525,28 @@
                 </div>
 
                 <div class="space-y-1">
-                  <h2 class="font-serif font-bold text-2xl text-primary">Hoàn thành lượt học Flashcard!</h2>
+                  <h2 data-i18n="fc_done_title" class="font-serif font-bold text-2xl text-primary">Hoàn thành lượt học Flashcard!</h2>
                   <p id="fc-summary-topic-name" class="text-xs text-ink-muted">Số đếm & Tiền tệ</p>
                 </div>
 
                 <div class="grid grid-cols-3 gap-3 text-center py-1">
                   <div class="bg-surface-alt p-4 rounded-xl border border-border-subtle">
-                    <span class="text-[11px] text-ink-muted font-medium block">Tổng số thẻ</span>
+                    <span data-i18n="fc_stat_total" class="text-[11px] text-ink-muted font-medium block">Tổng số thẻ</span>
                     <span id="fc-summary-total" class="font-serif font-bold text-xl text-primary mt-1 block">0</span>
                   </div>
                   <div class="bg-matcha-soft/70 p-4 rounded-xl border border-tertiary/20">
-                    <span class="text-[11px] text-tertiary font-semibold block">Đã thuộc</span>
+                    <span data-i18n="fc_stat_remembered" class="text-[11px] text-tertiary font-semibold block">Đã thuộc</span>
                     <span id="fc-summary-remembered" class="font-serif font-bold text-xl text-tertiary mt-1 block">0</span>
                   </div>
                   <div class="bg-vermilion-soft/70 p-4 rounded-xl border border-secondary/20">
-                    <span class="text-[11px] text-secondary font-semibold block">Chưa nhớ</span>
+                    <span data-i18n="fc_stat_forgotten" class="text-[11px] text-secondary font-semibold block">Chưa nhớ</span>
                     <span id="fc-summary-forgotten" class="font-serif font-bold text-xl text-secondary mt-1 block">0</span>
                   </div>
                 </div>
 
                 <!-- Danh sách từ chưa nhớ trong lượt học -->
                 <div id="fc-summary-forgotten-section" class="text-left space-y-2.5 hidden">
-                  <span class="text-xs font-bold text-secondary uppercase tracking-wider block">Từ cần ôn lại trong lượt này</span>
+                  <span data-i18n="fc_missed_list" class="text-xs font-bold text-secondary uppercase tracking-wider block">Từ cần ôn lại trong lượt này</span>
                   <div id="fc-summary-forgotten-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[240px] overflow-y-auto pr-1">
                     <!-- Populated dynamically -->
                   </div>
@@ -530,10 +560,10 @@
                   </button>
                   <div class="flex flex-col sm:flex-row gap-2.5">
                     <button class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.restartFlashcardDeck()">
-                      Ôn lại hết từ đầu
+                      <span data-i18n="fc_restart_all">Ôn lại hết từ đầu</span>
                     </button>
                     <button class="flex-1 py-3 rounded-xl bg-surface-alt text-ink-muted hover:text-primary font-bold text-xs transition-colors" onclick="app.backToFlashcardTopics()">
-                      Chọn chủ đề khác
+                      <span data-i18n="fc_pick_other">Chọn chủ đề khác</span>
                     </button>
                   </div>
                 </div>
@@ -552,10 +582,10 @@
             <div class="space-y-1.5">
               <div class="flex items-center gap-2 text-secondary">
                 <span class="w-2 h-2 rounded-full bg-secondary"></span>
-                <span class="text-xs uppercase tracking-wider font-bold">Kiểm tra & Rèn phản xạ</span>
+                <span data-i18n="pr_eyebrow" class="text-xs uppercase tracking-wider font-bold">Kiểm tra & Rèn phản xạ</span>
               </div>
-              <h2 class="font-serif font-bold text-2xl sm:text-3xl text-primary tracking-tight">Chọn chế độ luyện tập</h2>
-              <p class="text-sm text-ink-muted">Chọn phương thức kiểm tra phù hợp với mục tiêu hôm nay của bạn.</p>
+              <h2 data-i18n="pr_choose_mode" class="font-serif font-bold text-2xl sm:text-3xl text-primary tracking-tight">Chọn chế độ luyện tập</h2>
+              <p data-i18n="pr_choose_sub" class="text-sm text-ink-muted">Chọn phương thức kiểm tra phù hợp với mục tiêu hôm nay của bạn.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -566,12 +596,12 @@
                     あ
                   </div>
                   <div>
-                    <h3 class="font-serif font-bold text-lg text-primary">Gõ Hiragana</h3>
-                    <p class="text-xs text-ink-muted mt-1.5 leading-relaxed">Nhìn Hán tự ➔ gõ nhanh cách đọc Romaji/Hiragana tốc độ cao, đúng là tự chuyển câu.</p>
+                    <h3 data-i18n="pr_higa_title" class="font-serif font-bold text-lg text-primary">Gõ Hiragana</h3>
+                    <p data-i18n="pr_higa_desc" class="text-xs text-ink-muted mt-1.5 leading-relaxed">Nhìn Hán tự ➔ gõ nhanh cách đọc Romaji/Hiragana tốc độ cao, đúng là tự chuyển câu.</p>
                   </div>
                 </div>
                 <div class="mt-6 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-primary">
-                  <span>Chọn chế độ này</span>
+                  <span data-i18n="pr_select_mode">Chọn chế độ này</span>
                   <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </div>
               </div>
@@ -583,30 +613,30 @@
                     択
                   </div>
                   <div>
-                    <h3 class="font-serif font-bold text-lg text-primary">Trắc nghiệm nhanh</h3>
-                    <p class="text-xs text-ink-muted mt-1.5 leading-relaxed">Chọn nhanh 1 trong 4 đáp án đúng bằng chuột hoặc phím tắt 1, 2, 3, 4 giống đề thi JLPT.</p>
+                    <h3 data-i18n="pr_mc_title" class="font-serif font-bold text-lg text-primary">Trắc nghiệm nhanh</h3>
+                    <p data-i18n="pr_mc_desc" class="text-xs text-ink-muted mt-1.5 leading-relaxed">Chọn nhanh 1 trong 4 đáp án đúng bằng chuột hoặc phím tắt 1, 2, 3, 4 giống đề thi JLPT.</p>
                   </div>
                 </div>
                 <div class="mt-6 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-secondary">
-                  <span>Chọn chế độ này</span>
+                  <span data-i18n="pr_select_mode">Chọn chế độ này</span>
                   <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </div>
               </div>
 
               <!-- Method 3: Phản xạ toàn diện -->
               <div class="bg-surface-card p-6 rounded-2xl border-2 border-primary/20 hover:border-primary cursor-pointer transition-all shadow-sm flex flex-col justify-between group relative overflow-hidden" onclick="app.openPracticeMethod('higa_and_meaning')">
-                <span class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-matcha-soft text-tertiary text-[10px] font-bold">Khuyên dùng</span>
+                <span data-i18n="pr_recommended" class="absolute top-3 right-3 px-2 py-0.5 rounded-full bg-matcha-soft text-tertiary text-[10px] font-bold">Khuyên dùng</span>
                 <div class="space-y-4">
                   <div class="w-14 h-14 rounded-2xl bg-primary text-washi flex items-center justify-center font-serif text-3xl font-bold group-hover:scale-105 transition-transform shadow-sm">
                     勝
                   </div>
                   <div>
-                    <h3 class="font-serif font-bold text-lg text-primary">Phản xạ toàn diện</h3>
-                    <p class="text-xs text-ink-muted mt-1.5 leading-relaxed">Kết hợp gõ đúng Hiragana ➔ khóa ô ➔ chọn nghĩa tiếng Việt để nhớ sâu tuyệt đối.</p>
+                    <h3 data-i18n="pr_combo_title" class="font-serif font-bold text-lg text-primary">Phản xạ toàn diện</h3>
+                    <p data-i18n="pr_combo_desc" class="text-xs text-ink-muted mt-1.5 leading-relaxed">Kết hợp gõ đúng Hiragana ➔ khóa ô ➔ chọn nghĩa tiếng Việt để nhớ sâu tuyệt đối.</p>
                   </div>
                 </div>
                 <div class="mt-6 pt-3 border-t border-border-subtle flex items-center justify-between text-xs font-bold text-primary">
-                  <span>Chọn chế độ này</span>
+                  <span data-i18n="pr_select_mode">Chọn chế độ này</span>
                   <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </div>
               </div>
@@ -621,7 +651,7 @@
               </button>
               <div>
                 <span id="practice-selected-method-badge" class="text-[11px] font-bold uppercase tracking-wider text-secondary block">Chế độ: Phản xạ toàn diện</span>
-                <h2 class="font-serif font-bold text-xl sm:text-2xl text-primary">Chọn cấp độ & chủ đề kiểm tra</h2>
+                <h2 data-i18n="pr_pick_level_topic" class="font-serif font-bold text-xl sm:text-2xl text-primary">Chọn cấp độ & chủ đề kiểm tra</h2>
               </div>
             </div>
 
@@ -717,7 +747,7 @@
               <!-- Ask AI Context Button -->
               <button class="absolute top-4 right-5 px-3 py-1.5 rounded-full bg-vermilion-soft text-secondary hover:opacity-85 text-xs font-bold flex items-center gap-1 transition-opacity" onclick="app.askAiAboutCurrentScreen()" title="Hỏi Gia sư AI về chữ Hán này">
                 <span class="material-symbols-outlined text-[15px]">auto_awesome</span>
-                <span>Hỏi AI</span>
+                <span data-i18n="spotlight_ask_ai">Hỏi AI</span>
               </button>
 
               <!-- Hint Box -->
@@ -831,8 +861,8 @@
               </div>
 
               <div class="space-y-1">
-                <h2 class="font-serif font-bold text-2xl text-primary">Hoàn thành bài rèn luyện!</h2>
-                <p class="text-xs text-ink-muted">Bạn đã hoàn thành lượt luyện tập với kết quả xuất sắc.</p>
+                <h2 data-i18n="pr_done_title" class="font-serif font-bold text-2xl text-primary">Hoàn thành bài rèn luyện!</h2>
+                <p data-i18n="pr_done_sub" class="text-xs text-ink-muted">Bạn đã hoàn thành lượt luyện tập với kết quả xuất sắc.</p>
               </div>
 
               <div class="grid grid-cols-3 gap-3 text-center py-2">
@@ -841,18 +871,18 @@
                   <span id="summary-total" class="font-serif font-bold text-xl text-primary mt-1 block">0</span>
                 </div>
                 <div class="bg-matcha-soft/70 p-4 rounded-xl border border-tertiary/20">
-                  <span class="text-[11px] text-tertiary font-semibold block">Đã thuộc</span>
+                  <span data-i18n="fc_stat_remembered" class="text-[11px] text-tertiary font-semibold block">Đã thuộc</span>
                   <span id="summary-correct" class="font-serif font-bold text-xl text-tertiary mt-1 block">0</span>
                 </div>
                 <div class="bg-vermilion-soft/70 p-4 rounded-xl border border-secondary/20">
-                  <span class="text-[11px] text-secondary font-semibold block">Chưa nhớ</span>
+                  <span data-i18n="fc_stat_forgotten" class="text-[11px] text-secondary font-semibold block">Chưa nhớ</span>
                   <span id="summary-wrong" class="font-serif font-bold text-xl text-secondary mt-1 block">0</span>
                 </div>
               </div>
 
               <!-- Danh sách từ chưa nhớ trong bài luyện tập -->
               <div id="summary-unremembered-section" class="text-left space-y-2.5 hidden">
-                <span class="text-xs font-bold text-secondary uppercase tracking-wider block">Từ cần ôn lại trong lượt này</span>
+                <span data-i18n="fc_missed_list" class="text-xs font-bold text-secondary uppercase tracking-wider block">Từ cần ôn lại trong lượt này</span>
                 <div id="summary-unremembered-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-[240px] overflow-y-auto pr-1">
                   <!-- Populated dynamically -->
                 </div>
@@ -866,10 +896,10 @@
                 </button>
                 <div class="flex flex-col sm:flex-row gap-2.5">
                   <button class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.restartSamePractice()">
-                    Ôn lại hết từ đầu
+                    <span data-i18n="fc_restart_all">Ôn lại hết từ đầu</span>
                   </button>
                   <button class="flex-1 py-3 rounded-xl bg-surface-alt text-ink-muted hover:text-primary font-bold text-xs transition-colors" onclick="app.backToPracticeMethods()">
-                    Chọn bài khác
+                    <span data-i18n="pr_pick_other">Chọn bài khác</span>
                   </button>
                 </div>
               </div>
@@ -921,11 +951,11 @@
               <div class="pt-3 flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
                 <button id="profile-btn-google-login" class="px-4 py-2.5 rounded-xl bg-primary hover:bg-primary/95 text-washi text-xs font-bold flex items-center gap-2 transition-all shadow-sm" onclick="app.signInWithGoogle()">
                   <svg class="w-4 h-4 bg-white rounded-full p-0.5 flex-shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-                  <span>Đăng nhập Google để đồng bộ App & Web</span>
+                  <span data-i18n="profile_google_sync_btn">Đăng nhập Google để đồng bộ App & Web</span>
                 </button>
                 <button id="profile-btn-logout" class="px-4 py-2 rounded-xl bg-surface-alt hover:bg-border-subtle text-ink-muted hover:text-secondary text-xs font-bold flex items-center gap-1.5 transition-colors hidden" onclick="app.signOutGoogle()">
                   <span class="material-symbols-outlined text-[16px]">logout</span>
-                  <span>Đăng xuất</span>
+                  <span data-i18n="profile_logout">Đăng xuất</span>
                 </button>
               </div>
             </div>
@@ -936,7 +966,7 @@
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2">
                 <span class="material-symbols-outlined text-secondary text-[22px]">auto_awesome</span>
-                <h3 class="font-serif font-bold text-base text-primary">Token AI Gia sư hôm nay</h3>
+                <h3 data-i18n="profile_ai_today" class="font-serif font-bold text-base text-primary">Token AI Gia sư hôm nay</h3>
               </div>
               <span id="profile-ai-tokens-count" class="text-xs font-bold text-primary hidden">12.000 / 12.000 token</span>
             </div>
@@ -949,20 +979,20 @@
               <div class="flex justify-between items-center text-xs text-ink-muted">
                 <span class="flex items-center gap-1.5">
                   <span class="w-2 h-2 rounded-full bg-tertiary inline-block"></span>
-                  <span>Hạn mức: 12.000 token / ngày</span>
+                  <span data-i18n="profile_ai_limit">Hạn mức: 12.000 token / ngày</span>
                 </span>
-                <span>Làm mới lúc 00:00 (UTC+7)</span>
+                <span data-i18n="profile_ai_reset">Làm mới lúc 00:00 (UTC+7)</span>
               </div>
             </div>
 
             <!-- Khi CHƯA đăng nhập Google -->
             <div id="profile-token-login-gate" class="bg-surface-alt/80 rounded-xl p-4 border border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-3">
-              <p class="text-xs text-ink-muted text-center sm:text-left leading-relaxed">
-                Vui lòng <strong class="text-primary">đăng nhập Google</strong> để sử dụng Gia sư Kanji AI và theo dõi hạn mức 12.000 token/ngày.
+              <p data-i18n="profile_token_gate_desc" class="text-xs text-ink-muted text-center sm:text-left leading-relaxed">
+                Vui lòng đăng nhập Google để sử dụng Gia sư Kanji AI và theo dõi hạn mức 12.000 token/ngày.
               </p>
               <button class="px-3.5 py-2 rounded-xl bg-secondary hover:bg-secondary/90 text-washi text-xs font-bold flex items-center gap-1.5 transition-colors shadow-sm flex-shrink-0" onclick="app.signInWithGoogle()">
                 <span class="material-symbols-outlined text-[16px]">login</span>
-                <span>Đăng nhập Google</span>
+                <span data-i18n="tutor_login_btn">Đăng nhập Google</span>
               </button>
             </div>
           </div>
@@ -975,8 +1005,8 @@
                   <span class="material-symbols-outlined text-[20px]">tune</span>
                 </div>
                 <div>
-                  <span class="text-xs sm:text-sm font-bold text-primary block">Cài đặt giọng nói & tiện ích</span>
-                  <span class="text-[11px] text-ink-muted">Giao diện sáng/tối, tốc độ & âm lượng giọng Tokyo Neural</span>
+                  <span data-i18n="profile_settings_row" class="text-xs sm:text-sm font-bold text-primary block">Cài đặt giọng nói & tiện ích</span>
+                  <span data-i18n="profile_settings_sub" class="text-[11px] text-ink-muted">Giao diện sáng/tối, tốc độ & âm lượng giọng Tokyo Neural</span>
                 </div>
               </div>
               <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
@@ -988,8 +1018,8 @@
                   <span class="material-symbols-outlined text-[20px]">restart_alt</span>
                 </div>
                 <div>
-                  <span class="text-xs sm:text-sm font-bold text-secondary block">Đặt lại toàn bộ tiến độ</span>
-                  <span class="text-[11px] text-ink-muted">Xóa sạch từ đã thuộc, từ cần ôn lại và bắt đầu lại từ đầu</span>
+                  <span data-i18n="profile_reset_row" class="text-xs sm:text-sm font-bold text-secondary block">Đặt lại toàn bộ tiến độ</span>
+                  <span data-i18n="profile_reset_sub" class="text-[11px] text-ink-muted">Xóa sạch từ đã thuộc, từ cần ôn lại và bắt đầu lại từ đầu</span>
                 </div>
               </div>
               <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
@@ -999,7 +1029,7 @@
           <!-- THÔNG TIN & TRỢ GIÚP (BÊ TỪ MOBILE APP SANG WEB) -->
           <div class="bg-surface-card rounded-2xl border border-border-subtle divide-y divide-border-subtle shadow-sm overflow-hidden">
             <div class="px-5 py-3 bg-surface-alt/50">
-              <span class="text-[11px] font-bold text-ink-dim uppercase tracking-wider">Thông tin & Trợ giúp</span>
+              <span data-i18n="profile_info_header" class="text-[11px] font-bold text-ink-dim uppercase tracking-wider">Thông tin & Trợ giúp</span>
             </div>
 
             <div class="p-4 flex items-center justify-between hover:bg-surface-alt transition-colors cursor-pointer" onclick="app.openLegalModal('support')">
@@ -1008,8 +1038,8 @@
                   <span class="material-symbols-outlined text-[20px]">help_outline</span>
                 </div>
                 <div>
-                  <span class="text-xs sm:text-sm font-bold text-primary block">Trung tâm hỗ trợ & FAQ</span>
-                  <span class="text-[11px] text-ink-muted">Hướng dẫn đồng bộ App ⇄ Web, phát âm, liên hệ</span>
+                  <span data-i18n="profile_support_title" class="text-xs sm:text-sm font-bold text-primary block">Trung tâm hỗ trợ & FAQ</span>
+                  <span data-i18n="profile_support_sub" class="text-[11px] text-ink-muted">Hướng dẫn đồng bộ App ⇄ Web, phát âm, liên hệ</span>
                 </div>
               </div>
               <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
@@ -1021,8 +1051,8 @@
                   <span class="material-symbols-outlined text-[20px]">info</span>
                 </div>
                 <div>
-                  <span class="text-xs sm:text-sm font-bold text-primary block">Về Kanji Kachi</span>
-                  <span class="text-[11px] text-ink-muted">Ý nghĩa, phương pháp học & thông tin nhà phát triển</span>
+                  <span data-i18n="profile_about_title" class="text-xs sm:text-sm font-bold text-primary block">Về Kanji Kachi</span>
+                  <span data-i18n="profile_about_sub" class="text-[11px] text-ink-muted">Ý nghĩa, phương pháp học & thông tin nhà phát triển</span>
                 </div>
               </div>
               <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
@@ -1034,8 +1064,8 @@
                   <span class="material-symbols-outlined text-[20px]">description</span>
                 </div>
                 <div>
-                  <span class="text-xs sm:text-sm font-bold text-primary block">Điều khoản dịch vụ</span>
-                  <span class="text-[11px] text-ink-muted">Quy định sử dụng nền tảng Kanji Kachi</span>
+                  <span data-i18n="profile_terms_title" class="text-xs sm:text-sm font-bold text-primary block">Điều khoản dịch vụ</span>
+                  <span data-i18n="profile_terms_sub" class="text-[11px] text-ink-muted">Quy định sử dụng nền tảng Kanji Kachi</span>
                 </div>
               </div>
               <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
@@ -1047,8 +1077,8 @@
                   <span class="material-symbols-outlined text-[20px]">shield</span>
                 </div>
                 <div>
-                  <span class="text-xs sm:text-sm font-bold text-primary block">Chính sách quyền riêng tư</span>
-                  <span class="text-[11px] text-ink-muted">Cam kết bảo vệ dữ liệu tài khoản & quyền riêng tư</span>
+                  <span data-i18n="profile_privacy_title" class="text-xs sm:text-sm font-bold text-primary block">Chính sách quyền riêng tư</span>
+                  <span data-i18n="profile_privacy_sub" class="text-[11px] text-ink-muted">Cam kết bảo vệ dữ liệu tài khoản & quyền riêng tư</span>
                 </div>
               </div>
               <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
@@ -1060,8 +1090,8 @@
                   <span class="material-symbols-outlined text-[20px]">code</span>
                 </div>
                 <div>
-                  <span class="text-xs sm:text-sm font-bold text-primary block">Giấy phép mã nguồn mở</span>
-                  <span class="text-[11px] text-ink-muted">Các thư viện và phông chữ được sử dụng</span>
+                  <span data-i18n="profile_licenses_title" class="text-xs sm:text-sm font-bold text-primary block">Giấy phép mã nguồn mở</span>
+                  <span data-i18n="profile_licenses_sub" class="text-[11px] text-ink-muted">Các thư viện và phông chữ được sử dụng</span>
                 </div>
               </div>
               <span class="material-symbols-outlined text-ink-dim text-[20px]">chevron_right</span>
@@ -1087,7 +1117,7 @@
       <div class="flex items-center justify-between pb-3 border-b border-border-subtle">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-primary text-[22px]">grid_view</span>
-          <h3 class="font-serif font-bold text-base text-primary">Bảng danh sách câu hỏi</h3>
+          <h3 data-i18n="grid_title" class="font-serif font-bold text-base text-primary">Bảng danh sách câu hỏi</h3>
         </div>
         <button class="w-8 h-8 rounded-full hover:bg-surface-alt flex items-center justify-center text-ink-dim hover:text-primary" onclick="app.closeJumpGrid()">
           <span class="material-symbols-outlined text-[20px]">close</span>
@@ -1095,9 +1125,9 @@
       </div>
 
       <div class="flex items-center gap-3 text-xs">
-        <span class="flex items-center gap-1.5 text-tertiary font-bold"><span class="w-2.5 h-2.5 rounded-full bg-tertiary inline-block"></span> Đã đúng</span>
-        <span class="flex items-center gap-1.5 text-secondary font-bold"><span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span> Sai/Đánh dấu</span>
-        <span class="flex items-center gap-1.5 text-ink-muted font-bold"><span class="w-2.5 h-2.5 rounded-full bg-surface-alt inline-block"></span> Chưa làm</span>
+        <span class="flex items-center gap-1.5 text-tertiary font-bold"><span class="w-2.5 h-2.5 rounded-full bg-tertiary inline-block"></span> <span data-i18n="grid_correct">Đã đúng</span></span>
+        <span class="flex items-center gap-1.5 text-secondary font-bold"><span class="w-2.5 h-2.5 rounded-full bg-secondary inline-block"></span> <span data-i18n="grid_wrong">Sai/Đánh dấu</span></span>
+        <span class="flex items-center gap-1.5 text-ink-muted font-bold"><span class="w-2.5 h-2.5 rounded-full bg-surface-alt inline-block"></span> <span data-i18n="grid_unvisited">Chưa làm</span></span>
       </div>
 
       <div id="jump-grid-container" class="grid grid-cols-5 sm:grid-cols-7 gap-2 overflow-y-auto pr-1 flex-1 py-2">
@@ -1106,7 +1136,7 @@
 
       <div class="pt-3 border-t border-border-subtle">
         <button class="w-full py-2.5 rounded-xl bg-surface-alt font-bold text-xs text-primary hover:bg-border-subtle transition-colors" onclick="app.closeJumpGrid()">
-          Đóng bảng chọn
+          <span data-i18n="grid_close">Đóng bảng chọn</span>
         </button>
       </div>
     </div>
@@ -1118,7 +1148,7 @@
       <div class="flex items-center justify-between pb-3 border-b border-border-subtle">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-primary text-[22px]">settings</span>
-          <h3 class="font-serif font-bold text-base text-primary">Cài đặt luyện tập</h3>
+          <h3 data-i18n="settings_title" class="font-serif font-bold text-base text-primary">Cài đặt luyện tập</h3>
         </div>
         <button class="w-8 h-8 rounded-full hover:bg-surface-alt flex items-center justify-center text-ink-dim hover:text-primary" onclick="app.closeSettings()">
           <span class="material-symbols-outlined text-[20px]">close</span>
@@ -1127,13 +1157,13 @@
 
       <!-- Setting Section: Audio & Romaji Toggles -->
       <div class="space-y-3">
-        <span class="text-xs font-bold text-primary uppercase tracking-wider block">Tiện ích học tập</span>
+        <span data-i18n="settings_utils" class="text-xs font-bold text-primary uppercase tracking-wider block">Tiện ích học tập</span>
 
         <!-- Dark Mode Toggle -->
         <div class="flex items-center justify-between">
           <div>
-            <span class="text-xs font-bold text-primary block">Giao diện tối (Dark Mode)</span>
-            <span class="text-[11px] text-ink-muted">Tông mực Sumi đêm êm dịu bảo vệ mắt</span>
+            <span data-i18n="settings_dark_title" class="text-xs font-bold text-primary block">Giao diện tối (Dark Mode)</span>
+            <span data-i18n="settings_dark_sub" class="text-[11px] text-ink-muted">Tông mực Sumi đêm êm dịu bảo vệ mắt</span>
           </div>
           <button id="toggle-theme-btn" class="w-12 h-6 rounded-full bg-surface-alt border border-border-subtle p-0.5 flex items-center transition-colors focus:outline-none" onclick="app.toggleTheme()">
             <div id="toggle-theme-thumb" class="w-5 h-5 rounded-full bg-white shadow-sm transform translate-x-0 transition-transform"></div>
@@ -1143,8 +1173,8 @@
         <!-- TTS Toggle -->
         <div class="flex items-center justify-between">
           <div>
-            <span class="text-xs font-bold text-primary block">Tự động phát âm khi chuyển từ</span>
-            <span class="text-[11px] text-ink-muted">Web Speech API giọng Tokyo chuẩn</span>
+            <span data-i18n="settings_autospeak_title" class="text-xs font-bold text-primary block">Tự động phát âm khi chuyển từ</span>
+            <span data-i18n="settings_autospeak_sub" class="text-[11px] text-ink-muted">Web Speech API giọng Tokyo chuẩn</span>
           </div>
           <button id="toggle-sound-btn" class="w-12 h-6 rounded-full bg-secondary p-0.5 flex items-center transition-colors focus:outline-none" onclick="app.toggleSoundSetting()">
             <div id="toggle-sound-thumb" class="w-5 h-5 rounded-full bg-white shadow-sm transform translate-x-6 transition-transform"></div>
@@ -1154,8 +1184,8 @@
         <!-- Romaji Toggle -->
         <div class="flex items-center justify-between">
           <div>
-            <span class="text-xs font-bold text-primary block">Tự động chuyển Romaji ➔ Hiragana</span>
-            <span class="text-[11px] text-ink-muted">Gõ 'sakana' tự chuyển 'さかな'</span>
+            <span data-i18n="settings_romaji_title" class="text-xs font-bold text-primary block">Tự động chuyển Romaji ➔ Hiragana</span>
+            <span data-i18n="settings_romaji_sub" class="text-[11px] text-ink-muted">Gõ 'sakana' tự chuyển 'さかな'</span>
           </div>
           <button id="toggle-romaji-btn" class="w-12 h-6 rounded-full bg-secondary p-0.5 flex items-center transition-colors focus:outline-none" onclick="app.toggleRomajiSetting()">
             <div id="toggle-romaji-thumb" class="w-5 h-5 rounded-full bg-white shadow-sm transform translate-x-6 transition-transform"></div>
@@ -1166,44 +1196,44 @@
       <!-- Setting Section: Cài đặt giọng nói (Tốc độ, Âm lượng, Giọng đọc) -->
       <div class="space-y-3.5 pt-3 border-t border-border-subtle">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-primary uppercase tracking-wider">Cài đặt giọng nói</span>
+          <span data-i18n="settings_voice_title" class="text-xs font-bold text-primary uppercase tracking-wider">Cài đặt giọng nói</span>
           <button type="button" class="px-2.5 py-1 rounded-lg bg-vermilion-soft text-secondary hover:opacity-90 text-[11px] font-bold flex items-center gap-1 transition-opacity" onclick="app.testTtsVoice()">
             <span class="material-symbols-outlined text-[15px]">volume_up</span>
-            <span>Nghe thử</span>
+            <span data-i18n="settings_test_voice">Nghe thử</span>
           </button>
         </div>
 
         <!-- Tốc độ đọc (Chậm <-> Nhanh) -->
         <div class="space-y-1.5">
           <div class="flex items-center justify-between text-xs">
-            <span class="font-semibold text-primary">Tốc độ đọc (Chậm ⇄ Nhanh)</span>
+            <span data-i18n="settings_speed" class="font-semibold text-primary">Tốc độ đọc (Chậm ⇄ Nhanh)</span>
             <span id="tts-rate-label" class="font-bold text-secondary">0.95x</span>
           </div>
           <input id="tts-rate-slider" type="range" min="0.5" max="1.5" step="0.05" value="0.95" class="w-full accent-secondary cursor-pointer" oninput="app.setTtsRate(this.value)">
           <div class="flex justify-between text-[10px] text-ink-dim">
-            <span>0.5x Chậm</span>
-            <span>1.0x Chuẩn</span>
-            <span>1.5x Nhanh</span>
+            <span data-i18n="settings_speed_slow">0.5x Chậm</span>
+            <span data-i18n="settings_speed_normal">1.0x Chuẩn</span>
+            <span data-i18n="settings_speed_fast">1.5x Nhanh</span>
           </div>
         </div>
 
         <!-- Âm lượng đọc (Nhỏ <-> To) -->
         <div class="space-y-1.5">
           <div class="flex items-center justify-between text-xs">
-            <span class="font-semibold text-primary">Âm lượng giọng đọc (Nhỏ ⇄ To)</span>
+            <span data-i18n="settings_volume" class="font-semibold text-primary">Âm lượng giọng đọc (Nhỏ ⇄ To)</span>
             <span id="tts-volume-label" class="font-bold text-secondary">100%</span>
           </div>
           <input id="tts-volume-slider" type="range" min="0" max="100" step="5" value="100" class="w-full accent-secondary cursor-pointer" oninput="app.setTtsVolume(this.value)">
           <div class="flex justify-between text-[10px] text-ink-dim">
-            <span>0% Tắt</span>
-            <span>50% Vừa</span>
-            <span>100% To nhất</span>
+            <span data-i18n="settings_vol_mute">0% Tắt</span>
+            <span data-i18n="settings_vol_mid">50% Vừa</span>
+            <span data-i18n="settings_vol_max">100% To nhất</span>
           </div>
         </div>
 
         <!-- Chọn giọng tiếng Nhật -->
         <div class="space-y-1.5">
-          <span class="text-xs font-semibold text-primary block">Giọng đọc tiếng Nhật</span>
+          <span data-i18n="settings_jp_voice" class="text-xs font-semibold text-primary block">Giọng đọc tiếng Nhật</span>
           <select id="tts-voice-select" class="w-full bg-surface-alt border border-border-subtle rounded-xl px-3 py-2 text-xs text-primary font-medium focus:outline-none focus:border-primary" onchange="app.setTtsVoice(this.value)">
             <option value="">Giọng Tokyo Neural · Nanami (Mặc định)</option>
           </select>
@@ -1212,7 +1242,7 @@
 
       <div class="pt-3 border-t border-border-subtle">
         <button class="w-full py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.closeSettings()">
-          Lưu & Đóng cài đặt
+          <span data-i18n="settings_save_close">Lưu & Đóng cài đặt</span>
         </button>
       </div>
     </div>
@@ -1244,10 +1274,10 @@
         </div>
         <div>
           <div class="flex items-center gap-1.5">
-            <h3 class="font-serif font-bold text-sm text-primary">Gia sư Kanji AI</h3>
+            <h3 data-i18n="tutor_title" class="font-serif font-bold text-sm text-primary">Gia sư Kanji AI</h3>
             <span class="w-2 h-2 rounded-full bg-tertiary inline-block"></span>
           </div>
-          <span class="text-[11px] text-ink-muted">Giải nghĩa, âm Hán & ngữ pháp</span>
+          <span data-i18n="tutor_sub" class="text-[11px] text-ink-muted">Giải nghĩa, âm Hán & ngữ pháp</span>
         </div>
       </div>
       
@@ -1268,12 +1298,12 @@
         <span class="material-symbols-outlined text-[30px]">lock</span>
       </div>
       <div class="space-y-1.5 max-w-[260px]">
-        <h4 class="font-serif font-bold text-base text-primary">Đăng nhập để dùng Gia sư AI</h4>
-        <p class="text-xs text-ink-muted leading-relaxed">Vui lòng đăng nhập bằng tài khoản Google để trò chuyện với Gia sư Kanji AI và nhận <strong class="text-primary">12.000 token miễn phí/ngày</strong>.</p>
+        <h4 data-i18n="tutor_login_title" class="font-serif font-bold text-base text-primary">Đăng nhập để dùng Gia sư AI</h4>
+        <p data-i18n="tutor_login_desc" class="text-xs text-ink-muted leading-relaxed">Vui lòng đăng nhập bằng tài khoản Google để trò chuyện với Gia sư Kanji AI và nhận 12.000 token miễn phí/ngày.</p>
       </div>
       <button class="px-5 py-3 rounded-xl bg-secondary hover:bg-secondary/90 text-washi text-xs font-bold flex items-center gap-2 transition-all shadow-md" onclick="app.signInWithGoogle()">
         <svg class="w-4 h-4 bg-white rounded-full p-0.5 flex-shrink-0" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-        <span>Đăng nhập bằng Google</span>
+        <span data-i18n="tutor_login_btn">Đăng nhập bằng Google</span>
       </button>
     </div>
 
@@ -1287,8 +1317,8 @@
           <span class="material-symbols-outlined text-[16px]">auto_awesome</span>
         </div>
         <div class="bg-surface-card border border-border-subtle rounded-2xl rounded-tl-sm p-3.5 max-w-[85%] text-primary shadow-sm space-y-2 leading-relaxed">
-          <p class="font-semibold text-primary">Konnichiwa! Mình là Gia sư Kanji AI ✨</p>
-          <p class="text-ink-muted">Hôm nay bạn muốn hiểu thêm gì về 1.061 Hán tự N5/N4, bộ thủ hay ví dụ câu? Hãy chọn gợi ý bên dưới hoặc gõ câu hỏi nhé!</p>
+          <p data-i18n="tutor_welcome_title" class="font-semibold text-primary">Konnichiwa! Mình là Gia sư Kanji AI ✨</p>
+          <p data-i18n="tutor_welcome_desc" class="text-ink-muted">Hôm nay bạn muốn hiểu thêm gì về 1.061 Hán tự N5/N4, bộ thủ hay ví dụ câu? Hãy chọn gợi ý bên dưới hoặc gõ câu hỏi nhé!</p>
         </div>
       </div>
     </div>
@@ -1297,7 +1327,7 @@
     <div id="ai-context-bar" class="px-3 py-1.5 border-t border-border-subtle bg-surface-alt/80 flex items-center justify-between gap-2 text-[11px] flex-shrink-0 hidden">
       <div class="flex items-center gap-1.5 min-w-0">
         <span class="material-symbols-outlined text-secondary text-[15px] flex-shrink-0">visibility</span>
-        <span class="text-ink-muted flex-shrink-0">Đang xem:</span>
+        <span data-i18n="tutor_viewing" class="text-ink-muted flex-shrink-0">Đang xem:</span>
         <span id="ai-context-kanji" class="font-serif font-bold text-primary truncate"></span>
         <span id="ai-context-sub" class="text-ink-dim truncate"></span>
       </div>
@@ -1308,14 +1338,14 @@
 
     <!-- Quick Prompt Suggestion Chips -->
     <div class="px-3 py-2 border-t border-border-subtle bg-surface-card flex items-center gap-1.5 overflow-x-auto flex-shrink-0 no-scrollbar">
-      <button class="px-2.5 py-1 rounded-full bg-surface-alt hover:bg-border-subtle text-primary text-[11px] font-medium whitespace-nowrap transition-colors border border-border-subtle" onclick="app.sendPresetPrompt('Từ này thường được dùng trong tình huống nào?')">
-        💡 Cách dùng
+      <button class="px-2.5 py-1 rounded-full bg-surface-alt hover:bg-border-subtle text-primary text-[11px] font-medium whitespace-nowrap transition-colors border border-border-subtle" onclick="app.sendPresetPrompt('usage')">
+        <span data-i18n="tutor_chip_usage">💡 Cách dùng</span>
       </button>
-      <button class="px-2.5 py-1 rounded-full bg-surface-alt hover:bg-border-subtle text-primary text-[11px] font-medium whitespace-nowrap transition-colors border border-border-subtle" onclick="app.sendPresetPrompt('Cho mình một câu ví dụ với từ này, kèm nghĩa tiếng Việt.')">
-        📝 Câu ví dụ
+      <button class="px-2.5 py-1 rounded-full bg-surface-alt hover:bg-border-subtle text-primary text-[11px] font-medium whitespace-nowrap transition-colors border border-border-subtle" onclick="app.sendPresetPrompt('example')">
+        <span data-i18n="tutor_chip_example">📝 Câu ví dụ</span>
       </button>
-      <button class="px-2.5 py-1 rounded-full bg-surface-alt hover:bg-border-subtle text-primary text-[11px] font-medium whitespace-nowrap transition-colors border border-border-subtle" onclick="app.sendPresetPrompt('Giải thích một cấu trúc ngữ pháp liên quan và đặt câu.')">
-        📖 Ngữ pháp
+      <button class="px-2.5 py-1 rounded-full bg-surface-alt hover:bg-border-subtle text-primary text-[11px] font-medium whitespace-nowrap transition-colors border border-border-subtle" onclick="app.sendPresetPrompt('grammar')">
+        <span data-i18n="tutor_chip_grammar">📖 Ngữ pháp</span>
       </button>
     </div>
 
@@ -1325,9 +1355,10 @@
         <input 
           id="ai-chat-input" 
           type="text" 
+          maxlength="500"
           autocomplete="off"
           class="flex-1 bg-surface-alt rounded-xl px-3.5 py-2.5 text-xs text-primary placeholder:text-ink-dim border border-border-subtle focus:outline-none focus:border-primary transition-colors"
-          placeholder="Hỏi gia sư Kanji (vd: cách dùng chữ 桜, ngữ pháp です)..."
+          data-i18n-placeholder="tutor_placeholder" placeholder="Hỏi gia sư Kanji (vd: cách dùng chữ 桜, ngữ pháp です)..."
         >
         <button 
           id="ai-chat-send-btn" 
@@ -1355,7 +1386,7 @@
       <div class="flex items-center justify-between pb-3 border-b border-border-subtle">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-secondary text-[22px]">speed</span>
-          <h3 class="font-serif font-bold text-base text-primary">Hạn mức Token AI</h3>
+          <h3 data-i18n="token_modal_title" class="font-serif font-bold text-base text-primary">Hạn mức Token AI</h3>
         </div>
         <button class="w-8 h-8 rounded-full hover:bg-surface-alt flex items-center justify-center text-ink-dim hover:text-primary transition-colors" onclick="app.closeTokenUsageModal()">
           <span class="material-symbols-outlined text-[20px]">close</span>
@@ -1364,7 +1395,7 @@
 
       <div class="space-y-4">
         <div class="flex items-baseline justify-between">
-          <span class="text-xs font-semibold text-ink-muted">Còn lại hôm nay</span>
+          <span data-i18n="token_remaining_today" class="text-xs font-semibold text-ink-muted">Còn lại hôm nay</span>
           <span id="token-modal-count" class="text-sm font-bold text-primary">12.000 / 12.000 token</span>
         </div>
 
@@ -1374,11 +1405,11 @@
 
         <div class="grid grid-cols-2 gap-2.5 text-xs">
           <div class="bg-surface-alt p-3 rounded-xl border border-border-subtle">
-            <span class="text-[10px] text-ink-muted uppercase font-bold block">Đã sử dụng</span>
+            <span data-i18n="token_used" class="text-[10px] text-ink-muted uppercase font-bold block">Đã sử dụng</span>
             <span id="token-modal-used" class="text-sm font-bold text-primary mt-0.5 block">0 token</span>
           </div>
           <div class="bg-surface-alt p-3 rounded-xl border border-border-subtle">
-            <span class="text-[10px] text-ink-muted uppercase font-bold block">Tài khoản</span>
+            <span data-i18n="token_account" class="text-[10px] text-ink-muted uppercase font-bold block">Tài khoản</span>
             <span id="token-modal-account" class="text-xs font-bold text-primary mt-1 block truncate">Khách</span>
           </div>
         </div>
@@ -1387,13 +1418,13 @@
           <span class="material-symbols-outlined text-tertiary text-[18px] flex-shrink-0">schedule</span>
           <div class="leading-snug">
             <span id="token-modal-reset-countdown" class="font-bold text-primary block">Làm mới sau ...</span>
-            <span class="text-[11px] text-ink-muted">Tự động nạp lại 12.000 token lúc 00:00 (UTC+7)</span>
+            <span data-i18n="token_reset_note" class="text-[11px] text-ink-muted">Tự động nạp lại 12.000 token lúc 00:00 (UTC+7)</span>
           </div>
         </div>
       </div>
 
       <button class="w-full py-2.5 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.closeTokenUsageModal()">
-        Đóng
+        <span data-i18n="close">Đóng</span>
       </button>
     </div>
   </div>
@@ -1404,8 +1435,8 @@
       <div class="flex items-center gap-3 pb-3 border-b border-border-subtle">
         <img src="logo.png" alt="Kanji Kachi" class="w-10 h-10 rounded-xl border border-border-subtle object-contain flex-shrink-0">
         <div>
-          <h3 class="font-serif font-bold text-base sm:text-lg text-primary">Chào mừng đến với Kanji Kachi</h3>
-          <span class="text-[11px] text-ink-muted">Vui lòng xác nhận điều khoản trước khi bắt đầu</span>
+          <h3 data-i18n="consent_title" class="font-serif font-bold text-base sm:text-lg text-primary">Chào mừng đến với Kanji Kachi</h3>
+          <span data-i18n="consent_sub" class="text-[11px] text-ink-muted">Vui lòng xác nhận điều khoản trước khi bắt đầu</span>
         </div>
       </div>
 
@@ -1414,14 +1445,14 @@
           <button type="button" class="w-full px-4 py-3 rounded-xl bg-surface-alt hover:bg-border-subtle border border-border-subtle text-primary font-bold text-xs flex items-center justify-between transition-colors" onclick="app.openLegalModal('terms')">
             <span class="flex items-center gap-2.5">
               <span class="material-symbols-outlined text-[18px] text-secondary">description</span>
-              <span>Điều khoản dịch vụ</span>
+              <span data-i18n="consent_terms">Điều khoản dịch vụ</span>
             </span>
             <span class="material-symbols-outlined text-[18px] text-ink-dim">chevron_right</span>
           </button>
           <a href="./privacy.html" target="_blank" rel="noopener" class="w-full px-4 py-3 rounded-xl bg-surface-alt hover:bg-border-subtle border border-border-subtle text-primary font-bold text-xs flex items-center justify-between transition-colors no-underline">
             <span class="flex items-center gap-2.5">
               <span class="material-symbols-outlined text-[18px] text-tertiary">shield</span>
-              <span>Chính sách quyền riêng tư</span>
+              <span data-i18n="consent_privacy">Chính sách quyền riêng tư</span>
             </span>
             <span class="material-symbols-outlined text-[18px] text-ink-dim">chevron_right</span>
           </a>
@@ -1430,18 +1461,18 @@
         <div class="space-y-2.5 pt-2 border-t border-border-subtle">
           <label class="flex items-start gap-2.5 cursor-pointer select-none">
             <input id="terms-check-read" type="checkbox" class="mt-0.5 w-4 h-4 accent-secondary cursor-pointer flex-shrink-0" onchange="app.onTermsCheckChange()">
-            <span class="text-xs text-primary font-medium leading-snug">Tôi đã đọc và đồng ý với <strong>Điều khoản dịch vụ</strong> và <strong>Chính sách quyền riêng tư</strong> của Kanji Kachi. <span class="text-secondary">*</span></span>
+            <span class="text-xs text-primary font-medium leading-snug"><span data-i18n="consent_agree_label">Tôi đã đọc và đồng ý với Điều khoản dịch vụ và Chính sách quyền riêng tư của Kanji Kachi.</span> <span class="text-secondary">*</span></span>
           </label>
 
           <label class="flex items-start gap-2.5 cursor-pointer select-none">
             <input id="terms-check-dont-show" type="checkbox" checked class="mt-0.5 w-4 h-4 accent-secondary cursor-pointer flex-shrink-0">
-            <span class="text-xs text-ink-muted leading-snug">Không hiển thị lại thông báo này ở các lần truy cập sau.</span>
+            <span data-i18n="consent_dont_show" class="text-xs text-ink-muted leading-snug">Không hiển thị lại thông báo này ở các lần truy cập sau.</span>
           </label>
         </div>
       </div>
 
       <button id="btn-terms-accept" type="button" disabled class="w-full py-3 rounded-xl bg-primary text-washi font-bold text-xs sm:text-sm transition-all shadow-sm disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary/95" onclick="app.acceptTermsConsent()">
-        Đồng ý & Bắt đầu học
+        <span data-i18n="consent_start">Đồng ý & Bắt đầu học</span>
       </button>
     </div>
   </div>
@@ -1460,13 +1491,14 @@
       </div>
       <div class="px-6 py-3.5 border-t border-border-subtle bg-surface-card flex-shrink-0">
         <button class="w-full py-2.5 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.closeLegalModal()">
-          Đóng
+          <span data-i18n="close">Đóng</span>
         </button>
       </div>
     </div>
   </div>
 
   <!-- Scripts -->
+  <script src="i18n.js"></script>
   <script type="module" src="firebase-ai.js"></script>
   <script src="legal.js"></script>
   <script src="data.js"></script>
