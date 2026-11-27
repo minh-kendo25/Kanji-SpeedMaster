@@ -8,7 +8,7 @@ window.KANJI_LEGAL_CONTENT = {
 ### KANJI KACHI (漢字勝ち)
 **Phiên bản:** Web Edition v2.0
 **Mã bản dựng:** 2026.11
-**Nhà phát triển:** Phạm Hoàng Bảo Minh
+**Đơn vị phát triển:** The Ocean Dev (Kanji Kachi Team)
 
 ### 1. Ý nghĩa & Tầm nhìn
 「漢字勝ち」(Kanji Kachi) mang thông điệp **"Chiến thắng và Chinh phục Hán tự"**. Nền tảng ra đời nhằm giải quyết rào cản lớn nhất của người học tiếng Nhật: nhớ mặt chữ Kanji nhưng hay quên cách đọc Hiragana (Onyomi, Kunyomi) và ý nghĩa trong ngữ cảnh thực tế.
@@ -50,7 +50,7 @@ Kanji Kachi ("chúng tôi") cam kết bảo vệ sự riêng tư và bảo mật
 
 ### 5. Quyền của người dùng & Liên hệ
 - Bạn có thể đặt lại toàn bộ tiến độ bất cứ lúc nào trong trang **Cá nhân**.
-- Yêu cầu xóa vĩnh viễn dữ liệu trong vòng 48 giờ qua email: **phamhoangbaominh2005@gmail.com** (Phạm Hoàng Bảo Minh).
+- Yêu cầu xóa vĩnh viễn tài khoản, gửi phản hồi hoặc CSKH tại cổng hỗ trợ: \`https://theoceandev.vercel.app/apps/kanji-kachi\` hoặc qua email: **theocean2505@gmail.com**.
 `
     },
     terms: {
@@ -71,14 +71,14 @@ Chúng tôi cấp cho bạn quyền sử dụng cá nhân, phi thương mại ph
 - Mọi lượt sử dụng Gia sư Kanji AI và đồng bộ dữ liệu gắn liền với tài khoản của bạn.
 
 ### 4. Quyền sở hữu trí tuệ
-Toàn bộ mã nguồn, giao diện UI/UX phong cách Modern Sumi & Washi và cấu trúc hệ thống thuộc quyền sở hữu của tác giả **Phạm Hoàng Bảo Minh**.
+Toàn bộ mã nguồn, giao diện UI/UX phong cách Modern Sumi & Washi và cấu trúc hệ thống thuộc quyền sở hữu của **The Ocean Dev**.
 
 ### 5. Hành vi bị nghiêm cấm
 - Sao chép, thu thập dữ liệu tự động (bot, scraper) hoặc can thiệp trái phép vào hệ thống Firebase / API.
 - Lạm dụng Gia sư Kanji AI vào mục đích ngoài học tập tiếng Nhật hoặc gây quá tải hệ thống.
 
 ### 6. Miễn trừ trách nhiệm & Liên hệ
-Kanji Kachi được cung cấp trên nguyên tắc **"nguyên trạng" (AS IS)**. Mọi thắc mắc vui lòng gửi về: **phamhoangbaominh2005@gmail.com**.
+Kanji Kachi được cung cấp trên nguyên tắc **"nguyên trạng" (AS IS)**. Mọi thắc mắc vui lòng truy cập \`https://theoceandev.vercel.app/apps/kanji-kachi\` hoặc gửi về: **theocean2505@gmail.com**.
 `
     },
     support: {
@@ -95,8 +95,9 @@ Bạn cần đăng nhập Google để sử dụng Gia sư AI. Mỗi tài khoả
 ### 3. Giọng phát âm tiếng Nhật hoạt động thế nào?
 Kanji Kachi Web sử dụng **giọng Tokyo Neural bản xứ (\`Nanami\`)** làm mặc định, chạy đồng nhất trên cả Windows, Android và iOS. Bạn có thể chỉnh tốc độ (\`0.5x–1.5x\`) và âm lượng trong **Cài đặt**.
 
-### 4. Liên hệ & Góp ý
-- **Email hỗ trợ:** phamhoangbaominh2005@gmail.com
+### 4. Liên hệ, Phản hồi & CSKH
+- **Cổng hỗ trợ & Xóa tài khoản:** \`https://theoceandev.vercel.app/apps/kanji-kachi\`
+- **Email liên hệ:** theocean2505@gmail.com
 - **Thời gian phản hồi:** Trong vòng 24 – 48 giờ làm việc.
 `
     },
@@ -127,7 +128,7 @@ Kanji Kachi Web sử dụng **giọng Tokyo Neural bản xứ (\`Nanami\`)** là
 ### KANJI KACHI (漢字勝ち)
 **Version:** Web Edition v2.0
 **Build:** 2026.11
-**Developer:** Pham Hoang Bao Minh
+**Developer:** The Ocean Dev (Kanji Kachi Team)
 
 ### 1. Vision & Meaning
 「漢字勝ち」 (*Kanji Kachi*) means **"Conquering Kanji"**. The platform solves the biggest hurdle for Japanese learners: recognizing Kanji characters while remembering their exact Hiragana readings (Onyomi, Kunyomi) and meanings in real contexts.
@@ -169,7 +170,7 @@ Kanji Kachi ("we") is committed to protecting your privacy and personal informat
 
 ### 5. Your Rights & Contact
 - You may reset all study progress anytime from the **Profile** page.
-- Request permanent cloud data deletion within 48 hours via email: **phamhoangbaominh2005@gmail.com** (Data Controller: Pham Hoang Bao Minh).
+- For account deletion, feedback, or support, visit our portal at \`https://theoceandev.vercel.app/apps/kanji-kachi\` or email: **theocean2505@gmail.com**.
 `
     },
     terms: {
@@ -190,14 +191,14 @@ We grant you a personal, non-exclusive, non-commercial license to use Kanji Kach
 - Cloud sync and daily AI Tutor token quotas are tied to your authenticated account.
 
 ### 4. Intellectual Property
-All source code, UI/UX design (Modern Sumi & Washi theme), branding, and software architecture belong to **Pham Hoang Bao Minh**.
+All source code, UI/UX design (Modern Sumi & Washi theme), branding, and software architecture belong to **The Ocean Dev**.
 
 ### 5. Prohibited Conduct
 - Automated scraping, bots, reverse engineering, or unauthorized interference with Firebase / API infrastructure.
 - Abusing Kanji AI Tutor for non-study spam or quota circumvention.
 
 ### 6. Disclaimer & Contact
-Kanji Kachi is provided **"AS IS"**. For any questions, contact: **phamhoangbaominh2005@gmail.com**.
+Kanji Kachi is provided **"AS IS"**. For any questions or support, visit \`https://theoceandev.vercel.app/apps/kanji-kachi\` or contact: **theocean2505@gmail.com**.
 `
     },
     support: {
@@ -214,8 +215,9 @@ Google Sign-In is required to use the AI Tutor. Each account receives **12,000 f
 ### 3. How does Japanese pronunciation work?
 Kanji Kachi Web uses native **Tokyo Neural audio (\`Nanami\`)** by default for crisp, consistent pronunciation across Windows, Android, and iOS. You can adjust speed (\`0.5x–1.5x\`) and volume in **Settings**.
 
-### 4. Feedback & Support
-- **Email:** phamhoangbaominh2005@gmail.com
+### 4. Feedback, Support & Account Deletion
+- **Support Portal:** \`https://theoceandev.vercel.app/apps/kanji-kachi\`
+- **Contact Email:** theocean2505@gmail.com
 - **Response time:** Within 24–48 business hours.
 `
     },

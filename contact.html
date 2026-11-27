@@ -49,6 +49,10 @@
     h2 { margin: 22px 0 10px; font-size: 18px; color: var(--vermilion); }
     p, li { color: var(--muted); font-size: 15px; }
     strong { color: var(--ink); }
+    a { color: var(--vermilion); font-weight: 600; text-decoration: underline; }
+    a.nav-link, a.brand, footer a { text-decoration: none; }
+    .portal-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding: 11px 18px; border-radius: 12px; background: var(--vermilion); color: #FFFFFF !important; text-decoration: none; font-weight: 700; font-size: 14px; }
+    .portal-btn:hover { opacity: 0.92; }
     .contact-box { background: var(--surface-alt); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; margin: 16px 0; }
     .faq-item { border-bottom: 1px solid var(--border); padding: 14px 0; }
     .faq-item:last-child { border-bottom: none; }
@@ -76,12 +80,14 @@
   <main>
     <article class="card">
       <h1>Liên hệ & Trung tâm hỗ trợ</h1>
-      <p>Nếu bạn phát hiện lỗi chính tả chữ Hán, góp ý tính năng mới, cần hỗ trợ đồng bộ tài khoản hoặc yêu cầu xóa dữ liệu cá nhân, vui lòng liên hệ trực tiếp với đội ngũ phát triển Kanji Kachi:</p>
+      <p>Mọi yêu cầu <strong>chăm sóc khách hàng (CSKH), gửi phản hồi, báo lỗi, hoặc yêu cầu xóa tài khoản & dữ liệu</strong> của Kanji Kachi được tiếp nhận tập trung tại Cổng hỗ trợ chính thức của The Ocean Dev:</p>
 
       <div class="contact-box">
-        <p style="margin:0 0 6px;"><strong>Email hỗ trợ chính thức:</strong> <a href="mailto:phamhoangbaominh2005@gmail.com">phamhoangbaominh2005@gmail.com</a></p>
-        <p style="margin:0 0 6px;"><strong>Người phụ trách:</strong> Phạm Hoàng Bảo Minh (Nhà phát triển Kanji Kachi)</p>
-        <p style="margin:0;"><strong>Thời gian phản hồi:</strong> Trong vòng 24 – 48 giờ làm việc (Giờ Việt Nam, UTC+7)</p>
+        <p style="margin:0 0 6px;"><strong>Cổng hỗ trợ, Phản hồi & Xóa tài khoản:</strong> <a href="https://theoceandev.vercel.app/apps/kanji-kachi" target="_blank" rel="noopener noreferrer">theoceandev.vercel.app/apps/kanji-kachi</a></p>
+        <p style="margin:0 0 6px;"><strong>Email liên hệ:</strong> <a href="mailto:theocean2505@gmail.com">theocean2505@gmail.com</a></p>
+        <p style="margin:0 0 6px;"><strong>Đơn vị vận hành:</strong> The Ocean Dev (Kanji Kachi Team)</p>
+        <p style="margin:0;"><strong>Thời gian phản hồi:</strong> Trong vòng 24 – 48 giờ làm việc (UTC+7)</p>
+        <a class="portal-btn" href="https://theoceandev.vercel.app/apps/kanji-kachi" target="_blank" rel="noopener noreferrer">Mở trang Hỗ trợ & Phản hồi Kanji Kachi ↗</a>
       </div>
 
       <h2>Câu hỏi thường gặp (FAQ)</h2>
@@ -103,7 +109,7 @@
 
       <div class="faq-item">
         <div class="faq-q">4. Làm cách nào để yêu cầu xóa toàn bộ dữ liệu tài khoản?</div>
-        <p style="margin:0;">Bạn có thể tự đặt lại tiến độ học tập ngay trong mục <strong>Cá nhân → Đặt lại toàn bộ tiến độ</strong>, hoặc gửi email đến <a href="mailto:phamhoangbaominh2005@gmail.com">phamhoangbaominh2005@gmail.com</a> với tiêu đề <em>[Yêu cầu xóa dữ liệu Kanji Kachi]</em> để xóa vĩnh viễn dữ liệu đám mây trong vòng 48 giờ.</p>
+        <p style="margin:0;">Bạn có thể tự đặt lại tiến độ học tập ngay trong mục <strong>Cá nhân → Đặt lại toàn bộ tiến độ</strong>, hoặc gửi yêu cầu xóa tài khoản vĩnh viễn qua Cổng hỗ trợ <a href="https://theoceandev.vercel.app/apps/kanji-kachi" target="_blank" rel="noopener noreferrer">theoceandev.vercel.app/apps/kanji-kachi</a> (hoặc email <a href="mailto:theocean2505@gmail.com">theocean2505@gmail.com</a>).</p>
       </div>
     </article>
   </main>
@@ -117,7 +123,7 @@
       <a href="./privacy.html">Quyền riêng tư</a> ·
       <a href="./contact.html">Liên hệ</a>
     </div>
-    <p style="margin-top:10px;">© 2026 Kanji Kachi (漢字勝ち). Phát triển bởi Phạm Hoàng Bảo Minh.</p>
+    <p style="margin-top:10px;">© 2026 Kanji Kachi (漢字勝ち) · The Ocean Dev.</p>
   </footer>
 </body>
 </html>
