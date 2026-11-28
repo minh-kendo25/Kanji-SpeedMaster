@@ -2749,7 +2749,36 @@ Nhiệm vụ của bạn:
   }
 
   // ================= 14. INITIALIZATION =================
+  function protectNonTranslatableNodes(root) {
+    if (!root || typeof root.querySelectorAll !== 'function') return;
+    root.querySelectorAll('.material-symbols-outlined, .kanji-glyph, .key-badge, code').forEach(el => {
+      if (!el.classList.contains('notranslate')) el.classList.add('notranslate');
+      if (el.getAttribute('translate') !== 'no') el.setAttribute('translate', 'no');
+    });
+  }
+
+  function initTranslateProtection() {
+    protectNonTranslatableNodes(document);
+    if (typeof MutationObserver !== 'undefined' && document.body) {
+      const observer = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+          m.addedNodes.forEach(node => {
+            if (node.nodeType === 1) {
+              if (node.matches && node.matches('.material-symbols-outlined, .kanji-glyph, .key-badge, code')) {
+                node.classList.add('notranslate');
+                node.setAttribute('translate', 'no');
+              }
+              protectNonTranslatableNodes(node);
+            }
+          });
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+  }
+
   function init() {
+    initTranslateProtection();
     initVoices();
     initKeyboardShortcuts();
     document.addEventListener('click', (e) => {
