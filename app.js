@@ -14,7 +14,7 @@
     rememberedIds: [],
     forgottenIds: [],
     theme: 'light', // 'light' | 'dark'
-    lang: null, // 'vi' | 'en'
+    lang: null, // 'vi' | 'en' | 'fr' | 'es' | 'ko'
     geminiApiKey: '',
     aiTokens: {
       day: null,
@@ -106,7 +106,9 @@
   function updateAiTokenUi() {
     const quota = getAiTokenQuota();
     const remaining = Math.max(0, quota.limit - quota.used);
-    const nf = new Intl.NumberFormat('vi-VN');
+    const lang = window.getAppLang ? window.getAppLang() : 'vi';
+    const localeMap = { vi: 'vi-VN', en: 'en-US', fr: 'fr-FR', es: 'es-ES', ko: 'ko-KR' };
+    const nf = new Intl.NumberFormat(localeMap[lang] || 'en-US');
     const remainingFormatted = nf.format(remaining);
     const limitFormatted = nf.format(quota.limit);
 
@@ -575,9 +577,9 @@
                 <span class="text-[11px] text-ink-muted font-medium">${window.t('vocab_words_count', t.count)}</span>
               </div>
               <h3 class="font-serif font-bold text-sm sm:text-base text-primary truncate">
-                ${window.localizedTopicTitle(t)}
+                ${escapeHtml(window.localizedTopicTitle(t))}
               </h3>
-              <p class="text-[11px] text-ink-muted leading-relaxed">Bộ từ vựng Hán tự trọng tâm chuẩn JLPT N5 & N4.</p>
+              <p class="text-[11px] text-ink-muted leading-relaxed">${escapeHtml(window.t('home_topic_card_sub'))}</p>
             </div>
 
             <div class="mt-4 pt-3 border-t border-border-subtle grid grid-cols-2 gap-2">
@@ -646,16 +648,22 @@
         it.kanji.toLowerCase().includes(q) ||
         it.meaning.toLowerCase().includes(q) ||
         (it.meaningEn && it.meaningEn.toLowerCase().includes(q)) ||
+        (it.meaningFr && it.meaningFr.toLowerCase().includes(q)) ||
+        (it.meaningEs && it.meaningEs.toLowerCase().includes(q)) ||
+        (it.meaningKo && it.meaningKo.toLowerCase().includes(q)) ||
         (it.readings && it.readings.some(r => r.toLowerCase().includes(q))) ||
         (it.displayReading && it.displayReading.toLowerCase().includes(q)) ||
-        (it.displayReadingEn && it.displayReadingEn.toLowerCase().includes(q))
+        (it.displayReadingEn && it.displayReadingEn.toLowerCase().includes(q)) ||
+        (it.displayReadingFr && it.displayReadingFr.toLowerCase().includes(q)) ||
+        (it.displayReadingEs && it.displayReadingEs.toLowerCase().includes(q)) ||
+        (it.displayReadingKo && it.displayReadingKo.toLowerCase().includes(q))
       );
 
       container.innerHTML = `
         <div class="space-y-2">
           <span class="text-xs font-bold text-ink-muted block">${window.t('search_found', filtered.length)}</span>
           <div class="bg-surface-card rounded-2xl p-2 border border-border-subtle divide-y divide-border-subtle shadow-sm">
-            ${filtered.length > 0 ? filtered.map(renderVocabRow).join('') : '<p class="p-6 text-xs text-center text-ink-dim">Không tìm thấy từ vựng nào khớp với từ khóa tìm kiếm.</p>'}
+            ${filtered.length > 0 ? filtered.map(renderVocabRow).join('') : `<p class="p-6 text-xs text-center text-ink-dim">${escapeHtml(window.t('search_empty'))}</p>`}
           </div>
         </div>
       `;
@@ -676,7 +684,7 @@
             </div>
             <div class="flex items-center gap-2">
               <button class="px-3 py-1 rounded-lg bg-surface-alt hover:bg-primary hover:text-washi text-xs font-bold text-primary transition-colors" onclick="event.stopPropagation(); app.startTopicPractice('${topic.id}')">
-                Luyện tập
+                ${window.t('vocab_btn_practice')}
               </button>
               <button class="w-7 h-7 rounded-full hover:bg-surface-alt text-ink-dim hover:text-primary flex items-center justify-center transition-colors" onclick="event.stopPropagation(); app.startTopicFlashcards('${topic.id}')" title="Thẻ Flashcard 3D">
                 <span class="material-symbols-outlined text-[18px]">style</span>
@@ -1199,7 +1207,7 @@
       const source = isRadical ? RADICALS_DATA : KANJI_DATA;
 
       if (practiceConfig.selectedTopicIds.size === 0) {
-        alert('Vui lòng chọn ít nhất một chủ đề để bắt đầu bài kiểm tra.');
+        alert(window.t('alert_pick_topic'));
         return;
       }
 
@@ -1208,7 +1216,7 @@
       if (practiceConfig.onlyUnremembered) {
         candidateItems = candidateItems.filter(it => state.forgottenIds.includes(it.id));
         if (candidateItems.length === 0) {
-          alert('Sổ tay chưa có từ nào! Đang bắt đầu với tất cả các từ trong chủ đề.');
+          alert(window.t('alert_no_unremembered'));
           candidateItems = source.filter(it => practiceConfig.selectedTopicIds.has(it.topicId));
         }
       }
@@ -1217,7 +1225,7 @@
     }
 
     if (practiceDeck.length === 0) {
-      alert('Vui lòng chọn ít nhất một chủ đề để bắt đầu rèn luyện.');
+      alert(window.t('alert_pick_topic'));
       return;
     }
 
@@ -1301,7 +1309,7 @@
         inputEl.focus();
       }
       if (inputStatus) inputStatus.innerHTML = '<span class="material-symbols-outlined text-[24px]">keyboard</span>';
-      if (inputMsg) inputMsg.innerHTML = 'Hệ thống tự động chuyển đổi: <code class="bg-surface-alt px-1.5 py-0.5 rounded text-[11px] text-primary">sakana</code> ➔ <code class="bg-surface-alt px-1.5 py-0.5 rounded text-[11px] text-tertiary font-bold">さかな</code>';
+      if (inputMsg) inputMsg.textContent = window.t('arena_romaji_hint');
     }
 
     // Generate choices
@@ -1755,13 +1763,32 @@
     }
   }
 
+  function toggleLangMenu(event) {
+    if (event) event.stopPropagation();
+    const menu = document.getElementById('header-lang-menu');
+    if (menu) menu.classList.toggle('hidden');
+  }
+
+  function closeLangMenu() {
+    const menu = document.getElementById('header-lang-menu');
+    if (menu) menu.classList.add('hidden');
+  }
+
+  function selectLanguage(lang) {
+    setLanguage(lang);
+    closeLangMenu();
+  }
+
   function toggleLanguage() {
+    const order = ['vi', 'en', 'fr', 'es', 'ko'];
     const cur = window.getAppLang ? window.getAppLang() : (state.lang || 'vi');
-    setLanguage(cur === 'en' ? 'vi' : 'en');
+    const idx = order.indexOf(cur);
+    const next = order[(idx + 1) % order.length];
+    setLanguage(next);
   }
 
   function setLanguage(lang) {
-    state.lang = lang === 'en' ? 'en' : 'vi';
+    state.lang = (lang === 'en' || lang === 'fr' || lang === 'es' || lang === 'ko' || lang === 'vi') ? lang : 'en';
     saveState();
     if (window.applyStaticI18n) window.applyStaticI18n(state.lang);
     renderHomeScreen();
@@ -1997,7 +2024,7 @@
 
     const contextWord = getActiveScreenContextWord();
     let displayPrompt = promptText;
-    if (contextWord && (presetMap[promptKeyOrText] || /từ này|chữ Hán này|this word/i.test(promptText))) {
+    if (contextWord && (presetMap[promptKeyOrText] || /từ này|chữ Hán này|this word|ce mot|ce kanji|esta palabra|este kanji|이 단어|이 한자/i.test(promptText))) {
       displayPrompt = `[${contextWord.kanji}] ${promptText}`;
     }
 
@@ -2194,20 +2221,32 @@ Nhiệm vụ của bạn:
       const previousHistory = chatHistory.slice(0, -1);
 
       // Automatically attach active screen Kanji context so AI knows what the user is studying
-      const isEn = window.getAppLang && window.getAppLang() === 'en';
+      const appLang = window.getAppLang ? window.getAppLang() : 'vi';
       const ctxWord = getActiveScreenContextWord();
       let promptForAI = query;
       if (ctxWord) {
         const ctxReading = window.localizedReading ? window.localizedReading(ctxWord) : (ctxWord.displayReading || ctxWord.reading || '');
         const ctxMeaning = window.localizedMeaning ? window.localizedMeaning(ctxWord) : ctxWord.meaning;
-        promptForAI = isEn
-          ? `[Current screen context: User is viewing "${ctxWord.kanji}" (reading: ${ctxReading}, meaning: ${ctxMeaning}, level: ${ctxWord.level || 'N5/N4'})]\nUser question: ${query}`
-          : `[Ngữ cảnh màn hình hiện tại: Người dùng đang xem từ/chữ Hán "${ctxWord.kanji}" (cách đọc: ${ctxReading}, nghĩa: ${ctxMeaning}, cấp độ: ${ctxWord.level || 'N5/N4'})]\nCâu hỏi của người dùng: ${query}`;
+        promptForAI = appLang === 'ko'
+          ? `[현재 화면 문맥: 사용자가 "${ctxWord.kanji}"(읽기: ${ctxReading}, 뜻: ${ctxMeaning}, 레벨: ${ctxWord.level || 'N5/N4'})를 보고 있습니다]\n사용자 질문: ${query}`
+          : (appLang === 'es'
+            ? `[Contexto de pantalla actual: El usuario está viendo «${ctxWord.kanji}» (lectura: ${ctxReading}, significado: ${ctxMeaning}, nivel: ${ctxWord.level || 'N5/N4'})]\nPregunta del usuario: ${query}`
+            : (appLang === 'fr'
+              ? `[Contexte de l'écran actuel : L'utilisateur consulte « ${ctxWord.kanji} » (lecture : ${ctxReading}, sens : ${ctxMeaning}, niveau : ${ctxWord.level || 'N5/N4'})]\nQuestion de l'utilisateur : ${query}`
+              : (appLang === 'en'
+                ? `[Current screen context: User is viewing "${ctxWord.kanji}" (reading: ${ctxReading}, meaning: ${ctxMeaning}, level: ${ctxWord.level || 'N5/N4'})]\nUser question: ${query}`
+                : `[Ngữ cảnh màn hình hiện tại: Người dùng đang xem từ/chữ Hán "${ctxWord.kanji}" (cách đọc: ${ctxReading}, nghĩa: ${ctxMeaning}, cấp độ: ${ctxWord.level || 'N5/N4'})]\nCâu hỏi của người dùng: ${query}`)));
       }
 
-      const activeSysPrompt = isEn
-        ? 'You are a concise, friendly AI Kanji Tutor for Kanji Kachi (JLPT N5 & N4). Answer in English using simple Markdown, clear Hiragana readings, and example sentences on separate lines.'
-        : GEMINI_SYSTEM_INSTRUCTION;
+      const activeSysPrompt = appLang === 'ko'
+        ? '당신은 Kanji Kachi(JLPT N5 & N4)의 간결하고 친절한 AI 한자 튜터입니다. 간단한 마크다운과 명확한 히라가나 읽기를 사용하여 한국어로 답변하고, 일본어 예문과 한국어 번역은 줄을 나누어 작성하세요.'
+        : (appLang === 'es'
+          ? 'Eres un Tutor de Kanji con IA conciso y amable para Kanji Kachi (JLPT N5 y N4). Responde en español usando Markdown sencillo, lecturas claras en Hiragana y oraciones de ejemplo en líneas separadas.'
+          : (appLang === 'fr'
+            ? "Tu es un tuteur IA de Kanji concis et bienveillant pour Kanji Kachi (JLPT N5 & N4). Réponds en français en utilisant un Markdown simple, des lectures Hiragana claires et des phrases d'exemple sur des lignes séparées."
+            : (appLang === 'en'
+              ? 'You are a concise, friendly AI Kanji Tutor for Kanji Kachi (JLPT N5 & N4). Answer in English using simple Markdown, clear Hiragana readings, and example sentences on separate lines.'
+              : GEMINI_SYSTEM_INSTRUCTION)));
       const result = await firebaseAI.ask(promptForAI, previousHistory, activeSysPrompt);
 
       const ind = document.getElementById('ai-typing-indicator');
@@ -2713,6 +2752,12 @@ Nhiệm vụ của bạn:
   function init() {
     initVoices();
     initKeyboardShortcuts();
+    document.addEventListener('click', (e) => {
+      const wrapper = document.getElementById('header-lang-wrapper');
+      if (wrapper && !wrapper.contains(e.target)) {
+        closeLangMenu();
+      }
+    });
     if (!state.lang) { state.lang = window.getAppLang ? window.getAppLang() : 'vi'; saveState(); }
     if (window.applyStaticI18n) window.applyStaticI18n(state.lang);
     applyTheme();
@@ -2798,6 +2843,8 @@ Nhiệm vụ của bạn:
     startForgottenPractice,
     // Theme & Dark Mode
     toggleLanguage,
+    toggleLangMenu,
+    selectLanguage,
     setLanguage,
     toggleTheme,
     applyTheme,

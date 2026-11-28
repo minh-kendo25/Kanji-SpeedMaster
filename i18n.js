@@ -1,8 +1,9 @@
-// Kanji Kachi - Bilingual i18n Dictionary & Runtime (VI / EN)
+// Kanji Kachi - Multilingual i18n Dictionary & Runtime (VI / EN / FR / ES / KO)
 (function () {
   'use strict';
 
   const STORAGE_KEY = 'kanji_kachi_state_clean_v1';
+  const SUPPORTED_LANGS = ['vi', 'en', 'fr', 'es', 'ko'];
 
   const DICT = {
     vi: {
@@ -46,6 +47,7 @@
       card_practice_cta: 'Vào phòng luyện tập',
       home_topics_title: 'Chủ đề Hán tự · Học & Luyện tập',
       home_topics_sub: 'Chọn chủ đề để học bằng Flashcard hoặc làm bài kiểm tra phản xạ ngay.',
+      home_topic_card_sub: 'Bộ từ vựng Hán tự trọng tâm chuẩn JLPT N5 & N4.',
       home_view_all_topics: 'Xem toàn bộ chủ đề',
       home_guide_eyebrow: 'Cẩm nang tự học JLPT',
       home_guide_title: 'Phương pháp chinh phục 1.061 Hán tự N5/N4 & 214 Bộ thủ',
@@ -64,6 +66,7 @@
       vocab_btn_cards: 'Học thẻ',
       vocab_btn_practice: 'Luyện tập',
       search_found: 'Tìm thấy {0} từ phù hợp',
+      search_empty: 'Không tìm thấy từ vựng nào khớp với từ khóa tìm kiếm.',
       topic_words: '{0} từ',
       vocab_section_radicals: '214 Bộ thủ Khang Hy',
       vocab_section_level: 'Trình độ JLPT {0}',
@@ -82,6 +85,7 @@
       fc_stat_remembered: 'Đã thuộc',
       fc_stat_forgotten: 'Chưa nhớ',
       fc_missed_list: 'Từ cần ôn lại trong lượt này',
+      fc_retry_forgotten_prefix: 'Ôn lại các từ chưa nhớ',
       fc_restart_all: 'Ôn lại hết từ đầu',
       fc_pick_other: 'Chọn chủ đề khác',
 
@@ -98,6 +102,25 @@
       pr_combo_title: 'Phản xạ toàn diện',
       pr_combo_desc: 'Kết hợp gõ đúng cách đọc Hiragana rồi chọn tiếp nghĩa tiếng Việt/Anh.',
       pr_pick_level_topic: 'Chọn cấp độ & chủ đề luyện tập',
+      pr_lvl_radicals: '214 Bộ thủ',
+      pr_topics_selected_label: 'Chủ đề kiểm tra',
+      pr_only_unremembered: 'Chỉ ôn từ chưa nhớ',
+      pr_select_all: 'Chọn tất cả',
+      pr_start_quiz: 'Bắt đầu bài kiểm tra',
+      alert_pick_topic: 'Vui lòng chọn ít nhất một chủ đề để bắt đầu rèn luyện.',
+      alert_no_unremembered: 'Sổ tay chưa có từ nào! Đang bắt đầu với tất cả các từ trong chủ đề.',
+      arena_input_placeholder: 'Gõ Romaji (ví dụ: sakana)...',
+      arena_romaji_hint: "Hệ thống tự động chuyển đổi: 'sakana' ➔ 'さかな'",
+      arena_back: 'Quay lại',
+      arena_finish: 'Hoàn tất bài thi',
+      arena_skip: 'Bỏ qua',
+      pr_stat_total: 'Tổng số từ',
+      tips_title: 'Mẹo phím tắt nhanh:',
+      tip_1: 'Bấm ⊞ Chọn câu (hoặc Ctrl+G) để nhảy nhanh đến câu bất kỳ.',
+      tip_2: 'Bấm phím 1, 2, 3, 4 để chọn nghĩa trắc nghiệm.',
+      tip_3: 'Bấm Quay lại (hoặc Ctrl+Z) nếu lỡ tay ấn qua.',
+      tip_4: 'Bấm phím Space để nghe lại phát âm tiếng Nhật chuẩn Tokyo.',
+      tip_5: 'Bấm ⚙️ Cài đặt để tùy chỉnh chế độ trắc nghiệm & âm thanh.',
       mode_higa: 'Gõ Hiragana',
       mode_mc: 'Trắc nghiệm 4 nghĩa',
       mode_combo: 'Phản xạ toàn diện',
@@ -147,6 +170,7 @@
 
       // Settings Modal
       settings_title: 'Cài đặt luyện tập',
+      settings_language: 'Ngôn ngữ hiển thị',
       settings_utils: 'Tiện ích học tập',
       settings_dark_title: 'Giao diện tối (Dark Mode)',
       settings_dark_sub: 'Tông mực Sumi đêm êm dịu bảo vệ mắt',
@@ -257,6 +281,7 @@
       card_practice_cta: 'Enter Practice Arena',
       home_topics_title: 'Kanji Topics · Study & Practice',
       home_topics_sub: 'Pick a topic to study with 3D Flashcards or start a reflex quiz immediately.',
+      home_topic_card_sub: 'Core JLPT N5 & N4 Kanji vocabulary deck.',
       home_view_all_topics: 'View all topics',
       home_guide_eyebrow: 'JLPT Self-Study Guide',
       home_guide_title: 'How to Master 1,061 N5/N4 Kanji & 214 Kangxi Radicals',
@@ -275,6 +300,7 @@
       vocab_btn_cards: 'Flashcards',
       vocab_btn_practice: 'Practice',
       search_found: 'Found {0} matching words',
+      search_empty: 'No matching words or radicals found.',
       topic_words: '{0} words',
       vocab_section_radicals: '214 Kangxi Radicals',
       vocab_section_level: 'JLPT {0} Level',
@@ -293,6 +319,7 @@
       fc_stat_remembered: 'Mastered',
       fc_stat_forgotten: 'Needs Review',
       fc_missed_list: 'Words to review from this session',
+      fc_retry_forgotten_prefix: 'Review missed words',
       fc_restart_all: 'Restart Full Deck',
       fc_pick_other: 'Choose Another Topic',
 
@@ -309,6 +336,25 @@
       pr_combo_title: 'Full Reflex Combo',
       pr_combo_desc: 'Type the Hiragana reading first, then confirm its meaning.',
       pr_pick_level_topic: 'Select level & topics to practice',
+      pr_lvl_radicals: '214 Radicals',
+      pr_topics_selected_label: 'Practice topics',
+      pr_only_unremembered: 'Needs review only',
+      pr_select_all: 'Select all',
+      pr_start_quiz: 'Start Practice Quiz',
+      alert_pick_topic: 'Please select at least one topic to start practicing.',
+      alert_no_unremembered: 'No review words yet! Starting with all words in the selected topics.',
+      arena_input_placeholder: 'Type Romaji (e.g., sakana)...',
+      arena_romaji_hint: "Auto-converts Romaji: 'sakana' ➔ 'さかな'",
+      arena_back: 'Previous',
+      arena_finish: 'Finish Quiz',
+      arena_skip: 'Skip',
+      pr_stat_total: 'Total Words',
+      tips_title: 'Quick Keyboard Shortcuts:',
+      tip_1: 'Press Question Grid (or Ctrl+G) to jump to any question.',
+      tip_2: 'Press keys 1, 2, 3, or 4 to select multiple-choice answers.',
+      tip_3: 'Press Previous (or Ctrl+Z) to go back a step.',
+      tip_4: 'Press Spacebar to replay authentic Tokyo Japanese audio.',
+      tip_5: 'Open ⚙️ Settings to customize quiz modes and voice options.',
       mode_higa: 'Type Hiragana',
       mode_mc: '4-Choice Quiz',
       mode_combo: 'Full Reflex Combo',
@@ -358,6 +404,7 @@
 
       // Settings Modal
       settings_title: 'Study Settings',
+      settings_language: 'Display Language',
       settings_utils: 'Learning Utilities',
       settings_dark_title: 'Dark Mode',
       settings_dark_sub: 'Calm Sumi-ink dark palette for comfortable reading',
@@ -425,28 +472,741 @@
       confirm_reset_progress: 'WARNING: This will clear all mastered and review-needed words. Are you sure?',
       alert_reset_done: 'Progress has been reset!',
       confirm_signout: 'Are you sure you want to sign out of your Google account?'
+    },
+
+    fr: {
+      // Sidebar & Navigation
+      nav_home: 'Accueil',
+      nav_practice: 'Pratique réflexe',
+      nav_vocab: 'Vocabulaire & Cartes',
+      nav_profile: 'Profil',
+      nav_start_here: 'Commencer ici',
+      nav_flashcards: 'Cartes mémoire (Flashcards)',
+      nav_ai_tutor: 'Tuteur Kanji IA',
+      nav_roadmap: 'Votre parcours',
+      nav_n5: 'JLPT N5 (Débutant)',
+      nav_n4: 'JLPT N4 (Élémentaire)',
+      nav_radicals: '214 Radicaux de Kangxi',
+      sb_download_title: 'TÉLÉCHARGER & LIENS',
+      sb_beta_badge: 'Bêta',
+      sb_beta_note: 'Bêta fermée · Bientôt disponible',
+      sb_beta_alert: "L'application mobile Kanji Kachi sur Google Play est actuellement en bêta fermée et sera bientôt disponible publiquement. Connectez-vous avec Google sur le Web pour synchroniser automatiquement votre progression dès la sortie !",
+
+      // Top Header
+      search_placeholder: 'Rechercher Kanji, Hiragana ou sens...',
+      auth_signin: 'Connexion',
+
+      // Home View
+      home_eyebrow: 'Entraînement attentif',
+      home_heading: "Que souhaitez-vous réviser aujourd'hui ?",
+      home_sub: '15 minutes de saisie et de réflexes par jour pour maîtriser 1 061 Kanji JLPT N5 & N4.',
+      spotlight_eyebrow: 'KANJI DU JOUR',
+      spotlight_reading: 'Lecture : {0}',
+      spotlight_meta: 'Sélection quotidienne • JLPT N5/N4',
+      spotlight_ask_ai: "Demander à l'IA",
+      spotlight_practice_word: 'Pratiquer ce mot',
+      card_flashcard_eyebrow: 'Apprendre & Mémoriser',
+      card_flashcard_title: 'Étudier les Kanji (Cartes 3D)',
+      card_flashcard_desc: "Retournez les cartes 3D, écoutez la prononciation authentique de Tokyo, suivez vos acquis et synchronisez avec l'application mobile.",
+      card_flashcard_cta: 'Lancer les Flashcards',
+      card_practice_eyebrow: 'Exercices de vitesse',
+      card_practice_title: 'Pratique réflexe (Quiz)',
+      card_practice_desc: "3 modes identiques à l'application : Saisie Hiragana, QCM à 4 choix ou Réflexe complet.",
+      card_practice_cta: "Entrer dans l'arène",
+      home_topics_title: 'Thèmes de Kanji · Étude & Pratique',
+      home_topics_sub: 'Choisissez un thème pour étudier avec des cartes 3D ou lancer un quiz réflexe.',
+      home_topic_card_sub: 'Vocabulaire Kanji essentiel pour le JLPT N5 & N4.',
+      home_view_all_topics: 'Voir tous les thèmes',
+      home_guide_eyebrow: "Guide d'auto-apprentissage JLPT",
+      home_guide_title: 'Comment maîtriser 1 061 Kanji N5/N4 & 214 Radicaux de Kangxi',
+      home_guide_desc: 'Découvrez Onyomi & Kunyomi, les 12 radicaux essentiels de Kangxi, les paires de Kanji souvent confondues au JLPT et une routine réflexe de 15 minutes par jour.',
+      home_guide_cta: 'Lire le guide',
+      footer_guide: 'Guide Kanji',
+      footer_about: 'À propos',
+      footer_terms: "Conditions d'utilisation",
+      footer_privacy: 'Politique de confidentialité',
+      footer_contact: 'Contact & Assistance',
+
+      // Vocab & Flashcards
+      vocab_title: 'Bibliothèque de Vocabulaire & Cartes',
+      vocab_sub: 'Parcourez 1 061 Kanji JLPT N5/N4 & 214 Radicaux ou étudiez avec les cartes 3D.',
+      vocab_words_count: '{0} mots',
+      vocab_btn_cards: 'Cartes',
+      vocab_btn_practice: 'Pratiquer',
+      search_found: '{0} mots correspondants trouvés',
+      search_empty: 'Aucun mot ou radical correspondant trouvé.',
+      topic_words: '{0} mots',
+      vocab_section_radicals: '214 Radicaux de Kangxi',
+      vocab_section_level: 'Niveau JLPT {0}',
+      vocab_count_radicals: '{0} groupes de radicaux',
+      vocab_count_topics: '{0} thèmes',
+      vocab_learned_count: 'Maîtrisés {0}/{1}',
+      examples_prefix: 'Exemples : {0}',
+      back: 'Retour',
+      fc_tap_flip: 'Touchez la carte pour voir le sens et la lecture',
+      fc_back_label: 'Verso · Sens & Lecture',
+      fc_rate_note: 'Évaluez votre mémorisation pour sauvegarder et synchroniser automatiquement',
+      fc_forgot: 'À revoir',
+      fc_remembered: 'Maîtrisé',
+      fc_done_title: 'Paquet terminé !',
+      fc_stat_total: 'Total des cartes',
+      fc_stat_remembered: 'Maîtrisés',
+      fc_stat_forgotten: 'À revoir',
+      fc_missed_list: 'Mots à revoir de cette session',
+      fc_retry_forgotten_prefix: 'Réviser les mots à revoir',
+      fc_restart_all: 'Recommencer tout le paquet',
+      fc_pick_other: 'Choisir un autre thème',
+
+      // Practice Hub & Arena
+      pr_eyebrow: 'Arène de pratique réflexe',
+      pr_choose_mode: "Choisissez un mode d'entraînement",
+      pr_choose_sub: 'Entraînez la saisie instantanée en Hiragana et le rappel du sens au rythme du JLPT.',
+      pr_higa_title: 'Saisie Hiragana',
+      pr_higa_desc: 'Voyez le Kanji et tapez vite sa lecture Hiragana (conversion Romaji auto).',
+      pr_select_mode: 'Choisir ce mode',
+      pr_mc_title: 'QCM à 4 choix',
+      pr_mc_desc: 'Voyez le Kanji et choisissez vite le bon sens parmi 4 choix (touches 1-4).',
+      pr_recommended: 'Recommandé',
+      pr_combo_title: 'Réflexe complet',
+      pr_combo_desc: 'Tapez la lecture Hiragana puis confirmez immédiatement son sens.',
+      pr_pick_level_topic: 'Sélectionnez le niveau et les thèmes à pratiquer',
+      pr_lvl_radicals: '214 Clés',
+      pr_topics_selected_label: 'Thèmes choisis',
+      pr_only_unremembered: 'À revoir uniquement',
+      pr_select_all: 'Tout sélectionner',
+      pr_start_quiz: "Commencer l'entraînement",
+      alert_pick_topic: 'Veuillez sélectionner au moins un thème pour commencer.',
+      alert_no_unremembered: 'Aucun mot à revoir ! Démarrage avec tous les mots sélectionnés.',
+      arena_input_placeholder: 'Tapez en Romaji (ex. sakana)...',
+      arena_romaji_hint: "Conversion auto Romaji : 'sakana' ➔ 'さかな'",
+      arena_back: 'Précédent',
+      arena_finish: 'Terminer',
+      arena_skip: 'Passer',
+      pr_stat_total: 'Total des mots',
+      tips_title: 'Raccourcis clavier rapides :',
+      tip_1: 'Cliquez sur la Grille (ou Ctrl+G) pour aller à une question précise.',
+      tip_2: 'Utilisez les touches 1, 2, 3, 4 pour choisir une réponse au QCM.',
+      tip_3: 'Cliquez sur Précédent (ou Ctrl+Z) pour revenir en arrière.',
+      tip_4: 'Appuyez sur Espace pour réécouter la prononciation japonaise.',
+      tip_5: 'Ouvrez ⚙️ Paramètres pour régler le mode QCM et la voix.',
+      mode_higa: 'Saisie Hiragana',
+      mode_mc: 'QCM à 4 choix',
+      mode_combo: 'Réflexe complet',
+      question_counter: 'Question {0} / {1}',
+      tap_listen: 'Toucher pour écouter',
+      correct_reading: 'Bonne réponse : {0}',
+      hint_first_char: 'Indice : commence par « {0} » ({1})',
+      pr_done_title: 'Entraînement terminé !',
+      pr_done_sub: "Bravo pour avoir terminé cette session d'entraînement réflexe.",
+      pr_pick_other: 'Choisir un autre exercice',
+
+      // Profile & Auth
+      profile_google_sync_btn: 'Se connecter avec Google pour synchroniser App & Web',
+      profile_logout: 'Se déconnecter',
+      profile_default_name: 'Apprenant Kanji Kachi',
+      profile_short_name: 'Apprenant',
+      profile_guest_email: 'Non connecté · Progression enregistrée localement sur le navigateur',
+      profile_synced_badge: 'Synchronisé App & Web',
+      profile_unsynced_badge: 'Non synchronisé',
+      profile_guest_label: 'Invité (non connecté)',
+      profile_ai_today: "Jetons Tuteur IA d'aujourd'hui",
+      profile_ai_limit: 'Quota quotidien : 12 000 jetons / jour',
+      profile_ai_reset: 'Réinitialisation à 00:00 (UTC+7)',
+      profile_token_gate_desc: 'Connectez-vous avec Google pour utiliser le Tuteur Kanji IA et suivre vos 12 000 jetons quotidiens.',
+      profile_settings_row: "Paramètres vocaux & d'étude",
+      profile_settings_sub: 'Thème clair/sombre, vitesse et volume de la voix Tokyo Neural',
+      profile_reset_row: 'Réinitialiser toute la progression',
+      profile_reset_sub: 'Effacer les mots maîtrisés et à revoir pour repartir à zéro',
+      profile_info_header: 'Infos & Assistance',
+      profile_support_title: "Centre d'aide & FAQ",
+      profile_support_sub: 'Guide de synchro App ⇄ Web, audio, contact',
+      profile_about_title: 'À propos de Kanji Kachi',
+      profile_about_sub: 'Mission, méthode & infos développeur',
+      profile_terms_title: "Conditions d'utilisation",
+      profile_terms_sub: "Règles d'utilisation de la plateforme Kanji Kachi",
+      profile_privacy_title: 'Politique de confidentialité',
+      profile_privacy_sub: 'Protection des données de compte et vie privée',
+      profile_licenses_title: 'Licences Open Source',
+      profile_licenses_sub: 'Bibliothèques et polices utilisées',
+
+      // Jump Grid Modal
+      grid_title: 'Navigateur de questions',
+      grid_correct: 'Correct',
+      grid_wrong: 'Manqué / Marqué',
+      grid_unvisited: 'Non répondu',
+      grid_close: 'Fermer la grille',
+
+      // Settings Modal
+      settings_title: "Paramètres d'étude",
+      settings_language: "Langue d'affichage",
+      settings_utils: "Outils d'apprentissage",
+      settings_dark_title: 'Mode sombre (Dark Mode)',
+      settings_dark_sub: 'Palette sombre encre Sumi reposante pour les yeux',
+      settings_autospeak_title: 'Prononciation auto au mot suivant',
+      settings_autospeak_sub: 'Voix japonaise Tokyo Neural (avec synthèse navigateur en secours)',
+      settings_romaji_title: 'Conversion auto Romaji ➔ Hiragana',
+      settings_romaji_sub: "Taper 'sakana' convertit en 'さかな'",
+      settings_voice_title: 'Paramètres vocaux',
+      settings_test_voice: 'Tester la voix',
+      settings_speed: 'Vitesse de lecture (Lent ⇄ Rapide)',
+      settings_speed_slow: '0.5x Lent',
+      settings_speed_normal: '1.0x Normal',
+      settings_speed_fast: '1.5x Rapide',
+      settings_volume: 'Volume vocal (Muet ⇄ Max)',
+      settings_vol_mute: '0% Muet',
+      settings_vol_mid: '50% Moyen',
+      settings_vol_max: '100% Max',
+      settings_jp_voice: 'Voix japonaise',
+      settings_save_close: 'Enregistrer & Fermer',
+      voice_default_neural: 'Tokyo Neural · Nanami (Par défaut)',
+      voice_device_prefix: "Voix de l'appareil",
+
+      // AI Tutor & Token Modal
+      tutor_title: 'Tuteur Kanji IA',
+      tutor_sub: 'Sens, radicaux & grammaire',
+      tutor_login_title: 'Connectez-vous pour le Tuteur IA',
+      tutor_login_desc: 'Connectez-vous avec votre compte Google pour discuter avec le Tuteur Kanji IA et recevoir 12 000 jetons gratuits/jour.',
+      tutor_login_btn: 'Se connecter avec Google',
+      tutor_welcome_title: 'Konnichiwa ! Je suis votre Tuteur Kanji IA ✨',
+      tutor_welcome_desc: "Que voulez-vous explorer sur les 1 061 Kanji JLPT N5/N4, les radicaux ou les exemples ? Choisissez une suggestion ci-dessous ou écrivez votre question !",
+      tutor_viewing: 'Affiché :',
+      tutor_chip_usage: '💡 Usage',
+      tutor_chip_example: '📝 Exemple',
+      tutor_chip_grammar: '📖 Grammaire',
+      preset_usage: 'Dans quelles situations ce mot est-il couramment utilisé ?',
+      preset_example: "Donne-moi une phrase d'exemple naturelle avec ce mot et sa traduction en français.",
+      preset_grammar: "Explique un point de grammaire JLPT lié et donne une phrase d'exemple.",
+      tutor_placeholder: 'Demander au Tuteur Kanji IA (ex. usage de 桜, grammaire です)...',
+      tutor_placeholder_word: 'Question sur « {0} »...',
+      token_modal_title: 'Quota de jetons IA',
+      token_remaining_today: "Restant aujourd'hui",
+      token_used: 'Utilisé',
+      token_account: 'Compte',
+      token_reset_note: 'Recharge automatique de 12 000 jetons à 00:00 (UTC+7)',
+      ai_reset_countdown: 'Réinitialisation dans {0}h {1}min',
+      ai_token_login_alert: 'Veuillez vous connecter avec Google pour consulter votre quota de jetons IA.',
+      ai_rate_limit: 'Veuillez patienter {0}s avant de poser une autre question.',
+      ai_typing: 'Le Tuteur IA rédige sa réponse...',
+      ai_quota_out_title: 'Quota quotidien atteint !',
+      ai_quota_out_desc: "Vous avez utilisé vos 12 000 jetons IA pour aujourd'hui. Le quota se réinitialisera automatiquement à 00:00 (UTC+7).",
+      ai_error_title: 'Connexion au Tuteur IA temporairement interrompue',
+      ai_error_retry: 'Veuillez réessayer votre question dans quelques secondes !',
+
+      // Consent Modal & Generic
+      consent_title: 'Bienvenue sur Kanji Kachi',
+      consent_sub: "Veuillez lire et accepter nos conditions avant de commencer",
+      consent_terms: "Conditions d'utilisation",
+      consent_privacy: 'Politique de confidentialité',
+      consent_agree_label: "J'ai lu et j'accepte les Conditions d'utilisation et la Politique de confidentialité de Kanji Kachi.",
+      consent_dont_show: 'Ne plus afficher cet avis lors des prochaines visites.',
+      consent_start: "Accepter & Commencer l'étude",
+      close: 'Fermer',
+      confirm_finish_early: 'Voulez-vous vraiment terminer maintenant et voir vos résultats ?',
+      confirm_exit_practice: "Retourner à l'écran de sélection des thèmes ?",
+      confirm_reset_progress: 'ATTENTION : cela effacera tous vos mots maîtrisés et à revoir. Continuer ?',
+      alert_reset_done: 'Votre progression a été réinitialisée !',
+      confirm_signout: 'Voulez-vous vraiment vous déconnecter de votre compte Google ?'
+    },
+
+    es: {
+      // Sidebar & Navigation
+      nav_home: 'Inicio',
+      nav_practice: 'Práctica réflex',
+      nav_vocab: 'Vocabulario y Tarjetas',
+      nav_profile: 'Perfil',
+      nav_start_here: 'Empieza aquí',
+      nav_flashcards: 'Tarjetas de memoria (Flashcards)',
+      nav_ai_tutor: 'Tutor Kanji con IA',
+      nav_roadmap: 'Tu ruta de estudio',
+      nav_n5: 'JLPT N5 (Principiante)',
+      nav_n4: 'JLPT N4 (Elemental)',
+      nav_radicals: '214 Radicales de Kangxi',
+      sb_download_title: 'DESCARGAS Y ENLACES',
+      sb_beta_badge: 'Beta',
+      sb_beta_note: 'Beta cerrada · Próximamente',
+      sb_beta_alert: 'La aplicación móvil Kanji Kachi en Google Play se encuentra actualmente en fase de prueba cerrada (Beta) y se lanzará pronto. ¡Inicia sesión con Google en la Web para sincronizar tu progreso automáticamente!',
+
+      // Top Header
+      search_placeholder: 'Buscar Kanji, Hiragana o significado...',
+      auth_signin: 'Iniciar sesión',
+
+      // Home View
+      home_eyebrow: 'Práctica consciente',
+      home_heading: '¿Qué te gustaría practicar hoy?',
+      home_sub: '15 minutos diarios de escritura y reflejos para dominar 1 061 Kanji JLPT N5 y N4.',
+      spotlight_eyebrow: 'KANJI DEL DÍA',
+      spotlight_reading: 'Lectura: {0}',
+      spotlight_meta: 'Selección diaria • JLPT N5/N4',
+      spotlight_ask_ai: 'Preguntar a la IA',
+      spotlight_practice_word: 'Practicar esta palabra',
+      card_flashcard_eyebrow: 'Aprender y Memorizar',
+      card_flashcard_title: 'Estudiar Kanji (Tarjetas 3D)',
+      card_flashcard_desc: 'Voltea tarjetas 3D, escucha la pronunciación auténtica de Tokio, marca Dominadas / Por repasar y sincroniza con la app móvil.',
+      card_flashcard_cta: 'Empezar Flashcards',
+      card_practice_eyebrow: 'Velocidad y Reflejos',
+      card_practice_title: 'Práctica réflex (Examen)',
+      card_practice_desc: '3 modos iguales a la app: Escribir Hiragana, Test de 4 opciones o Reflejo completo.',
+      card_practice_cta: 'Entrar a la sala de práctica',
+      home_topics_title: 'Temas de Kanji · Estudio y Práctica',
+      home_topics_sub: 'Elige un tema para estudiar con tarjetas 3D o hacer un test réflex al instante.',
+      home_topic_card_sub: 'Vocabulario Kanji esencial para el JLPT N5 y N4.',
+      home_view_all_topics: 'Ver todos los temas',
+      home_guide_eyebrow: 'Guía autodidacta JLPT',
+      home_guide_title: 'Cómo dominar 1 061 Kanji N5/N4 y 214 Radicales de Kangxi',
+      home_guide_desc: 'Aprende a distinguir Onyomi y Kunyomi, explora los 12 radicales esenciales de Kangxi, evita pares de Kanji confusos en el JLPT y sigue una rutina réflex de 15 minutos.',
+      home_guide_cta: 'Leer guía de estudio',
+      footer_guide: 'Guía de Kanji',
+      footer_about: 'Acerca de',
+      footer_terms: 'Términos de servicio',
+      footer_privacy: 'Política de privacidad',
+      footer_contact: 'Contacto y Soporte',
+
+      // Vocab & Flashcards
+      vocab_title: 'Biblioteca de Vocabulario y Tarjetas',
+      vocab_sub: 'Explora 1 061 Kanji JLPT N5/N4 y 214 Radicales o estudia con tarjetas 3D.',
+      vocab_words_count: '{0} palabras',
+      vocab_btn_cards: 'Tarjetas',
+      vocab_btn_practice: 'Practicar',
+      search_found: 'Se encontraron {0} palabras coincidentes',
+      search_empty: 'No se encontraron palabras ni radicales coincidentes.',
+      topic_words: '{0} palabras',
+      vocab_section_radicals: '214 Radicales de Kangxi',
+      vocab_section_level: 'Nivel JLPT {0}',
+      vocab_count_radicals: '{0} grupos de radicales',
+      vocab_count_topics: '{0} temas',
+      vocab_learned_count: 'Dominadas {0}/{1}',
+      examples_prefix: 'Ejemplos: {0}',
+      back: 'Atrás',
+      fc_tap_flip: 'Toca la tarjeta para ver significado y lectura',
+      fc_back_label: 'Reverso · Significado y Lectura',
+      fc_rate_note: 'Evalúa tu recuerdo para guardar y sincronizar en la nube automáticamente',
+      fc_forgot: 'Por repasar',
+      fc_remembered: 'Dominada',
+      fc_done_title: '¡Mazo completado!',
+      fc_stat_total: 'Total de tarjetas',
+      fc_stat_remembered: 'Dominadas',
+      fc_stat_forgotten: 'Por repasar',
+      fc_missed_list: 'Palabras por repasar en esta sesión',
+      fc_retry_forgotten_prefix: 'Repasar palabras pendientes',
+      fc_restart_all: 'Reiniciar todo el mazo',
+      fc_pick_other: 'Elegir otro tema',
+
+      // Practice Hub & Arena
+      pr_eyebrow: 'Sala de práctica réflex',
+      pr_choose_mode: 'Elige un modo de entrenamiento',
+      pr_choose_sub: 'Entrena la escritura rápida en Hiragana y el recuerdo del significado a ritmo de JLPT.',
+      pr_higa_title: 'Escribir Hiragana',
+      pr_higa_desc: 'Mira el Kanji y escribe rápido su lectura en Hiragana (conversión Romaji automática).',
+      pr_select_mode: 'Seleccionar modo',
+      pr_mc_title: 'Test de 4 opciones',
+      pr_mc_desc: 'Mira el Kanji y elige rápido el significado correcto entre 4 opciones (teclas 1-4).',
+      pr_recommended: 'Recomendado',
+      pr_combo_title: 'Reflejo completo',
+      pr_combo_desc: 'Escribe primero la lectura en Hiragana y luego confirma su significado.',
+      pr_pick_level_topic: 'Selecciona el nivel y los temas para practicar',
+      pr_lvl_radicals: '214 Radicales',
+      pr_topics_selected_label: 'Temas elegidos',
+      pr_only_unremembered: 'Solo por repasar',
+      pr_select_all: 'Seleccionar todo',
+      pr_start_quiz: 'Empezar práctica',
+      alert_pick_topic: 'Selecciona al menos un tema para comenzar a practicar.',
+      alert_no_unremembered: '¡No hay palabras pendientes! Empezando con todas las palabras.',
+      arena_input_placeholder: 'Escribe Romaji (ej. sakana)...',
+      arena_romaji_hint: "Conversión automática: 'sakana' ➔ 'さかな'",
+      arena_back: 'Anterior',
+      arena_finish: 'Finalizar',
+      arena_skip: 'Saltar',
+      pr_stat_total: 'Total de palabras',
+      tips_title: 'Atajos de teclado rápidos:',
+      tip_1: 'Pulsa la Cuadrícula (o Ctrl+G) para saltar a cualquier pregunta.',
+      tip_2: 'Pulsa las teclas 1, 2, 3 o 4 para elegir la respuesta correcta.',
+      tip_3: 'Pulsa Anterior (o Ctrl+Z) para retroceder una pregunta.',
+      tip_4: 'Pulsa Espacio para volver a escuchar la pronunciación japonesa.',
+      tip_5: 'Abre ⚙️ Ajustes para configurar el test y las opciones de voz.',
+      mode_higa: 'Escribir Hiragana',
+      mode_mc: 'Test de 4 opciones',
+      mode_combo: 'Reflejo completo',
+      question_counter: 'Pregunta {0} / {1}',
+      tap_listen: 'Toca para escuchar',
+      correct_reading: 'Lectura correcta: {0}',
+      hint_first_char: 'Pista: empieza por «{0}» ({1})',
+      pr_done_title: '¡Práctica completada!',
+      pr_done_sub: 'Excelente trabajo completando esta sesión de entrenamiento réflex.',
+      pr_pick_other: 'Elegir otro ejercicio',
+
+      // Profile & Auth
+      profile_google_sync_btn: 'Inicia sesión con Google para sincronizar App y Web',
+      profile_logout: 'Cerrar sesión',
+      profile_default_name: 'Estudiante de Kanji Kachi',
+      profile_short_name: 'Estudiante',
+      profile_guest_email: 'Sin sesión · Progreso guardado localmente en el navegador',
+      profile_synced_badge: 'Sincronizado App y Web',
+      profile_unsynced_badge: 'No sincronizado',
+      profile_guest_label: 'Invitado (sin sesión)',
+      profile_ai_today: 'Tokens de Tutor IA de hoy',
+      profile_ai_limit: 'Cuota diaria: 12 000 tokens / día',
+      profile_ai_reset: 'Se renueva a las 00:00 (UTC+7)',
+      profile_token_gate_desc: 'Inicia sesión con Google para usar el Tutor Kanji con IA y seguir tu cuota diaria de 12 000 tokens.',
+      profile_settings_row: 'Ajustes de voz y estudio',
+      profile_settings_sub: 'Tema claro/oscuro, velocidad y volumen de voz Tokyo Neural',
+      profile_reset_row: 'Restablecer todo el progreso',
+      profile_reset_sub: 'Borrar palabras dominadas y pendientes para empezar desde cero',
+      profile_info_header: 'Información y Soporte',
+      profile_support_title: 'Centro de ayuda y FAQ',
+      profile_support_sub: 'Guía de sincronización App ⇄ Web, audio y contacto',
+      profile_about_title: 'Acerca de Kanji Kachi',
+      profile_about_sub: 'Misión, metodología e información del desarrollador',
+      profile_terms_title: 'Términos de servicio',
+      profile_terms_sub: 'Normas de uso de la plataforma Kanji Kachi',
+      profile_privacy_title: 'Política de privacidad',
+      profile_privacy_sub: 'Cómo protegemos los datos de tu cuenta y privacidad',
+      profile_licenses_title: 'Licencias de código abierto',
+      profile_licenses_sub: 'Bibliotecas y tipografías utilizadas',
+
+      // Jump Grid Modal
+      grid_title: 'Navegador de preguntas',
+      grid_correct: 'Correcta',
+      grid_wrong: 'Fallada / Marcada',
+      grid_unvisited: 'Sin responder',
+      grid_close: 'Cerrar navegador',
+
+      // Settings Modal
+      settings_title: 'Ajustes de estudio',
+      settings_language: 'Idioma de visualización',
+      settings_utils: 'Utilidades de aprendizaje',
+      settings_dark_title: 'Modo oscuro (Dark Mode)',
+      settings_dark_sub: 'Paleta oscura de tinta Sumi cómoda para la vista',
+      settings_autospeak_title: 'Pronunciar automáticamente al pasar palabra',
+      settings_autospeak_sub: 'Audio japonés Tokyo Neural (con voz del navegador como respaldo)',
+      settings_romaji_title: 'Convertir automáticamente Romaji ➔ Hiragana',
+      settings_romaji_sub: "Escribir 'sakana' se convierte en 'さかな'",
+      settings_voice_title: 'Ajustes de voz',
+      settings_test_voice: 'Probar voz',
+      settings_speed: 'Velocidad de lectura (Lento ⇄ Rápido)',
+      settings_speed_slow: '0.5x Lento',
+      settings_speed_normal: '1.0x Normal',
+      settings_speed_fast: '1.5x Rápido',
+      settings_volume: 'Volumen de voz (Silencio ⇄ Máx.)',
+      settings_vol_mute: '0% Silencio',
+      settings_vol_mid: '50% Medio',
+      settings_vol_max: '100% Máx.',
+      settings_jp_voice: 'Voz japonesa',
+      settings_save_close: 'Guardar y Cerrar',
+      voice_default_neural: 'Tokyo Neural · Nanami (Predeterminada)',
+      voice_device_prefix: 'Voz del dispositivo',
+
+      // AI Tutor & Token Modal
+      tutor_title: 'Tutor Kanji con IA',
+      tutor_sub: 'Significados, radicales y gramática',
+      tutor_login_title: 'Inicia sesión para usar el Tutor IA',
+      tutor_login_desc: 'Inicia sesión con tu cuenta de Google para conversar con el Tutor Kanji con IA y recibir 12 000 tokens gratis/día.',
+      tutor_login_btn: 'Iniciar sesión con Google',
+      tutor_welcome_title: '¡Konnichiwa! Soy tu Tutor Kanji con IA ✨',
+      tutor_welcome_desc: '¿Qué te gustaría explorar sobre los 1 061 Kanji JLPT N5/N4, radicales u oraciones de ejemplo? ¡Elige una sugerencia abajo o escribe tu pregunta!',
+      tutor_viewing: 'Viendo:',
+      tutor_chip_usage: '💡 Uso',
+      tutor_chip_example: '📝 Ejemplo',
+      tutor_chip_grammar: '📖 Gramática',
+      preset_usage: '¿En qué situaciones se usa habitualmente esta palabra?',
+      preset_example: 'Dame una oración de ejemplo natural con esta palabra y su traducción al español.',
+      preset_grammar: 'Explica un punto gramatical JLPT relacionado y pon una oración de ejemplo.',
+      tutor_placeholder: 'Pregunta al Tutor Kanji con IA (ej. uso de 桜, gramática です)...',
+      tutor_placeholder_word: 'Preguntar sobre «{0}»...',
+      token_modal_title: 'Cuota de tokens de IA',
+      token_remaining_today: 'Restantes hoy',
+      token_used: 'Usados',
+      token_account: 'Cuenta',
+      token_reset_note: 'Recarga automática de 12 000 tokens a las 00:00 (UTC+7)',
+      ai_reset_countdown: 'Se renueva en {0}h {1}min',
+      ai_token_login_alert: 'Inicia sesión con Google para consultar tu cuota de tokens de IA.',
+      ai_rate_limit: 'Espera {0}s antes de enviar otra pregunta.',
+      ai_typing: 'El Tutor IA está redactando una respuesta...',
+      ai_quota_out_title: '¡Cuota diaria alcanzada!',
+      ai_quota_out_desc: 'Has utilizado tus 12 000 tokens de IA por hoy. Tu cuota se renovará automáticamente a las 00:00 (UTC+7).',
+      ai_error_title: 'Tutor IA desconectado temporalmente',
+      ai_error_retry: '¡Intenta enviar tu pregunta de nuevo en unos segundos!',
+
+      // Consent Modal & Generic
+      consent_title: 'Bienvenido a Kanji Kachi',
+      consent_sub: 'Revisa y acepta nuestras condiciones antes de empezar',
+      consent_terms: 'Términos de servicio',
+      consent_privacy: 'Política de privacidad',
+      consent_agree_label: 'He leído y acepto los Términos de servicio y la Política de privacidad de Kanji Kachi.',
+      consent_dont_show: 'No volver a mostrar este aviso en futuras visitas.',
+      consent_start: 'Aceptar y Empezar a aprender',
+      close: 'Cerrar',
+      confirm_finish_early: '¿Seguro que deseas terminar ahora y ver tus resultados?',
+      confirm_exit_practice: '¿Volver a la pantalla de selección de temas?',
+      confirm_reset_progress: 'ADVERTENCIA: Esto borrará todas las palabras dominadas y por repasar. ¿Estás seguro?',
+      alert_reset_done: '¡El progreso se ha restablecido!',
+      confirm_signout: '¿Seguro que deseas cerrar sesión en tu cuenta de Google?'
+    },
+
+    ko: {
+      // Sidebar & Navigation
+      nav_home: '홈',
+      nav_practice: '순발력 연습',
+      nav_vocab: '단어장 & 플래시카드',
+      nav_profile: '프로필',
+      nav_start_here: '여기서 시작하기',
+      nav_flashcards: '플래시카드 학습',
+      nav_ai_tutor: 'AI 한자 튜터',
+      nav_roadmap: '나의 학습 로드맵',
+      nav_n5: 'JLPT N5 (입문)',
+      nav_n4: 'JLPT N4 (초중급)',
+      nav_radicals: '강희자전 214부수',
+      sb_download_title: '다운로드 & 링크',
+      sb_beta_badge: '베타',
+      sb_beta_note: '비공개 베타 · 출시 예정',
+      sb_beta_alert: 'Google Play의 Kanji Kachi 모바일 앱은 현재 비공개 테스트(Closed Beta) 중이며 곧 정식 출시됩니다. 웹에서 Google 계정으로 로그인해 두시면 앱 출시 즉시 학습 진도가 자동 동기화됩니다!',
+
+      // Top Header
+      search_placeholder: '한자, 히라가나 또는 뜻 검색...',
+      auth_signin: '로그인',
+
+      // Home View
+      home_eyebrow: '매일의 집중 훈련',
+      home_heading: '오늘은 무엇을 연습해 볼까요?',
+      home_sub: '하루 15분 타이핑과 순발력 훈련으로 JLPT N5·N4 필수 한자 1,061개를 완벽히 마스터하세요.',
+      spotlight_eyebrow: '오늘의 한자',
+      spotlight_reading: '읽기: {0}',
+      spotlight_meta: '매일 자동 추천 • JLPT N5/N4',
+      spotlight_ask_ai: 'AI에게 질문',
+      spotlight_practice_word: '이 단어 연습하기',
+      card_flashcard_eyebrow: '새 단어 학습 & 암기',
+      card_flashcard_title: '한자 학습 (3D 플래시카드)',
+      card_flashcard_desc: '직관적인 3D 카드를 뒤집고 도쿄 네이티브 발음을 들으며 암기 완료 / 복습 필요를 체크해 모바일 앱과 동기화하세요.',
+      card_flashcard_cta: '플래시카드 시작하기',
+      card_practice_eyebrow: '스피드 실전 테스트',
+      card_practice_title: '순발력 연습 (퀴즈)',
+      card_practice_desc: '앱과 동일한 3가지 모드: 히라가나 타이핑, 4지선다 퀴즈, 읽기·의미 종합 순발력.',
+      card_practice_cta: '연습실 입장하기',
+      home_topics_title: '한자 주제 · 학습 & 연습',
+      home_topics_sub: '주제를 선택해 3D 플래시카드로 외우거나 즉시 순발력 테스트를 시작하세요.',
+      home_topic_card_sub: 'JLPT N5·N4 핵심 한자 어휘 모음입니다.',
+      home_view_all_topics: '전체 주제 보기',
+      home_guide_eyebrow: 'JLPT 독학 가이드',
+      home_guide_title: 'JLPT N5/N4 한자 1,061개 & 214부수 정복 비법',
+      home_guide_desc: '음독·훈독 구별법, 핵심 강희자전 12부수, JLPT 빈출 혼동 한자 쌍과 하루 15분 순발력 루틴을 확인해 보세요.',
+      home_guide_cta: '학습 가이드 읽기',
+      footer_guide: '한자 가이드',
+      footer_about: '서비스 소개',
+      footer_terms: '이용약관',
+      footer_privacy: '개인정보 처리방침',
+      footer_contact: '문의 및 고객지원',
+
+      // Vocab & Flashcards
+      vocab_title: '단어장 & 플래시카드 라이브러리',
+      vocab_sub: 'JLPT N5/N4 한자 1,061개와 214부수를 검색하거나 3D 카드로 학습하세요.',
+      vocab_words_count: '{0}단어',
+      vocab_btn_cards: '카드 학습',
+      vocab_btn_practice: '연습하기',
+      search_found: '일치하는 단어 {0}개 검색됨',
+      search_empty: '검색어와 일치하는 단어나 부수가 없습니다.',
+      topic_words: '{0}단어',
+      vocab_section_radicals: '강희자전 214부수',
+      vocab_section_level: 'JLPT {0} 레벨',
+      vocab_count_radicals: '{0}개 부수 그룹',
+      vocab_count_topics: '{0}개 주제',
+      vocab_learned_count: '암기 {0}/{1}',
+      examples_prefix: '예시: {0}',
+      back: '뒤로',
+      fc_tap_flip: '카드를 탭하여 뜻과 읽기 확인',
+      fc_back_label: '뒷면 · 의미 & 읽기',
+      fc_rate_note: '암기 상태를 체크하면 클라우드에 자동 저장됩니다',
+      fc_forgot: '복습 필요',
+      fc_remembered: '외웠음',
+      fc_done_title: '카드 학습 완료!',
+      fc_stat_total: '전체 카드',
+      fc_stat_remembered: '암기 완료',
+      fc_stat_forgotten: '복습 필요',
+      fc_missed_list: '이번 세션에서 다시 볼 단어',
+      fc_retry_forgotten_prefix: '미암기 단어 복습하기',
+      fc_restart_all: '전체 처음부터 다시 보기',
+      fc_pick_other: '다른 주제 선택',
+
+      // Practice Hub & Arena
+      pr_eyebrow: '순발력 훈련장',
+      pr_choose_mode: '연습 모드를 선택하세요',
+      pr_choose_sub: 'JLPT 실전 속도에 맞춰 히라가나 타이핑과 의미 연상을 훈련합니다.',
+      pr_higa_title: '히라가나 타이핑',
+      pr_higa_desc: '한자를 보고 빠르게 히라가나 읽기를 입력합니다 (로마자 자동 변환 지원).',
+      pr_select_mode: '이 모드 선택',
+      pr_mc_title: '4지선다 퀴즈',
+      pr_mc_desc: '한자를 보고 4가지 보기 중 올바른 뜻을 빠르게 고릅니다 (숫자키 1-4).',
+      pr_recommended: '추천',
+      pr_combo_title: '종합 순발력',
+      pr_combo_desc: '먼저 히라가나 읽기를 입력한 뒤 이어서 정확한 뜻까지 확인합니다.',
+      pr_pick_level_topic: '연습할 레벨과 주제를 선택하세요',
+      pr_lvl_radicals: '214 부수',
+      pr_topics_selected_label: '선택된 주제',
+      pr_only_unremembered: '복습 필요 단어만',
+      pr_select_all: '전체 선택',
+      pr_start_quiz: '테스트 시작하기',
+      alert_pick_topic: '연습을 시작하려면 주제를 하나 이상 선택해 주세요.',
+      alert_no_unremembered: '복습할 단어가 없습니다! 선택한 주제의 전체 단어로 시작합니다.',
+      arena_input_placeholder: '로마자 입력 (예: sakana)...',
+      arena_romaji_hint: "자동 변환: 'sakana' ➔ 'さかな'",
+      arena_back: '이전',
+      arena_finish: '연습 완료',
+      arena_skip: '건너뛰기',
+      pr_stat_total: '전체 단어',
+      tips_title: '빠른 단축키 안내:',
+      tip_1: '문제 그리드 버튼(또는 Ctrl+G)으로 원하는 번호로 바로 이동하세요.',
+      tip_2: '숫자키 1, 2, 3, 4로 객관식 보기를 빠르게 선택하세요.',
+      tip_3: '이전 버튼(또는 Ctrl+Z)으로 직전 문제로 돌아갈 수 있습니다.',
+      tip_4: 'Space 키를 눌러 도쿄 원어민 발음을 다시 들으세요.',
+      tip_5: '⚙️ 설정에서 퀴즈 방식과 음성 옵션을 변경할 수 있습니다.',
+      mode_higa: '히라가나 타이핑',
+      mode_mc: '4지선다 퀴즈',
+      mode_combo: '종합 순발력',
+      question_counter: '문제 {0} / {1}',
+      tap_listen: '탭하여 발음 듣기',
+      correct_reading: '정답: {0}',
+      hint_first_char: '힌트: 첫 글자 "{0}" ({1})',
+      pr_done_title: '연습 완료!',
+      pr_done_sub: '훌륭합니다! 이번 순발력 훈련 세션을 마쳤습니다.',
+      pr_pick_other: '다른 연습 선택',
+
+      // Profile & Auth
+      profile_google_sync_btn: 'Google 로그인으로 앱 & 웹 동기화',
+      profile_logout: '로그아웃',
+      profile_default_name: 'Kanji Kachi 학습자',
+      profile_short_name: '학습자',
+      profile_guest_email: '비로그인 상태 · 브라우저에 임시 저장 중',
+      profile_synced_badge: '앱 & 웹 동기화됨',
+      profile_unsynced_badge: '미동기화',
+      profile_guest_label: '게스트 (비로그인)',
+      profile_ai_today: '오늘의 AI 튜터 토큰',
+      profile_ai_limit: '일일 한도: 12,000 토큰 / 일',
+      profile_ai_reset: '매일 00:00 (UTC+7) 초기화',
+      profile_token_gate_desc: 'AI 한자 튜터와 일일 12,000 토큰 혜택을 이용하려면 Google 계정으로 로그인해 주세요.',
+      profile_settings_row: '음성 및 학습 설정',
+      profile_settings_sub: '라이트/다크 테마, Tokyo Neural 음성 속도 및 볼륨',
+      profile_reset_row: '전체 학습 진도 초기화',
+      profile_reset_sub: '외운 단어 및 복습 목록을 모두 지우고 처음부터 시작합니다',
+      profile_info_header: '정보 및 지원',
+      profile_support_title: '고객센터 & FAQ',
+      profile_support_sub: '앱 ⇄ 웹 동기화 안내, 발음 설정, 문의하기',
+      profile_about_title: 'Kanji Kachi 소개',
+      profile_about_sub: '학습 철학, 방법론 및 개발자 정보',
+      profile_terms_title: '서비스 이용약관',
+      profile_terms_sub: 'Kanji Kachi 플랫폼 이용 규정',
+      profile_privacy_title: '개인정보 처리방침',
+      profile_privacy_sub: '계정 데이터 및 개인정보 보호 안내',
+      profile_licenses_title: '오픈소스 라이선스',
+      profile_licenses_sub: '사용된 라이브러리 및 글꼴 정보',
+
+      // Jump Grid Modal
+      grid_title: '문제 탐색기',
+      grid_correct: '정답',
+      grid_wrong: '오답 / 북마크',
+      grid_unvisited: '미풀이',
+      grid_close: '탐색기 닫기',
+
+      // Settings Modal
+      settings_title: '학습 설정',
+      settings_language: '표시 언어',
+      settings_utils: '학습 편의 기능',
+      settings_dark_title: '다크 모드 (Dark Mode)',
+      settings_dark_sub: '눈이 편안한 먹빛(Sumi) 다크 팔레트',
+      settings_autospeak_title: '다음 단어로 넘어갈 때 자동 발음 재생',
+      settings_autospeak_sub: '표준 Tokyo Neural 일본어 음성 (브라우저 TTS 백업 지원)',
+      settings_romaji_title: '로마자 ➔ 히라가나 자동 변환',
+      settings_romaji_sub: "'sakana' 입력 시 'さかな'로 자동 변환",
+      settings_voice_title: '음성 설정',
+      settings_test_voice: '음성 테스트',
+      settings_speed: '읽기 속도 (느리게 ⇄ 빠르게)',
+      settings_speed_slow: '0.5x 느림',
+      settings_speed_normal: '1.0x 보통',
+      settings_speed_fast: '1.5x 빠름',
+      settings_volume: '음성 볼륨 (음소거 ⇄ 최대)',
+      settings_vol_mute: '0% 음소거',
+      settings_vol_mid: '50% 중간',
+      settings_vol_max: '100% 최대',
+      settings_jp_voice: '일본어 음성 선택',
+      settings_save_close: '저장 후 닫기',
+      voice_default_neural: 'Tokyo Neural · Nanami (기본값)',
+      voice_device_prefix: '기기 음성',
+
+      // AI Tutor & Token Modal
+      tutor_title: 'AI 한자 튜터',
+      tutor_sub: '뜻풀이, 부수 & 문법 해설',
+      tutor_login_title: 'AI 튜터를 이용하려면 로그인하세요',
+      tutor_login_desc: 'Google 계정으로 로그인하면 AI 한자 튜터와 대화하고 매일 12,000 무료 토큰을 받을 수 있습니다.',
+      tutor_login_btn: 'Google로 로그인',
+      tutor_welcome_title: '곤니치와! AI 한자 튜터입니다 ✨',
+      tutor_welcome_desc: 'JLPT N5/N4 한자 1,061개, 214부수, 예문이나 문법 중 궁금한 점이 있나요? 아래 추천 버튼을 누르거나 직접 질문해 보세요!',
+      tutor_viewing: '현재 단어:',
+      tutor_chip_usage: '💡 쓰임새',
+      tutor_chip_example: '📝 예문',
+      tutor_chip_grammar: '📖 문법',
+      preset_usage: '이 단어는 주로 어떤 상황에서 사용되나요?',
+      preset_example: '이 단어를 사용한 자연스러운 일본어 예문과 한국어 번역을 알려 주세요.',
+      preset_grammar: '관련된 JLPT 문법 표현을 예문과 함께 설명해 주세요.',
+      tutor_placeholder: 'AI 한자 튜터에게 질문하기 (예: 桜의 쓰임새, です 문법)...',
+      tutor_placeholder_word: '"{0}"에 대해 질문하기...',
+      token_modal_title: 'AI 토큰 한도',
+      token_remaining_today: '오늘 남은 토큰',
+      token_used: '사용량',
+      token_account: '계정',
+      token_reset_note: '매일 00:00 (UTC+7)에 12,000 토큰 자동 충전',
+      ai_reset_countdown: '{0}시간 {1}분 후 초기화',
+      ai_token_login_alert: 'AI 토큰 한도를 확인하려면 Google 계정으로 로그인해 주세요.',
+      ai_rate_limit: '다음 질문 전 {0}초만 기다려 주세요.',
+      ai_typing: 'AI 튜터가 답변을 작성 중입니다...',
+      ai_quota_out_title: '오늘의 토큰 한도를 모두 사용했습니다!',
+      ai_quota_out_desc: '오늘 제공된 12,000 AI 토큰을 모두 사용하셨습니다. 매일 00:00 (UTC+7)에 자동 초기화됩니다.',
+      ai_error_title: 'AI 튜터 연결이 일시적으로 지연되었습니다',
+      ai_error_retry: '잠시 후 다시 질문을 전송해 주세요!',
+
+      // Consent Modal & Generic
+      consent_title: 'Kanji Kachi에 오신 것을 환영합니다',
+      consent_sub: '학습을 시작하기 전에 약관을 확인하고 동의해 주세요',
+      consent_terms: '서비스 이용약관',
+      consent_privacy: '개인정보 처리방침',
+      consent_agree_label: 'Kanji Kachi의 서비스 이용약관 및 개인정보 처리방침을 읽었으며 이에 동의합니다.',
+      consent_dont_show: '다음 방문 시 이 안내를 다시 표시하지 않습니다.',
+      consent_start: '동의하고 학습 시작',
+      close: '닫기',
+      confirm_finish_early: '지금 종료하고 결과 요약을 확인하시겠습니까?',
+      confirm_exit_practice: '주제 선택 화면으로 돌아가시겠습니까?',
+      confirm_reset_progress: '주의: 외운 단어와 복습 필요 목록이 모두 초기화됩니다. 계속하시겠습니까?',
+      alert_reset_done: '학습 진도가 성공적으로 초기화되었습니다!',
+      confirm_signout: 'Google 계정에서 로그아웃하시겠습니까?'
     }
   };
+
+  function detectBrowserLang() {
+    const nav = ((typeof navigator !== 'undefined' && navigator.language) ? navigator.language : '').toLowerCase();
+    if (nav.startsWith('vi')) return 'vi';
+    if (nav.startsWith('fr')) return 'fr';
+    if (nav.startsWith('es')) return 'es';
+    if (nav.startsWith('ko')) return 'ko';
+    return 'en';
+  }
 
   function getAppLang() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
         const parsed = JSON.parse(raw);
-        if (parsed && (parsed.lang === 'en' || parsed.lang === 'vi')) {
+        if (parsed && SUPPORTED_LANGS.includes(parsed.lang)) {
           return parsed.lang;
         }
       }
     } catch (e) {}
-    return 'vi';
+    return detectBrowserLang();
   }
 
   function t(key, ...args) {
     const lang = getAppLang();
-    const table = DICT[lang] || DICT.vi;
+    const table = DICT[lang] || DICT.en || DICT.vi;
     let str = Object.prototype.hasOwnProperty.call(table, key)
       ? table[key]
-      : (Object.prototype.hasOwnProperty.call(DICT.vi, key) ? DICT.vi[key] : key);
+      : (Object.prototype.hasOwnProperty.call(DICT.en, key)
+        ? DICT.en[key]
+        : (Object.prototype.hasOwnProperty.call(DICT.vi, key) ? DICT.vi[key] : key));
     if (args && args.length > 0) {
       args.forEach((arg, idx) => {
         str = str.replace(new RegExp(`\\{${idx}\\}`, 'g'), String(arg ?? ''));
@@ -456,17 +1216,37 @@
   }
 
   function applyStaticI18n(lang) {
-    const activeLang = lang === 'en' ? 'en' : (lang === 'vi' ? 'vi' : getAppLang());
+    const activeLang = SUPPORTED_LANGS.includes(lang) ? lang : getAppLang();
     document.documentElement.lang = activeLang;
 
     const langLabel = document.getElementById('header-lang-label');
     if (langLabel) langLabel.textContent = activeLang.toUpperCase();
 
-    document.title = activeLang === 'en'
-      ? 'Kanji Kachi (漢字勝ち) · JLPT N5 & N4 Kanji Reflex Trainer'
-      : 'Kanji Kachi (漢字勝ち) · Luyện phản xạ Hán tự N5 & N4';
+    const settingsLangSelect = document.getElementById('settings-lang-select');
+    if (settingsLangSelect) settingsLangSelect.value = activeLang;
 
-    const table = DICT[activeLang] || DICT.vi;
+    document.querySelectorAll('[data-lang-option]').forEach(btn => {
+      const code = btn.getAttribute('data-lang-option');
+      if (code === activeLang) {
+        btn.classList.add('bg-vermilion-soft', 'text-secondary', 'font-bold');
+        btn.classList.remove('text-primary');
+      } else {
+        btn.classList.remove('bg-vermilion-soft', 'text-secondary', 'font-bold');
+        btn.classList.add('text-primary');
+      }
+    });
+
+    document.title = activeLang === 'ko'
+      ? 'Kanji Kachi (漢字勝ち) · JLPT N5 & N4 한자 순발력 트레이너'
+      : (activeLang === 'es'
+        ? 'Kanji Kachi (漢字勝ち) · Entrenamiento réflex de Kanji JLPT N5 y N4'
+        : (activeLang === 'fr'
+          ? 'Kanji Kachi (漢字勝ち) · Entraînement réflexe Kanji JLPT N5 & N4'
+          : (activeLang === 'en'
+            ? 'Kanji Kachi (漢字勝ち) · JLPT N5 & N4 Kanji Reflex Trainer'
+            : 'Kanji Kachi (漢字勝ち) · Luyện phản xạ Hán tự N5 & N4')));
+
+    const table = DICT[activeLang] || DICT.en || DICT.vi;
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -492,19 +1272,34 @@
 
   function localizedMeaning(item) {
     if (!item) return '';
-    return getAppLang() === 'en' ? (item.meaningEn || item.meaning || '') : (item.meaning || '');
+    const lang = getAppLang();
+    if (lang === 'ko') return item.meaningKo || item.meaningEn || item.meaning || '';
+    if (lang === 'es') return item.meaningEs || item.meaningEn || item.meaning || '';
+    if (lang === 'fr') return item.meaningFr || item.meaningEn || item.meaning || '';
+    if (lang === 'en') return item.meaningEn || item.meaning || '';
+    return item.meaning || '';
   }
 
   function localizedTopicTitle(topic) {
     if (!topic) return '';
-    return getAppLang() === 'en' ? (topic.titleEn || topic.title || '') : (topic.title || '');
+    const lang = getAppLang();
+    if (lang === 'ko') return topic.titleKo || topic.titleEn || topic.title || '';
+    if (lang === 'es') return topic.titleEs || topic.titleEn || topic.title || '';
+    if (lang === 'fr') return topic.titleFr || topic.titleEn || topic.title || '';
+    if (lang === 'en') return topic.titleEn || topic.title || '';
+    return topic.title || '';
   }
 
   function localizedReading(item) {
     if (!item) return '';
+    const lang = getAppLang();
+    if (lang === 'ko' && item.displayReadingKo) return item.displayReadingKo;
+    if (lang === 'es' && item.displayReadingEs) return item.displayReadingEs;
+    if (lang === 'fr' && item.displayReadingFr) return item.displayReadingFr;
+    if (lang === 'en' && item.displayReadingEn) return item.displayReadingEn;
     const raw = item.displayReading || item.reading || '';
-    if (getAppLang() === 'en' && raw.startsWith('Bộ ')) {
-      return raw.replace(/^Bộ\s+/i, 'Radical ');
+    if ((lang === 'en' || lang === 'fr' || lang === 'es' || lang === 'ko') && raw.startsWith('Bộ ')) {
+      return raw.replace(/^Bộ\s+/i, lang === 'ko' ? '부수 ' : 'Radical ');
     }
     return raw;
   }

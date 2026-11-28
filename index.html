@@ -236,11 +236,31 @@
             </button>
           </div>
 
-          <!-- Language Toggle (VI / EN) -->
-          <button id="header-btn-lang" class="h-9 px-2.5 flex items-center gap-1 rounded-xl bg-surface-card border border-border-subtle text-primary hover:border-primary text-xs font-bold transition-colors" title="Switch Language (VI / EN)" onclick="app.toggleLanguage()">
-            <span class="material-symbols-outlined text-[16px]">translate</span>
-            <span id="header-lang-label">VI</span>
-          </button>
+          <!-- Language Selector Dropdown (VI / EN / FR / ES / KO) -->
+          <div id="header-lang-wrapper" class="relative">
+            <button id="header-btn-lang" type="button" class="h-9 px-2.5 flex items-center gap-1 rounded-xl bg-surface-card border border-border-subtle text-primary hover:border-primary text-xs font-bold transition-colors" title="Switch Language (VI / EN / FR / ES / KO)" onclick="app.toggleLangMenu(event)">
+              <span class="material-symbols-outlined text-[16px]">translate</span>
+              <span id="header-lang-label">VI</span>
+              <span class="material-symbols-outlined text-[14px] text-ink-dim">expand_more</span>
+            </button>
+            <div id="header-lang-menu" class="hidden absolute right-0 mt-1.5 w-44 rounded-xl bg-surface-card border border-border-subtle shadow-xl py-1.5 z-50">
+              <button type="button" data-lang-option="vi" onclick="app.selectLanguage('vi')" class="w-full px-3.5 py-2 text-left text-xs text-primary hover:bg-surface-alt flex items-center justify-between transition-colors">
+                <span>Tiếng Việt</span><span class="text-[10px] font-bold opacity-70">VI</span>
+              </button>
+              <button type="button" data-lang-option="en" onclick="app.selectLanguage('en')" class="w-full px-3.5 py-2 text-left text-xs text-primary hover:bg-surface-alt flex items-center justify-between transition-colors">
+                <span>English</span><span class="text-[10px] font-bold opacity-70">EN</span>
+              </button>
+              <button type="button" data-lang-option="fr" onclick="app.selectLanguage('fr')" class="w-full px-3.5 py-2 text-left text-xs text-primary hover:bg-surface-alt flex items-center justify-between transition-colors">
+                <span>Français</span><span class="text-[10px] font-bold opacity-70">FR</span>
+              </button>
+              <button type="button" data-lang-option="es" onclick="app.selectLanguage('es')" class="w-full px-3.5 py-2 text-left text-xs text-primary hover:bg-surface-alt flex items-center justify-between transition-colors">
+                <span>Español</span><span class="text-[10px] font-bold opacity-70">ES</span>
+              </button>
+              <button type="button" data-lang-option="ko" onclick="app.selectLanguage('ko')" class="w-full px-3.5 py-2 text-left text-xs text-primary hover:bg-surface-alt flex items-center justify-between transition-colors">
+                <span>한국어</span><span class="text-[10px] font-bold opacity-70">KO</span>
+              </button>
+            </div>
+          </div>
 
           <!-- Dark Mode Toggle -->
           <button id="header-btn-theme" class="w-9 h-9 flex items-center justify-center rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary transition-colors" title="Chuyển chế độ Tối / Sáng" onclick="app.toggleTheme()">
@@ -442,28 +462,6 @@
               <div id="flashcard-topics-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                 <!-- Populated dynamically with Kanji preview & circular % ring -->
               </div>
-
-              <!-- Web AdSense Container (Y chang vị trí VocabularyAdCard trong app) -->
-              <div class="web-ad-container p-4 rounded-xl border border-dashed border-border-strong bg-surface-alt/70 text-center mt-6">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-[10px] uppercase font-bold tracking-wider text-ink-dim">Quảng cáo · Google AdSense Ready</span>
-                  <span class="text-[10px] text-ink-dim">ID: ca-pub-5502113571358300</span>
-                </div>
-                <div class="min-h-[80px] flex items-center justify-center bg-surface-card rounded-lg border border-border-subtle text-xs text-ink-muted p-2 overflow-hidden relative">
-                  <!-- AdSense Responsive Unit -->
-                  <ins class="adsbygoogle"
-                       style="display:block"
-                       data-ad-client="ca-pub-5502113571358300"
-                       data-ad-slot="auto"
-                       data-ad-format="auto"
-                       data-full-width-responsive="true"></ins>
-                  <div class="ad-placeholder flex flex-col items-center gap-1 text-ink-muted py-2">
-                    <span class="material-symbols-outlined text-ink-dim text-[24px]">ad_units</span>
-                    <span class="font-medium">Khung quảng cáo Google AdSense (Vocabulary Banner)</span>
-                    <span class="text-[10px] text-ink-dim">Tự động kích hoạt khi tài khoản AdSense được phê duyệt tên miền</span>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <!-- Stage 2: Trình học Flashcard 3D (chỉ hiện sau khi chọn chủ đề, không cho đổi chủ đề ngang) -->
@@ -594,7 +592,7 @@
                 <div class="space-y-2.5 pt-2">
                   <button id="fc-summary-btn-retry-forgotten" class="w-full py-3.5 rounded-xl bg-secondary hover:bg-secondary/90 text-washi font-bold text-xs sm:text-sm transition-colors shadow-sm flex items-center justify-center gap-2 hidden" onclick="app.retryFlashcardForgotten()">
                     <span class="material-symbols-outlined text-[18px]">replay</span>
-                    <span>Ôn lại các từ chưa nhớ (<span id="fc-summary-retry-count">0</span> từ)</span>
+                    <span><span data-i18n="fc_retry_forgotten_prefix">Ôn lại các từ chưa nhớ</span> (<span id="fc-summary-retry-count">0</span>)</span>
                   </button>
                   <div class="flex flex-col sm:flex-row gap-2.5">
                     <button class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.restartFlashcardDeck()">
@@ -702,20 +700,20 @@
                 Kanji N4
               </button>
               <button id="p-lvl-radicals" class="flex-1 py-3.5 rounded-xl bg-surface-card border border-border-subtle text-ink-muted hover:text-primary text-xs sm:text-sm font-bold transition-all shadow-sm" onclick="app.setPracticeLevel('RADICALS')">
-                214 Bộ thủ
+                <span data-i18n="pr_lvl_radicals">214 Bộ thủ</span>
               </button>
             </div>
 
             <!-- Topics Selection -->
             <div class="bg-surface-card p-5 rounded-2xl border border-border-subtle space-y-4 shadow-sm">
               <div class="flex flex-wrap items-center justify-between gap-2">
-                <span class="text-xs font-bold text-primary uppercase tracking-wider">Chủ đề kiểm tra (<span id="practice-selected-count">0</span> đã chọn)</span>
+                <span class="text-xs font-bold text-primary uppercase tracking-wider"><span data-i18n="pr_topics_selected_label">Chủ đề kiểm tra</span> (<span id="practice-selected-count">0</span>)</span>
                 <div class="flex items-center gap-4">
                   <label class="flex items-center gap-2 text-xs text-ink-muted cursor-pointer select-none">
                     <input id="practice-only-unremembered" type="checkbox" class="accent-secondary w-4 h-4 cursor-pointer" onchange="app.toggleOnlyUnremembered(this.checked)">
-                    <span>Chỉ ôn từ chưa nhớ</span>
+                    <span data-i18n="pr_only_unremembered">Chỉ ôn từ chưa nhớ</span>
                   </label>
-                  <button class="text-xs font-bold text-secondary hover:underline" onclick="app.toggleAllPracticeTopics()">Chọn tất cả</button>
+                  <button data-i18n="pr_select_all" class="text-xs font-bold text-secondary hover:underline" onclick="app.toggleAllPracticeTopics()">Chọn tất cả</button>
                 </div>
               </div>
 
@@ -727,7 +725,7 @@
             <!-- Start Button -->
             <button class="w-full py-4 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-sm sm:text-base tracking-wide shadow-md transition-all flex items-center justify-center gap-2" onclick="app.startPracticeSession()">
               <span class="material-symbols-outlined text-[22px]">play_arrow</span>
-              <span>Bắt đầu bài kiểm tra</span>
+              <span data-i18n="pr_start_quiz">Bắt đầu bài kiểm tra</span>
             </button>
           </div>
 
@@ -814,7 +812,7 @@
                   autocorrect="off"
                   spellcheck="false"
                   class="w-full text-center text-3xl sm:text-4xl font-bold py-5 px-14 rounded-2xl bg-surface-card border-2 border-border-subtle focus:border-primary focus:outline-none transition-all placeholder:text-ink-dim placeholder:font-normal placeholder:text-lg shadow-sm text-primary" 
-                  placeholder="Gõ Romaji (ví dụ: sakana)..."
+                  data-i18n-placeholder="arena_input_placeholder" placeholder="Gõ Romaji (ví dụ: sakana)..."
                   oninput="app.onArenaInput(this.value)"
                   onkeydown="app.onArenaInputKeyDown(event)"
                 >
@@ -852,16 +850,16 @@
             <div class="flex items-center justify-between gap-3 pt-2">
               <button id="arena-btn-back" class="py-2.5 px-5 rounded-xl bg-surface-card border border-border-subtle text-xs font-bold text-ink-muted hover:text-primary transition-colors flex items-center gap-2 shadow-sm" onclick="app.prevWord()">
                 <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-                <span>⬅️ Quay lại</span>
+                <span data-i18n="arena_back">Quay lại</span>
               </button>
 
               <button id="arena-btn-finish" class="py-2.5 px-6 rounded-xl bg-secondary hover:bg-secondary/90 text-washi text-xs font-bold transition-colors flex items-center gap-2 shadow-sm" onclick="app.finishPracticeEarly()">
                 <span class="material-symbols-outlined text-[18px]">check_circle</span>
-                <span>Hoàn tất bài thi</span>
+                <span data-i18n="arena_finish">Hoàn tất bài thi</span>
               </button>
 
               <button id="arena-btn-skip" class="py-2.5 px-5 rounded-xl bg-surface-card border border-border-subtle text-xs font-bold text-ink-muted hover:text-primary transition-colors flex items-center gap-2 shadow-sm" onclick="app.skipWord()">
-                <span>Bỏ qua</span>
+                <span data-i18n="arena_skip">Bỏ qua</span>
                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
               </button>
             </div>
@@ -870,23 +868,13 @@
             <div class="bg-surface-card rounded-xl p-4 border border-border-subtle text-xs text-ink-muted space-y-2 select-none shadow-sm">
               <div class="font-bold text-primary flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-[16px] text-secondary">tips_and_updates</span>
-                <span>Mẹo phím tắt nhanh:</span>
+                <span data-i18n="tips_title">Mẹo phím tắt nhanh:</span>
               </div>
-              <div class="flex items-center gap-2 text-[11px]">
-                <span>• Bấm</span> <span class="key-badge">⊞ Chọn câu</span> <span>(hoặc</span> <span class="key-badge">Ctrl+G</span><span>) để nhảy nhanh đến câu bất kỳ.</span>
-              </div>
-              <div class="flex items-center gap-2 text-[11px]">
-                <span>• Bấm phím</span> <span class="key-badge">1</span> <span class="key-badge">2</span> <span class="key-badge">3</span> <span class="key-badge">4</span> <span>để chọn nghĩa trắc nghiệm.</span>
-              </div>
-              <div class="flex items-center gap-2 text-[11px]">
-                <span>• Bấm</span> <span class="key-badge">⬅️ Quay lại</span> <span>(hoặc</span> <span class="key-badge">Ctrl+Z</span><span>) nếu lỡ tay ấn qua.</span>
-              </div>
-              <div class="flex items-center gap-2 text-[11px]">
-                <span>• Bấm phím</span> <span class="key-badge">Space</span> <span>để nghe lại phát âm tiếng Nhật chuẩn Tokyo.</span>
-              </div>
-              <div class="flex items-center gap-2 text-[11px]">
-                <span>• Bấm</span> <span class="key-badge">⚙️ Cài đặt</span> <span>để tùy chỉnh chế độ trắc nghiệm & âm thanh.</span>
-              </div>
+              <div data-i18n="tip_1" class="text-[11px]">• Bấm ⊞ Chọn câu (hoặc Ctrl+G) để nhảy nhanh đến câu bất kỳ.</div>
+              <div data-i18n="tip_2" class="text-[11px]">• Bấm phím 1, 2, 3, 4 để chọn nghĩa trắc nghiệm.</div>
+              <div data-i18n="tip_3" class="text-[11px]">• Bấm Quay lại (hoặc Ctrl+Z) nếu lỡ tay ấn qua.</div>
+              <div data-i18n="tip_4" class="text-[11px]">• Bấm phím Space để nghe lại phát âm tiếng Nhật chuẩn Tokyo.</div>
+              <div data-i18n="tip_5" class="text-[11px]">• Bấm ⚙️ Cài đặt để tùy chỉnh chế độ trắc nghiệm & âm thanh.</div>
             </div>
 
           </div>
@@ -905,7 +893,7 @@
 
               <div class="grid grid-cols-3 gap-3 text-center py-2">
                 <div class="bg-surface-alt p-4 rounded-xl border border-border-subtle">
-                  <span class="text-[11px] text-ink-muted font-medium block">Tổng số từ</span>
+                  <span data-i18n="pr_stat_total" class="text-[11px] text-ink-muted font-medium block">Tổng số từ</span>
                   <span id="summary-total" class="font-serif font-bold text-xl text-primary mt-1 block">0</span>
                 </div>
                 <div class="bg-matcha-soft/70 p-4 rounded-xl border border-tertiary/20">
@@ -930,7 +918,7 @@
               <div class="space-y-2.5 pt-2">
                 <button id="summary-btn-retry-unremembered" class="w-full py-3.5 rounded-xl bg-secondary hover:bg-secondary/90 text-washi font-bold text-xs sm:text-sm transition-colors shadow-sm flex items-center justify-center gap-2 hidden" onclick="app.retryUnrememberedSummary()">
                   <span class="material-symbols-outlined text-[18px]">replay</span>
-                  <span>Ôn lại các từ chưa nhớ (<span id="summary-unremembered-count">0</span> từ)</span>
+                  <span><span data-i18n="fc_retry_forgotten_prefix">Ôn lại các từ chưa nhớ</span> (<span id="summary-unremembered-count">0</span>)</span>
                 </button>
                 <div class="flex flex-col sm:flex-row gap-2.5">
                   <button class="flex-1 py-3 rounded-xl bg-primary hover:bg-primary/95 text-washi font-bold text-xs transition-colors shadow-sm" onclick="app.restartSamePractice()">
@@ -1171,9 +1159,21 @@
         </button>
       </div>
 
-      <!-- Setting Section: Audio & Romaji Toggles -->
+      <!-- Setting Section: Audio, Language & Romaji Toggles -->
       <div class="space-y-3">
         <span data-i18n="settings_utils" class="text-xs font-bold text-primary uppercase tracking-wider block">Tiện ích học tập</span>
+
+        <!-- Display Language Selector -->
+        <div class="flex items-center justify-between gap-3">
+          <span data-i18n="settings_language" class="text-xs font-bold text-primary">Ngôn ngữ hiển thị</span>
+          <select id="settings-lang-select" class="bg-surface-alt border border-border-subtle rounded-xl px-3 py-1.5 text-xs text-primary font-semibold focus:outline-none focus:border-primary" onchange="app.selectLanguage(this.value)">
+            <option value="vi">Tiếng Việt (VI)</option>
+            <option value="en">English (EN)</option>
+            <option value="fr">Français (FR)</option>
+            <option value="es">Español (ES)</option>
+            <option value="ko">한국어 (KO)</option>
+          </select>
+        </div>
 
         <!-- Dark Mode Toggle -->
         <div class="flex items-center justify-between">
